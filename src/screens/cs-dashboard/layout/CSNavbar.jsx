@@ -38,7 +38,8 @@ import {
 import Tooltip from "@mui/material/Tooltip";
 import Breadcrumbs from "src/components/theme/layout/Breadcrumbs";
 import NotificationItem from "src/components/theme/layout/Items/NotificationItem";
-import RatingSection from "src/components/client-service/layout/RatingSection";
+import RatingSection from "src/components/client-service/layout/navbar/RatingSection";
+import ReminderSection from "src/components/client-service/layout/navbar/ReminderSection";
 
 function Navbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -51,7 +52,7 @@ function Navbar({ absolute, light, isMini }) {
     darkMode,
   } = controller;
   const [openMenu, setOpenMenu] = useState(false);
- 
+
   const route = useLocation().pathname.split("/").slice(1);
 
   useEffect(() => {
@@ -130,7 +131,6 @@ function Navbar({ absolute, light, isMini }) {
     },
   });
 
-  
   return (
     <AppBar
       position={absolute ? "absolute" : navbarType}
@@ -158,7 +158,12 @@ function Navbar({ absolute, light, isMini }) {
               <MDInput label="Search here" />
             </MDBox>
             <MDBox color={light ? "white" : "inherit"}>
-             <RatingSection light={light} transparentNavbar={transparentNavbar} darkMode={darkMode}/>
+              <RatingSection
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
+              <ReminderSection />
               <IconButton
                 size="small"
                 disableRipple

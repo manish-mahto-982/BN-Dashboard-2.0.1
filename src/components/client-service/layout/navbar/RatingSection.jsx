@@ -22,9 +22,9 @@ import { randomNumberGenerator } from "src/utils/helper";
 import { api } from "src/services/client-service/api";
 import MDTypography from "src/components/theme/common/MDTypography";
 import DataTable from "src/components/theme/layout/Tables/DataTable";
-import DataGridTableDialog from "../table/DataGridTableDialog";
+import DataGridTableDialog from "../../table/DataGridTableDialog";
 import { DataGrid } from "@mui/x-data-grid";
-import DataGridTable from "../table/DataGridTable";
+import DataGridTable from "../../table/DataGridTable";
 function RatingSection({ light, darkMode, transparentNavbar }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
