@@ -10,7 +10,8 @@
 
 // @mui icons
 import Icon from   "@mui/material/Icon/Icon";
-import Dashboard from "src/screens/theme/dashboard";
+import AllLeads from "src/screens/sales-dashboard/all-leads";
+import Dashboard from "src/screens/sales-dashboard/dashboard";
 // import AppActivity from "layouts/AppActivity";
 // import PerformanceAnalysis from "layouts/PerformanceAnalysis";
 // import EngagementSection from "layouts/EngagementSection";
@@ -27,14 +28,14 @@ const salesRoutes = [
     route: "/dashboard",
     component: <Dashboard />,
   },
-  // {
-  //   type: "collapse",
-  //   name: "All Lead",
-  //   key: "all-lead",
-  //   icon: <Icon fontSize="small">people</Icon>,
-  //   route: "/all-lead",
-  //   component: <AllLead />,
-  // },
+  {
+    type: "collapse",
+    name: "All Leads",
+    key: "all-leads",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/all-leads",
+    component: <AllLeads />,
+  },
   // {
   //   type: "collapse",
   //   name: "App Activity",
@@ -50,55 +51,6 @@ const salesRoutes = [
   //   icon: <Icon fontSize="small">assignment</Icon>,
   //   route: "/performance-analysis",
   //   component: <PerformanceAnalysis />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Collapse",
-  //   href: "/collapse",
-
-  //   key: "collapse",
-  //   icon: <Icon fontSize="small">people</Icon>,
-  //   collapse: [
-  //     {
-  //       key: "nested-1",
-  //       name: "Nested2 Route 1",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/collapse/nested2-1",
-  //       component: <AllLead />,
-  //     },
-  //     {
-  //       key: "nested2-2",
-  //       name: "Nested2 Route 2",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/collapse/nested2-2",
-  //       component: <AllLead />,
-  //     },
-  //     // Add more nested routes as needed
-  //   ],
-  //   // component: <AllLead />, // Commented out as it's not needed for collapsible items
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Collapse2",
-  //   href: "/collapse2",
-  //   key: "collapse2",
-  //   icon: <Icon fontSize="small">people</Icon>,
-  //   collapse: [
-  //     {
-  //       key: "nested-1",
-  //       name: "Nested2 Route 1",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/collapse2/nested2-1",
-  //     },
-  //     {
-  //       key: "nested2-2",
-  //       name: "Nested2 Route 2",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/collapse2/nested2-2",
-  //     },
-  //     // Add more nested routes as needed
-  //   ],
-  //   // component: <AllLead />, // Commented out as it's not needed for collapsible items
   // },
   // {
   //   type: "collapse",

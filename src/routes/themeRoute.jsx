@@ -1,6 +1,6 @@
 import { Icon } from "@mui/material";
 import Billing from "src/screens/theme/billing";
-import Dashboard from "src/screens/theme/dashboard";
+import Dashboard from "src/screens/sales-dashboard/dashboard";
 import Notifications from "src/screens/theme/notifications";
 import Tables from "src/screens/theme/tables";
 import Profile from "src/screens/theme/profile";

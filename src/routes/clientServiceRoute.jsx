@@ -1,50 +1,53 @@
 // Balance Nutrition React layouts
 // @mui icons
 import Icon from "@mui/material/Icon";
+import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
 const clientServiceRoute = [
   {
     type: "title",
+    key:"dashboard-title",
     title: "Dashboard",
   },
-  // {
-  //   type: "collapse",
-  //   name: "Dashboard",
-  //   key: "dashboard",
-  //   icon: <Icon fontSize="small">dashboard</Icon>,
-  //   collapse: [
-  //     {
-  //       key: "induction-flow",
-  //       name: "Induction Flow",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/dashboard/induction-flow",
-  //       component: <InductionFlow />,
-  //     },
-  //     {
-  //       key: "overall-pending",
-  //       name: "Overall Pending",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/dashboard/overall-pending",
-  //       component: <AllLead />,
-  //     },
-  //     {
-  //       key: "halftime-journey",
-  //       name: "Halftime Journey",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/dashboard/halftime-journey",
-  //       component: <AllLead />,
-  //     },
-  //     {
-  //       key: "tail-end-journey",
-  //       name: "Tail End Journey",
-  //       icon: <Icon fontSize="small">arrow_right</Icon>,
-  //       route: "/dashboard/tail-end-journey",
-  //       component: <AllLead />,
-  //     },
-  //   ],
-  // },
-  // {
-  //   type: "divider",
-  // },
+  {
+    type: "collapse",
+    name: "Dashboard",
+    key: "dashboard",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    collapse: [
+      {
+        key: "induction-flow",
+        name: "Induction Flow",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/induction-flow",
+        component: <InductionFlow />,
+      },
+      // {
+      //   key: "overall-pending",
+      //   name: "Overall Pending",
+      //   icon: <Icon fontSize="small">arrow_right</Icon>,
+      //   route: "/dashboard/overall-pending",
+      //   component: <AllLead />,
+      // },
+      // {
+      //   key: "halftime-journey",
+      //   name: "Halftime Journey",
+      //   icon: <Icon fontSize="small">arrow_right</Icon>,
+      //   route: "/dashboard/halftime-journey",
+      //   component: <AllLead />,
+      // },
+      // {
+      //   key: "tail-end-journey",
+      //   name: "Tail End Journey",
+      //   icon: <Icon fontSize="small">arrow_right</Icon>,
+      //   route: "/dashboard/tail-end-journey",
+      //   component: <AllLead />,
+      // },
+    ],
+  },
+  {
+    type: "divider",
+    key:"dashboard-divider",
+  },
   // {
   //   type: "title",
   //   title: "Task",

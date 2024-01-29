@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Vaishali Ashok Shah",
+    "email": "vaishalishah978@gmail.com",
+    "mobile": "+91-9869647029",
+    "program": "POST FESTIVE DETOX CLEANSE",
+    "purchase_date": "6th Jan 2024",
+    "status": "Active",
+    "mentor": "Chaitali"
+  },
+  {
+    "name": "Sonia Walecha",
+    "email": "soniawalecha62@gmail.com",
+    "mobile": "+91-9050362645",
+    "program": "WEIGHT LOSS CLEANSE",
+    "purchase_date": "5th Jan 2024",
+    "status": "cleanseactive",
+    "mentor": "Kajal"
+  }
+]

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // react-router-dom components
 import { useLocation, NavLink, useNavigate } from "react-router-dom";
@@ -11,7 +11,6 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
-
 
 import {
   Collapse,
@@ -57,7 +56,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   });
 
   const handleClick = (route, subRoute) => {
-    console.log("🚀 ~ handleClick ~ name:", route);
     if (route !== dropDown.active.route.route)
       return setDropDown({ open: true, active: { route, subRoute } });
     setDropDown({ open: !dropDown.open, active: { route, subRoute } });
@@ -107,19 +105,15 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       if (type === "collapse") {
         if (collapse) {
           returnValue = (
-            <>
+            <React.Fragment key={key}>
               {/* Use 'div' to wrap the ListItem and Collapse */}
               <SidenavCollapse
                 name={name}
                 icon={icon}
                 active={dropDown.open && dropDown.active.route === key}
                 onClick={() => handleClick(key, collapse[0].name)}
-                noCollapse={noCollapse}
+                nocollapse={noCollapse}
               />
-              {/* <ListItem component="li" >
-                
-              </ListItem> */}
-
               {/* Add Collapse component for the dropdown effect */}
               <Collapse
                 in={dropDown.open && dropDown.active.route === key}
@@ -139,7 +133,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
                   //     mt={2}
                   //     mb={1}
                   //     ml={1}
-
                   //   >
                   //     {route.name}
                   //   </Typography>
@@ -148,11 +141,13 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
                     key={route.key}
                     name={route.name}
                     icon={
-                      dropDown.active.subRoute === route.name
-                        ? route.icon
-                        : null
+                      dropDown.active.subRoute === route.name ? (
+                        route.icon
+                      ) : (
+                        <></>
+                      )
                     }
-                    noCollapse={noCollapse}
+                    nocollapse={noCollapse}
                     onClick={() => {
                       handleClick(key, route.name);
                       navigate(route.route);
@@ -160,7 +155,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
                   />
                 ))}
               </Collapse>
-            </>
+            </React.Fragment>
           );
         } else {
           returnValue = href ? (
@@ -175,7 +170,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
                 name={name}
                 icon={icon}
                 active={!dropDown.open ? key === collapseName : false}
-                noCollapse={noCollapse}
+                nocollapse={noCollapse}
                 onClick={() =>
                   setDropDown((prev) => ({ ...prev, open: false }))
                 }
@@ -281,19 +276,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         }
       />
       <List>{renderRoutes}</List>
-      {/* <MDBox p={2} mt="auto">
-        <MDButton
-          component="a"
-          href="https://www.creative-tim.com/product/material-dashboard-pro-react"
-          target="_blank"
-          rel="noreferrer"
-          variant="gradient"
-          color={sidenavColor}
-          fullWidth
-        >
-          upgrade to pro
-        </MDButton>
-      </MDBox> */}
     </SidenavRoot>
   );
 }
