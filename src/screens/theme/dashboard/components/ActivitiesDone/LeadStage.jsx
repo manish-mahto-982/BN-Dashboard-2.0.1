@@ -8,13 +8,8 @@ import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDInput from "components/MDInput";
-import MDButton from "components/MDButton";
-
-// Authentication layout components
-import CoverLayout from "layouts/authentication/components/CoverLayout";
+import MDBox from "src/components/theme/common//MDBox";
+import MDTypography from "src/components/theme/common//MDTypography";
 
 // Images
 import bgImage from "assets/images/bg-sign-up-cover.jpeg";

@@ -9,18 +9,18 @@ import {
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import MDBadge from "components/MDBadge";
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBadge from "src/components/theme/common/MDBadge";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 import React from "react";
-import useSwalWrapper from "vendors/sweetalert2/hooks";
+import useSwalWrapper from "src/vendors/sweetalert2/hooks";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import "./css/style.css";
-import MDButton from "components/MDButton";
-import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+import MDButton from "src/components/theme/common/MDButton";
+import AddLead from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/AddLead";
 function DueTomorrow() {
   const Swal = useSwalWrapper();
   const sweetAlerts = () => {

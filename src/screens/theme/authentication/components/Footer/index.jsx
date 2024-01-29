@@ -9,11 +9,11 @@ import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 
 // Material Dashboard 2 React base styles
-import typography from "assets/theme/base/typography";
+import typography from "src/assets/theme/base/typography";
 
 function Footer({ light }) {
   const { size } = typography;
@@ -38,15 +38,27 @@ function Footer({ light }) {
             fontSize={size.sm}
           >
             &copy; {new Date().getFullYear()}, made with
-            <MDBox fontSize={size.md} color={light ? "white" : "dark"} mb={-0.5} mx={0.25}>
+            <MDBox
+              fontSize={size.md}
+              color={light ? "white" : "dark"}
+              mb={-0.5}
+              mx={0.25}
+            >
               <Icon color="inherit" fontSize="inherit">
                 favorite
               </Icon>
             </MDBox>
             by
-            <Link href="https://www.creative-tim.com/" target="_blank">
-              <MDTypography variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
-                &nbsp;Creative Tim&nbsp;
+            <Link
+              href="https://https://www.balancenutrition.in/"
+              target="_blank"
+            >
+              <MDTypography
+                variant="button"
+                fontWeight="medium"
+                color={light ? "white" : "dark"}
+              >
+                &nbsp;Balance Nutrition&nbsp;
               </MDTypography>
             </Link>
             for a better web.
@@ -80,7 +92,10 @@ function Footer({ light }) {
               </Link>
             </MDBox>
             <MDBox component="li" px={2} lineHeight={1}>
-              <Link href="https://www.creative-tim.com/presentation" target="_blank">
+              <Link
+                href="https://www.creative-tim.com/presentation"
+                target="_blank"
+              >
                 <MDTypography
                   variant="button"
                   fontWeight="regular"

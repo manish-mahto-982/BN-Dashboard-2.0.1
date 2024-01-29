@@ -4,20 +4,20 @@
 import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
+import MDBox from "src/components/theme/common/MDBox";
 
 // Material Dashboard 2 React examples
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
-import MasterCard from "examples/Cards/MasterCard";
-import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
+import DashboardLayout from "src/components/theme/layout/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "src/components/theme/layout/Navbars/DashboardNavbar";
+import Footer from "src/components/theme/layout/Footer";
+import MasterCard from "src/components/theme/layout/Cards/MasterCard";
+import DefaultInfoCard from "src/components/theme/layout/Cards/InfoCards/DefaultInfoCard";
 
 // Billing page components
-import PaymentMethod from "layouts/billing/components/PaymentMethod";
-import Invoices from "layouts/billing/components/Invoices";
-import BillingInformation from "layouts/billing/components/BillingInformation";
-import Transactions from "layouts/billing/components/Transactions";
+import PaymentMethod from "./components/PaymentMethod";
+import Invoices from "./components/Invoices";
+import BillingInformation from "./components/BillingInformation";
+import Transactions from "./components/Transactions";
 
 function Billing() {
   return (

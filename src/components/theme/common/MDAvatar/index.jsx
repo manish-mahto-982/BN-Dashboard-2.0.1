@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 // Custom styles for MDAvatar
-import MDAvatarRoot from "components/MDAvatar/MDAvatarRoot";
+import MDAvatarRoot from "src/components/theme/common/MDAvatar/MDAvatarRoot";
 
 const MDAvatar = forwardRef(({ bgColor, size, shadow, ...rest }, ref) => (
   <MDAvatarRoot ref={ref} ownerState={{ shadow, bgColor, size }} {...rest} />

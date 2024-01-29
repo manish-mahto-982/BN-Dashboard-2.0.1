@@ -7,10 +7,10 @@ import PropTypes from "prop-types";
 import Menu from "@mui/material/Menu";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
+import MDBox from "src/components/theme/common/MDBox";
 
 // Material Dashboard 2 React example components
-import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
+import DefaultNavbarLink from "src/components/theme/layout/Navbars/DefaultNavbar/DefaultNavbarLink";
 
 function DefaultNavbarMobile({ open, close }) {
   const { width } = open && open.getBoundingClientRect();

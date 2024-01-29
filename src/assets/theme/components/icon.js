@@ -1,12 +1,12 @@
 
 
 // Balance Nutrition React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const icon = {
   defaultProps: {
-    baseClassName: "material-icons-round",
     fontSize: "inherit",
+    baseClassName: "material-icons-round",
   },
 
   styleOverrides: {

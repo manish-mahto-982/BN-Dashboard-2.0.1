@@ -1,7 +1,7 @@
 
 
 // Balance Nutrition React base styles
-import borders from "assets/theme/base/borders";
+import borders from "src/assets/theme/base/borders";
 
 const { borderRadius } = borders;
 

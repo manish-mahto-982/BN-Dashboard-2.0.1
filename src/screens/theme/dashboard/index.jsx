@@ -4,7 +4,7 @@
 import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
-import MDBox from "src/components/theme/common/MDBox";
+import MDBox from "src/components/theme/common//MDBox";
 
 // Material Dashboard 2 React example components
 import Footer from "src/components/theme/layout/Footer";
@@ -30,7 +30,7 @@ import LeadStatus from "./components/ActivitiesDone/LeadStatus";
 import LeadStage from "./components/ActivitiesDone/LeadStage";
 import LeadPhase from "./components/ActivitiesDone/LeadPhase";
 import LeadTable from "./components/Leadtable";
-import MDTypography from "src/components/theme/common/MDTypography";
+import MDTypography from "src/components/theme/common//MDTypography";
 import TopButton from "src/components/theme/layout/Cards/StatisticsCards/TopButton";
 import HeaderMarquee from "./components/HeaderMarquee";
 import DashboardLayout from "src/components/theme/layout/LayoutContainers/DashboardLayout";
@@ -190,19 +190,19 @@ function Dashboard() {
         <MDBox mt={3.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4} lg={2.4}>
-              <Consultation />
+              <Consultation title="" count="" icon={""} />
             </Grid>
             <Grid item xs={12} md={4} lg={2.2}>
-              <Stage />
+              <Stage title="" count="" icon={""} />
             </Grid>
             <Grid item xs={12} md={4} lg={2.7}>
-              <Phase />
+              <Phase title="" count="" icon={""} />
             </Grid>
             <Grid item xs={12} md={4} lg={2.3}>
-              <Downgrade />
+              <Downgrade title="" count="" icon={""} />
             </Grid>
             <Grid item xs={12} md={4} lg={2.4}>
-              <ClinicalCondition />
+              <ClinicalCondition title="" count="" icon={""} />
             </Grid>
           </Grid>
         </MDBox>

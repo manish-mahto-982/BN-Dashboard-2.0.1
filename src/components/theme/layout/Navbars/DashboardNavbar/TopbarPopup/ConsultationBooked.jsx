@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import { Grid, MenuItem, Select, TextareaAutosize } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
-import MDButton from "components/MDButton";
+import MDButton from "src/components/theme/common/MDButton";
 
 const columns = [
   { field: "id", headerName: "ID", width: 30 },
@@ -144,7 +144,7 @@ export default function ConsultationBooked() {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <>
       <MDButton
         variant="contained"
         color="success"
@@ -188,6 +188,6 @@ export default function ConsultationBooked() {
           </Grid>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }

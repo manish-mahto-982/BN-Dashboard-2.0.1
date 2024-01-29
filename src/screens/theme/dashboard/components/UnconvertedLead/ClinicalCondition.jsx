@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common//MDBox";
+import MDTypography from "src/components/theme/common//MDTypography";
 import Divider from "@mui/material/Divider";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";

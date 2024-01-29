@@ -3,10 +3,10 @@
 
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDAvatar from "components/MDAvatar";
-import MDBadge from "components/MDBadge";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import MDAvatar from "src/components/theme/common/MDAvatar";
+import MDBadge from "src/components/theme/common/MDBadge";
 
 // Images
 import team2 from "assets/images/team-2.jpg";

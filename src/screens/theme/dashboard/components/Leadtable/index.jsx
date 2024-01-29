@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -30,11 +31,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useTheme } from "@mui/material";
 import HighPotential from "./HighPotential";
 import DueTomorrow from "./DueTomorrow";
-import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
-import ConsultationBooked from "examples/Navbars/DashboardNavbar/TopbarPopup/ConsultationBooked";
-import MDTypography from "components/MDTypography";
-import MDBox from "components/MDBox";
-import MDButton from "components/MDButton";
+import MDButton from "src/components/theme/common//MDButton";
 import FUMissed from "./FUMissed";
 import ConsultationMissed from "./ConsultationMissed";
 import UpdateLeadDetails from "./UpdateLeadDetails";

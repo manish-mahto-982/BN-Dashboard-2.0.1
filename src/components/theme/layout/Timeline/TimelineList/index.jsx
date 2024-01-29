@@ -7,14 +7,14 @@ import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 
 // Material Dashboard 2 React components
 import { useMaterialUIController } from "src/context";
 
 // Timeline context
-import { TimelineProvider } from "examples/Timeline/context";
+import { TimelineProvider } from "src/components/theme/layout/Timeline/context";
 
 function TimelineList({ title, dark, children }) {
   const [controller] = useMaterialUIController();

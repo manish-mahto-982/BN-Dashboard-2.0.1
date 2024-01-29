@@ -1,9 +1,9 @@
 import {  useEffect } from "react";
 
 import { Card, Typography, useTheme } from "@mui/material";
-import MDBox from "components/MDBox";
-import MDButton from "components/MDButton";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common//MDBox";
+import MDButton from "src/components/theme/common//MDButton";
+import MDTypography from "src/components/theme/common//MDTypography";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 

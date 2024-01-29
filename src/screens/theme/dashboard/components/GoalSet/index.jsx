@@ -9,14 +9,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common//MDBox";
+import MDTypography from "src/components/theme/common//MDTypography";
 
 // Material Dashboard 2 React examples
-import DataTable from "examples/Tables/DataTable";
+import DataTable from "src/components/theme/layout/Tables/DataTable";
+import data from "./data";
 
 // Data
-import data from "layouts/dashboard/components/GoalSet/data";
 
 function GoalSet() {
   const { columns, rows } = data();

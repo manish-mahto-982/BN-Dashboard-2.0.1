@@ -5,7 +5,7 @@
  */
 
 // Material Dashboard 2 React helper functions
-import rgba from "assets/theme/functions/rgba";
+import rgba from "src/assets/theme/functions/rgba";
 
 function gradientChartLine(chart, color, opacity = 0.2) {
   const ctx = chart.getContext("2d");

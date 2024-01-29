@@ -11,9 +11,9 @@ import Card from "@mui/material/Card";
 import MuiLink from "@mui/material/Link";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDButton from "components/MDButton";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import MDButton from "src/components/theme/common/MDButton";
 
 function SimpleBlogCard({ image, title, description, action }) {
   return (

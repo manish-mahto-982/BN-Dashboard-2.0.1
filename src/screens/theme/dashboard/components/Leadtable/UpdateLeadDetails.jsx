@@ -8,15 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import MDBadge from "components/MDBadge";
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBadge from "src/components/theme/common/MDBadge";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 import React from "react";
-import useSwalWrapper from "vendors/sweetalert2/hooks";
+import useSwalWrapper from "src/vendors/sweetalert2/hooks";
 
 import "./css/style.css";
-import MDButton from "components/MDButton";
-import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+import MDButton from "src/components/theme/common/MDButton";
+import AddLead from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/AddLead";
 function UpdateLeadDetails() {
   const Swal = useSwalWrapper();
   const sweetAlerts = () => {
@@ -227,7 +227,6 @@ function UpdateLeadDetails() {
       leadStatus: "To Engage",
       CallDate: "2.5.2024",
       Time: "11.00 PM",
-      Status: "Cold",
       KeyInsight:
         "22nd Jan 2024 She was usually around the heavier side in the 80s mostly but the last 4 years increased. : Health management,Weight Loss",
       prevFU: "22nd Jan 2024 connected on wa",

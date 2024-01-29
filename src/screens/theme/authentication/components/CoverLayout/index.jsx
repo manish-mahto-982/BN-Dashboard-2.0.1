@@ -7,15 +7,15 @@ import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-// import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+// import MDTypography from "src/components/theme/common/MDTypography";
 
 // Material Dashboard 2 React example components
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import PageLayout from "examples/LayoutContainers/PageLayout";
+import DefaultNavbar from "src/components/theme/layout/Navbars/DefaultNavbar";
+import PageLayout from "src/components/theme/layout/LayoutContainers/PageLayout";
+import Footer from "../Footer";
 
 // Authentication layout components
-import Footer from "layouts/authentication/components/Footer";
 
 function CoverLayout({ coverHeight, image, children }) {
   return (

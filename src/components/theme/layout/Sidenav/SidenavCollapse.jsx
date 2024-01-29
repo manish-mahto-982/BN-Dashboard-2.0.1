@@ -11,13 +11,13 @@ import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React context
 import { useMaterialUIController } from "src/context";
+import MDBox from "../../common/MDBox";
 import {
   collapseItem,
   collapseIconBox,
   collapseIcon,
   collapseText,
 } from "./styles/sidenavCollapse";
-import MDBox from "../../common/MDBox";
 
 function SidenavCollapse({ icon, name, active, ...rest }) {
   const [controller] = useMaterialUIController();

@@ -6,10 +6,10 @@
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDAvatar from "components/MDAvatar";
-import MDProgress from "components/MDProgress";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import MDAvatar from "src/components/theme/common/MDAvatar";
+import MDProgress from "src/components/theme/common/MDProgress";
 
 // Images
 import LogoAsana from "assets/images/small-logos/logo-asana.svg";

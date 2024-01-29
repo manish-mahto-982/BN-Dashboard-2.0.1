@@ -9,10 +9,10 @@ import Divider from "@mui/material/Divider";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import ConsultationBooked from "examples/Navbars/DashboardNavbar/TopbarPopup/ConsultationBooked";
-import MDButton from "components/MDButton";
+import MDBox from "src/components/theme/common//MDBox";
+import MDTypography from "src/components/theme/common//MDTypography";
+import ConsultationBooked from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/ConsultationBooked";
+import MDButton from "src/components/theme/common//MDButton";
 
 function ComplexStatisticsCard({ color, title, count, percentage, icon }) {
   return (

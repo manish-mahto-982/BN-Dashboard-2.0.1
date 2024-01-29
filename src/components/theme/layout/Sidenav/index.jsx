@@ -28,6 +28,8 @@ import {
 } from "./styles/sidenavCollapse";
 import SidenavCollapse from "./SidenavCollapse";
 import SidenavRoot from "./SidenavRoot";
+import sidenavLogoLabel from "./styles/sidenav";
+
 import {
   useMaterialUIController,
   setMiniSidenav,

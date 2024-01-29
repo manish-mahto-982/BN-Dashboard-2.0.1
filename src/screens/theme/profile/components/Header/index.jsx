@@ -14,12 +14,12 @@ import Tab from "@mui/material/Tab";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDAvatar from "components/MDAvatar";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import MDAvatar from "src/components/theme/common/MDAvatar";
 
 // Material Dashboard 2 React base styles
-import breakpoints from "assets/theme/base/breakpoints";
+import breakpoints from "src/assets/theme/base/breakpoints";
 
 // Images
 import burceMars from "assets/images/bruce-mars.jpg";

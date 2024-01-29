@@ -6,10 +6,10 @@ import { forwardRef, createContext, useContext, useMemo } from "react";
 import PropTypes from "prop-types";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
+import MDBox from "src/components/theme/common/MDBox";
 
 // Custom styles for MDPagination
-import MDPaginationItemRoot from "components/MDPagination/MDPaginationItemRoot";
+import MDPaginationItemRoot from "src/components/theme/common/MDPagination/MDPaginationItemRoot";
 
 // The Pagination main context
 const Context = createContext();

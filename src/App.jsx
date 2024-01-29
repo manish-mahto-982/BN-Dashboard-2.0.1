@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect, useMemo } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
@@ -13,14 +11,13 @@ import MDBox from "./components/theme/common/MDBox";
 
 // Balance Nutrition React themes
 import theme from "./assets/theme";
-import themeRTL from "./assets/theme/theme-rtl";
+import themeRTL from "src/assets/theme/theme-rtl";
 
 // Balance Nutrition React Dark Mode themes
 import themeDark from "./assets/theme-dark";
 import themeDarkRTL from "./assets/theme-dark/theme-rtl";
 
 import { CacheProvider } from "@emotion/react";
-
 
 // Images
 import brandWhite from "./assets/images/logo-bn.svg";
@@ -31,19 +28,22 @@ import Sidenav from "./components/theme/layout/Sidenav";
 import Configurator from "./components/theme/layout/Configurator";
 
 // Balance Nutrition React contexts
-import { setMiniSidenav, setOpenConfigurator, useMaterialUIController } from "./context";
+import {
+  setMiniSidenav,
+  setOpenConfigurator,
+  useMaterialUIController,
+} from "./context";
 
 // Routes
-import { clientServiceRoute, salesRoutes } from "./routes";
-
+import { clientServiceRoute, salesRoutes, themeRoutes } from "./routes";
 
 let routes = [];
-if (window.location.pathname.includes("sales")) {
-  routes = [...salesRoutes];
-} else if (window.location.pathname.includes("cs")) {
-  console.log(true);
+
+if (window.location.pathname.includes("sales")) routes = [...salesRoutes];
+else if (window.location.pathname.includes("cs"))
   routes = [...clientServiceRoute];
-}
+else if (window.location.pathname.includes("theme"))
+  routes = [...themeRoutes];
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();

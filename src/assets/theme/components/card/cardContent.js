@@ -1,7 +1,7 @@
 
 
 // Material Dashboard 2 React Helper Functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const cardContent = {
   styleOverrides: {

@@ -5,8 +5,8 @@ import pxToRem from "assets/theme-dark/functions/pxToRem";
 
 const icon = {
   defaultProps: {
-    baseClassName: "material-icons-round",
     fontSize: "inherit",
+    baseClassName: "material-icons-round",
   },
 
   styleOverrides: {

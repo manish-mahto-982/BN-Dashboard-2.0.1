@@ -1,7 +1,7 @@
 
 
 import { useMemo, useEffect, useState } from "react";
-
+import "regenerator-runtime";
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -17,14 +17,14 @@ import Icon from "@mui/material/Icon";
 import Autocomplete from "@mui/material/Autocomplete";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDInput from "components/MDInput";
-import MDPagination from "components/MDPagination";
+import MDBox from "src/components/theme/common//MDBox";
+import MDTypography from "src/components/theme/common//MDTypography";
+import MDInput from "src/components/theme/common//MDInput";
+import MDPagination from "src/components/theme/common//MDPagination";
 
 // Material Dashboard 2 React example components
-import DataTableHeadCell from "examples/Tables/DataTable/DataTableHeadCell";
-import DataTableBodyCell from "examples/Tables/DataTable/DataTableBodyCell";
+import DataTableHeadCell from "src/components/theme/layout/Tables/DataTable/DataTableHeadCell";
+import DataTableBodyCell from "src/components/theme/layout/Tables/DataTable/DataTableBodyCell";
 
 function DataTable({
   entriesPerPage,

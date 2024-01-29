@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react";
 
 // react-router components
@@ -16,12 +14,12 @@ import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDInput from "components/MDInput";
+import MDBox from "src/components/theme/common//MDBox";
+import MDInput from "src/components/theme/common//MDInput";
 
 // Material Dashboard 2 React example components
-import Breadcrumbs from "examples/Breadcrumbs";
-import NotificationItem from "examples/Items/NotificationItem";
+import Breadcrumbs from "../../Breadcrumbs";
+import NotificationItem from "../../Items/NotificationItem";
 
 // Custom styles for DashboardNavbar
 import {
@@ -30,7 +28,7 @@ import {
   navbarRow,
   navbarIconButton,
   navbarMobileMenu,
-} from "examples/Navbars/DashboardNavbar/styles";
+} from "src/components/theme/layout/Navbars/DashboardNavbar/styles";
 
 // Material Dashboard 2 React context
 import {
@@ -41,7 +39,7 @@ import {
 } from "src/context";
 import AddLead from "./TopbarPopup/AddLead";
 import ConsultationBooked from "./TopbarPopup/ConsultationBooked";
-import MDButton from "components/MDButton";
+import MDButton from "src/components/theme/common//MDButton";
 import Tooltip from "@mui/material/Tooltip";
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();

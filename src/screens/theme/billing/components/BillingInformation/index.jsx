@@ -4,11 +4,11 @@
 import Card from "@mui/material/Card";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import Bill from "../Bill";
 
 // Billing page components
-import Bill from "layouts/billing/components/Bill";
 
 function BillingInformation() {
   return (

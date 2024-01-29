@@ -1,10 +1,10 @@
 
 
 // Material Dashboard 2 React base styles
-import typography from "assets/theme/base/typography";
+import typography from "src/assets/theme/base/typography";
 
 // Material Dashboard 2 React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const { size } = typography;
 

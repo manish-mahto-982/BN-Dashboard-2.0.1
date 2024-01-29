@@ -18,7 +18,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import MDButton from "components/MDButton";
+import MDButton from "src/components/theme/common/MDButton";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -26,7 +26,7 @@ import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import MDBox from "components/MDBox";
+import MDBox from "src/components/theme/common/MDBox";
 import Swal from "sweetalert2";
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -122,7 +122,7 @@ export default function AddLead() {
       >
         <MDButton
           variant="contained"
-          color="faintgreen"
+          color="success"
           sx={{ marginRight: 1, marginBottom: 1 }}
           onClick={handleOpen}
         >

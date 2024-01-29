@@ -1,11 +1,11 @@
 
 
 // Material Dashboard 2 React Base Styles
-import colors from "assets/theme/base/colors";
-import typography from "assets/theme/base/typography";
+import colors from "src/assets/theme/base/colors";
+import typography from "src/assets/theme/base/typography";
 
 // Material Dashboard 2 React Helper Functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const { transparent, light, info, secondary } = colors;
 const { size } = typography;

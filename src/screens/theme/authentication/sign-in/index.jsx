@@ -17,13 +17,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import GoogleIcon from "@mui/icons-material/Google";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-import MDInput from "components/MDInput";
-import MDButton from "components/MDButton";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import MDInput from "src/components/theme/common/MDInput";
+import MDButton from "src/components/theme/common/MDButton";
 
 // Authentication layout components
-import BasicLayout from "layouts/authentication/components/BasicLayout";
+import BasicLayout from "../components/BasicLayout";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";

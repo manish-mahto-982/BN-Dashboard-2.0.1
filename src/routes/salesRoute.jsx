@@ -9,7 +9,7 @@
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
-import Icon from "@mui/material/Icon";
+import Icon from   "@mui/material/Icon/Icon";
 import Dashboard from "src/screens/theme/dashboard";
 // import AppActivity from "layouts/AppActivity";
 // import PerformanceAnalysis from "layouts/PerformanceAnalysis";
@@ -17,7 +17,6 @@ import Dashboard from "src/screens/theme/dashboard";
 // import SpeenWheel from "layouts/SpeenWheel";
 // import SetYourGoal from "layouts/SetYourGoal";
 // import LeadsFeedback from "layouts/LeadsFeedback";
-// import PaymentDetails from "layouts/PaymentDetails";
 
 const salesRoutes = [
   {

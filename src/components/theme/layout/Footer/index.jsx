@@ -1,5 +1,3 @@
-
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -8,11 +6,11 @@ import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 
 // Material Dashboard 2 React base styles
-import typography from "assets/theme/base/typography";
+import typography from "src/assets/theme/base/typography";
 
 function Footer({ company, links }) {
   const { href, name } = company;
@@ -86,12 +84,15 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: {
+    href: "https://www.balancenutrition.in/",
+    name: "Balance Nutrition",
+  },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "https://www.balancenutrition.in/", name: "Balance Nutrition" },
+    { href: "https://www.balancenutrition.in/presentation", name: "About Us" },
+    { href: "https://www.balancenutrition.in/blog", name: "Blog" },
+    { href: "https://www.balancenutrition.in/license", name: "License" },
   ],
 };
 

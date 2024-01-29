@@ -9,11 +9,11 @@ import PropTypes from "prop-types";
 import Fade from "@mui/material/Fade";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
+import MDBox from "src/components/theme/common/MDBox";
 
 // Custom styles for the MDAlert
-import MDAlertRoot from "components/MDAlert/MDAlertRoot";
-import MDAlertCloseIcon from "components/MDAlert/MDAlertCloseIcon";
+import MDAlertRoot from "src/components/theme/common/MDAlert/MDAlertRoot";
+import MDAlertCloseIcon from "src/components/theme/common/MDAlert/MDAlertCloseIcon";
 
 function MDAlert({ color, dismissible, children, ...rest }) {
   const [alertStatus, setAlertStatus] = useState("mount");

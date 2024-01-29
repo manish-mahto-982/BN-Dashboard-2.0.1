@@ -5,11 +5,11 @@ import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
 
 // Material Dashboard 2 React example components
-import TimelineItem from "examples/Timeline/TimelineItem";
+import TimelineItem from "src/components/theme/layout/Timeline/TimelineItem";
 
 function OrdersOverview() {
   return (

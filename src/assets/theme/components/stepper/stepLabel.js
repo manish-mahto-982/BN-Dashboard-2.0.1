@@ -1,12 +1,12 @@
 
 
 // Material Dashboard 2 React base styles
-import typography from "assets/theme/base/typography";
-import colors from "assets/theme/base/colors";
+import typography from "src/assets/theme/base/typography";
+import colors from "src/assets/theme/base/colors";
 
 // Material Dashboard 2 React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
-import rgba from "assets/theme/functions/rgba";
+import pxToRem from "src/assets/theme/functions/pxToRem";
+import rgba from "src/assets/theme/functions/rgba";
 
 const { size, fontWeightRegular } = typography;
 const { white } = colors;

@@ -7,10 +7,10 @@
  */
 
 // Balance Nutrition React Base Styles
-import colors from "assets/theme/base/colors";
+import colors from "src/assets/theme/base/colors";
 
 // Balance Nutrition React Helper Functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const { dark } = colors;
 

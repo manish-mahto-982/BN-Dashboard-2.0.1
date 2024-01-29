@@ -1,11 +1,11 @@
 
 
 // Material Dashboard 2 React base styles
-import colors from "assets/theme/base/colors";
-import borders from "assets/theme/base/borders";
+import colors from "src/assets/theme/base/colors";
+import borders from "src/assets/theme/base/borders";
 
 // Material Dashboard 2 React helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
+import pxToRem from "src/assets/theme/functions/pxToRem";
 
 const { white } = colors;
 const { borderRadius } = borders;
