@@ -1,4 +1,5 @@
 import {
+  Badge,
   Button,
   Grid,
   Icon,
@@ -43,7 +44,7 @@ function RatingSection({ light, darkMode, transparentNavbar }) {
   });
   const handleCloseTable = () => setOpen(false);
   return (
-    <>
+    <Badge badgeContent={2} color={"warning"} overlap="circular">
       <Tooltip title="Ratings">
         <IconButton
           sx={navbarIconButton}
@@ -54,7 +55,7 @@ function RatingSection({ light, darkMode, transparentNavbar }) {
         </IconButton>
       </Tooltip>
       <RatingTable {...{ open, handleCloseTable, setOpen, theme }} />
-    </>
+    </Badge>
   );
 }
 
@@ -68,7 +69,6 @@ const RatingTable = ({ open, handleCloseTable, setOpen, theme }) => {
   });
   const [showTable, setShowTable] = useState(false);
   const handleClick = (res, columns) => {
-    console.log("🚀 ~ handleClick ~ data:", res);
     const filterData = Object.values(res.data)[0];
     setTableData({
       ...tableData,
@@ -189,7 +189,7 @@ const RatingTable = ({ open, handleCloseTable, setOpen, theme }) => {
           setOpen={setShowTable}
           dataGrid={
             tableData.data.length !== 0 && (
-              <DataGridTable  data={tableData.data} />
+              <DataGridTable data={tableData.data} />
             )
           }
         />

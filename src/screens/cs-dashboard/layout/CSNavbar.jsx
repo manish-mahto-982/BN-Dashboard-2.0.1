@@ -153,7 +153,9 @@ function Navbar({ absolute, light, isMini }) {
           />
         </MDBox>
         {isMini ? null : (
-          <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
+          <MDBox
+            sx={[(theme) => navbarRow(theme, { isMini }), { flexWrap: "wrap",rowGap:2 }]}
+          >
             <MDBox pr={1}>
               <MDInput label="Search here" />
             </MDBox>
@@ -163,7 +165,11 @@ function Navbar({ absolute, light, isMini }) {
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
-              <ReminderSection />
+              <ReminderSection
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
               <IconButton
                 size="small"
                 disableRipple

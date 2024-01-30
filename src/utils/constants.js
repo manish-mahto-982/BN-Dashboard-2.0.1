@@ -17,7 +17,7 @@ export const DRAFT_OPTIONS = [
   "Program Extensions",
 ];
 
-export const COMMON_DATA_ALL_TABLE = {
+export const commonDataAllTable = {
   fetchQuery: () => api.endpoints.getOnHoldDueDate.useLazyQuery(),
   columns: [
     { id: "client_details", label: "client details" },
