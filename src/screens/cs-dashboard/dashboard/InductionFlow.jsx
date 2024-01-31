@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import CSLayout from "../layout";
-import { commonDataAllTable } from "src/utils/constants";
+import { commonDataAllTable, noStyleBtnProps } from "src/utils/constants";
 import {
   TbCalendarUser,
   TbCameraOff,
@@ -12,7 +12,7 @@ import {
   TbSendOff,
 } from "react-icons/tb";
 import colors from "src/assets/theme/base/colors";
-import { Box, Card, Grid, Typography } from "@mui/material";
+import { Box, Card, Grid, Typography, useTheme } from "@mui/material";
 import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
 import { useMaterialUIController } from "src/context";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -22,7 +22,12 @@ import NewEnrolledClientsCard from "src/components/client-service/dashboard/indu
 import BasicStackCard from "src/components/client-service/dashboard/induction-flow/BasicStackCard";
 import SpecialStackCard from "src/components/client-service/dashboard/induction-flow/SpecialStackCard";
 import CardWithDialogTable from "src/components/client-service/common/CardWithDialogTable";
+import classNames from "classnames";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import CardWithIconAndDialogTable from "src/components/client-service/common/CardWithIconAndDialogTable";
 function InductionFlow() {
+  const theme = useTheme();
   const [controller, dispatch] = useMaterialUIController();
   const { darkMode } = controller;
   const {
@@ -84,11 +89,57 @@ function InductionFlow() {
             />
           </Card>
         </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72} height={"auto"}>
+          <Card sx={{ overflow: "hidden", height: "100%" }}>
+            <Grid container height={"100%"}>
+              {gridData.map(({ title, value, Icon }, index) => (
+                <GridCard
+                  key={title}
+                  {...{ title, value, Icon, index, darkMode }}
+                  // handleClick={handleClick}
+                  theme={theme}
+                  item={commonDataAllTable}
+                />
+              ))}
+            </Grid>
+          </Card>
+        </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
-          <CardWithDialogTable cardTitle="Assessment"/>
+          <CardWithDialogTable
+            cardTitle="Assessment"
+            {...{ darkMode }}
+            data={assessmentData}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72}>
+          <CardWithDialogTable
+            cardTitle="ICL"
+            {...{ darkMode }}
+            data={iclData}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72}>
+          <CardWithIconAndDialogTable
+            cardTitle={"Start Session Update"}
+            {...{ darkMode }}
+            data={startSessionData}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72}>
+          <CardWithIconAndDialogTable
+            cardTitle="Mid Session Update"
+            {...{ darkMode }}
+            data={midSessionData}
+          />
+        </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72}>
+          <CardWithIconAndDialogTable
+            cardTitle="End Session Update"
+            {...{ darkMode }}
+            data={endSessionData}
+          />
         </Grid>
       </Grid>
-
       {dataGridTableDialog()}
     </CSLayout>
   );
@@ -159,7 +210,16 @@ const SummaryCard = ({ item, handleClick, darkMode }) => {
   );
 };
 
-const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
+const GridCard = ({
+  item,
+  theme,
+  darkMode,
+  index,
+  value,
+  title,
+  Icon,
+  handleClick,
+}) => {
   let trigger;
   let res;
   if (item.fetchQuery) {
@@ -175,22 +235,10 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
     <Grid
       component={"button"}
       item
-      bgcolor={"unset"}
-      border={"unset"}
-      color={"unset"}
+      {...noStyleBtnProps}
       xs={6}
-      height={"50%"}
-      onClick={handleButtonClick}
-      p={2}
       display={"flex"}
-      sx={{
-        transition: "linear",
-        transitionDuration: "330ms",
-        ":hover": {
-          bgcolor: theme.palette.background.alt,
-          cursor: "pointer",
-        },
-      }}
+      className={classNames("h-1/2 p-4  cursor-pointer group")}
       borderRight={
         index === 0 || index === 2
           ? theme.palette.mode === "dark"
@@ -205,26 +253,32 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
             : "1px solid #00000010"
           : "none"
       }
+      onClick={handleButtonClick}
     >
       <FlexBoxBetween columnGap={1} my={"auto"}>
-        <Box
+        <MDBox
+          variant="gradient"
           width={"fit-content"}
           p={1.5}
-          borderRadius={2}
-          bgcolor={theme.palette.background.alt}
+          className={
+            "rounded-lg group-hover:shadow group-hover:shadow-transparent transition-all ease-linear duration-300"
+          }
+          bgColor={darkMode ? "secondary" : "dark"}
+          // coloredShadow={darkMode ? "secondary" : "dark"}
+          // bgcolor={theme.palette.background.alt}
         >
-          <Icon size={20} style={{ marginBottom: -4 }} />
-        </Box>
+          <Icon size={20} className={"-mb-1 stroke-white"} />
+        </MDBox>
         <Box textAlign={"center"}>
-          <Typography fontSize={20}>{value}</Typography>
-          <Typography
+          <MDTypography fontSize={20}>{value}</MDTypography>
+          <MDTypography
             textTransform={"uppercase"}
             lineHeight={1.2}
             fontSize={10}
             sx={{ opacity: 0.5 }}
           >
             {title}
-          </Typography>
+          </MDTypography>
         </Box>
       </FlexBoxBetween>
     </Grid>

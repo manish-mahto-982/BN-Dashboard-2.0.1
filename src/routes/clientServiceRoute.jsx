@@ -2,6 +2,7 @@
 // @mui icons
 import Icon from "@mui/material/Icon";
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
+import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 const clientServiceRoute = [
   {
     type: "title",
@@ -21,13 +22,13 @@ const clientServiceRoute = [
         route: "/dashboard/induction-flow",
         component: <InductionFlow />,
       },
-      // {
-      //   key: "overall-pending",
-      //   name: "Overall Pending",
-      //   icon: <Icon fontSize="small">arrow_right</Icon>,
-      //   route: "/dashboard/overall-pending",
-      //   component: <AllLead />,
-      // },
+      {
+        key: "overall-pending",
+        name: "Overall Pending",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/overall-pending",
+        component: <OverallPending />,
+      },
       // {
       //   key: "halftime-journey",
       //   name: "Halftime Journey",

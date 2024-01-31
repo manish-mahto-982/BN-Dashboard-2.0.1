@@ -159,7 +159,7 @@ function Navbar({ absolute, light, isMini }) {
             <MDBox pr={1}>
               <MDInput label="Search here" />
             </MDBox>
-            <MDBox color={light ? "white" : "inherit"}>
+            <MDBox color={light ? "white" : "inherit"} className={'flex gap-x-2'}>
               <RatingSection
                 light={light}
                 transparentNavbar={transparentNavbar}
