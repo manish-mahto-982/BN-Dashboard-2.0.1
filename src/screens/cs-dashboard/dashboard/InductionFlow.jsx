@@ -84,10 +84,11 @@ function InductionFlow() {
             />
           </Card>
         </Grid>
+        <Grid item xs={12} sm={5.76} md={3.72}>
+          <CardWithDialogTable cardTitle="Assessment"/>
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
-        <CardWithDialogTable />
-      </Grid>
+
       {dataGridTableDialog()}
     </CSLayout>
   );

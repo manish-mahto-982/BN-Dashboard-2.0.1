@@ -181,7 +181,7 @@ const ReminderTable = ({
               <TableContainer
                 component={Paper}
                 style={{
-                  borderRadius: 0,
+                  // borderRadius: 0,
                   backgroundColor: theme.palette.background.default,
                   boxShadow: "none",
                   marginTop: 4,
