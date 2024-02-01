@@ -1,12 +1,14 @@
 // Balance Nutrition React layouts
 // @mui icons
 import Icon from "@mui/material/Icon";
+import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney";
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
 import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
+import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
 const clientServiceRoute = [
   {
     type: "title",
-    key:"dashboard-title",
+    key: "dashboard-title",
     title: "Dashboard",
   },
   {
@@ -29,25 +31,25 @@ const clientServiceRoute = [
         route: "/dashboard/overall-pending",
         component: <OverallPending />,
       },
-      // {
-      //   key: "halftime-journey",
-      //   name: "Halftime Journey",
-      //   icon: <Icon fontSize="small">arrow_right</Icon>,
-      //   route: "/dashboard/halftime-journey",
-      //   component: <AllLead />,
-      // },
-      // {
-      //   key: "tail-end-journey",
-      //   name: "Tail End Journey",
-      //   icon: <Icon fontSize="small">arrow_right</Icon>,
-      //   route: "/dashboard/tail-end-journey",
-      //   component: <AllLead />,
-      // },
+      {
+        key: "halftime-journey",
+        name: "Halftime Journey",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/halftime-journey",
+        component: <HalftimeJourney />,
+      },
+      {
+        key: "tail-end-journey",
+        name: "Tail End Journey",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/tail-end-journey",
+        component: <TailEndJourney />,
+      },
     ],
   },
   {
     type: "divider",
-    key:"dashboard-divider",
+    key: "dashboard-divider",
   },
   // {
   //   type: "title",

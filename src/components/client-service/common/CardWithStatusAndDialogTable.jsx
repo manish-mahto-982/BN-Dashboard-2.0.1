@@ -28,7 +28,7 @@ function CardWithStatusAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
         </MDTypography>
       </MDBox>
       {data.map((item, index) => (
-        <React.Fragment key={item.title}>
+        <React.Fragment key={item.title+index}>
           <FlexBoxBetween
             {...noStyleBtnProps}
             component="button"
@@ -38,7 +38,7 @@ function CardWithStatusAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
             )}
           >
             <FlexBoxBetween columnGap={2}>
-              <MDTypography fontSize="14px" fontWeight="bold">
+              <MDTypography fontSize="14px" fontWeight="light">
                 {item.title}
               </MDTypography>
               {
@@ -67,8 +67,12 @@ function CardWithStatusAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
             <MDTypography
               fontSize="14px"
               fontWeight="bold"
-              color={item.title.includes("19th Day +") ||
-              item.title.includes("Over Due")?'error':'text'}
+              color={
+                item.title.includes("19th Day +") ||
+                item.title.includes("Over Due")
+                  ? "error"
+                  : "text"
+              }
             >
               {item.value}
             </MDTypography>

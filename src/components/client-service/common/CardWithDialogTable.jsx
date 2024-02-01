@@ -38,19 +38,21 @@ function CardWithDialogTable({ cardTitle = "", darkMode, data = [] }) {
             )}
           >
             <MDTypography
+              component="span"
               fontSize="14px"
               fontWeight="light"
               color={
                 item.title.includes("19th Day +") ||
                 item.title.includes("Over Due")
                   ? "error"
-                  : "text"
+                  : "dark"
               }
             >
               {item.title.includes("(") ? (
                 <FlexBoxBetween>
                   {item.title.split("(")[0]}&nbsp;
-                  <Box
+                  <MDTypography
+                    component="span"
                     bgcolor={
                       item.title.includes("On Hold (OD)")
                         ? "rgba(255,0,0,0.1)"
@@ -69,21 +71,19 @@ function CardWithDialogTable({ cardTitle = "", darkMode, data = [] }) {
                     //     : "rgba(0,0,0,0.07)"
                     // }`}
                     color={
-                      item.title.includes("On Hold (OD)") ? "#f00" : "unset"
+                      item.title.includes("On Hold (OD)") ? "error" : "text"
                     }
                     fontSize={11}
                     borderRadius={20}
                   >
                     {`${item.title.split("(")[1]}`.slice(0, -1)}
-                  </Box>
+                  </MDTypography>
                 </FlexBoxBetween>
               ) : (
                 item.title
               )}
             </MDTypography>
-            {/* <MDTypography fontSize="14px" fontWeight="light">
-              {item.title}
-            </MDTypography> */}
+
             <MDTypography
               fontSize="14px"
               fontWeight="bold"
@@ -91,7 +91,8 @@ function CardWithDialogTable({ cardTitle = "", darkMode, data = [] }) {
                 item.title.includes("19th Day +") ||
                 item.title.includes("Over Due")
                   ? "error"
-                  : "text"}
+                  : "text"
+              }
             >
               {item.value}
             </MDTypography>
