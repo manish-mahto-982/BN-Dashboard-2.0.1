@@ -5,6 +5,9 @@ import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney"
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
 import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
+import ExpiryClient from "src/screens/cs-dashboard/task/ExpiryClient";
+import Maintenance from "src/screens/cs-dashboard/task/Maintenance";
+import OCClients from "src/screens/cs-dashboard/task/OCClients";
 const clientServiceRoute = [
   {
     type: "title",
@@ -51,34 +54,35 @@ const clientServiceRoute = [
     type: "divider",
     key: "dashboard-divider",
   },
-  // {
-  //   type: "title",
-  //   title: "Task",
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Expiry Client",
-  //   key: "expiry-client",
-  //   icon: <Icon fontSize="small">people</Icon>,
-  //   route: "/expiry-client",
-  //   component: <AllLead />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Maintenance",
-  //   key: "maintenance",
-  //   icon: <Icon fontSize="small">sports_soccer</Icon>,
-  //   route: "/maintenance",
-  //   component: <AppActivity />,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "OC Clients",
-  //   key: "oc-clients",
-  //   icon: <Icon fontSize="small">assignment</Icon>,
-  //   route: "/oc-clients",
-  //   component: <PerformanceAnalysis />,
-  // },
+  {
+    type: "title",
+    key: "task-title",
+    title: "Task",
+  },
+  {
+    type: "collapse",
+    name: "Expiry Clients",
+    key: "expiry-clients",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/expiry-clients",
+    component: <ExpiryClient />,
+  },
+  {
+    type: "collapse",
+    name: "Maintenance",
+    key: "maintenance",
+    icon: <Icon fontSize="small">sports_soccer</Icon>,
+    route: "/maintenance",
+    component: <Maintenance />,
+  },
+  {
+    type: "collapse",
+    name: "OC Clients",
+    key: "oc-clients",
+    icon: <Icon fontSize="small">assignment</Icon>,
+    route: "/oc-clients",
+    component: <OCClients />,
+  },
   // {
   //   type: "divider",
   // },

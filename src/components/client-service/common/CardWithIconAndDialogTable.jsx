@@ -34,7 +34,8 @@ function CardWithIconAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
             <FlexBoxBetween className={"gap-x-3"}>
               <MDBox
                 variant="gradient"
-                bgColor={darkMode ? "secondary" : "dark"}
+                bgColor={darkMode ? "secondary" : "dark"
+                }
                 className={
                   "rounded-xl flex items-center justify-center w-11 h-11"
                 }

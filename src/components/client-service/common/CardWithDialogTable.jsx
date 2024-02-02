@@ -5,28 +5,51 @@ import FlexBoxBetween from "./FlexBoxBetween";
 import MDBox from "src/components/theme/common/MDBox";
 import classNames from "classnames";
 import { noStyleBtnProps } from "src/utils/constants";
-function CardWithDialogTable({ cardTitle = "", darkMode, data = [] }) {
+function CardWithDialogTable({
+  cardTitle = "",
+  titleType = "gradient" || "normal",
+  darkMode,
+  data = [],
+}) {
   const theme = useTheme();
   return (
     <Card className={`mt-4`}>
-      <MDBox
-        variant="gradient"
-        bgColor="info"
-        className={`rounded-xl -mt-4 mx-3 w-fit p-3 `}
-      >
+      {titleType === "gradient" ? (
+        <MDBox
+          variant="gradient"
+          bgColor="info"
+          className={`rounded-xl -mt-4 mx-3 w-fit p-3 `}
+        >
+          <MDTypography
+            // borderBottom={`1px solid ${theme.palette.divider}`}
+            variant="h6"
+            color={
+              cardTitle.includes("Final Reminder (Not Received)")
+                ? "error"
+                : "white"
+            }
+            fontWeight={"medium"}
+          >
+            {cardTitle}
+          </MDTypography>
+        </MDBox>
+      ) : (
         <MDTypography
           // borderBottom={`1px solid ${theme.palette.divider}`}
           variant="h6"
           color={
             cardTitle.includes("Final Reminder (Not Received)")
               ? "error"
-              : "white"
+              : "dark"
           }
           fontWeight={"medium"}
+          className={`px-5 pt-5 pb-4`}
+          sx={{ borderBottom: "1px solid", borderColor: "divider" }}
         >
           {cardTitle}
         </MDTypography>
-      </MDBox>
+      )}
+
       {data.map((item, index) => (
         <React.Fragment key={item.title}>
           <FlexBoxBetween
