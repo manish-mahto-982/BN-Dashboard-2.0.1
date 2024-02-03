@@ -1,0 +1,1752 @@
+{
+  "notification_received_data": [
+    {
+      "id": "1",
+      "label": "Assessment Due : (Reminder 1)"
+    },
+    {
+      "id": "2",
+      "label": "Assessment Due : (Reminder 2)"
+    },
+    {
+      "id": "3",
+      "label": "Assessment Due : (Reminder 3)"
+    },
+    {
+      "id": "4",
+      "label": "Let’s Get Started :)"
+    },
+    {
+      "id": "5",
+      "label": "Know Your BN Wallet"
+    },
+    {
+      "id": "85",
+      "label": "A Good Start"
+    },
+    {
+      "id": "7",
+      "label": "Mid Session Weight Update Due"
+    },
+    {
+      "id": "8",
+      "label": "Have You Updated Your Weight?"
+    },
+    {
+      "id": "9",
+      "label": "Time To Track Your Progress!"
+    },
+    {
+      "id": "10",
+      "label": "Have You Updated Your Trackers?"
+    },
+    {
+      "id": "11",
+      "label": "Important Update Regarding Your Program"
+    },
+    {
+      "id": "12",
+      "label": "We Are Waiting!"
+    },
+    {
+      "id": "13",
+      "label": "Your Balance Payment Is Due"
+    },
+    {
+      "id": "14",
+      "label": "Payment Due : (Reminder 1)"
+    },
+    {
+      "id": "15",
+      "label": "Payment Due : (Reminder 2)"
+    },
+    {
+      "id": "16",
+      "label": "Payment Due : (Final Reminder)"
+    },
+    {
+      "id": "18",
+      "label": "Program Feedback : (Reminder 1)"
+    },
+    {
+      "id": "19",
+      "label": "Program Feedback : (Reminder 2)"
+    },
+    {
+      "id": "20",
+      "label": "Program Feedback : (Final Reminder)"
+    },
+    {
+      "id": "21",
+      "label": "Your Maintenance Is Ready"
+    },
+    {
+      "id": "22",
+      "label": "Happy Birthday"
+    },
+    {
+      "id": "23",
+      "label": "Your Break ends tomorrow!"
+    },
+    {
+      "id": "97",
+      "label": "What is the BN-Ekit?"
+    },
+    {
+      "id": "25",
+      "label": "Half Time Feedback : (Reminder 1)"
+    },
+    {
+      "id": "26",
+      "label": "Half Time Feedback : (Reminder 2)"
+    },
+    {
+      "id": "27",
+      "label": "Half Time Feedback : (Reminder 3)"
+    },
+    {
+      "id": "28",
+      "label": "Refer & Earn"
+    },
+    {
+      "id": "29",
+      "label": "Your Break is already Over!"
+    },
+    {
+      "id": "30",
+      "label": "Right to Edit (assessment)"
+    },
+    {
+      "id": "31",
+      "label": "We Have Added Money In Your BN Wallet :)"
+    },
+    {
+      "id": "32",
+      "label": "PHASE 2 WITH US!"
+    },
+    {
+      "id": "33",
+      "label": "Your diet session is delivered!"
+    },
+    {
+      "id": "34",
+      "label": "Message from your mentor"
+    },
+    {
+      "id": "35",
+      "label": "Your Current Program has lapsed."
+    },
+    {
+      "id": "36",
+      "label": "You Have Got Money In Your BN Wallet"
+    },
+    {
+      "id": "37",
+      "label": "Program Nearing Expiry"
+    },
+    {
+      "id": "42",
+      "label": "Call Booking Confirmation"
+    },
+    {
+      "id": "38",
+      "label": "Tip of the day"
+    },
+    {
+      "id": "39",
+      "label": "Hello! From Khyati Rupani"
+    },
+    {
+      "id": "40",
+      "label": "Let's Talk About Your Progress"
+    },
+    {
+      "id": "17",
+      "label": "Program Feedback!"
+    },
+    {
+      "id": "24",
+      "label": "It's Half Time!"
+    },
+    {
+      "id": "44",
+      "label": "Welcome Call is Due in 15 Minutes"
+    },
+    {
+      "id": "45",
+      "label": "I Tried To Connect With You!"
+    },
+    {
+      "id": "46",
+      "label": "Welcome call successfully completed!"
+    },
+    {
+      "id": "47",
+      "label": "You Missed Your Welcome Call"
+    },
+    {
+      "id": "48",
+      "label": "Your service is interuppted"
+    },
+    {
+      "id": "49",
+      "label": "Your service is not avaialble"
+    },
+    {
+      "id": "50",
+      "label": "Program Validity Update (Important)"
+    },
+    {
+      "id": "51",
+      "label": "Your Maintenance is ready!"
+    },
+    {
+      "id": "156",
+      "label": "Your Session Update Schedule"
+    },
+    {
+      "id": "52",
+      "label": "Important Update From Mentor"
+    },
+    {
+      "id": "53",
+      "label": "Time to re-visit your goals!"
+    },
+    {
+      "id": "54",
+      "label": "Your Program Update"
+    },
+    {
+      "id": "55",
+      "label": "Pl Update Your Empty Stomach Weight Tomorrow"
+    },
+    {
+      "id": "56",
+      "label": "Your Weight Update is Due Today"
+    },
+    {
+      "id": "57",
+      "label": "Please Update Your Empty Stomach Weight Tomorrow"
+    },
+    {
+      "id": "58",
+      "label": "Your Weight Update is Due Today"
+    },
+    {
+      "id": "59",
+      "label": "Have You Updated Your Weight?"
+    },
+    {
+      "id": "60",
+      "label": "Mid Session Weight Update Due"
+    },
+    {
+      "id": "61",
+      "label": "Time To Track Your Progress!"
+    },
+    {
+      "id": "62",
+      "label": "Have You Updated Your Trackers?"
+    },
+    {
+      "id": "63",
+      "label": "Check your Weight and BMI report"
+    },
+    {
+      "id": "64",
+      "label": "See your health score & what it means"
+    },
+    {
+      "id": "65",
+      "label": "See your health score & what you should do"
+    },
+    {
+      "id": "66",
+      "label": "See some success stories"
+    },
+    {
+      "id": "67",
+      "label": "Pl Update Your Weight Empty Stomach Tomorrow"
+    },
+    {
+      "id": "68",
+      "label": "Book Your Welcome Call"
+    },
+    {
+      "id": "69",
+      "label": "Right to Edit (Ingredient)"
+    },
+    {
+      "id": "70",
+      "label": "Please Update Your Weight Empty Stomach Tomorrow"
+    },
+    {
+      "id": "71",
+      "label": "Pl Update Your Weight Empty Stomach Tomorrow"
+    },
+    {
+      "id": "72",
+      "label": "Testing Redirect To Link"
+    },
+    {
+      "id": "73",
+      "label": "Have you seen your new diet?"
+    },
+    {
+      "id": "74",
+      "label": "Buy 1 Day Cleanse Program"
+    },
+    {
+      "id": "75",
+      "label": "Buy 10 Day Cleanse Program"
+    },
+    {
+      "id": "76",
+      "label": "Buy 10 Day Cleanse Program"
+    },
+    {
+      "id": "77",
+      "label": "Buy Cleanse Program"
+    },
+    {
+      "id": "78",
+      "label": "Testing Redirect To Link"
+    },
+    {
+      "id": "79",
+      "label": "Obesity category & BMI Update"
+    },
+    {
+      "id": "80",
+      "label": "Weight Update Missed!"
+    },
+    {
+      "id": "81",
+      "label": "Important Update From Mentor"
+    },
+    {
+      "id": "82",
+      "label": "Weight Update Missed!"
+    },
+    {
+      "id": "83",
+      "label": "End Session Updates Overdue!"
+    },
+    {
+      "id": "221",
+      "label": "Know All About Your 3-day Detox Plan"
+    },
+    {
+      "id": "84",
+      "label": "Your mentor is preparing your diet!"
+    },
+    {
+      "id": "6",
+      "label": "Have you started your diet?"
+    },
+    {
+      "id": "86",
+      "label": "Your Validity Is Increased!"
+    },
+    {
+      "id": "87",
+      "label": "Interpret your Reports"
+    },
+    {
+      "id": "88",
+      "label": "Where you stand?"
+    },
+    {
+      "id": "89",
+      "label": "They did it!"
+    },
+    {
+      "id": "90",
+      "label": "Who is a qualified nutritionist?"
+    },
+    {
+      "id": "91",
+      "label": "Are your diets “calorie counted”?"
+    },
+    {
+      "id": "92",
+      "label": "Worried about your metabolism ?"
+    },
+    {
+      "id": "93",
+      "label": "Your Program is ON - HOLD!"
+    },
+    {
+      "id": "94",
+      "label": "Where are you?"
+    },
+    {
+      "id": "95",
+      "label": "Did you see your birthday gift?"
+    },
+    {
+      "id": "96",
+      "label": "How old are you now?"
+    },
+    {
+      "id": "146",
+      "label": "Tips for Limiting Acidity!"
+    },
+    {
+      "id": "98",
+      "label": "Program Feedback : (Final Reminder)"
+    },
+    {
+      "id": "99",
+      "label": "Program Feedback : (Reminder 1)"
+    },
+    {
+      "id": "100",
+      "label": "Have you created your recipe book yet?"
+    },
+    {
+      "id": "101",
+      "label": "Update your start weight tracker."
+    },
+    {
+      "id": "102",
+      "label": "You missed updating something!"
+    },
+    {
+      "id": "103",
+      "label": "Final reminder."
+    },
+    {
+      "id": "104",
+      "label": "Follow us on instagram!"
+    },
+    {
+      "id": "105",
+      "label": "Follow us on Facebook!"
+    },
+    {
+      "id": "106",
+      "label": "Where are you?"
+    },
+    {
+      "id": "107",
+      "label": "How qualified is your nutritionist?"
+    },
+    {
+      "id": "108",
+      "label": "Let us know your goals"
+    },
+    {
+      "id": "109",
+      "label": "Let Me Know More"
+    },
+    {
+      "id": "110",
+      "label": "Important Update Regarding Your Program"
+    },
+    {
+      "id": "111",
+      "label": "Hello From Khyati Rupani"
+    },
+    {
+      "id": "202",
+      "label": "Welcome Call Missed - (Reminder 1)"
+    },
+    {
+      "id": "112",
+      "label": "Schedule your next progam."
+    },
+    {
+      "id": "113",
+      "label": "Book Your Feedback Call"
+    },
+    {
+      "id": "114",
+      "label": "Your Feedback call Is Pending : (Reminder 1)"
+    },
+    {
+      "id": "115",
+      "label": "Take Your Progress Score"
+    },
+    {
+      "id": "116",
+      "label": "Book Your Progress Call (Reminder 1)"
+    },
+    {
+      "id": "117",
+      "label": "Book Your Progress Call (Reminder 2)"
+    },
+    {
+      "id": "118",
+      "label": "Book Your Progress Call (Reminder 3)"
+    },
+    {
+      "id": "119",
+      "label": "Take Your Progress Score (Reminder 1)"
+    },
+    {
+      "id": "120",
+      "label": "Take Your Progress Score (Reminder 2)"
+    },
+    {
+      "id": "121",
+      "label": "Take Your Progress Score (Reminder 3)"
+    },
+    {
+      "id": "122",
+      "label": "Your Progress call Is Pending"
+    },
+    {
+      "id": "123",
+      "label": "Take Your Progress Score"
+    },
+    {
+      "id": "124",
+      "label": "Book Your Progress Call"
+    },
+    {
+      "id": "125",
+      "label": "Book Your Progress Call (Reminder 1)"
+    },
+    {
+      "id": "126",
+      "label": "Book Your Progress Call (Reminder 2)"
+    },
+    {
+      "id": "127",
+      "label": "Book Your Progress Call (Reminder 3)"
+    },
+    {
+      "id": "128",
+      "label": "Take Your Progress Score (Reminder 1)"
+    },
+    {
+      "id": "129",
+      "label": "Take Your Progress Score (Reminder 2)"
+    },
+    {
+      "id": "130",
+      "label": "Take Your Progress Score (Reminder 3)"
+    },
+    {
+      "id": "131",
+      "label": "Halftime progress Call is Due in 15 Minutes"
+    },
+    {
+      "id": "132",
+      "label": "Mid-program call successfully completed!"
+    },
+    {
+      "id": "133",
+      "label": "You Missed Your Mid-program progress Call"
+    },
+    {
+      "id": "134",
+      "label": "Book Your Half Time Progress Call"
+    },
+    {
+      "id": "141",
+      "label": "Your Feedback Matters"
+    },
+    {
+      "id": "135",
+      "label": "Final feedback call completed"
+    },
+    {
+      "id": "136",
+      "label": "Final feedback call missed"
+    },
+    {
+      "id": "137",
+      "label": "Important Update Regarding Your Program"
+    },
+    {
+      "id": "138",
+      "label": "Did you check the BN restaurant guide yet?"
+    },
+    {
+      "id": "139",
+      "label": "Did you achieve any milestone?"
+    },
+    {
+      "id": "140",
+      "label": "Book a feedback call with your mentor!"
+    },
+    {
+      "id": "142",
+      "label": "Program Feedback (Reminder 1)"
+    },
+    {
+      "id": "143",
+      "label": "Get 1000 INR in your BN Wallet with this"
+    },
+    {
+      "id": "144",
+      "label": "This is your last session"
+    },
+    {
+      "id": "145",
+      "label": "New Update Alert"
+    },
+    {
+      "id": "147",
+      "label": "Message from mentor (New program details)"
+    },
+    {
+      "id": "148",
+      "label": "We need to know this urgently!"
+    },
+    {
+      "id": "149",
+      "label": "Set a date for your next program!"
+    },
+    {
+      "id": "150",
+      "label": "Your Next Program Starts in 3 Days!"
+    },
+    {
+      "id": "151",
+      "label": "Your New Diet is Due Soon"
+    },
+    {
+      "id": "152",
+      "label": "Your Diet Starts Tomorrow!"
+    },
+    {
+      "id": "307",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "153",
+      "label": "Welcome Once Again!"
+    },
+    {
+      "id": "154",
+      "label": "Your New Program Has Started!"
+    },
+    {
+      "id": "155",
+      "label": "Your Program Has Lapsed."
+    },
+    {
+      "id": "157",
+      "label": "Maintenance Now On Side Bar"
+    },
+    {
+      "id": "158",
+      "label": "Time To Track Your Progress!"
+    },
+    {
+      "id": "159",
+      "label": "It's Time To Detox!"
+    },
+    {
+      "id": "160",
+      "label": "Get your Ideal Weight, Obesity & BMI Report"
+    },
+    {
+      "id": "161",
+      "label": "Get your Ideal Weight, BMI & Obesity Report (reminder)"
+    },
+    {
+      "id": "162",
+      "label": "Know All About Your 1-day Detox Plan"
+    },
+    {
+      "id": "163",
+      "label": "Why Is An Occasional Detox Necessary?"
+    },
+    {
+      "id": "164",
+      "label": "Important Points You Must Know."
+    },
+    {
+      "id": "165",
+      "label": "Benefits of Detox on your health"
+    },
+    {
+      "id": "166",
+      "label": "Your 1-Day Weight Loss Cleanse diet plan is ready!"
+    },
+    {
+      "id": "167",
+      "label": "Book Your Welcome Call"
+    },
+    {
+      "id": "168",
+      "label": "Welcome Call Pending : (Reminder 1)"
+    },
+    {
+      "id": "237",
+      "label": "Your Validity is Increased!"
+    },
+    {
+      "id": "169",
+      "label": "Update Your Start Weight!"
+    },
+    {
+      "id": "170",
+      "label": "Tell us your weight!"
+    },
+    {
+      "id": "171",
+      "label": "Start Weight Overdue : Reminder 1"
+    },
+    {
+      "id": "172",
+      "label": "Start Weight Overdue : Reminder 2"
+    },
+    {
+      "id": "173",
+      "label": "You haven't Updated All Your Trackers!"
+    },
+    {
+      "id": "174",
+      "label": "Ready to Update your Inch Tracker?"
+    },
+    {
+      "id": "175",
+      "label": "Your Weight Updates Are Due In:"
+    },
+    {
+      "id": "176",
+      "label": "Welcome to Balance Nutrition!"
+    },
+    {
+      "id": "177",
+      "label": "Message from Khyati Regarding Your Progress!"
+    },
+    {
+      "id": "178",
+      "label": "Message from Khyati : (Reminder 1)"
+    },
+    {
+      "id": "179",
+      "label": "Message from Khyati : (Reminder 2)"
+    },
+    {
+      "id": "180",
+      "label": "Message from Khyati : (Final Reminder)"
+    },
+    {
+      "id": "181",
+      "label": "Book Your Progress Call"
+    },
+    {
+      "id": "182",
+      "label": "Your Progress call Is Pending : (Reminder 1)"
+    },
+    {
+      "id": "183",
+      "label": "Your Progress call Is Pending : (Reminder 2)"
+    },
+    {
+      "id": "184",
+      "label": "Your Progress call Is Pending : (Final Reminder)"
+    },
+    {
+      "id": "185",
+      "label": "Welcome Call Pending : (Reminder 2)"
+    },
+    {
+      "id": "186",
+      "label": "Welcome Call Pending : (Final Reminder)"
+    },
+    {
+      "id": "187",
+      "label": "Here's what you need to do today."
+    },
+    {
+      "id": "188",
+      "label": "Lost weight? Tell us here!"
+    },
+    {
+      "id": "189",
+      "label": "Progress Call is Due in 15 Minutes"
+    },
+    {
+      "id": "190",
+      "label": "Followed the one-day flat stomach detox until now ?"
+    },
+    {
+      "id": "191",
+      "label": "Rs. 200 added to your BN Wallet!"
+    },
+    {
+      "id": "192",
+      "label": "Your Feedback call Is Pending : (Reminder 2)"
+    },
+    {
+      "id": "193",
+      "label": "Your Feedback call Is Pending"
+    },
+    {
+      "id": "271",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "194",
+      "label": "Now that your 1-day diet is over, this is what you can do next!"
+    },
+    {
+      "id": "195",
+      "label": "Most Recommended"
+    },
+    {
+      "id": "196",
+      "label": "Final anayltics"
+    },
+    {
+      "id": "197",
+      "label": "Current weight"
+    },
+    {
+      "id": "198",
+      "label": "BMI report"
+    },
+    {
+      "id": "199",
+      "label": "Up to 70% Off - Women's Day Offers!"
+    },
+    {
+      "id": "200",
+      "label": "Your break is approved!"
+    },
+    {
+      "id": "201",
+      "label": "Important Mail from Khyati"
+    },
+    {
+      "id": "203",
+      "label": "Progress Call Missed - (Reminder 1)"
+    },
+    {
+      "id": "204",
+      "label": "Feedback Call Missed - (Reminder 1)"
+    },
+    {
+      "id": "205",
+      "label": "Welcome Call Missed - (Reminder 2)"
+    },
+    {
+      "id": "206",
+      "label": "Progress Call Missed - (Reminder 2)"
+    },
+    {
+      "id": "207",
+      "label": "Feedback Call Missed - (Reminder 2)"
+    },
+    {
+      "id": "208",
+      "label": "An interesting read about constipation!"
+    },
+    {
+      "id": "209",
+      "label": "Foods you must add in your diet frequently!"
+    },
+    {
+      "id": "210",
+      "label": "Immunity & hair are connected :)"
+    },
+    {
+      "id": "211",
+      "label": "Super foods that combat acidity"
+    },
+    {
+      "id": "212",
+      "label": "Important tips that help you manage acidity"
+    },
+    {
+      "id": "213",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "214",
+      "label": "Your revised diet session is delivered!"
+    },
+    {
+      "id": "215",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "216",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "217",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "218",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "219",
+      "label": "Here's What You Need To Begin!"
+    },
+    {
+      "id": "220",
+      "label": "Diet Session [[diet_session]] is Ready!"
+    },
+    {
+      "id": "222",
+      "label": "Your mentor has sent you a message!"
+    },
+    {
+      "id": "223",
+      "label": "Book a feedback call with your mentor!"
+    },
+    {
+      "id": "224",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "225",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "226",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "227",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "228",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "229",
+      "label": "Wallet amount debited!"
+    },
+    {
+      "id": "230",
+      "label": "Your Mentor has sent you a PDF file!"
+    },
+    {
+      "id": "231",
+      "label": "Your mentor has sent you an image!"
+    },
+    {
+      "id": "232",
+      "label": "Wallet amount debited!"
+    },
+    {
+      "id": "233",
+      "label": "Have you seen your new diet?"
+    },
+    {
+      "id": "234",
+      "label": "Update Your Session Start Date"
+    },
+    {
+      "id": "235",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "236",
+      "label": "We have added 7 days!"
+    },
+    {
+      "id": "238",
+      "label": "Your Validity is Increased - last time!"
+    },
+    {
+      "id": "239",
+      "label": "Your Program has Expired!"
+    },
+    {
+      "id": "240",
+      "label": "New Update Available!"
+    },
+    {
+      "id": "241",
+      "label": "Your Program is now Active!"
+    },
+    {
+      "id": "242",
+      "label": "Your Feedback call Is Pending : (Reminder 2)"
+    },
+    {
+      "id": "243",
+      "label": "Freedom Bonus Added!"
+    },
+    {
+      "id": "244",
+      "label": "Happy Navratri!"
+    },
+    {
+      "id": "245",
+      "label": "Wallet amount debited!"
+    },
+    {
+      "id": "246",
+      "label": "Payment Due Date Extended"
+    },
+    {
+      "id": "247",
+      "label": "Your App is Outdated."
+    },
+    {
+      "id": "248",
+      "label": "Have you started following the session well?"
+    },
+    {
+      "id": "249",
+      "label": "Your Fasting Hours are Changed!"
+    },
+    {
+      "id": "250",
+      "label": "Message from your mentor!"
+    },
+    {
+      "id": "251",
+      "label": "We are delighted!"
+    },
+    {
+      "id": "252",
+      "label": "Call scheduled for you!"
+    },
+    {
+      "id": "253",
+      "label": "Your Program Starts Today!"
+    },
+    {
+      "id": "254",
+      "label": "Your Program Started Yesterday!"
+    },
+    {
+      "id": "255",
+      "label": "You are almost there!"
+    },
+    {
+      "id": "256",
+      "label": "Your Reference has Enrolled :)"
+    },
+    {
+      "id": "257",
+      "label": "Validity Warning Alert"
+    },
+    {
+      "id": "258",
+      "label": "Your Validity is Not Enough"
+    },
+    {
+      "id": "259",
+      "label": "Set Your Diet Session [[session_number]] Start Date"
+    },
+    {
+      "id": "260",
+      "label": "Diet Session [[session_number]] Start Date PENDING: (reminder 1)"
+    },
+    {
+      "id": "261",
+      "label": "Diet Session [[session_number]] Start Date PENDING: (FINAL reminder)"
+    },
+    {
+      "id": "262",
+      "label": "Important Message from Mentor."
+    },
+    {
+      "id": "263",
+      "label": "Have you missed this?"
+    },
+    {
+      "id": "265",
+      "label": "Urgent Message for You"
+    },
+    {
+      "id": "266",
+      "label": "Validity Update & More."
+    },
+    {
+      "id": "267",
+      "label": "It is almost a MONTH!!"
+    },
+    {
+      "id": "268",
+      "label": "Your Program is OVER!"
+    },
+    {
+      "id": "269",
+      "label": "Your Break ends Today!"
+    },
+    {
+      "id": "270",
+      "label": "Your Program has started again!"
+    },
+    {
+      "id": "272",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "273",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "274",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "275",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "276",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "277",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "278",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "279",
+      "label": "Your mentor wants to know more!"
+    },
+    {
+      "id": "280",
+      "label": "Your mentor wants to know more!"
+    },
+    {
+      "id": "281",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "282",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "283",
+      "label": "Your Membership is Dormant!"
+    },
+    {
+      "id": "284",
+      "label": "Mid-Session Weight Update!"
+    },
+    {
+      "id": "285",
+      "label": "End-Session Weight Update!"
+    },
+    {
+      "id": "286",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "287",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "288",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "289",
+      "label": "Restaurant Guide"
+    },
+    {
+      "id": "297",
+      "label": "Message from mentor (New program Activated)"
+    },
+    {
+      "id": "290",
+      "label": "It's time to check mid-program progress (Last Reminder)"
+    },
+    {
+      "id": "291",
+      "label": "Book Your Progress Call!"
+    },
+    {
+      "id": "292",
+      "label": "Program Feedback"
+    },
+    {
+      "id": "293",
+      "label": "Take Your Progress Score :)"
+    },
+    {
+      "id": "294",
+      "label": "Your Feedback call Is Pending :)"
+    },
+    {
+      "id": "295",
+      "label": "Let us know your goals :)"
+    },
+    {
+      "id": "296",
+      "label": "We Are Waiting!"
+    },
+    {
+      "id": "298",
+      "label": "Promotional notifications disabled!"
+    },
+    {
+      "id": "299",
+      "label": "Promotional notifications Enabled!"
+    },
+    {
+      "id": "300",
+      "label": "Welcome Once Again!"
+    },
+    {
+      "id": "301",
+      "label": "Welcome Once Again!"
+    },
+    {
+      "id": "302",
+      "label": "Testing IMF"
+    },
+    {
+      "id": "303",
+      "label": "Testing IMF 2"
+    },
+    {
+      "id": "304",
+      "label": "Testing IMF 3"
+    },
+    {
+      "id": "305",
+      "label": "Your Diet Session Start Date is Overdue!"
+    },
+    {
+      "id": "306",
+      "label": "Your New Program starts in 2 days!"
+    },
+    {
+      "id": "308",
+      "label": "Payment Link Expiry Information"
+    },
+    {
+      "id": "309",
+      "label": "Important link from your mentor"
+    },
+    {
+      "id": "310",
+      "label": "Your payment link just expired!"
+    },
+    {
+      "id": "311",
+      "label": "Cancellation of Payment Link!"
+    },
+    {
+      "id": "312",
+      "label": "Payment Notification Testing"
+    },
+    {
+      "id": "313",
+      "label": "Your rating matters!"
+    },
+    {
+      "id": "314",
+      "label": "Fantastic Feb Welcome Bonus!"
+    },
+    {
+      "id": "315",
+      "label": "You have a Credit :P"
+    },
+    {
+      "id": "316",
+      "label": "Rate Your Mentor Reminder 1"
+    },
+    {
+      "id": "317",
+      "label": "Rate Your Mentor Reminder 2"
+    },
+    {
+      "id": "318",
+      "label": "Rate Your Mentor Reminder 3"
+    },
+    {
+      "id": "319",
+      "label": "Rate Your Mentor Reminder 4"
+    },
+    {
+      "id": "320",
+      "label": "Rate Your Mentor Final Reminder"
+    },
+    {
+      "id": "321",
+      "label": "Check your Mid-program Obesity category progress Reminder 1"
+    },
+    {
+      "id": "322",
+      "label": "Check your Mid-program Obesity category progress Reminder 2"
+    },
+    {
+      "id": "323",
+      "label": "Check your Mid-program Obesity category progress Reminder 3"
+    },
+    {
+      "id": "324",
+      "label": "Check your Mid-program Obesity category progress Reminder 4"
+    },
+    {
+      "id": "325",
+      "label": "Check your Mid-program Obesity category progress Final Reminder"
+    },
+    {
+      "id": "326",
+      "label": "Your Mid-Program Call Update Reminder 1"
+    },
+    {
+      "id": "327",
+      "label": "Your Mid-Program Call Update Reminder 2"
+    },
+    {
+      "id": "328",
+      "label": "Your Mid-Program Call Update Reminder 3"
+    },
+    {
+      "id": "329",
+      "label": "Your Mid-Program Call Update Reminder 4"
+    },
+    {
+      "id": "330",
+      "label": "Your Mid-Program Call Update Final Reminder"
+    },
+    {
+      "id": "331",
+      "label": "Time to re-visit your goals! Reminder 1"
+    },
+    {
+      "id": "332",
+      "label": "Time to re-visit your goals! Reminder 2"
+    },
+    {
+      "id": "333",
+      "label": "Time to re-visit your goals! Reminder 3"
+    },
+    {
+      "id": "334",
+      "label": "Time to re-visit your goals! Reminder 4"
+    },
+    {
+      "id": "335",
+      "label": "Time to re-visit your goals! Final Reminder"
+    },
+    {
+      "id": "336",
+      "label": "Final Progress & B.M.I Update Reminder 1"
+    },
+    {
+      "id": "337",
+      "label": "Final Progress & B.M.I Update Reminder 2"
+    },
+    {
+      "id": "338",
+      "label": "Final Progress & B.M.I Update Reminder 3"
+    },
+    {
+      "id": "339",
+      "label": "Final Progress & B.M.I Update Reminder 4"
+    },
+    {
+      "id": "340",
+      "label": "Final Progress & B.M.I Update Last Reminder"
+    },
+    {
+      "id": "341",
+      "label": "Rate Your Program Reminder 1"
+    },
+    {
+      "id": "342",
+      "label": "Rate Your Program Reminder 2"
+    },
+    {
+      "id": "343",
+      "label": "Rate Your Program Reminder 3"
+    },
+    {
+      "id": "344",
+      "label": "Rate Your Program Reminder 4"
+    },
+    {
+      "id": "345",
+      "label": "Rate Your Program Final Reminder"
+    },
+    {
+      "id": "346",
+      "label": "Book Your Feedback Call Reminder 1"
+    },
+    {
+      "id": "347",
+      "label": "Book Your Feedback Call Reminder 2"
+    },
+    {
+      "id": "348",
+      "label": "Book Your Feedback Call Reminder 3"
+    },
+    {
+      "id": "349",
+      "label": "Book Your Feedback Call Reminder 4"
+    },
+    {
+      "id": "350",
+      "label": "Book Your Feedback Call Final Reminder"
+    },
+    {
+      "id": "351",
+      "label": "Congratulations!"
+    },
+    {
+      "id": "352",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "353",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "354",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "355",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "356",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "357",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "358",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "359",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "360",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "361",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "362",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "363",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "364",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "365",
+      "label": "Your mentor has sent you a Cleanse!"
+    },
+    {
+      "id": "366",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "367",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "368",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "369",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "370",
+      "label": "Mentor [[mentor_name]] has scheduled a Call"
+    },
+    {
+      "id": "371",
+      "label": "You Missed Your Mentor Call"
+    },
+    {
+      "id": "372",
+      "label": "Mentor call successfully completed!"
+    },
+    {
+      "id": "373",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "374",
+      "label": "Congratulations! You won this :)"
+    },
+    {
+      "id": "375",
+      "label": "Congratulations! You won this :)"
+    },
+    {
+      "id": "376",
+      "label": "You have unlocked a Surprise :)"
+    },
+    {
+      "id": "377",
+      "label": "An Urgent Update!"
+    },
+    {
+      "id": "378",
+      "label": "Birthday Bonus Added!"
+    },
+    {
+      "id": "379",
+      "label": "Happy Birthday"
+    },
+    {
+      "id": "380",
+      "label": "Anniversary Bonus Added!"
+    },
+    {
+      "id": "381",
+      "label": "I am Worried - message from Khyati Rupani"
+    },
+    {
+      "id": "382",
+      "label": "We have sent you another surprise :)"
+    },
+    {
+      "id": "383",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "384",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "385",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "386",
+      "label": "Call Cancelled"
+    },
+    {
+      "id": "387",
+      "label": "Happy Birthday"
+    },
+    {
+      "id": "388",
+      "label": "Payment Recieved"
+    },
+    {
+      "id": "389",
+      "label": "Payment Recieved"
+    },
+    {
+      "id": "390",
+      "label": "Your Call with the Nutrition Manager is Scheduled."
+    },
+    {
+      "id": "391",
+      "label": "Thank you!"
+    },
+    {
+      "id": "392",
+      "label": "Weight Update Received!"
+    },
+    {
+      "id": "393",
+      "label": "End Session Weight Update Received."
+    },
+    {
+      "id": "394",
+      "label": "Additional Call Successfully Booked."
+    },
+    {
+      "id": "395",
+      "label": "Additional Call Rescheduled Successfully."
+    },
+    {
+      "id": "396",
+      "label": "Book a Call with your Mentor."
+    },
+    {
+      "id": "397",
+      "label": "A New Guide Activated!"
+    },
+    {
+      "id": "398",
+      "label": "Rs. 500 added to your BN Wallet!"
+    },
+    {
+      "id": "399",
+      "label": "Rs. 50 added to your BN Wallet!"
+    },
+    {
+      "id": "400",
+      "label": "BN Wallet Debited!"
+    },
+    {
+      "id": "401",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "402",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "403",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "404",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "405",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "406",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "407",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "408",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "409",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "410",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "411",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "412",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "413",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "414",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "415",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "416",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "417",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "418",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "419",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "420",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "421",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "422",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "423",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "424",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "425",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "426",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "427",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "428",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "429",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "430",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "431",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "432",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "433",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "434",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "435",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "436",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "437",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "438",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "439",
+      "label": "Message From Mentor!"
+    },
+    {
+      "id": "440",
+      "label": "Your Program Starts Today!"
+    }
+  ]
+}
