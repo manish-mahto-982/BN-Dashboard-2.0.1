@@ -40,8 +40,9 @@ function OCClients() {
             <Card
               {...noStyleBtnProps}
               component={"button"}
+              sx={{borderRadius:4}}
               className={classNames(
-                "w-full rounded-xl px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
                 { "hover:bg-opacity-5": darkMode },
               )}
             >
@@ -104,8 +105,9 @@ function OCClients() {
             <Card
               {...noStyleBtnProps}
               component={"button"}
+              sx={{borderRadius:4}}
               className={classNames(
-                "w-full rounded-xl px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
                 { "hover:bg-opacity-5": darkMode },
               )}
             >
@@ -168,8 +170,9 @@ function OCClients() {
             <Card
               {...noStyleBtnProps}
               component={"button"}
+              sx={{borderRadius:4}}
               className={classNames(
-                "w-full rounded-xl px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
                 { "hover:bg-opacity-5": darkMode },
               )}
             >

@@ -8,6 +8,7 @@ import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
 import ExpiryClient from "src/screens/cs-dashboard/task/ExpiryClient";
 import Maintenance from "src/screens/cs-dashboard/task/Maintenance";
 import OCClients from "src/screens/cs-dashboard/task/OCClients";
+import Drafts from "src/screens/quick-access/Drafts";
 const clientServiceRoute = [
   {
     type: "title",
@@ -83,21 +84,21 @@ const clientServiceRoute = [
     route: "/oc-clients",
     component: <OCClients />,
   },
-  // {
-  //   type: "divider",
-  // },
-  // {
-  //   type: "title",
-  //   title: "Quick Access",
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Engagement Section",
-  //   key: "drafts",
-  //   icon: <Icon fontSize="small">ImageIcon</Icon>,
-  //   route: "/drafts",
-  //   component: <EngagementSection />,
-  // },
+  {
+    type: "divider",
+  },
+  {
+    type: "title",
+    title: "Quick Access",
+  },
+  {
+    type: "collapse",
+    name: "Drafts",
+    key: "drafts",
+    icon: <Icon fontSize="small">file</Icon>,
+    route: "/drafts",
+    component: <Drafts />,
+  },
   // {
   //   type: "collapse",
   //   name: "Documentations",
