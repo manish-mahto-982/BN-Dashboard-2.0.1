@@ -156,7 +156,7 @@ const RatingTable = ({ theme }) => {
   return (
     <>
       <Grid container direction="column">
-        <Grid item pb={2} xs={12} bgcolor={theme.palette.bnBlue[500]}>
+        <Grid item pb={2} xs={12} bgcolor={'info.main'}>
           <Grid
             container
             alignItems="center"
@@ -183,11 +183,11 @@ const RatingTable = ({ theme }) => {
               component={Paper}
               style={{
                 borderRadius: 0,
-                backgroundColor: theme.palette.background.default,
+                backgroundColor: 'background.default',
               }}
             >
               <Table sx={{ minWidth: 320 }} aria-label="customized table">
-                <TableHead sx={{ bgcolor: theme.palette.background.alt }}>
+                <TableHead sx={{ bgcolor: 'background.default' }}>
                   <TableRow>
                     <TableCell sx={{ fontSize: 14 }}>Stars</TableCell>
                     <TableCell align="center" sx={{ fontSize: 14 }}>
@@ -217,8 +217,8 @@ const RatingTable = ({ theme }) => {
                           ":hover": {
                             bgcolor:
                               theme.palette.mode === "dark"
-                                ? theme.palette.background.default
-                                : theme.palette.background.alt,
+                                ? 'background.default'
+                                : 'background.default',
                           },
                         }}
                       >

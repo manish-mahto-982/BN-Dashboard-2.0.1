@@ -29,7 +29,7 @@ const tab = {
       lineHeight: "inherit",
       padding: pxToRem(4),
       borderRadius: borderRadius.lg,
-      color: `${dark.main} !important`,
+      color: `dark !important`,
       opacity: "1 !important",
 
       "& .material-icons, .material-icons-round": {

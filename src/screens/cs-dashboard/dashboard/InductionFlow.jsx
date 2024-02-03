@@ -265,7 +265,7 @@ const GridCard = ({
           }
           bgColor={darkMode ? "secondary" : "dark"}
           // coloredShadow={darkMode ? "secondary" : "dark"}
-          // bgcolor={theme.palette.background.alt}
+          // bgcolor={'background.default'}
         >
           <Icon size={20} className={"-mb-1 stroke-white"} />
         </MDBox>

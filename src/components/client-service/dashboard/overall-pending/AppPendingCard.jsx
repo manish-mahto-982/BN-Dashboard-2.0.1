@@ -101,7 +101,7 @@ function AppPendingCard() {
             className={`rounded-lg cursor-pointer transition-all duration-300 ease-linear`}
             sx={{
               "&:hover": {
-                bgcolor: theme.palette.background.default,
+                bgcolor: 'background.default',
                 "&:active": { bgcolor: "unset" },
               },
             }}
@@ -143,7 +143,7 @@ function AppPendingCard() {
             className={`rounded-lg cursor-pointer transition-all duration-300 ease-linear`}
             sx={{
               "&:hover": {
-                bgcolor: theme.palette.background.default,
+                bgcolor: 'background.default',
                 "&:active": { bgcolor: "unset" },
               },
             }}
