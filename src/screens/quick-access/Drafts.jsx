@@ -1,59 +1,73 @@
 import React from "react";
 import CSLayout from "../cs-dashboard/layout";
-import { Card, Dialog, DialogActions, Grid, Tooltip } from "@mui/material";
+import {
+  Card,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Grid,
+  IconButton,
+  TextField,
+  Tooltip,
+} from "@mui/material";
 import MDButton from "src/components/theme/common/MDButton";
-import { TbPlus } from "react-icons/tb";
+import { TbPlus, TbX } from "react-icons/tb";
+import { Controller, useForm } from "react-hook-form";
 import useShowDialog from "src/hooks/useShowDialog";
 import MDTypography from "src/components/theme/common/MDTypography";
 import MDBox from "src/components/theme/common/MDBox";
 import { TransitionSlidUp } from "src/components/client-service/table/DataGridTableDialog";
-
+import MDDropDown from "src/components/theme/common/MDDropdown";
+import { draftOptions } from "src/utils/constants";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import DraftsTable from "src/components/client-service/quick-access/DraftsTable";
 const Drafts = () => {
   const [show, setShow] = useShowDialog(false);
   return (
-    <CSLayout>
-      <Grid container>
-        <Grid xs={12} item>
-          <Card className={`w-full`}>
-            <MDBox
-              className={`flex w-full flex-row items-center justify-between`}
-            >
-              <MDTypography variant={"h6"}>Drafts table</MDTypography>
-              <Tooltip title="Add draft" placement="left">
-                <MDButton
-                  startIcon={<TbPlus size={20} />}
-                  onClick={() => setShow(true)}
-                  color="secondary"
-                  variant="contained"
-                  disableElevation
-                  sx={{
-                    color: "white",
-                    fontSize: 15,
-                    bgcolor: "info.main",
-                  }}
-                >
-                  NEW
-                </MDButton>
-              </Tooltip>
-            </MDBox>
-
-            {/* <DraftsTable /> */}
-          </Card>
+    <>
+      <CSLayout>
+        <Grid container >
+          <Grid xs={12} item>
+            <Card className={`w-full p-4`}>
+              <MDBox
+                className={`flex w-full flex-row items-center justify-between pt-4 pb-8`}
+              >
+                <MDTypography variant={"h6"}>Drafts table</MDTypography>
+                <Tooltip title="Add draft" placement="left">
+                  <MDButton
+                    startIcon={<TbPlus size={14} />}
+                    onClick={() => setShow(true)}
+                    color="secondary"
+                    variant="contained"
+                    disableElevation
+                    sx={{
+                      color: "white",
+                      fontSize: 12,
+                      bgcolor: "info.main",
+                    }}
+                  >
+                    NEW
+                  </MDButton>
+                </Tooltip>
+              </MDBox>
+              <DraftsTable />
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
-    </CSLayout>
+      </CSLayout>
+      <AddDraftDialog show={show} setShow={setShow} />
+    </>
   );
 };
 
 export default Drafts;
 
-
-
 export const ADD_DRAFT_INITIAL_STATE = { title: "", type: 1, description: "" };
 export const AddDraftDialog = ({
   show,
   setShow,
-  theme,
   data = ADD_DRAFT_INITIAL_STATE,
 }) => {
   const { handleSubmit, control } = useForm({
@@ -72,7 +86,7 @@ export const AddDraftDialog = ({
           alignItems={"center"}
           justifyContent={"space-between"}
           color={"#fff"}
-          bgcolor={theme.palette.bnBlue[500]}
+          bgcolor={"info.main"}
         >
           Add Draft
           <IconButton onClick={handleClose}>
@@ -80,7 +94,7 @@ export const AddDraftDialog = ({
           </IconButton>
         </DialogTitle>
 
-        <DialogContent sx={{ bgcolor: theme.palette.background.default }}>
+        <DialogContent sx={{ bgcolor: "background.default" }}>
           <Controller
             name={"title"}
             control={control}
@@ -105,13 +119,13 @@ export const AddDraftDialog = ({
             )}
           />
 
-          <Typography mt={3.5} mb={1} color={"#697586"}>
+          <MDTypography mt={3.5} mb={1} color={"#697586"}>
             Type
-          </Typography>
-          <DropDown options={DRAFT_OPTIONS} selectedInd={data.type} />
-          <Typography mt={3.5} mb={1} color={"#697586"}>
+          </MDTypography>
+          <MDDropDown options={draftOptions} selectedInd={data.type} />
+          <MDTypography mt={3.5} mb={1} color={"#697586"}>
             Description
-          </Typography>
+          </MDTypography>
           <Controller
             name="description"
             control={control}
@@ -125,13 +139,13 @@ export const AddDraftDialog = ({
             )}
           />
         </DialogContent>
-        <DialogActions sx={{ bgcolor: theme.palette.background.alt }}>
+        <DialogActions sx={{ bgcolor: "background.default" }}>
           <MDButton color="secondary" onClick={handleClose}>
             Cancel
           </MDButton>
           <MDButton
             variant="contained"
-            sx={{ bgcolor: theme.palette.bnBlue[500] }}
+            sx={{ bgcolor: "info.main" }}
             disableElevation
             style={{ color: "white" }}
             onClick={handleClose}

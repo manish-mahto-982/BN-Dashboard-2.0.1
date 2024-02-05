@@ -1,6 +1,6 @@
 import { api } from "src/services/client-service/api";
 
-export const DRAFT_OPTIONS = [
+export const draftOptions = [
   "Refund",
   "Lead",
   "Balance Payment",

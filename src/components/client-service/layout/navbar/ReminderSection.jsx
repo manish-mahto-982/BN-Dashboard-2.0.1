@@ -182,7 +182,7 @@ const ReminderTable = ({
                 component={Paper}
                 style={{
                   // borderRadius: 0,
-                  backgroundColor: theme.palette.background.default,
+                  backgroundColor: 'background.default',
                   boxShadow: "none",
                   marginTop: 4,
                   borderRadius: 8,
@@ -198,8 +198,8 @@ const ReminderTable = ({
                           transitionDuration: "300ms",
                           ":hover": {
                             bgcolor: darkMode
-                              ? theme.palette.background.main
-                              : theme.palette.background.main,
+                              ? 'background.default'
+                              : 'background.default',
                           },
                         }}
                       >
@@ -272,7 +272,7 @@ const AddReminderDialog = ({
             <TbX stroke="#fff" />
           </IconButton>
         </DialogTitle>
-        <DialogContent sx={{ bgcolor: theme.palette.background.default }}>
+        <DialogContent sx={{ bgcolor: 'background.default' }}>
           <TextField
             autoFocus
             color="secondary"
@@ -301,7 +301,7 @@ const AddReminderDialog = ({
                   layout: {
                     sx: {
                       [`.${pickersLayoutClasses.contentWrapper}`]: {
-                        bgcolor: theme.palette.background.default,
+                        bgcolor: 'background.default',
                       },
                       [`.${pickersLayoutClasses.actionBar}`]: {},
                       "& .MuiClock-pin ,.MuiClockPointer-root": {
@@ -342,7 +342,7 @@ const AddReminderDialog = ({
             </LocalizationProvider>
           </Box>
         </DialogContent>
-        <DialogActions sx={{ bgcolor: theme.palette.background.alt }}>
+        <DialogActions sx={{ bgcolor: 'background.default' }}>
           <Button color="secondary" onClick={handleClose}>
             Cancel
           </Button>

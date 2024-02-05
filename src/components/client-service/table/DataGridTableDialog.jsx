@@ -78,7 +78,7 @@ export default function DataGridTableDialog({
           sx={{
             p: { xs: 1, sm: 2, md: 3, lg: 4 },
             height: "100%",
-            backgroundColor: theme.palette.background.default,
+            backgroundColor: 'background.default',
           }}
         >
           {dataGrid}

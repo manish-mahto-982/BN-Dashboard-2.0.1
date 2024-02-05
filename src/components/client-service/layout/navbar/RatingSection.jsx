@@ -146,8 +146,8 @@ const RatingTable = ({ open, handleCloseTable, setOpen, theme }) => {
                           ":hover": {
                             bgcolor:
                               theme.palette.mode === "dark"
-                                ? theme.palette.background.default
-                                : theme.palette.background.alt,
+                                ? 'background.default'
+                                : 'background.default',
                           },
                         }}
                       >

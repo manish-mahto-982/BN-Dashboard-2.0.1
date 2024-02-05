@@ -37,7 +37,7 @@ const useStyles = styled((theme) => ({
 
     "& a": {
       textDecoration: "none",
-      color: theme.palette.primary.main,
+      color: 'info.main',
     },
   },
   confirmButton: {
@@ -51,7 +51,7 @@ const useStyles = styled((theme) => ({
     padding: theme.spacing(0.75, 2),
     borderRadius: 4,
     fontFamily: "inherit",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: 'info.main',
 
     "&:hover": {
       backgroundColor: theme.palette.primary.dark,
@@ -80,7 +80,7 @@ const useStyles = styled((theme) => ({
     borderColor: theme.palette.divider,
     "& a": {
       textDecoration: "none",
-      color: theme.palette.primary.main,
+      color: 'info.main',
     },
   },
 }));

@@ -1,6 +1,7 @@
 // Balance Nutrition React layouts
 // @mui icons
 import Icon from "@mui/material/Icon";
+import ClientDetails from "src/screens/cs-dashboard/dashboard/ClientDetails";
 import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney";
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
 import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
@@ -21,6 +22,13 @@ const clientServiceRoute = [
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
     collapse: [
+      {
+        key: "client-details",
+        name: "Client Details",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/client-details",
+        component: <ClientDetails />,
+      },
       {
         key: "induction-flow",
         name: "Induction Flow",
@@ -86,9 +94,11 @@ const clientServiceRoute = [
   },
   {
     type: "divider",
+    key: "quick-access-divider",
   },
   {
     type: "title",
+    key: "quick-access-title",
     title: "Quick Access",
   },
   {
