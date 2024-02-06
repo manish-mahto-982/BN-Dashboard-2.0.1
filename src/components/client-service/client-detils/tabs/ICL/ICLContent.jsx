@@ -9,7 +9,7 @@ import VerticalTabs from "src/components/client-service/common/VerticalTabs";
 
 export default function ICLContent() {
   const theme = useTheme();
-  return <VerticalTabs theme={theme} tabs={iclTabs} />;
+  return <VerticalTabs tabsHeight="180px" theme={theme} tabs={iclTabs} />;
 }
 
 const iclTabs = [

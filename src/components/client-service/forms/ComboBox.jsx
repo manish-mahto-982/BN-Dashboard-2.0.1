@@ -26,10 +26,15 @@ const ComboBox = React.forwardRef(
         sx={{}}
         renderInput={(params) => (
           <TextField
-            sx={{ textTransform: "capitalize" }}
-            color="secondary"
+            color="secondary"      
             label={label}
             {...params}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                padding:'5px'
+              }
+            }}
+
           />
         )}
         {...props}

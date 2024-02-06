@@ -15,7 +15,10 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
-      style={{ width: "100%" ,}}
+      style={{
+        width: "100%",
+        minWidth: "400px",
+      }}
       {...other}
     >
       {value === index && (
@@ -48,6 +51,7 @@ function a11yProps(index) {
 export default function VerticalTabs({
   tabs = [{ label: "", tabComponent: <></> }],
   theme,
+  tabsHeight = "500px",
 }) {
   const [value, setValue] = React.useState(0);
 
@@ -60,6 +64,7 @@ export default function VerticalTabs({
         flexGrow: 1,
         display: "flex",
         height: "100%",
+        overflowX: "scroll",
       }}
     >
       <Tabs
@@ -74,8 +79,9 @@ export default function VerticalTabs({
           borderColor: "divider",
           minWidth: "186px",
           maxWidth: "186px",
-          height: '500px',
-          '&.MuiTabs-root.MuiTabs-vertical':{borderRight:'unset'}
+          // display:'none',
+          height: tabsHeight,
+          "&.MuiTabs-root.MuiTabs-vertical": { borderRight: "unset" },
         }}
       >
         {tabs.map((item, index) => (
@@ -85,7 +91,7 @@ export default function VerticalTabs({
             // color="secondary"
             {...a11yProps(index)}
             sx={{
-              fontSize:'small'
+              fontSize: "small",
               // "&.Mui-selected": { color: 'info.main' },
             }}
           />

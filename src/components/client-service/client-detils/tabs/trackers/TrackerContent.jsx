@@ -6,6 +6,7 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
+  Divider,
   Grid,
   Stack,
   TextField,
@@ -112,11 +113,11 @@ function TrackerContent({ theme }) {
               color: "green",
               onClick: () => editClick(params),
             }}
-            Icon={TbEdit}
+            Icon={() => <TbEdit size={18} />}
           />
           <IconButtonWithToolTip
             iconButtonProps={{ color: "red" }}
-            Icon={TbTrash}
+            Icon={() => <TbTrash size={18} />}
           />
           <MDBox
             sx={{
@@ -127,7 +128,7 @@ function TrackerContent({ theme }) {
               borderRadius: 10,
               columnGap: 0.5,
               bgcolor: `rgba(0,255,0,0.2)`,
-              color: 'success',
+              color: "success",
             }}
           >
             Approved
@@ -195,11 +196,11 @@ function TrackerContent({ theme }) {
               color: "green",
               onClick: () => editClick(params),
             }}
-            Icon={TbEdit}
+            Icon={() => <TbEdit size={18} />}
           />
           <IconButtonWithToolTip
             iconButtonProps={{ color: "red" }}
-            Icon={TbTrash}
+            Icon={() => <TbTrash size={18} />}
           />
           <MDBox
             sx={{
@@ -230,11 +231,11 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbScaleOutline
                   size={32}
-                  color={'info'}
+                  color={"info"}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
-                    backgroundColor: 'background.default',
+                    backgroundColor: "background.default",
                     borderRadius: "50%",
                   }}
                 />
@@ -261,7 +262,11 @@ function TrackerContent({ theme }) {
               columns={columns}
               slots={{
                 pagination: () => (
-                  <Typography textAlign={"center"} mx={"auto"}>
+                  <Typography
+                    fontSize={"small"}
+                    textAlign={"center"}
+                    mx={"auto"}
+                  >
                     Total weight loss in this session :{" "}
                     <span style={{ color: "red", fontWeight: 600 }}>
                       18.70 Kg
@@ -271,7 +276,8 @@ function TrackerContent({ theme }) {
               }}
               sx={{
                 mt: 2,
-                bgcolor: 'background.default',
+                fontSize: "small",
+                bgcolor: "background.default",
                 ".MuiDataGrid-cell:focus-within": { outline: "none" },
                 [`& .${gridClasses.cell}`]: {
                   py: 1,
@@ -285,11 +291,11 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbRuler2
                   size={32}
-                  color={'info'}
+                  color={"info"}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
-                    backgroundColor: 'background.default',
+                    backgroundColor: "background.default",
                     borderRadius: "50%",
                   }}
                 />
@@ -318,7 +324,8 @@ function TrackerContent({ theme }) {
               }}
               sx={{
                 mt: 2,
-                bgcolor: 'background.default',
+                fontSize: "small",
+                bgcolor: "background.default",
                 ".MuiDataGrid-cell:focus-within": { outline: "none" },
                 [`& .${gridClasses.cell}`]: {
                   py: 1,
@@ -332,11 +339,11 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbCamera
                   size={32}
-                  color={'info'}
+                  color={"info"}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
-                    backgroundColor: 'background.default',
+                    backgroundColor: "background.default",
                     borderRadius: "50%",
                   }}
                 />
@@ -364,10 +371,11 @@ function TrackerContent({ theme }) {
               <CardHeader
                 title="Assessment Photo"
                 sx={{
-                  bgcolor: 'background.default',
+                  
                   textAlign: "center",
                 }}
               />
+              <Divider sx={{pt:0}} />
               <CardMedia
                 sx={{
                   height: 300,

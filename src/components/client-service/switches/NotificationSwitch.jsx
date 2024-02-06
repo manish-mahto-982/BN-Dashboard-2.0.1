@@ -10,13 +10,9 @@ function NotificationSwitch({ defaultValue = false }) {
   return (
     <FormControlLabel
       labelPlacement="start"
-      control={
-        <IOSStyleSwitch
-          defaultValue={value}
-          setValue={setValue}
-        />
-      }
+      control={<IOSStyleSwitch defaultValue={value} setValue={setValue} />}
       sx={{
+        whiteSpace: "nowrap",
         "& .MuiFormControlLabel-label": {
           textTransform: "uppercase",
           fontWeight: 600,

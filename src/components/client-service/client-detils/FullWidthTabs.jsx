@@ -15,6 +15,8 @@ import WeightDetailsContent from "./tabs/weight-details/WeightDetailsContent";
 import FeedbackContent from "./tabs/feedback/FeedbackContent";
 import WalletStatementContent from "./tabs/wallet-statement/WalletStatementContent";
 import MentorChats from "./tabs/mentor-chats/MentorChats";
+import MentorChatsNew from "./tabs/mentor-chats/MetorChatsNew";
+import { useMaterialUIController } from "src/context";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -27,7 +29,7 @@ function TabPanel(props) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
     </div>
   );
 }
@@ -48,7 +50,8 @@ function a11yProps(index) {
 export default function FullWidthTabs({ handleAddWallet }) {
   const theme = useTheme();
   const [value, setValue] = React.useState(1);
-
+  const [controller] = useMaterialUIController();
+  const { darkMode } = controller;
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -68,28 +71,35 @@ export default function FullWidthTabs({ handleAddWallet }) {
     >
       <AppBar
         position="static"
-        sx={{ bgcolor: "background.default" }}
+        sx={{ bgcolor: "background.default", overflowX: "scroll" }}
         elevation={0}
       >
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
+          indicatorColor="info.main"
           scrollButtons="auto"
           variant="scrollable"
+          textColor="#fff"
           sx={{
-            width: "100%",
+            minWidth: "1000px",
             "& span.MuiTabs-indicator": {
               height: "80%",
-              marginBottom: '3px',
+              backgroundColor: "info.main",
+              color: "#fff",
+              my: 0.7,
+            },
+            "& .Mui-selected": {
+              // backgroundColor: "info.main",
+              color: "#fff",
+              my: 1.5,
             },
           }}
         >
           <Tab
             label="User Credentials"
             {...a11yProps(0)}
-            sx={{ fontSize: "small" }}
+            sx={{ fontSize: "small", whiteSpace: "nowrap" }}
           />
           <Tab
             sx={{ fontSize: "small" }}
@@ -149,7 +159,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
         <WeightDetailsContent theme={theme} />
       </TabPanel>
       <TabPanel value={value} index={5} dir={theme.direction}>
-        <MentorChats theme={theme} />
+        <MentorChatsNew {...{darkMode}} />
       </TabPanel>
       <TabPanel value={value} index={6} dir={theme.direction}>
         <NotificationSentContent />

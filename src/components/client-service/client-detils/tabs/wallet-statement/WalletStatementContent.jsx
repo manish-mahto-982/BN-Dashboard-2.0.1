@@ -18,7 +18,12 @@ function WalletStatementContent({ theme, handleAddWallet }) {
         rows={rows}
         getRowId={(params) => params["Sr No."]}
         columns={columns}
-        sx={{ minHeight: 300 }}
+        sx={{
+          minHeight: 300,
+          fontSize: "small",
+          "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+            { fontSize: "small" },
+        }}
         disableColumnFilter
         disableColumnSelector
         disableDensitySelector

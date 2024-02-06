@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   ButtonGroup,
+  Card,
   Divider,
   Grid,
   Typography,
@@ -34,131 +35,121 @@ function ClientDetails() {
   return (
     <CSLayout>
       <Grid container>
-        <Grid  width={"100%"} mt={2} item xs={12}>
-          <FlexBoxBetween
-            mt={-2}
-            flexWrap="wrap"
-            width={1}
-            justifyContent={"flex-end"}
-          >
-           
-            <Box>
-              <FlexBoxBetween>
-                <ButtonGroup variant="text" aria-label="text button group" color="info" className="h-10">
-                  <Button sx={{ color: "text" }}>
-                    Session&nbsp;Total&nbsp;:&nbsp;
-                    <strong
-                      style={{
-                        color: "text",
-                        fontSize: "14px",
-                      }}
-                    >
-                      12
-                    </strong>
-                    &nbsp;
-                  </Button>
-                  <Button sx={{ color: "text" }}>
-                    Sent&nbsp;:&nbsp;
-                    <strong
-                      style={{
-                        color: "text",
-                        fontSize: "14px",
-                      }}
-                    >
-                      12
-                    </strong>
-                    &nbsp;
-                  </Button>
-                  <Button sx={{ color: "text" }}>
-                    Pending&nbsp;:&nbsp;
-                    <strong
-                      style={{
-                        color: "text",
-                        fontSize: "14px",
-                      }}
-                    >
-                      12
-                    </strong>
-                    &nbsp;
-                  </Button>
-                  <Button sx={{ color: "text" }}>
-                    Pending&nbsp;(Days)&nbsp;Validity&nbsp;:&nbsp;
-                    <strong
-                      style={{
-                        color: "text",
-                        fontSize: "14px",
-                      }}
-                    >
-                      12
-                    </strong>
-                    &nbsp;
-                  </Button>
-                  
-                  <NotificationSwitch />
-                  <Divider variant="vertical" />
-                  <WatiSwitch />
-                </ButtonGroup>
-              </FlexBoxBetween>
-            </Box>
+        <Grid width={"100%"} className="overflow-x-scroll" mt={2} item xs={12}>
+          <FlexBoxBetween>
+            <ButtonGroup
+              variant="text"
+              aria-label="text button group"
+              color="info"
+              className="h-10"
+            >
+              <Button sx={{ color: "text" }}>
+                Session&nbsp;Total&nbsp;:&nbsp;
+                <strong
+                  style={{
+                    color: "text",
+                    fontSize: "14px",
+                  }}
+                >
+                  12
+                </strong>
+                &nbsp;
+              </Button>
+              <Button sx={{ color: "text" }}>
+                Sent&nbsp;:&nbsp;
+                <strong
+                  style={{
+                    color: "text",
+                    fontSize: "14px",
+                  }}
+                >
+                  12
+                </strong>
+                &nbsp;
+              </Button>
+              <Button sx={{ color: "text" }}>
+                Pending&nbsp;:&nbsp;
+                <strong
+                  style={{
+                    color: "text",
+                    fontSize: "14px",
+                  }}
+                >
+                  12
+                </strong>
+                &nbsp;
+              </Button>
+              <Button sx={{ color: "text" }}>
+                Pending&nbsp;(Days)&nbsp;Validity&nbsp;:&nbsp;
+                <strong
+                  style={{
+                    color: "text",
+                    fontSize: "14px",
+                  }}
+                >
+                  12
+                </strong>
+                &nbsp;
+              </Button>
+              <NotificationSwitch />
+              <Divider variant="vertical" />
+              <WatiSwitch />
+            </ButtonGroup>
           </FlexBoxBetween>
           <Divider sx={{ width: "100%", mt: 2 }} />
         </Grid>
-        <Grid item xs={12} mt={7}>
-          <Grid
-            container
-            width={"100%"}
-            p={2}
-            bgcolor={"background.default"}
-            borderRadius={`${20}px`}
-          >
-            <Grid item xs={12} md={6} lg={4}>
-              {clientDetails.slice(0, 6).map((item) => {
-                return Object.entries(item).map(([key, value]) => {
-                  const title = key;
-                  return (
-                    <TitleValueText
-                      key={key}
-                      title={key}
-                      value={value}
-                      theme={theme}
-                    />
-                  );
-                });
-              })}
+        <Grid item xs={12}>
+          <Card sx={{ mb: 2 }}>
+            <Grid container width={"100%"} p={2}>
+              <Grid item xs={12} md={6} lg={4}>
+                {clientDetails.slice(0, 6).map((item) => {
+                  return Object.entries(item).map(([key, value]) => {
+                    const title = key;
+                    return (
+                      <TitleValueText
+                        key={key}
+                        title={key}
+                        value={value}
+                        theme={theme}
+                      />
+                    );
+                  });
+                })}
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                {clientDetails.slice(6, 12).map((item) => {
+                  return Object.entries(item).map(([key, value]) => {
+                    const title = key;
+                    return (
+                      <TitleValueText
+                        key={key}
+                        title={key}
+                        value={value}
+                        theme={theme}
+                      />
+                    );
+                  });
+                })}
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                {clientDetails.slice(12, clientDetails.length).map((item) => {
+                  return Object.entries(item).map(([key, value]) => {
+                    const title = key;
+                    return (
+                      <TitleValueText
+                        key={key}
+                        title={key}
+                        value={value}
+                        theme={theme}
+                        handleAddWallet={handleAddWallet}
+                        handleEditLink={handleEditLink}
+                      />
+                    );
+                  });
+                })}
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              {clientDetails.slice(6, 12).map((item) => {
-                return Object.entries(item).map(([key, value]) => {
-                  const title = key;
-                  return (
-                    <TitleValueText
-                      key={key}
-                      title={key}
-                      value={value}
-                      theme={theme}
-                    />
-                  );
-                });
-              })}
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              {clientDetails.slice(12, clientDetails.length).map((item) => {
-                return Object.entries(item).map(([key, value]) => {
-                  const title = key;
-                  return (
-                    <TitleValueText
-                      key={key}
-                      title={key}
-                      value={value}
-                      theme={theme}
-                      handleAddWallet={handleAddWallet}
-                      handleEditLink={handleEditLink}
-                    />
-                  );
-                });
-              })}
-            </Grid>
-          </Grid>
+          </Card>
         </Grid>
         <Grid item xs={12}>
           <FullWidthTabs handleAddWallet={handleAddWallet} />
@@ -296,18 +287,22 @@ const TitleValueText = ({
                 }}
                 startIcon={<TbCopy color="info" strokeWidth="1.5" />}
               >
-                <MDTypography fontSize={'small'}>Copy Link</MDTypography>
+                <MDTypography fontSize={"small"}>Copy Link</MDTypography>
               </Button>
               <Button
                 onClick={handleEditLink}
-              sx={{
-                  color:colors.success.main,
+                sx={{
+                  color: colors.success.main,
                   textTransform: "capitalize",
                   textDecoration: "underline",
                 }}
-                startIcon={<TbEdit strokeWidth="1.5" stroke={colors.success.main} />}
+                startIcon={
+                  <TbEdit strokeWidth="1.5" stroke={colors.success.main} />
+                }
               >
-                <MDTypography color="success" fontSize={'small'}>Edit Link</MDTypography>
+                <MDTypography color="success" fontSize={"small"}>
+                  Edit Link
+                </MDTypography>
               </Button>
             </ButtonGroup>
           )) ||

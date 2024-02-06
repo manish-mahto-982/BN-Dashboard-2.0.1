@@ -14,7 +14,7 @@ function ClientExtendedValidityContent() {
   const theme = useTheme();
   return (
     <>
-      <FlexBoxBetween flexWrap={"wrap"} columnGap={2}>
+      <FlexBoxBetween flexWrap={"wrap"} gap={2}>
         <TextField
           id="program-name"
           label="Program Name"
@@ -59,7 +59,7 @@ function ClientExtendedValidityContent() {
       </FlexBoxBetween>
       <FlexBoxBetween sx={{ mt: 3 }}>
         <FormControlLabel
-          control={<Checkbox color="green" defaultChecked />}
+          control={<Checkbox defaultChecked />}
           label="Send Notification"
         />
         <PrimaryButton theme={theme}>Save</PrimaryButton>

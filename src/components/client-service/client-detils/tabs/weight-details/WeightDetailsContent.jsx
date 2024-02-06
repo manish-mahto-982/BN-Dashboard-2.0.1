@@ -2,7 +2,7 @@ import { gridClasses } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
 
-function WeightDetailsContent({ theme}) {
+function WeightDetailsContent({ theme }) {
   return (
     <DataGrid
       slotProps={{
@@ -18,10 +18,11 @@ function WeightDetailsContent({ theme}) {
       disableColumnSelector
       disableDensitySelector
       columns={columns}
-      slots={{pagination:null,}}
+      slots={{ pagination: null }}
       sx={{
+        fontSize: "small",
         mt: 2,
-        bgcolor: 'background.default',
+        bgcolor: "background.default",
         ".MuiDataGrid-cell:focus-within": { outline: "none" },
         [`& .${gridClasses.cell}`]: {
           py: 1,

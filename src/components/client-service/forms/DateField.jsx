@@ -4,9 +4,10 @@ import {
   pickersLayoutClasses,
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 import React from "react";
 
-function DateField({ theme, value, onChange }) {
+function DateField({ theme, value=dayjs('MM/DD/YYYY'), onChange }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker

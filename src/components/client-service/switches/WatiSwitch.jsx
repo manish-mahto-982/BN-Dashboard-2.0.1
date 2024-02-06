@@ -15,6 +15,7 @@ function WatiSwitch({ defaultValue = false }) {
         />
       }
       sx={{
+        whiteSpace: "nowrap",
         "& .MuiFormControlLabel-label": {
           textTransform: "uppercase",
           fontWeight: 600,

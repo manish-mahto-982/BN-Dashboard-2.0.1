@@ -160,6 +160,7 @@ export default function PersonalDetailsContent({ theme }) {
                   onChange={(event) => {
                     onChange(event.target.value);
                   }}
+                  sx={{ p: 1.5 }}
                 >
                   {updatedCountries.map((item) => (
                     <MenuItem
@@ -193,6 +194,7 @@ export default function PersonalDetailsContent({ theme }) {
                   onChange={(event) => {
                     console.log(event.target.id);
                   }}
+                  sx={{ p: 1.5 }}
                 >
                   {State.getStatesOfCountry("IN").map((state) => (
                     <MenuItem
@@ -213,27 +215,31 @@ export default function PersonalDetailsContent({ theme }) {
             control={control}
             name="city"
             render={({ field: { value, onChange } }) => (
-              <Select
-                ref={stateRef}
-                value={value}
-                name={value}
-                label={"City"}
-                fullWidth
-                color="secondary"
-                onChange={(event) => {
-                  console.log(event.target.id);
-                }}
-              >
-                {City.getCitiesOfState("MH").map((state) => (
-                  <MenuItem
-                    key={state.name}
-                    onChange={(event) => console.log(event)}
-                    value={state.name}
-                  >
-                    {state.name}
-                  </MenuItem>
-                ))}
-              </Select>
+              <FormControl fullWidth>
+                <InputLabel color="secondary">{"City"}</InputLabel>
+                <Select
+                  ref={stateRef}
+                  value={value}
+                  name={value}
+                  label={"City"}
+                  fullWidth
+                  color="secondary"
+                  onChange={(event) => {
+                    console.log(event.target.id);
+                  }}
+                  sx={{ p: 1.5 }}
+                >
+                  {City.getCitiesOfState("MH").map((state) => (
+                    <MenuItem
+                      key={state.name}
+                      onChange={(event) => console.log(event)}
+                      value={state.name}
+                    >
+                      {state.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             )}
           />
         </Grid>
@@ -320,7 +326,7 @@ export default function PersonalDetailsContent({ theme }) {
               <ComboBox
                 options={casteOptions}
                 {...field}
-                label="select caste"
+                label="Select Caste"
               />
             )}
           />
@@ -345,7 +351,7 @@ export default function PersonalDetailsContent({ theme }) {
             render={({ field }) => (
               <ComboBox
                 options={maritalStatusOptions}
-                label="marital Status"
+                label="Marital Status"
                 {...field}
               />
             )}
@@ -358,7 +364,7 @@ export default function PersonalDetailsContent({ theme }) {
             render={({ field }) => (
               <ComboBox
                 options={["Yes", "No"]}
-                label="child status"
+                label="Child Status"
                 {...field}
               />
             )}
@@ -391,7 +397,7 @@ export default function PersonalDetailsContent({ theme }) {
 const data = {
   name: "Ios Test7",
   email: "ios7@gmail.com",
-  mobile_no: "91 918976368346",
+  mobile_no: "+91 8976368346",
   address: "Santacruz",
   // isoCode: country.isoCode,
   //   label: country.name,

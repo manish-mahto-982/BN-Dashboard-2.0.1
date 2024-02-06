@@ -27,6 +27,11 @@ function NotificationSentContent() {
         </PrimaryButton>
       </FlexBoxBetween>
       <DataGrid
+        sx={{
+          fontSize: "small",
+          "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+            { fontSize: "small" },
+        }}
         columns={notificationReceivedColumn}
         rows={notificationReceivedRows}
       />

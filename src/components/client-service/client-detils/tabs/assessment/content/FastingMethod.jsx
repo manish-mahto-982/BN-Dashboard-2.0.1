@@ -1,4 +1,4 @@
-import { Box, Grid, TextField } from "@mui/material";
+import { Box, Grid, Stack, TextField } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import CustomDialog from "src/components/client-service/common/CustomDialog";
@@ -39,10 +39,10 @@ function FastingMethod({ theme }) {
         dialogTitle={"Fasting Method"}
         dialogActionMain={"Save"}
         dialogContent={
-          <Box width={300} pt={4}>
-            <ComboBox label="Fasting Window" options={fastingWindowOptions} sx={{pb:4}} />
+          <Stack direction={"column"} width={300} pt={4}  gap={3}>
+            <ComboBox label="Fasting Window" options={fastingWindowOptions}  />
             <TimeField label={"Start Time"} theme={theme}/>
-          </Box>
+          </Stack>
         }
       />
     </>
