@@ -1,12 +1,5 @@
-
-
-// prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
-// @mui material components
 import Card from "@mui/material/Card";
-
-// Material Dashboard 2 React components
 import MDBox from "src/components/theme/common//MDBox";
 import MDTypography from "src/components/theme/common//MDTypography";
 import Divider from "@mui/material/Divider";
@@ -75,7 +68,6 @@ function Stage({ color, title, count, percentage, icon }) {
   );
 }
 
-// Setting default values for the props of Stage
 Stage.defaultProps = {
   color: "info",
   percentage: {
@@ -85,7 +77,6 @@ Stage.defaultProps = {
   },
 };
 
-// Typechecking props for the Stage
 Stage.propTypes = {
   color: PropTypes.oneOf([
     "primary",

@@ -7,16 +7,25 @@ import {
   Typography,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import MDBadge from "src/components/theme/common/MDBadge";
-import MDBox from "src/components/theme/common/MDBox";
-import MDTypography from "src/components/theme/common/MDTypography";
+// import MDBadge from "components/MDBadge";
+// import MDBox from "components/MDBox";
+// import MDTypography from "components/MDTypography";
 import React from "react";
-// import useSwalWrapper from "src/vendors/sweetalert2/hooks";
+// import useSwalWrapper from "vendors/sweetalert2/hooks";
 import Swal from "sweetalert2";
 
 // import "./css/style.css";
+// import MDButton from "components/MDButton";
+// import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+// import MDBadge from "components/MDBadge";
+// import MDTypography from "components/MDTypography";
 import MDButton from "src/components/theme/common/MDButton";
-import AddLead from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+import AddLead from "../TopbarPopup/AddLead";
+import MDBox from "src/components/theme/common/MDBox";
+import MDBadge from "src/components/theme/common/MDBadge";
+import MDTypography from "src/components/theme/common/MDTypography";
+// import MDTypography from "components/MDTypography";
+// import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
 function HighPotential() {
   const showSuccessAlert = () => {
     Swal.fire({
@@ -29,13 +38,15 @@ function HighPotential() {
     {
       field: "NameDetails",
       headerName: "Name & Details",
-      width: 250,
+      width: 350,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
+            marginRight: "20px",
           }}
         >
           <div>
@@ -48,8 +59,8 @@ function HighPotential() {
             {params.row.email}
           </div>
           <div>
-          <strong>Wallet: </strong>
-           Rs. 1000
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
           <div>
             <strong>Mobile: </strong>
@@ -73,13 +84,15 @@ function HighPotential() {
     {
       field: "HealthIssueBMI",
       headerName: "Health Issue & BMI",
-      width: 200,
+      width: 300,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
+            marginRight: "20px",
           }}
         >
           <div>
@@ -116,13 +129,15 @@ function HighPotential() {
       field: "SourceTypeStatus",
       headerName: "Source Type & Status",
 
-      width: 210,
+      width: 300,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
+            marginRight: "20px",
           }}
         >
           <div>
@@ -167,7 +182,9 @@ function HighPotential() {
           ) : null}
           {params.row.sourceType === "app" ? (
             <div>
-              <strong style={{ color: "success" }}>App Downloaded - Android</strong>
+              <strong style={{ color: "success" }}>
+                App Downloaded - Android
+              </strong>
             </div>
           ) : null}
         </div>
@@ -178,13 +195,15 @@ function HighPotential() {
       field: "KeyInsight",
       headerName: "Key Insight",
       sortable: false,
-      width: 170,
+      width: 300,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
+            marginRight: "20px",
           }}
         >
           <div>
@@ -198,15 +217,17 @@ function HighPotential() {
       field: "FUNote",
       headerName: "FU Note",
       sortable: false,
-      width: 140,
+      width: 300,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
             whiteSpace: "normal",
             height: "auto", // Allow the cell to grow as needed
+            marginRight: "20px",
           }}
         >
           <div>
@@ -220,11 +241,12 @@ function HighPotential() {
       field: "Action",
       headerName: "Action",
       sortable: false,
-      width: 180,
+      width: 200,
       renderCell: (params) => (
         <div
           style={{
             paddingBottom: "20%",
+            paddingTop: "5%",
             flexDirection: "column",
             alignItems: "flex-start",
           }}
@@ -382,9 +404,10 @@ function HighPotential() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          marginTop: "15px",
         }}
       >
-        <MDTypography variant="h6" fontWeight="medium">
+        <MDTypography variant="h6" fontWeight="bold">
           High Potential Lead
         </MDTypography>
 
@@ -392,7 +415,7 @@ function HighPotential() {
           <AddLead />
           <MDButton
             variant="contained"
-            color="warning"
+            color="darkOrange"
             size="medium"
             sx={{ marginRight: 1, marginBottom: 1 }}
           >
@@ -404,7 +427,7 @@ function HighPotential() {
             size="medium"
             sx={{ marginRight: 1, marginBottom: 1 }}
           >
-            OC
+            OCL
           </MDButton>
         </div>
       </Box>
@@ -444,11 +467,11 @@ function HighPotential() {
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 2,
+              pageSize: 3,
             },
           },
         }}
-        pageSizeOptions={[2]}
+        pageSizeOptions={[3]}
         checkboxSelection
         disableRowSelectionOnClick
       />

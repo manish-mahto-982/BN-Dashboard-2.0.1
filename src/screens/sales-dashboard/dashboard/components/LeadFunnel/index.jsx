@@ -1,4 +1,4 @@
-import {  useEffect } from "react";
+import { useEffect } from "react";
 
 import { Card, Typography, useTheme } from "@mui/material";
 import MDBox from "src/components/theme/common//MDBox";
@@ -31,7 +31,6 @@ function LeadFunnel() {
         background: "transparent",
       },
 
-     
       grid: {
         show: false,
       },

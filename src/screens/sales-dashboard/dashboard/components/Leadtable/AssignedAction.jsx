@@ -67,8 +67,8 @@ function AssignedAction() {
             {params.row.mobileNo}
           </div>
           <div>
-          <strong>Wallet: </strong>
-           Rs. 1000
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
         </div>
       ),
@@ -225,17 +225,19 @@ function AssignedAction() {
       sortable: false,
       width: 150,
       renderCell: (params) => (
-        <div style={{
+        <div
+          style={{
             display: "flex",
             paddingBottom: "20%",
             flexDirection: "column",
             alignItems: "flex-start",
             whiteSpace: "normal",
             height: "auto", // Allow the cell to grow as needed
-          }}>
+          }}
+        >
           <strong>Assigned To: </strong>
           {"  Chelsi (  3 Days Ago)"}
-          <strong >Action: </strong>
+          <strong>Action: </strong>
           {"  Cross Call "}
         </div>
       ),

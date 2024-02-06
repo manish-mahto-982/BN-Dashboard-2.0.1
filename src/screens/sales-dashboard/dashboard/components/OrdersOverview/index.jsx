@@ -1,14 +1,9 @@
-
-
-// @mui material components
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
-// Material Dashboard 2 React components
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
 
-// Material Dashboard 2 React example components
 import TimelineItem from "src/components/theme/layout/Timeline/TimelineItem";
 
 function OrdersOverview() {
@@ -20,8 +15,14 @@ function OrdersOverview() {
         </MDTypography>
         <MDBox mt={0} mb={2}>
           <MDTypography variant="button" color="text" fontWeight="regular">
-            <MDTypography display="inline" variant="body2" verticalAlign="middle">
-              <Icon sx={{ color: ({ palette: { success } }) => success.main }}>arrow_upward</Icon>
+            <MDTypography
+              display="inline"
+              variant="body2"
+              verticalAlign="middle"
+            >
+              <Icon sx={{ color: ({ palette: { success } }) => success.main }}>
+                arrow_upward
+              </Icon>
             </MDTypography>
             &nbsp;
             <MDTypography variant="button" color="text" fontWeight="medium">

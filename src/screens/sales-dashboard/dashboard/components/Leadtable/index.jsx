@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -31,7 +30,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useTheme } from "@mui/material";
 import HighPotential from "./HighPotential";
 import DueTomorrow from "./DueTomorrow";
-import MDButton from "src/components/theme/common//MDButton";
+// import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+// import ConsultationBooked from "examples/Navbars/DashboardNavbar/TopbarPopup/ConsultationBooked";
+// import MDTypography from "components/MDTypography";
+// import MDBox from "components/MDBox";
+// import MDButton from "components/MDButton";
 import FUMissed from "./FUMissed";
 import ConsultationMissed from "./ConsultationMissed";
 import UpdateLeadDetails from "./UpdateLeadDetails";
@@ -46,6 +49,9 @@ import HighFrequencyPageVisit from "./HighFrequencyPageVisit";
 import AssignedLead from "./AssignedLead";
 import AssignedAction from "./AssignedAction";
 import TodaysFU from "./TodaysFU";
+import OtherLead from "../OtherLead";
+import MDButton from "src/components/theme/common/MDButton";
+// import OtherLead from "./OtherLead";
 
 export default function LeadTable() {
   const theme = useTheme();
@@ -110,8 +116,8 @@ export default function LeadTable() {
             width: "111%", // Full width on smaller screens
             // maxWidth: "200px", // Limit width on larger screens
             // margin: "8px",
-            // padding: "10px",
-            // fontSize: "14px", // Adjust margin
+            padding: "15px",
+            fontSize: "13px", // Adjust margin
           }}
         >
           Lead To Capture
@@ -128,7 +134,7 @@ export default function LeadTable() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ marginLeft: "13px" }}
+              sx={{ marginLeft: "50px" }}
             >
               6
             </MDButton>
@@ -139,7 +145,7 @@ export default function LeadTable() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ marginLeft: "7px" }}
+              sx={{ marginLeft: "40px" }}
             >
               2
             </MDButton>
@@ -150,7 +156,29 @@ export default function LeadTable() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ marginLeft: "45px" }}
+              sx={{ marginLeft: "80px" }}
+            >
+              22
+            </MDButton>
+          </MenuItem>
+          <MenuItem onClick={() => handleLeadToCaptureChange("other")}>
+            Other
+            <MDButton
+              variant="outlined"
+              color="error"
+              size="small"
+              sx={{ marginLeft: "110px" }}
+            >
+              22
+            </MDButton>
+          </MenuItem>
+          <MenuItem onClick={() => handleLeadToCaptureChange("other")}>
+            App Downloaded
+            <MDButton
+              variant="outlined"
+              color="error"
+              size="small"
+              sx={{ marginLeft: "40px" }}
             >
               22
             </MDButton>
@@ -168,8 +196,9 @@ export default function LeadTable() {
             minHeight: "100%", // Adjust the minimum height
             width: "113%",
             // margin: "2px",
-            // padding: "10px",
-            // fontSize: "14px", // Adjust margin
+            padding: "15px",
+
+            fontSize: "13px", // Adjust margin
           }}
         >
           Balance
@@ -229,8 +258,9 @@ export default function LeadTable() {
             width: "108%", // Full width on smaller screens
             // maxWidth: "200px", // Limit width on larger screens
             // margin: "8px",
-            // padding: "10px",
-            // fontSize: "14px", // Adjust margin
+            padding: "15px",
+
+            fontSize: "13px", // Adjust margin
           }}
         >
           To Do/ Misses
@@ -330,8 +360,9 @@ export default function LeadTable() {
             width: "110%", // Full width on smaller screens
             // maxWidth: "200px", // Limit width on larger screens
             // margin: "8px",
-            // padding: "10px",
-            // fontSize: "14px", // Adjust margin
+            padding: "15px",
+
+            fontSize: "13px", // Adjust margin
           }}
         >
           Sales Opportunity
@@ -405,8 +436,9 @@ export default function LeadTable() {
             width: "99%", // Full width on smaller screens
             // maxWidth: "200px", // Limit width on larger screens
             // margin: "8px",
-            // padding: "10px",
-            // fontSize: "14px", // Adjust margin
+            padding: "15px",
+
+            fontSize: "13px", // Adjust margin
           }}
         >
           Need Attention
@@ -467,7 +499,7 @@ export default function LeadTable() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ marginLeft: "30px" }}
+              sx={{ marginLeft: "35px" }}
             >
               121
             </MDButton>
@@ -480,7 +512,20 @@ export default function LeadTable() {
               variant="outlined"
               color="error"
               size="small"
-              sx={{ marginLeft: "10px" }}
+              sx={{ marginLeft: "15px" }}
+            >
+              5
+            </MDButton>
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleLeadToCaptureChange("to engaged lead")}
+          >
+            Wati Response
+            <MDButton
+              variant="outlined"
+              color="error"
+              size="small"
+              sx={{ marginLeft: "29px" }}
             >
               5
             </MDButton>
@@ -491,7 +536,7 @@ export default function LeadTable() {
       {/* Render content based on selected options */}
 
       {selectedLeadToCapture === "potential" && (
-        <Grid item xs={12} md={12} ld={12} sx={{ mt: 2.25 }}>
+        <Grid item xs={12} md={12} ld={12} sx={{ mt: 1 }}>
           <HighPotential />
         </Grid>
       )}
@@ -507,6 +552,11 @@ export default function LeadTable() {
         </Grid>
       )}
 
+      {selectedLeadToCapture === "other" && (
+        <Grid item xs={12} md={12} ld={12} sx={{ mt: 1 }}>
+          <OtherLead />
+        </Grid>
+      )}
       {selectedLeadToCapture === "tomorrow" && (
         <Grid item xs={12} md={12} ld={12}>
           <DueTomorrow />

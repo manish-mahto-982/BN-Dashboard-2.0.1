@@ -67,8 +67,8 @@ function AssignedLead() {
             {params.row.mobileNo}
           </div>
           <div>
-          <strong>Wallet: </strong>
-           Rs. 1000
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
         </div>
       ),

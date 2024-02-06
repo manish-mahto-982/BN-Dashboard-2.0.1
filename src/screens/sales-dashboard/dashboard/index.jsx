@@ -1,25 +1,13 @@
-
-
-// @mui material components
 import Grid from "@mui/material/Grid";
 
-// Material Dashboard 2 React components
-import MDBox from "src/components/theme/common//MDBox";
-
-// Material Dashboard 2 React example components
-import Footer from "src/components/theme/layout/Footer";
-import ComplexStatisticsCard from "src/components/theme/layout/Cards/StatisticsCards/ComplexStatisticsCard";
-
-// Data
 import reportsLineChartData from "./data/reportsLineChartData";
 
 // Dashboard components
-import IncentiveSystem from "./components/IncentiveSystem";
-import LeadFunnel from "./components/LeadFunnel";
-import GoalSet from "./components/GoalSet";
-// import ActivitiesDone from "./components/ActivitiesDone";
-import Consultation from "./components/UnconvertedLead/Consultation";
-import Stage from "./components/UnconvertedLead/Stage";
+// import IncentiveSystem from "layouts/dashboard/components/IncentiveSystem";
+// import LeadFunnel from "./components/LeadFunnel";
+// import GoalSet from "./components/GoalSet";
+// import Consultation from "./components/UnconvertedLead/Consultation";
+// import Stage from "./components/UnconvertedLead/Stage";
 import Phase from "./components/UnconvertedLead/Phase";
 import ClinicalCondition from "./components/UnconvertedLead/ClinicalCondition";
 import Downgrade from "./components/UnconvertedLead/Downgrade";
@@ -30,11 +18,20 @@ import LeadStatus from "./components/ActivitiesDone/LeadStatus";
 import LeadStage from "./components/ActivitiesDone/LeadStage";
 import LeadPhase from "./components/ActivitiesDone/LeadPhase";
 import LeadTable from "./components/Leadtable";
-import MDTypography from "src/components/theme/common//MDTypography";
-import TopButton from "src/components/theme/layout/Cards/StatisticsCards/TopButton";
-import HeaderMarquee from "./components/HeaderMarquee";
+// import HeaderMarquee from "./components/HeaderMarquee";
+// import GoalSetStepper from "./components/GoalSetStepper";
+import TopCards from "./components/TopCards";
 import DashboardLayout from "src/components/theme/layout/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "src/components/theme/layout/Navbars/DashboardNavbar";
+import Footer from "src/components/theme/layout/Footer";
+import Consultation from "./components/UnconvertedLead/Consultation";
+import Stage from "./components/UnconvertedLead/Stage";
+import IncentiveSystem from "./components/IncentiveSystem";
+import MDBox from "src/components/theme/common/MDBox";
+import MDTypography from "src/components/theme/common/MDTypography";
+import LeadFunnel from "./components/LeadFunnel";
+import GoalSet from "./components/GoalSet";
+import HeaderMarquee from "./components/HeaderMarquee";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -45,74 +42,92 @@ function Dashboard() {
       <MDBox>
         <Grid container>
           <Grid item xs={12} md={12} lg={12}>
-            <HeaderMarquee />
+            <MDBox mb={2}>
+              <HeaderMarquee />
+            </MDBox>
           </Grid>
         </Grid>
       </MDBox>
       <MDBox py={5}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={2.3}>
-            <MDBox mb={1.5}>
-              <TopButton
+          <Grid item xs={12} md={6} lg={3}>
+            <MDBox mb={3}>
+              <TopCards
                 color="primary"
                 icon="weekend"
-                title=""
-                count="Rs. 40000"
+                title="Consultation"
+                count="Call & Consultation"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Consultation",
+                  counter: "10",
+                  counter1: "20",
+                  counter2: "",
+                  label: "Consultation Booked",
+                  label1: "Consultation Done",
+                  label2: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={2.7}>
+          <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-              <ComplexStatisticsCard
+              <TopCards
                 color="dark"
-                icon="weekend"
+                icon="store"
                 title=""
-                count={78}
+                count="App Downloaded"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Today’s App Downloaded",
+                  counter: "10",
+                  counter1: "20",
+                  counter2: "10",
+                  label: " Your Lead With App",
+                  label1: "Your Lead Without App",
+                  label2: "Lead With App But Not HS",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={2.3}>
-            <MDBox mb={1.5}>
-              <ComplexStatisticsCard
+          <Grid item xs={12} md={6} lg={3}>
+            <MDBox mb={1.5}> 
+              <TopCards
                 icon="leaderboard"
                 title=""
-                count="Rs.28000"
+                count="App Activity"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Achieved Sales",
+                  counter: "50",
+                  counter1: "6",
+                  counter2: "6",
+                  label: "Feedback Received ",
+                  label1: "Tips Visited",
+                  label2: "Unanswered Chat",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={2.3}>
+          <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-              <ComplexStatisticsCard
+              <TopCards
                 color="success"
                 icon="store"
                 title=""
-                count="Rs. 30000"
+                count="App Engagement"
                 percentage={{
                   color: "success",
-                  amount: "",
-                  label: "Today’s Sales",
+                  counter: "20",
+                  counter1: "",
+                  counter2: "",
+                  label: "Wallet Trigger",
+                  label1: "",
+                  label2: "",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={2.3}>
+          {/* <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-              <ComplexStatisticsCard
+              <TopCards
                 color="primary"
                 icon="weekend"
                 title=""
@@ -124,9 +139,9 @@ function Dashboard() {
                 }}
               />
             </MDBox>
-          </Grid>
+          </Grid> */}
         </Grid>
-        <MDBox mt={1}>
+        <MDBox mt={2}>
           <MDBox
             pt={1}
             px={2}
@@ -180,6 +195,14 @@ function Dashboard() {
           </Grid>
         </MDBox>
 
+        {/* <MDBox mt={1.5}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={12} lg={12}>
+              <GoalSetStepper />
+            </Grid>
+          </Grid>
+        </MDBox> */}
+
         <MDBox mt={1.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
@@ -190,19 +213,19 @@ function Dashboard() {
         <MDBox mt={3.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4} lg={2.4}>
-              <Consultation title="" count="" icon={""} />
+              <Consultation />
             </Grid>
             <Grid item xs={12} md={4} lg={2.2}>
-              <Stage title="" count="" icon={""} />
+              <Stage />
             </Grid>
             <Grid item xs={12} md={4} lg={2.7}>
-              <Phase title="" count="" icon={""} />
+              <Phase />
             </Grid>
             <Grid item xs={12} md={4} lg={2.3}>
-              <Downgrade title="" count="" icon={""} />
+              <Downgrade />
             </Grid>
             <Grid item xs={12} md={4} lg={2.4}>
-              <ClinicalCondition title="" count="" icon={""} />
+              <ClinicalCondition />
             </Grid>
           </Grid>
         </MDBox>

@@ -4,43 +4,46 @@ import {
   Button,
   Card,
   TextField,
-  TextareaAutosize,
   Typography,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+// import MDBadge from "components/MDBadge";
+// import MDBox from "components/MDBox";
+// import MDTypography from "components/MDTypography";
+import React from "react";
+// import useSwalWrapper from "vendors/sweetalert2/hooks";
+import Swal from "sweetalert2";
+
+// import "./css/style.css";
+// import MDButton from "components/MDButton";
+import AddLead from "./TopbarPopup/AddLead";
 import MDBadge from "src/components/theme/common/MDBadge";
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
-import React from "react";
-import useSwalWrapper from "src/vendors/sweetalert2/hooks";
-
-import "./css/style.css";
 import MDButton from "src/components/theme/common/MDButton";
-import AddLead from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/AddLead";
-function TodaysFU() {
-  const Swal = useSwalWrapper();
-  const sweetAlerts = () => {
+// import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+function OtherLead() {
+  const showSuccessAlert = () => {
     Swal.fire({
       icon: "success",
-
       title: "Success",
-      text: "Lead Assign Successfully",
+      text: "Lead Assigned successfuly!",
     });
   };
   const columns = [
     {
       field: "NameDetails",
-      headerName: "User Details",
-      width: 290,
+      headerName: "Name & Details",
+      width: 250,
       renderCell: (params) => (
-        <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginLeft: "3px",
-            }}
-          >
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <div>
             <strong>Name: </strong>
 
             {params.row.NameDetails}
@@ -48,6 +51,10 @@ function TodaysFU() {
           <div>
             <strong>Email: </strong>
             {params.row.email}
+          </div>
+          <div>
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
           <div>
             <strong>Mobile: </strong>
@@ -68,14 +75,125 @@ function TodaysFU() {
         </div>
       ),
     },
+    {
+      field: "HealthIssueBMI",
+      headerName: "Health Issue & BMI",
+      width: 200,
+      renderCell: (params) => (
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <div>
+            <strong style={{ color: "green" }}>HS SnapShot</strong>
+          </div>
+          <div>
+            <strong>Taken: </strong>
+            {params.row.HSTaken}
+          </div>
+          <div>
+            <strong>Health Category: </strong>
+            {params.row.healthCategory}
+          </div>
+          <div>
+            <strong>Medi. Issue: </strong>
+            {params.row.mediIssues}
+          </div>
+          <div>
+            <strong>Curr. Wt: </strong>
+            {params.row.currWT}
+          </div>
+          <div>
+            <strong>Height: </strong>
+            {params.row.Height}
+          </div>
+          <div>
+            <strong>BMI: </strong>
+            {params.row.BMI}
+          </div>
+        </div>
+      ),
+    },
+    {
+      field: "SourceTypeStatus",
+      headerName: "Source Type & Status",
+
+      width: 210,
+      renderCell: (MDTypographyparams) => (
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <div>
+            <strong>Curr. Source: </strong>
+            {params.row.currSource}
+          </div>
+          <div>
+            <strong>Prev. Source: </strong>
+            {params.row.prevSource}
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <strong style={{ marginRight: "5px" }}>Lead Type:</strong>
+            <MDBox ml={-1}>
+              <MDBadge
+                badgeContent={params.row.leadType === "new" ? "New" : "OC"}
+                color={params.row.leadType === "new" ? "info" : "primary"}
+                variant="gradient"
+                size="sm"
+              />
+            </MDBox>
+          </div>
+
+          <div>
+            <strong>Lead. Status: </strong>
+            {params.row.leadStatus}
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <strong style={{ marginRight: "5px" }}>Lead Source: </strong>
+            <MDBox ml={-1}>
+              <MDBadge
+                badgeContent={params.row.sourceType === "web" ? "Web" : "App"}
+                color={params.row.sourceType === "web" ? "warning" : "success"}
+                variant="gradient"
+                size="sm"
+              />
+            </MDBox>
+          </div>
+          {params.row.sourceType === "web" ? (
+            <div>
+              <strong style={{ color: "red" }}>App Not Downloaded</strong>
+            </div>
+          ) : null}
+          {params.row.sourceType === "app" ? (
+            <div>
+              <strong style={{ color: "success" }}>
+                App Downloaded - Android
+              </strong>
+            </div>
+          ) : null}
+        </div>
+      ),
+    },
 
     {
       field: "KeyInsight",
       headerName: "Key Insight",
       sortable: false,
-      width: 210,
+      width: 170,
       renderCell: (params) => (
-        <div>
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
           <div>
             <strong>Note: </strong>
             {params.row.KeyInsight}
@@ -84,124 +202,60 @@ function TodaysFU() {
       ),
     },
     {
-      field: "SuggestedProgramDetails",
-      headerName: "Sugg. Program Details",
-      width: 460,
-      renderCell: (params) => (
-        <div
-          style={{
-            paddingBottom: "20%",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            whiteSpace: "normal",
-            height: "auto", // Allow the cell to grow as needed
-          }}
-        >
-          <div>
-            <strong>Sugg. Prg.: </strong>
-            {params.row.SuggProgramDetails}
-            {"(60 Days)"}
-          </div>
-          <div>
-            <strong>Mrp: Rs. 1879 Qty: Rs.18799 : </strong>
-            {" (Suggested 25 Days Ago)"}
-          </div>
-          <div>
-            <strong>Payment Mode Suggested: </strong>
-            {"Bank Details"}
-          </div>
-          <div style={{ display: "flex" }}>
-            <MDButton
-              variant="contained"
-              color="darkblue"
-              size="small"
-              alignItems="center"
-              sx={{ width: "70%", m: "1px" }}
-            >
-              Send Payment Details
-            </MDButton>
-            <MDButton
-              variant="contained"
-              color="skyblue"
-              size="small"
-              alignItems="center"
-              sx={{ width: "70%", m: "1px" }}
-            >
-              Edit Program Details
-            </MDButton>
-          </div>
-        </div>
-      ),
-    },
-    {
-      field: "FUDetails",
-      headerName: "FU Details",
-      width: 200,
-      renderCell: (params) => (
-        <div
-          style={{
-            paddingBottom: "20%",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            whiteSpace: "normal",
-            height: "auto", // Allow the cell to grow as needed
-          }}
-        >
-          <div>
-            <strong>FU On:</strong>Call
-          </div>
-          <div>
-            <strong>FU Time: </strong> 10:00:00
-          </div>
-          <div>
-            <strong>Key Insights: </strong> test
-          </div>
-          <div>
-            <strong>Last Note: -</strong>
-          </div>
-
-          <div style={{ display: "flex" }}>
-            <MDButton
-              variant="contained"
-              color="success"
-              size="small"
-              alignItems="center"
-              sx={{ m: "1px" }}
-            >
-              Next FU Set
-            </MDButton>
-          </div>
-        </div>
-      ),
-    },
-    {
       field: "FUNote",
       headerName: "FU Note",
       sortable: false,
-      width: 160,
+      width: 140,
       renderCell: (params) => (
-        <div>
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            whiteSpace: "normal",
+            height: "auto", // Allow the cell to grow as needed
+          }}
+        >
           <div>
-            <TextareaAutosize
-              placeholder="Add notes..."
-              minRows={2}
-              style={{
-                width: "100%",
-                // margin: "10px",
-                padding: "8px",
-                border: "1px solid #ccc", // Added border style
-                borderRadius: "4px", // Added border-radius for rounded corners
-              }}
-            />
-            <MDButton variant="contained" color="info" size="small">
-              Save
-            </MDButton>
+            <strong>Prev. FU: </strong>
+            {params.row.prevFU}
           </div>
+        </div>
+      ),
+    },
+    {
+      field: "Action",
+      headerName: "Action",
+      sortable: false,
+      width: 180,
+      renderCell: (params) => (
+        <div
+          style={{
+            paddingBottom: "20%",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={counsellor}
+            sx={{ width: 150 }}
+            onChange={showSuccessAlert}
+            renderInput={(params) => (
+              <TextField {...params} label="Assign To" />
+            )}
+          />
         </div>
       ),
     },
   ];
 
+  const counsellor = [
+    { label: "Chelsi" },
+    { label: "Siddhi" },
+    { label: "Akansha" },
+  ];
   const rows = [
     {
       id: 1,
@@ -335,16 +389,30 @@ function TodaysFU() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginTop: "15px",
-          marginBottom: "5px",
         }}
       >
         <MDTypography variant="h6" fontWeight="medium">
-          Todays FU
+          Other Lead
         </MDTypography>
 
         <div style={{ display: "flex" }}>
           <AddLead />
+          <MDButton
+            variant="contained"
+            color="warning"
+            size="medium"
+            sx={{ marginRight: 1, marginBottom: 1 }}
+          >
+            Lead
+          </MDButton>
+          <MDButton
+            variant="contained"
+            color="warning"
+            size="medium"
+            sx={{ marginRight: 1, marginBottom: 1 }}
+          >
+            OCL
+          </MDButton>
         </div>
       </Box>
       <DataGrid
@@ -395,4 +463,4 @@ function TodaysFU() {
   );
 }
 
-export default TodaysFU;
+export default OtherLead;

@@ -60,8 +60,8 @@ function DueToday() {
             {params.row.mobileNo}
           </div>
           <div>
-          <strong>Wallet: </strong>
-           Rs. 1000
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
         </div>
       ),
@@ -96,7 +96,7 @@ function DueToday() {
           <div style={{ display: "flex" }}>
             <MDButton
               variant="contained"
-              color="darkblue"
+              color="info"
               size="small"
               alignItems="center"
               sx={{ width: "70%", m: "1px" }}
@@ -134,7 +134,7 @@ function DueToday() {
         >
           <MDButton
             variant="contained"
-            color="green"
+            color="skyblue"
             size="small"
             alignItems="center"
             sx={{ width: "100%", marginBottom: "10px" }}
@@ -143,7 +143,7 @@ function DueToday() {
           </MDButton>
           <MDButton
             variant="contained"
-            color="warning"
+            color="info"
             size="small"
             alignItems="center"
             sx={{ width: "100%", mt: "5px", marginBottom: "10px" }}
@@ -152,7 +152,7 @@ function DueToday() {
           </MDButton>
           <MDButton
             variant="contained"
-            color="faintgreen"
+            color="success"
             size="small"
             alignItems="center"
             sx={{ width: "100%", mt: "5px" }}

@@ -79,7 +79,7 @@ function CardWithDialogTable({
                     bgcolor={
                       item.title.includes("On Hold (OD)")
                         ? "rgba(255,0,0,0.1)"
-                        : 'background.default'
+                        : theme.palette.background.default
                     }
                     width={"fit-content"}
                     px={2}

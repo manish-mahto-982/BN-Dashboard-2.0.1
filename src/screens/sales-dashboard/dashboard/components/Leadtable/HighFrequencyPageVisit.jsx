@@ -61,8 +61,8 @@ function HighFrequencyPageVisit() {
             {params.row.mobileNo}
           </div>
           <div>
-          <strong>Wallet: </strong>
-           Rs. 1000
+            <strong>Wallet: </strong>
+            Rs. 1000
           </div>
         </div>
       ),
@@ -328,7 +328,7 @@ function HighFrequencyPageVisit() {
             size="medium"
             sx={{ marginRight: 1, marginBottom: 1 }}
           >
-            Blog / Recipe 
+            Blog / Recipe
           </MDButton>
           <MDButton
             variant="contained"
@@ -336,7 +336,7 @@ function HighFrequencyPageVisit() {
             size="medium"
             sx={{ marginRight: 1, marginBottom: 1 }}
           >
-            Tip 
+            Tip
           </MDButton>
           <MDButton
             variant="contained"
@@ -344,7 +344,7 @@ function HighFrequencyPageVisit() {
             size="medium"
             sx={{ marginRight: 1, marginBottom: 1 }}
           >
-            Success Story 
+            Success Story
           </MDButton>
         </div>
       </Box>

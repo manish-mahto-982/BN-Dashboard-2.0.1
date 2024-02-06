@@ -48,6 +48,10 @@ import {
   TbStars,
   TbX,
 } from "react-icons/tb";
+<<<<<<< HEAD
+import moment from "moment";
+=======
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Transitions from "../extended/Transitions";
 import NavbarButton from "./NavbarButton";
@@ -108,14 +112,22 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
           alignItems={"center"}
           justifyContent={"space-between"}
           color={"#fff"}
+<<<<<<< HEAD
+          bgcolor={theme.palette.bnBlue[500]}
+=======
           bgcolor={'info.main'}
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
         >
           Set Reminder
           <IconButton onClick={handleClose}>
             <TbX stroke="#fff" />
           </IconButton>
         </DialogTitle>
+<<<<<<< HEAD
+        <DialogContent sx={{ bgcolor: theme.palette.background.default }}>
+=======
         <DialogContent sx={{ bgcolor: 'background.default' }}>
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
           <TextField
             autoFocus
             color="secondary"
@@ -144,6 +156,16 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
                   layout: {
                     sx: {
                       [`.${pickersLayoutClasses.contentWrapper}`]: {
+<<<<<<< HEAD
+                        bgcolor: theme.palette.background.default,
+                      },
+                      [`.${pickersLayoutClasses.actionBar}`]: {
+                        bgcolor: theme.palette.background.alt,
+                      },
+                      "& .MuiDialogActions-root button.MuiButtonBase-root,.MuiButtonBase-root.MuiPickersDay-root.Mui-selected,.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root":
+                        {
+                          bgcolor: theme.palette.bnBlue[500],
+=======
                         bgcolor: 'background.default',
                       },
                       [`.${pickersLayoutClasses.actionBar}`]: {
@@ -152,6 +174,7 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
                       "& .MuiDialogActions-root button.MuiButtonBase-root,.MuiButtonBase-root.MuiPickersDay-root.Mui-selected,.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root":
                         {
                           bgcolor: 'info.main',
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
                           color: "#fff",
                         },
                       "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected":
@@ -164,13 +187,21 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
             </LocalizationProvider>
           </Box>
         </DialogContent>
+<<<<<<< HEAD
+        <DialogActions sx={{ bgcolor: theme.palette.background.alt }}>
+=======
         <DialogActions sx={{ bgcolor: 'background.default' }}>
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
           <Button color="secondary" onClick={handleClose}>
             Cancel
           </Button>
           <Button
             variant="contained"
+<<<<<<< HEAD
+            sx={{ bgcolor: theme.palette.bnBlue[500] }}
+=======
             sx={{ bgcolor: 'info.main' }}
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
             disableElevation
             style={{ color: "white" }}
             onClick={handleClose}
@@ -200,7 +231,11 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
   ];
   return (
     <Grid container direction="column">
+<<<<<<< HEAD
+      <Grid item pb={2} xs={12} bgcolor={theme.palette.bnBlue[500]}>
+=======
       <Grid item pb={2} xs={12} bgcolor={'info.main'}>
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
         <Grid
           container
           alignItems="center"
@@ -238,7 +273,11 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
             component={Paper}
             style={{
               borderRadius: 0,
+<<<<<<< HEAD
+              backgroundColor: theme.palette.background.default,
+=======
               backgroundColor: 'background.default',
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
             }}
           >
             <Table
@@ -255,8 +294,13 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
                       ":hover": {
                         bgcolor:
                           theme.palette.mode === "dark"
+<<<<<<< HEAD
+                            ? theme.palette.background.default
+                            : theme.palette.background.alt,
+=======
                             ? 'background.default'
                             : 'background.default',
+>>>>>>> c6e2c0431352c8ca305fb0321f33981d1a7eba8f
                       },
                     }}
                   >
