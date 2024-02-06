@@ -5,9 +5,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { renderTimeViewClock } from "@mui/x-date-pickers/timeViewRenderers";
 
-export default function TimeField({ label, value, onChange, theme }) {
+const TimeField = React.forwardRef(({ label, value, onChange, theme },   ref) => {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider
+    ref={ref}
+    
+      dateAdapter={AdapterDayjs}>
       <TimePicker
         label={label}
         onChange={onChange}
@@ -21,7 +24,7 @@ export default function TimeField({ label, value, onChange, theme }) {
           //   outline: `solid  ${'info.main'}`,
           // },
           "& .MuiPaper-root": {
-            bgcolor: `${'background.default'} !important`,
+            bgcolor: `${"background.default"} !important`,
           },
         }}
         viewRenderers={{
@@ -32,4 +35,5 @@ export default function TimeField({ label, value, onChange, theme }) {
       />
     </LocalizationProvider>
   );
-}
+});
+export default TimeField;

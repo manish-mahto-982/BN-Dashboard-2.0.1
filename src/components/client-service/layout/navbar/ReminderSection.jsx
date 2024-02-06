@@ -69,7 +69,7 @@ function RatingSection({ light, darkMode, transparentNavbar }) {
   return (
     <>
       <Badge badgeContent={2} color={"warning"} overlap="circular">
-        <Tooltip title="Ratings">
+        <Tooltip title="Reminders">
           <IconButton
             sx={navbarIconButton}
             disableRipple

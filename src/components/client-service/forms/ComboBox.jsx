@@ -14,7 +14,6 @@ const ComboBox = React.forwardRef(
     },
     ref
   ) => {
-    console.log("🚀 ~ ComboBox ~ options:", options);
     return (
       <Autocomplete
         disablePortal

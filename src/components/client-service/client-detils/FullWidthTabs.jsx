@@ -80,7 +80,6 @@ export default function FullWidthTabs({ handleAddWallet }) {
           indicatorColor="info.main"
           scrollButtons="auto"
           variant="scrollable"
-          textColor="#fff"
           sx={{
             minWidth: "1000px",
             "& span.MuiTabs-indicator": {

@@ -1,4 +1,5 @@
 import { Box, Grid, Stack, TextField } from "@mui/material";
+import dayjs from "dayjs";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
@@ -31,6 +32,7 @@ import {
 } from "src/utils/constants";
 
 function NutritionLifestyleAndAnalysisContent({ theme }) {
+  console.log(typeof dayjs().format("hh:mm A"))
   const { control } = useForm({
     defaultValues: defaultValues,
   });
@@ -534,8 +536,8 @@ const defaultValues = {
   work_status: workStatusOptions[1],
   occupation: "",
   designation: "",
-  job_time: "",
-  job_hour: "",
+  job_time: dayjs().format("hh:mm A"),
+  job_hour: dayjs().format("hh:mm A"),
   job_meal: "",
   meal_quantity: "",
   meal_type: "",

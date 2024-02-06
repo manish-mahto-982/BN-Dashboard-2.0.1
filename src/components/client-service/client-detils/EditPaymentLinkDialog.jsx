@@ -5,6 +5,8 @@ import { Controller, useForm } from "react-hook-form";
 import CustomDialog from "../common/CustomDialog";
 import MDDropDown from "src/components/theme/common/MDDropdown";
 import DateField from "../forms/DateField";
+import ComboBox from "../forms/ComboBox";
+import dayjs from "dayjs";
 
 function EditPaymentLinkDialog({ openDialog, setOpenDialog, theme }) {
   const { control } = useForm({
@@ -14,7 +16,7 @@ function EditPaymentLinkDialog({ openDialog, setOpenDialog, theme }) {
       session_day: "",
       edit_email: "",
       edit_prog_amt: "",
-      edit_extended_pay_date: "",
+      edit_extended_pay_date: dayjs(),
     },
   });
   return (
