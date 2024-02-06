@@ -275,7 +275,7 @@ export const EditPhotoDialog = ({ open, setOpen, theme }) => (
                   },
                   "& .MuiDialogActions-root button.MuiButtonBase-root,.MuiButtonBase-root.MuiPickersDay-root.Mui-selected,.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root":
                     {
-                      bgcolor: 'info.main',
+                      bgcolor: 'info',
                       color: "#fff",
                     },
                   "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected": {},

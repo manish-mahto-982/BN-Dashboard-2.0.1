@@ -23,6 +23,7 @@ const ComboBox = React.forwardRef(
         options={options}
         onChange={onChange}
         fullWidth
+        sx={{}}
         renderInput={(params) => (
           <TextField
             sx={{ textTransform: "capitalize" }}

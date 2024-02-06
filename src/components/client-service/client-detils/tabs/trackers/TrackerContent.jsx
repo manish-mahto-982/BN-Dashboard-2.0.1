@@ -47,6 +47,8 @@ import {
   EditPhotoDialog,
   EditWeightDialog,
 } from "./Dialogs";
+import MDBox from "src/components/theme/common/MDBox";
+import MDButton from "src/components/theme/common/MDButton";
 
 function TrackerContent({ theme }) {
   const [open, setOpen] = useShowDialog(false);
@@ -116,7 +118,7 @@ function TrackerContent({ theme }) {
             iconButtonProps={{ color: "red" }}
             Icon={TbTrash}
           />
-          <Box
+          <MDBox
             sx={{
               display: "flex",
               alignItems: "center",
@@ -125,12 +127,12 @@ function TrackerContent({ theme }) {
               borderRadius: 10,
               columnGap: 0.5,
               bgcolor: `rgba(0,255,0,0.2)`,
-              color: 'success.main',
+              color: 'success',
             }}
           >
             Approved
             {/* <TbCheck size={16} /> */}
-          </Box>
+          </MDBox>
         </FlexBoxBetween>
       ),
     },
@@ -199,7 +201,7 @@ function TrackerContent({ theme }) {
             iconButtonProps={{ color: "red" }}
             Icon={TbTrash}
           />
-          <Box
+          <MDBox
             sx={{
               display: "flex",
               alignItems: "center",
@@ -208,12 +210,12 @@ function TrackerContent({ theme }) {
               borderRadius: 10,
               columnGap: 0.5,
               bgcolor: `rgba(0,255,0,0.2)`,
-              color: `${tokensDark.green[500]}`,
+              color: `success`,
             }}
           >
             Approved
             {/* <TbCheck size={16} /> */}
-          </Box>
+          </MDBox>
         </FlexBoxBetween>
       ),
     },
@@ -228,7 +230,7 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbScaleOutline
                   size={32}
-                  color={'info.main'}
+                  color={'info'}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
@@ -283,7 +285,7 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbRuler2
                   size={32}
-                  color={'info.main'}
+                  color={'info'}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
@@ -330,7 +332,7 @@ function TrackerContent({ theme }) {
               <Stack direction={"row"} alignItems={"center"} columnGap={1}>
                 <TbCamera
                   size={32}
-                  color={'info.main'}
+                  color={'info'}
                   strokeWidth={1.2}
                   style={{
                     padding: "6px",
@@ -379,12 +381,12 @@ function TrackerContent({ theme }) {
               />
 
               <CardActions sx={{ justifyContent: "space-between" }}>
-                <Button color="red" size="small">
+                <MDButton color="error" size="small">
                   Delete
-                </Button>
-                <Button color="secondary" size="small">
+                </MDButton>
+                <MDButton color="info" size="small">
                   Edit
-                </Button>
+                </MDButton>
               </CardActions>
             </Card>
           </Grid>

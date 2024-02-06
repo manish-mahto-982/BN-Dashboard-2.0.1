@@ -49,7 +49,17 @@ function OrderHistoryContent() {
   ];
   return (
     <>
-      <DataGrid columns={orderHistoryColumns} rows={orderHistoryDeviceRows} />
+      <DataGrid
+        sx={{
+          fontSize: "small",
+          ".MuiTablePagination-selectLabel,.MuiTablePagination-root,.MuiTablePagination-displayedRows":
+            {
+              fontSize: "small",
+            },
+        }}
+        columns={orderHistoryColumns}
+        rows={orderHistoryDeviceRows}
+      />
       <EditOrderHistoryDialog show={show} setShow={setShow} theme={theme} />
     </>
   );
@@ -61,7 +71,7 @@ const EditOrderDetails = ({ handleEditClick }) => {
   return (
     <>
       <IconButtonWithToolTip
-        Icon={TbEdit}
+        Icon={() => <TbEdit size={18} color="error" />}
         tooltipTitle={"Edit"}
         tooltipProps={{ placement: "right" }}
         iconButtonProps={{ color: "green", onClick: handleEditClick }}
@@ -96,14 +106,14 @@ const EditOrderHistoryDialog = ({ show, setShow, theme }) => {
                 layout: {
                   sx: {
                     [`.${pickersLayoutClasses.contentWrapper}`]: {
-                      bgcolor: 'background.default',
+                      bgcolor: "background.default",
                     },
                     [`.${pickersLayoutClasses.actionBar}`]: {
-                      bgcolor: 'background.default',
+                      bgcolor: "background.default",
                     },
                     "& .MuiDialogActions-root button.MuiButtonBase-root,.MuiButtonBase-root.MuiPickersDay-root.Mui-selected,.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root":
                       {
-                        bgcolor: 'info.main',
+                        bgcolor: "info.main",
                         color: "#fff",
                       },
                     "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected": {},

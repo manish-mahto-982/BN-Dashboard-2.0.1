@@ -3,7 +3,7 @@ import React from "react";
 
 function LastDeviceTabContent() {
   return (
-    <DataGrid columns={lastDeviceColumns} rows={lastDeviceRows} />
+    <DataGrid sx={{fontSize:'small'}} columns={lastDeviceColumns} rows={lastDeviceRows} />
   );
 }
 

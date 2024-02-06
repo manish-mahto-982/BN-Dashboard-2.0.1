@@ -11,6 +11,7 @@ import OrderHistoryContent from "./tabs/user-cendentials/OrderHistoryContent";
 import ClientAppAccessContent from "./tabs/user-cendentials/ClientAppAccessContent";
 import ClientExtendedValidityContent from "./tabs/user-cendentials/ClientExtendedValidityContent";
 import UserStatusContent from "./tabs/user-cendentials/UserStatusContent";
+import MDTypography from "src/components/theme/common/MDTypography";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -22,6 +23,7 @@ const Accordion = styled((props) => (
   "&::before": {
     display: "none",
   },
+  backgroundColor:'white'
 }));
 
 const AccordionSummary = styled((props) => (
@@ -61,14 +63,16 @@ export default function UserAccordion() {
         borderRadius: `${12}px`,
         overflow: "hidden",
         border: `1px solid ${theme.palette.divider}`,
+      
       }}
     >
       <Accordion
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
+      
       >
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Last Device</Typography>
+        <AccordionSummary sx aria-controls="panel1d-content" id="panel1d-header">
+          <MDTypography fontSize={'small'} fontWeight={'medium'}>Last Device</MDTypography>
         </AccordionSummary>
         <AccordionDetails
           sx={(theme) => ({ bgcolor: 'background.default' })}
@@ -81,7 +85,7 @@ export default function UserAccordion() {
         onChange={handleChange("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <Typography>Order History</Typography>
+          <MDTypography fontSize={'small'} fontWeight={'medium'}>Order History</MDTypography>
         </AccordionSummary>
         <AccordionDetails
           sx={(theme) => ({ bgcolor: 'background.default' })}
@@ -94,7 +98,7 @@ export default function UserAccordion() {
         onChange={handleChange("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <Typography>Client App Access</Typography>
+          <MDTypography fontSize={'small'} fontWeight={'medium'}>Client App Access</MDTypography>
         </AccordionSummary>
         <AccordionDetails
           sx={(theme) => ({ bgcolor: 'background.default' })}
@@ -107,7 +111,7 @@ export default function UserAccordion() {
         onChange={handleChange("panel4")}
       >
         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-          <Typography>Client Extended Validity</Typography>
+          <MDTypography fontSize={'small'} fontWeight={'medium'}>Client Extended Validity</MDTypography>
         </AccordionSummary>
         <AccordionDetails
           sx={(theme) => ({ bgcolor: 'background.default' })}
@@ -120,7 +124,7 @@ export default function UserAccordion() {
         onChange={handleChange("panel5")}
       >
         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-          <Typography>User Status</Typography>
+          <MDTypography fontSize={'small'} fontWeight={'medium'}>User Status</MDTypography>
         </AccordionSummary>
         <AccordionDetails
           sx={(theme) => ({ bgcolor: 'background.default' })}

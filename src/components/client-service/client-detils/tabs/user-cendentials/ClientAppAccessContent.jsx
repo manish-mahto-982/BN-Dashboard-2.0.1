@@ -12,15 +12,15 @@ function ClientAppAccessContent() {
   return (
     <FlexBoxBetween width={"100%"}>
       <Box>
-        <InputLabel label={"Update Screen To"} />
+        <InputLabel sx={{fontSize:'small'}} label={"Update Screen To"} />
         <MDDropDown options={updateScreenToArr} selectedInd={1} />
       </Box>
       <Box>
-        <InputLabel label={"Update Diet To"} />
-        <DropDown options={updateDieStatusToArr} selectedInd={1} />
+        <InputLabel sx={{fontSize:'small'}} label={"Update Diet To"} />
+        <MDDropDown options={updateDieStatusToArr} selectedInd={1} />
       </Box>
       <Box>
-        <InputLabel label={"Allow Web Access"} />
+        <InputLabel sx={{fontSize:'small'}} label={"Allow Web Access"} />
         <FormControlLabel
           control={
             <IOSStyleSwitch

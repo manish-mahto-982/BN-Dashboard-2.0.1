@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
+import MDButton from "../MDButton";
 export default function MDDropDown({ options = [], selectedInd = 1 }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -41,29 +42,27 @@ export default function MDDropDown({ options = [], selectedInd = 1 }) {
         variant="contained"
         ref={anchorRef}
         disableElevation
-        color="secondary"
+        color="info"
         style={{ outline: "none" }}
         aria-label="split button"
       >
-        <Button
+        <MDButton
           style={{
             outline: "none",
             color: "white",
-            backgroundColor: 'info',
           }}
-          color="secondary"
+          color="info"
           onClick={handleClick}
         >
           {options[selectedIndex]}
-        </Button>
-        <Button
+        </MDButton>
+        <MDButton
           style={{
             outline: "none",
             color: "white",
-            backgroundColor: 'info',
           }}
           size="small"
-          color="secondary"
+          color="info"
           aria-controls={open ? "split-button-menu" : undefined}
           aria-expanded={open ? "true" : undefined}
           aria-label="select merge strategy"
@@ -71,7 +70,7 @@ export default function MDDropDown({ options = [], selectedInd = 1 }) {
           onClick={handleToggle}
         >
           <ArrowDropDownIcon />
-        </Button>
+        </MDButton>
       </ButtonGroup>
 
       <Popper
