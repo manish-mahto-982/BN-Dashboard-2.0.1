@@ -39,6 +39,7 @@ function InductionFlow() {
   } = useDataGridTableDialog();
   const handleClick = (fetchQuery, columns) => {
     const filterData = Object.values(fetchQuery.data)[0];
+    console.log("🚀 ~ handleClick ~ filterData:", filterData)
     setTableData({
       ...tableData,
       data: filterData,
@@ -203,6 +204,7 @@ const SummaryCard = ({ item, handleClick, darkMode }) => {
       <StatisticsCard
         color={item.bgcolor}
         icon="person"
+        handleButtonClick={handleButtonClick}
         title={item.title}
         count={item.number}
       />

@@ -38,12 +38,19 @@ import {
 import { clientServiceRoute, salesRoutes, themeRoutes } from "./routes";
 
 let routes = [];
+let defaultRoute = "";
 
-if (window.location.pathname.includes("sales")) routes = [...salesRoutes];
-else if (window.location.pathname.includes("cs"))
+if (window.location.pathname.includes("sales")) {
+  routes = [...salesRoutes];
+  defaultRoute = "/dashboard";
+} else if (window.location.pathname.includes("cs")) {
   routes = [...clientServiceRoute];
-else if (window.location.pathname.includes("theme"))
+  defaultRoute = "dashboard/induction-flow";
+} else if (window.location.pathname.includes("theme")) {
   routes = [...themeRoutes];
+  defaultRoute = "theme/dashboard";
+
+}
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -160,7 +167,7 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Routes>
           {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="dashboard" />} />
+          <Route path="*" element={<Navigate to={defaultRoute} />} />
         </Routes>
       </ThemeProvider>
     </CacheProvider>
@@ -188,7 +195,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to={"dashboard"} />} />
+        <Route path="*" element={<Navigate to={defaultRoute} />} />
       </Routes>
     </ThemeProvider>
   );

@@ -251,9 +251,11 @@ export default function PersonalDetailsContent({ theme }) {
               <Box width={"100%"}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DateField
+                    label="Birth Date"
                     theme={theme}
                     value={dayjs(value)}
                     onChange={onChange}
+                    
                   />
                 </LocalizationProvider>
               </Box>

@@ -34,6 +34,7 @@ const colors = {
   text: {
     main: "#7b809a",
     focus: "#7b809a",
+    dark: "#000"
   },
 
   transparent: {

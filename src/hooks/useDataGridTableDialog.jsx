@@ -21,7 +21,7 @@ function useDataGridTableDialog() {
       open={showTable}
       setOpen={setShowTable}
       dataGrid={
-        tableData.data.length !== 0 && <DataGridTable data={tableData.data} />
+        tableData.data.length !== 0 && <DataGridTable  data={tableData.data} />
       }
     />
   );

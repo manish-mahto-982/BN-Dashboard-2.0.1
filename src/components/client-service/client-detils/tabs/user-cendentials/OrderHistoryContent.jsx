@@ -52,10 +52,16 @@ function OrderHistoryContent() {
       <DataGrid
         sx={{
           fontSize: "small",
-          ".MuiTablePagination-selectLabel,.MuiTablePagination-root,.MuiTablePagination-displayedRows":
-            {
-              fontSize: "small",
+          "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows": {
+            fontSize: "small",
+          },
+          color: "text.dark",
+          ".MuiTablePagination-root": {
+            color: "text.dark",
+            ".MuiTablePagination-actions button": {
+              color: "text.dark",
             },
+          },
         }}
         columns={orderHistoryColumns}
         rows={orderHistoryDeviceRows}
@@ -71,10 +77,11 @@ const EditOrderDetails = ({ handleEditClick }) => {
   return (
     <>
       <IconButtonWithToolTip
-        Icon={() => <TbEdit size={18} color="error" />}
+      
+        Icon={() => <TbEdit size={18}/>}
         tooltipTitle={"Edit"}
         tooltipProps={{ placement: "right" }}
-        iconButtonProps={{ color: "green", onClick: handleEditClick }}
+        iconButtonProps={{ color: "success", onClick: handleEditClick }}
       />
     </>
   );

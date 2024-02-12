@@ -49,8 +49,9 @@ function a11yProps(index) {
 
 export default function FullWidthTabs({ handleAddWallet }) {
   const theme = useTheme();
+  
   const [value, setValue] = React.useState(1);
-  const [controller] = useMaterialUIController();
+  const [controller,dispatch] = useMaterialUIController();
   const { darkMode } = controller;
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -88,7 +89,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
               color: "#fff",
               my: 0.7,
             },
-            "& .Mui-selected": {
+            "& .MuiButtonBase-root.Mui-selected": {
               // backgroundColor: "info.main",
               color: "#fff",
               my: 1.5,
@@ -143,7 +144,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
-        <UserAccordion />
+        <UserAccordion {...{darkMode}} />
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
         <AssessmentContent />

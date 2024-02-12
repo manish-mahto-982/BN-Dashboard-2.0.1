@@ -19,10 +19,17 @@ function WalletStatementContent({ theme, handleAddWallet }) {
         getRowId={(params) => params["Sr No."]}
         columns={columns}
         sx={{
-          minHeight: 300,
           fontSize: "small",
-          "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
-            { fontSize: "small" },
+        "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows": {
+          fontSize: "small",
+        },
+        color: "text.dark",
+        ".MuiTablePagination-root": {
+          color: "text.dark",
+          ".MuiTablePagination-actions button": {
+            color: "text.dark",
+          },
+        },
         }}
         disableColumnFilter
         disableColumnSelector

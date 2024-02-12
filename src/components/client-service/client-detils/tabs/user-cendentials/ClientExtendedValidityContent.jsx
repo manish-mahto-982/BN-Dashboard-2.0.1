@@ -1,4 +1,5 @@
 import { Checkbox, FormControlLabel, TextField, useTheme } from "@mui/material";
+import dayjs from "dayjs";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
@@ -8,7 +9,7 @@ import DateField from "src/components/client-service/forms/DateField";
 function ClientExtendedValidityContent() {
   const { control } = useForm({
     defaultValues: {
-      validityDate: "",
+      validityDate: "1991-11-04",
     },
   });
   const theme = useTheme();
@@ -39,7 +40,7 @@ function ClientExtendedValidityContent() {
           control={control}
           name="validityDate"
           render={({ field: { value, onChange } }) => (
-            <DateField theme={theme} value={value} onChange={onChange} />
+            <DateField label="Validity" theme={theme} value={dayjs(value)} onChange={onChange} />
           )}
         />
         <TextField

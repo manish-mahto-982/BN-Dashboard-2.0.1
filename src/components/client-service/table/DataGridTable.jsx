@@ -61,7 +61,7 @@ export default function DataGridTable({ data, isLoading = true }) {
               </IconButton>
             </Tooltip>
             <Tooltip title={"Wati"}>
-              <IconButton aria-label="wati" color={"default"}>
+              <IconButton aria-label="wati" color={"text"}>
                 <TbMessage
                   style={{
                     strokeWidth: 1.4,
@@ -136,7 +136,10 @@ export default function DataGridTable({ data, isLoading = true }) {
           getRowHeight={() => "auto"}
           rows={rows}
           sx={{
-            color: theme.palette.text.main,
+            "& .MuiDataGrid-columnHeadersInner .MuiDataGrid-columnHeaderTitle":
+              {
+                color: "text.main",
+              },
             "& .MuiDataGrid-row.Mui-selected ": {
               bgcolor: "transparent !important",
             },
@@ -145,6 +148,18 @@ export default function DataGridTable({ data, isLoading = true }) {
               fontWeight: 600,
               // fontSize: '14px',
               color: theme.palette.text.primary,
+            },
+            fontSize: "small",
+            "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+              {
+                fontSize: "small",
+              },
+            color: "text.dark",
+            ".MuiTablePagination-root": {
+              color: "text.dark",
+              ".MuiTablePagination-actions button": {
+                color: "text.dark",
+              },
             },
           }}
           columns={columns}

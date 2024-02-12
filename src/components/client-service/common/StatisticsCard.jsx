@@ -17,12 +17,20 @@ function StatisticsCard({
   count,
   percentage,
   icon,
+  handleButtonClick,
   coloredShadow = true,
 }) {
   return (
     <Card
+      component={"button"}
+      onClick={handleButtonClick}
       sx={[
-        { zIndex: 10, cursor: "pointer", "&:hover": { boxShadow: "none" } },
+        {
+          zIndex: 10,
+          cursor: "pointer",
+          width: "100%",
+          "&:hover": { boxShadow: "none" },
+        },
         {
           "&:before": {
             content: "''",

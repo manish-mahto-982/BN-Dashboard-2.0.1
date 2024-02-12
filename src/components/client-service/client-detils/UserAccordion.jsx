@@ -13,17 +13,17 @@ import ClientExtendedValidityContent from "./tabs/user-cendentials/ClientExtende
 import UserStatusContent from "./tabs/user-cendentials/UserStatusContent";
 import MDTypography from "src/components/theme/common/MDTypography";
 
-const Accordion = styled((props) => (
+const Accordion = styled(({ ...props }) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  borderBottom: `1px solid divider.main`,
+))(({ darkMode, theme }) => ({
+  borderBottom: `1px solid ${theme.palette.divider}`,
   "&:is(:last-child)": {
     borderBottom: 0,
   },
   "&::before": {
     display: "none",
   },
-  backgroundColor:'white'
+  backgroundColor: darkMode ? "#202940" : "#fff",
 }));
 
 const AccordionSummary = styled((props) => (
@@ -32,7 +32,7 @@ const AccordionSummary = styled((props) => (
     {...props}
   />
 ))(({ theme }) => ({
-  backgroundColor: 'background.default',
+  backgroundColor: "background.default",
   // theme.palette.mode === "dark"
   //   ? "rgba(255, 255, 255, .05)"
   //   : "rgba(0, 0, 0, .03)",
@@ -47,10 +47,12 @@ const AccordionSummary = styled((props) => (
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
-  borderTop: "1px solid rgba(0, 0, 0, .125)",
+  borderTop: "1px solid",
+  borderTopColor: theme.palette.divider,
 }));
 
-export default function UserAccordion() {
+export default function UserAccordion({ darkMode }) {
+  console.log("🚀 ~ UserAccordion ~ darkMode:", darkMode);
   const [expanded, setExpanded] = React.useState("panel1");
   const theme = useTheme();
   const handleChange = (panel) => (event, newExpanded) => {
@@ -62,74 +64,111 @@ export default function UserAccordion() {
       style={{
         borderRadius: `${12}px`,
         overflow: "hidden",
-        border: `1px solid ${theme.palette.divider}`,
-      
+        border: `1px solid divider.main`,
       }}
     >
       <Accordion
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        darkMode={darkMode}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
-      
       >
-        <AccordionSummary sx aria-controls="panel1d-content" id="panel1d-header">
-          <MDTypography fontSize={'small'} fontWeight={'medium'}>Last Device</MDTypography>
-        </AccordionSummary>
-        <AccordionDetails
-          sx={(theme) => ({ bgcolor: 'background.default' })}
+        <AccordionSummary
+          sx
+          aria-controls="panel1d-content"
+          id="panel1d-header"
         >
+          <MDTypography fontSize={"small"} fontWeight={"medium"}>
+            Last Device
+          </MDTypography>
+        </AccordionSummary>
+        <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
           <LastDeviceTabContent />
         </AccordionDetails>
       </Accordion>
       <Accordion
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        darkMode={darkMode}
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-          <MDTypography fontSize={'small'} fontWeight={'medium'}>Order History</MDTypography>
+          <MDTypography fontSize={"small"} fontWeight={"medium"}>
+            Order History
+          </MDTypography>
         </AccordionSummary>
-        <AccordionDetails
-          sx={(theme) => ({ bgcolor: 'background.default' })}
-        >
+        <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
           <OrderHistoryContent />
         </AccordionDetails>
       </Accordion>
       <Accordion
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        darkMode={darkMode}
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
       >
         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-          <MDTypography fontSize={'small'} fontWeight={'medium'}>Client App Access</MDTypography>
+          <MDTypography fontSize={"small"} fontWeight={"medium"}>
+            Client App Access
+          </MDTypography>
         </AccordionSummary>
-        <AccordionDetails
-          sx={(theme) => ({ bgcolor: 'background.default' })}
-        >
-         <ClientAppAccessContent/>
+        <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
+          <ClientAppAccessContent />
         </AccordionDetails>
       </Accordion>
       <Accordion
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        darkMode={darkMode}
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
       >
         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-          <MDTypography fontSize={'small'} fontWeight={'medium'}>Client Extended Validity</MDTypography>
+          <MDTypography fontSize={"small"} fontWeight={"medium"}>
+            Client Extended Validity
+          </MDTypography>
         </AccordionSummary>
-        <AccordionDetails
-          sx={(theme) => ({ bgcolor: 'background.default' })}
-        >
-         <ClientExtendedValidityContent/>
+        <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
+          <ClientExtendedValidityContent />
         </AccordionDetails>
       </Accordion>
       <Accordion
+        sx={{
+          ".MuiAccordionSummary-expandIconWrapper": {
+            color: "text.main",
+          },
+        }}
+        darkMode={darkMode}
         expanded={expanded === "panel5"}
         onChange={handleChange("panel5")}
       >
         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-          <MDTypography fontSize={'small'} fontWeight={'medium'}>User Status</MDTypography>
+          <MDTypography fontSize={"small"} fontWeight={"medium"}>
+            User Status
+          </MDTypography>
         </AccordionSummary>
-        <AccordionDetails
-          sx={(theme) => ({ bgcolor: 'background.default' })}
-        >
-         <UserStatusContent theme={theme}/>
+        <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
+          <UserStatusContent theme={theme} />
         </AccordionDetails>
       </Accordion>
     </div>

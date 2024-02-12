@@ -110,13 +110,13 @@ function TrackerContent({ theme }) {
         <FlexBoxBetween width={"100%"}>
           <IconButtonWithToolTip
             iconButtonProps={{
-              color: "green",
+              color: "success",
               onClick: () => editClick(params),
             }}
             Icon={() => <TbEdit size={18} />}
           />
           <IconButtonWithToolTip
-            iconButtonProps={{ color: "red" }}
+            iconButtonProps={{ color: "error" }}
             Icon={() => <TbTrash size={18} />}
           />
           <MDBox
@@ -127,8 +127,8 @@ function TrackerContent({ theme }) {
               py: 0.5,
               borderRadius: 10,
               columnGap: 0.5,
-              bgcolor: `rgba(0,255,0,0.2)`,
-              color: "success",
+              bgcolor: `rgba(0,255,0,0.15)`,
+              color: "success.main",
             }}
           >
             Approved
@@ -144,6 +144,7 @@ function TrackerContent({ theme }) {
       headerName: "Date",
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
+      minWidth: 160,
       sortable: false,
       headerAlign: "left",
       align: "left",
@@ -153,11 +154,13 @@ function TrackerContent({ theme }) {
       headerName: "Session",
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
+      minWidth: 90,
       sortable: false,
     },
     {
       field: "day",
       headerName: "Day",
+      minWidth: 100,
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
       sortable: false,
@@ -167,6 +170,7 @@ function TrackerContent({ theme }) {
       headerName: "Chest",
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
+      minWidth: 75,
       sortable: false,
     },
     {
@@ -174,12 +178,14 @@ function TrackerContent({ theme }) {
       headerName: "Waist",
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
+      minWidth: 75,
       sortable: false,
     },
     {
       field: "hip",
       headerName: "Hip",
       headerClassName: "custom-data-grid-table-header",
+      minWidth: 55,
       flex: 1,
       sortable: false,
     },
@@ -188,18 +194,19 @@ function TrackerContent({ theme }) {
       headerName: "Action",
       headerClassName: "custom-data-grid-table-header",
       flex: 1,
+      minWidth: 170,
       sortable: false,
       renderCell: (params) => (
         <FlexBoxBetween width={"100%"}>
           <IconButtonWithToolTip
             iconButtonProps={{
-              color: "green",
+              color: "success",
               onClick: () => editClick(params),
             }}
             Icon={() => <TbEdit size={18} />}
           />
           <IconButtonWithToolTip
-            iconButtonProps={{ color: "red" }}
+            iconButtonProps={{ color: "error" }}
             Icon={() => <TbTrash size={18} />}
           />
           <MDBox
@@ -210,8 +217,8 @@ function TrackerContent({ theme }) {
               py: 0.5,
               borderRadius: 10,
               columnGap: 0.5,
-              bgcolor: `rgba(0,255,0,0.2)`,
-              color: `success`,
+              bgcolor: `rgba(0,255,0,0.15)`,
+              color: `success.main`,
             }}
           >
             Approved
@@ -246,44 +253,58 @@ function TrackerContent({ theme }) {
                 Add Weight
               </PrimaryButton>
             </FlexBoxBetween>
-            <DataGrid
-              slotProps={{
-                toolbar: {
-                  showQuickFilter: true,
-                  quickFilterProps: { debounceMs: 500 },
-                },
-              }}
-              disableColumnMenu={true}
-              rows={data}
-              getRowId={(params) => params.date}
-              disableColumnFilter
-              disableColumnSelector
-              disableDensitySelector
-              columns={columns}
-              slots={{
-                pagination: () => (
-                  <Typography
-                    fontSize={"small"}
-                    textAlign={"center"}
-                    mx={"auto"}
-                  >
-                    Total weight loss in this session :{" "}
-                    <span style={{ color: "red", fontWeight: 600 }}>
-                      18.70 Kg
-                    </span>
-                  </Typography>
-                ),
-              }}
-              sx={{
-                mt: 2,
-                fontSize: "small",
-                bgcolor: "background.default",
-                ".MuiDataGrid-cell:focus-within": { outline: "none" },
-                [`& .${gridClasses.cell}`]: {
-                  py: 1,
-                },
-              }}
-            />
+            <MDBox className={"overflow-x-scroll"}>
+              <DataGrid
+                slotProps={{
+                  toolbar: {
+                    showQuickFilter: true,
+                    quickFilterProps: { debounceMs: 500 },
+                  },
+                }}
+                disableColumnMenu={true}
+                rows={data}
+                getRowId={(params) => params.date}
+                disableColumnFilter
+                disableColumnSelector
+                disableDensitySelector
+                columns={columns}
+                slots={{
+                  pagination: () => (
+                    <Typography
+                      fontSize={"small"}
+                      textAlign={"center"}
+                      mx={"auto"}
+                    >
+                      Total weight loss in this session :{" "}
+                      <span style={{ color: "red", fontWeight: 600 }}>
+                        18.70 Kg
+                      </span>
+                    </Typography>
+                  ),
+                }}
+                sx={{
+                  minWidth: "980px",
+                  mt: 2,
+                  fontSize: "small",
+                  bgcolor: "background.default",
+                  ".MuiDataGrid-cell:focus-within": { outline: "none" },
+                  [`& .${gridClasses.cell}`]: {
+                    py: 1,
+                  },
+                  "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+                    {
+                      fontSize: "small",
+                    },
+                  color: "text.dark",
+                  ".MuiTablePagination-root": {
+                    color: "text.dark",
+                    ".MuiTablePagination-actions button": {
+                      color: "text.dark",
+                    },
+                  },
+                }}
+              />
+            </MDBox>
           </Grid>
           {/* Inch Tracker */}
           <Grid item xs={12} pb={3} mt={6}>
@@ -305,33 +326,47 @@ function TrackerContent({ theme }) {
                 Add Inch
               </PrimaryButton>
             </FlexBoxBetween>
-            <DataGrid
-              slotProps={{
-                toolbar: {
-                  showQuickFilter: true,
-                  quickFilterProps: { debounceMs: 500 },
-                },
-              }}
-              disableColumnMenu={true}
-              rows={inchData}
-              getRowId={(params) => params.date}
-              disableColumnFilter
-              disableColumnSelector
-              disableDensitySelector
-              columns={inchColumns}
-              slots={{
-                pagination: null,
-              }}
-              sx={{
-                mt: 2,
-                fontSize: "small",
-                bgcolor: "background.default",
-                ".MuiDataGrid-cell:focus-within": { outline: "none" },
-                [`& .${gridClasses.cell}`]: {
-                  py: 1,
-                },
-              }}
-            />
+            <MDBox className={"overflow-x-scroll"}>
+              <DataGrid
+                slotProps={{
+                  toolbar: {
+                    showQuickFilter: true,
+                    quickFilterProps: { debounceMs: 500 },
+                  },
+                }}
+                disableColumnMenu={true}
+                rows={inchData}
+                getRowId={(params) => params.date}
+                disableColumnFilter
+                disableColumnSelector
+                disableDensitySelector
+                columns={inchColumns}
+                slots={{
+                  pagination: null,
+                }}
+                sx={{
+                  minWidth: "740px",
+                  mt: 2,
+                  fontSize: "small",
+                  bgcolor: "background.default",
+                  ".MuiDataGrid-cell:focus-within": { outline: "none" },
+                  [`& .${gridClasses.cell}`]: {
+                    py: 1,
+                  },
+                  "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+                    {
+                      fontSize: "small",
+                    },
+                  color: "text.dark",
+                  ".MuiTablePagination-root": {
+                    color: "text.dark",
+                    ".MuiTablePagination-actions button": {
+                      color: "text.dark",
+                    },
+                  },
+                }}
+              />
+            </MDBox>
           </Grid>
           {/* Photo Tracker */}
           <Grid item xs={12} pb={3} mt={6}>
@@ -371,11 +406,10 @@ function TrackerContent({ theme }) {
               <CardHeader
                 title="Assessment Photo"
                 sx={{
-                  
                   textAlign: "center",
                 }}
               />
-              <Divider sx={{pt:0}} />
+              <Divider sx={{ pt: 0 }} />
               <CardMedia
                 sx={{
                   height: 300,

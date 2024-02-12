@@ -148,7 +148,7 @@ function Navbar({ absolute, light, isMini }) {
           <Breadcrumbs
             icon="home"
             title={route[route.length - 1]}
-            route={route}
+            route={route.slice(1)}
             light={light}
           />
         </MDBox>

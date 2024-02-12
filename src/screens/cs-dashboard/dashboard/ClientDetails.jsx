@@ -196,15 +196,22 @@ const TitleValueText = ({
           alignItems: "center",
         }}
       >
-        <strong
-          style={{
-            color: "text",
-            fontSize: "14px",
-            marginRight: 6,
-          }}
+        <MDTypography
+          fontSize="small"
+          display={"inline"}
+          textTransform={"capitalize"}
+          color={"text"}
+          width={"fit-content"}
         >
-          {value}
-        </strong>
+          <strong
+            style={{
+              marginRight: 6,
+            }}
+          >
+            {value}
+          </strong>
+        </MDTypography>
+
         {(title.includes("mentor") && (
           <IconButtonWithToolTip
             Icon={TbBrandWhatsapp}
@@ -279,7 +286,7 @@ const TitleValueText = ({
             </Button>
           )) ||
           (title.includes("link_details") && (
-            <ButtonGroup variant="text" sx={{ mt: 0.5 }}>
+            <FlexBoxBetween sx={{ mt: 0.5 }}  className="flex flex-wrap divide-x-1 divide-slate-100 ">
               <Button
                 sx={{
                   textTransform: "capitalize",
@@ -287,7 +294,7 @@ const TitleValueText = ({
                 }}
                 startIcon={<TbCopy color="info" strokeWidth="1.5" />}
               >
-                <MDTypography fontSize={"small"}>Copy Link</MDTypography>
+                <MDTypography fontSize={"small"} whiteSpace={'nowrap'}>Copy Link</MDTypography>
               </Button>
               <Button
                 onClick={handleEditLink}
@@ -300,11 +307,11 @@ const TitleValueText = ({
                   <TbEdit strokeWidth="1.5" stroke={colors.success.main} />
                 }
               >
-                <MDTypography color="success" fontSize={"small"}>
+                <MDTypography color="success" fontSize={"small"} whiteSpace={'nowrap'}>
                   Edit Link
                 </MDTypography>
               </Button>
-            </ButtonGroup>
+            </FlexBoxBetween>
           )) ||
           (title.includes("user_status") && (
             // <ButtonGroup variant="text" sx={{}}>
