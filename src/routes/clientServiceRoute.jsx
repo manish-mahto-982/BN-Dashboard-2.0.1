@@ -105,7 +105,7 @@ const clientServiceRoute = [
     type: "collapse",
     name: "Drafts",
     key: "drafts",
-    icon: <Icon fontSize="small">file</Icon>,
+    icon: <Icon fontSize="small">description</Icon>,
     route: "/drafts",
     component: <Drafts />,
   },

@@ -7,9 +7,9 @@ import { Grid } from "@mui/material";
 function TailEndJourney() {
   return (
     <CSLayout>
-      <Grid container rowGap={3} columnGap={3}>
+      <Grid container spacing={3}>
         {Object.entries(cardData).map(([cardTitle, data]) => (
-          <Grid key={cardTitle} item xs={12} lg={3.8}>
+          <Grid key={cardTitle} item xs={12} sm={6} lg={4}>
             <CardWithDialogTable titleType="normal" {...{ cardTitle, data }} />
           </Grid>
         ))}

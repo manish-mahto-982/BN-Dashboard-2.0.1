@@ -51,7 +51,7 @@ function StatisticsCard({
         // },
       ]}
     >
-      <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
+      <MDBox display="flex" justifyContent="space-between" pt={1} px={2} width={'100%'}>
         <MDBox
           variant="gradient"
           bgColor={color}
