@@ -6,12 +6,22 @@ import { Card, Divider, Grid, Icon } from "@mui/material";
 import CardWithDialogTable from "src/components/client-service/common/CardWithDialogTable";
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
+import { useMaterialUIController } from "src/context";
 function Maintenance() {
+  const [controller] = useMaterialUIController();
+  const { darkMode } = controller;
   return (
     <CSLayout>
       <Grid container spacing={3} mt={3}>
-        <Grid item xs={12} sm={6} lg={4} mt={2} className="flex flex-col w-full flex-1" >
-          <Card className="cursor-pointer w-full" >
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          lg={4}
+          mt={2}
+          className="flex w-full flex-1 flex-col"
+        >
+          <Card className="w-full cursor-pointer">
             <MDBox
               bgColor={"error"}
               variant="gradient"
@@ -38,6 +48,7 @@ function Maintenance() {
           <CardWithDialogTable
             data={maintenanceWeightOdData}
             cardTitle={"Maintenance Weight OD"}
+            darkMode={darkMode}
           />
         </Grid>
       </Grid>

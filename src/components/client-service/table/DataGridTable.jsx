@@ -39,7 +39,11 @@ export default function DataGridTable({ data, isLoading = true }) {
         return (
           <FlexBoxBetween columnGap={1}>
             <Tooltip title={"Whatsapp"}>
-              <IconButton aria-label="whatsapp" color={"success"}>
+              <IconButton
+                aria-label="whatsapp"
+                color={"success"}
+                onClick={() => handleWhatsApp(params.row)}
+              >
                 <TbBrandWhatsapp
                   style={{
                     strokeWidth: 1.4,
@@ -79,8 +83,13 @@ export default function DataGridTable({ data, isLoading = true }) {
   }));
 
   const handleWhatsApp = (row) => {
-    // Implement WhatsApp action here
-    console.log(`Sending WhatsApp to ${row.name}`);
+    const phoneNumber = document
+      .querySelector(`td#phone_${row.id}`)
+      .innerHTML.replace(/[\+\-]/g, ""); //removing the + and - from the phoneNumber
+    const whatsAppMessage = `https://wa.me/${phoneNumber}/?text=Hello Warsha Amarnani ,%0a%0aThis is Roshani here from Balance Nutrition Client Service Team.%0a%0aYour welcome call with your Mentor Jyoti is pending to do so you will have to login into the app and book your call.%0a%0aPlease do not miss booking this as it is an important one where your Mentor Jyoti will orient you about your program.%0a%0aP.S. Please feel free to contact me if you’re facing any issues in booking the call.`;
+    console.log("🚀 ~ handleWhatsApp ~ phoneNumber:", phoneNumber);
+    window.location.href = whatsAppMessage;
+    console.log("🚀 ~ handleWhatsApp ~ whatsAppMessage:", whatsAppMessage);
   };
 
   const handleNotification = (row) => {
@@ -110,7 +119,10 @@ export default function DataGridTable({ data, isLoading = true }) {
                   <td style={{ fontWeight: 600, textTransform: "capitalize" }}>
                     {key.split("_").join(" ")}&nbsp;:&nbsp;
                   </td>
-                  <td style={{ fontSize: 14, paddingBlock: 4 }}>
+                  <td
+                    id={`${key}_${row.id}`}
+                    style={{ fontSize: 14, paddingBlock: 4 }}
+                  >
                     {item[field][key]}
                   </td>
                 </tr>

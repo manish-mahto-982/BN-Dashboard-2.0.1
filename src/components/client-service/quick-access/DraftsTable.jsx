@@ -32,7 +32,9 @@ import ReactQuill from "react-quill";
 import { useGetDraftsQuery } from "src/services/client-service/api";
 
 import { draftOptions } from "src/utils/constants";
-import SnackBarTopCenter,{SNACKBAR_TOP_CENTER_INITIAL_STATE} from "../snack-bar/SnackBarTopCenter";
+import SnackBarTopCenter, {
+  SNACKBAR_TOP_CENTER_INITIAL_STATE,
+} from "../snack-bar/SnackBarTopCenter";
 import { AddDraftDialog } from "src/screens/quick-access/Drafts";
 
 export function CustomToolbar() {
@@ -42,9 +44,9 @@ export function CustomToolbar() {
         display: "flex",
         justifyContent: "space-between",
         ".MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary":
-          { color:'info.main' },
+          { color: "info.main" },
         ".MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium": {
-          fill: 'info.main',
+          fill: "info.main",
         },
       }}
     >
@@ -60,7 +62,7 @@ export default function DraftsTable() {
   const [selectedRow, setSelectedRow] = React.useState(null);
 
   const [alertState, setAlertState] = React.useState(
-    SNACKBAR_TOP_CENTER_INITIAL_STATE
+    SNACKBAR_TOP_CENTER_INITIAL_STATE,
   );
   const { data, isLoading } = useGetDraftsQuery();
 
@@ -102,10 +104,7 @@ export default function DraftsTable() {
       disableClickEventBubbling: true,
       renderCell: (params) => {
         return (
-          <div
-            className="flex"
-            style={{ cursor: "pointer" }}
-          >
+          <div className="flex" style={{ cursor: "pointer" }}>
             <MatEdit
               index={params.row.id}
               onEditClick={() => handleEditClick(params.row)}
@@ -147,7 +146,23 @@ export default function DraftsTable() {
               [`& .${gridClasses.cell}`]: {
                 py: 1,
               },
-              fontSize:12
+              fontSize: 12,
+              ".MuiDataGrid-cell:focus-within": { outline: "none" },
+              [`& .${gridClasses.cell}`]: {
+                py: 1,
+              },
+              fontSize: "small",
+              "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
+                {
+                  fontSize: "small",
+                },
+              color: "text.dark",
+              ".MuiTablePagination-root": {
+                color: "text.dark",
+                ".MuiTablePagination-actions button": {
+                  color: "text.dark",
+                },
+              },
             }}
             slots={{ toolbar: CustomToolbar }}
           />
@@ -192,6 +207,7 @@ const MatCopy = ({ index, onCopyClick }) => {
         control={
           <Tooltip title={"Copy"}>
             <IconButton
+              color="info"
               aria-label="edit"
               onClick={onCopyClick}
               style={{ outline: "none" }}
@@ -239,4 +255,3 @@ const EditModal = ({ isOpen, setShow, rowData, theme }) => {
     />
   );
 };
-

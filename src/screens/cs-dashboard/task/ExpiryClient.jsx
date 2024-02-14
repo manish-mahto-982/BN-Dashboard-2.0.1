@@ -4,7 +4,10 @@ import CardWithIconAndDialogTable from "src/components/client-service/common/Car
 import { TbUsersGroup } from "react-icons/tb";
 import { commonDataAllTable } from "src/utils/constants";
 import { Grid } from "@mui/material";
+import { useMaterialUIController } from "src/context";
 function ExpiryClient() {
+  const [controller] = useMaterialUIController();
+  const { darkMode } = controller;
   return (
     <CSLayout>
       <Grid container>
@@ -12,6 +15,7 @@ function ExpiryClient() {
           <CardWithIconAndDialogTable
             data={expiryClientsData3}
             cardTitle="Expiry Client Details"
+            darkMode={darkMode}
           />
         </Grid>
       </Grid>
@@ -56,19 +60,6 @@ const expiryClientsData2 = [
     color: "unset",
     ...commonDataAllTable,
   },
-
-  // {
-  //   title: "Tomorrow",
-  //   value: "2",
-  //   icon: { name: TbUsersGroup, color: "unset" },
-  //   ...commonDataAllTable,
-  // },
-  // {
-  //   title: "Day After Tomorrow",
-  //   value: "11",
-  //   icon: { name: TbUsersGroup, color: "unset" },
-  //   ...commonDataAllTable,
-  // },
 ];
 
 const expiryClientsData3 = [
