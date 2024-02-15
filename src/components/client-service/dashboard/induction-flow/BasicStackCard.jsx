@@ -2,6 +2,10 @@ import { Box, Typography } from "@mui/material";
 import { FaRegCircleUser } from "react-icons/fa6";
 import React from "react";
 import StackCard from "./StackCard";
+import {
+  newClientBasicStackTableData,
+  omrClientBasicStackTableData,
+} from "src/utils/tableData";
 
 function BasicStackCard({ handleClick, item }) {
   return (
@@ -10,7 +14,7 @@ function BasicStackCard({ handleClick, item }) {
         title="Basic Stack"
         bgcolor={"#3FAFA9"}
         handleClick={handleClick}
-        item={item}
+        cardData={basicStackCardData}
         Icon={FaRegCircleUser}
       />
     </>
@@ -18,3 +22,21 @@ function BasicStackCard({ handleClick, item }) {
 }
 
 export default BasicStackCard;
+
+const basicStackCardData = [
+  {
+    count: 25,
+    title: "New Clients",
+    ...newClientBasicStackTableData,
+  },
+  {
+    count: 15,
+    title: "Renewal",
+    ...omrClientBasicStackTableData,
+  },
+  {
+    count: 20,
+    title: "OCR Clients",
+    ...omrClientBasicStackTableData,
+  },
+];

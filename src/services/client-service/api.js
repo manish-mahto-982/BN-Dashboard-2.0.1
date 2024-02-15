@@ -5,6 +5,7 @@ export const api = createApi({
   reducerPath: "clientServiceApi",
   tagTypes: [
     "User",
+    "BasicStack",
     "UserRatting",
     "StartWeight",
     "AppNotUpdatedIOS",
@@ -24,6 +25,31 @@ export const api = createApi({
       // query: (id) => `general/user/${id}`,
       query: () => `/induction-flow/get-new-assign-bs-omr-client-data.json`,
       providesTags: ["User"],
+    }),
+    getBasicStackNewClient: build.query({
+      // query: (id) => `general/user/${id}`,
+      query: () => `/induction-flow/new_basic_stack_client.json`,
+      providesTags: ["BasicStackNewClient"],
+    }),
+    getBasicStackOMRClient: build.query({
+      // query: (id) => `general/user/${id}`,
+      query: () => `/induction-flow/ocr_basic_stack_client.json`,
+      providesTags: ["BasicStackOMRClient"],
+    }),
+    getSpecialStackNewClient: build.query({
+      // query: (id) => `general/user/${id}`,
+      query: () => `/induction-flow/new_basic_stack_client.json`,
+      providesTags: ["SpecialStackNewClient"],
+    }),
+    getSpecialStackOMRClient: build.query({
+      // query: (id) => `general/user/${id}`,
+      query: () => `/induction-flow/ocr_basic_stack_client.json`,
+      providesTags: ["SpecialStackOMRClient"],
+    }),
+    getNAFOverdueData: build.query({
+      // query: (id) => `general/user/${id}`,
+      query: () => `/induction-flow/naf_overdue_data.json`,
+      providesTags: ["NAFOverdueData"],
     }),
     getUserRating: build.query({
       query: () => `/rating-feedback/rating_feedback.json`,
@@ -75,6 +101,9 @@ export const api = createApi({
 
 export const {
   useGetUserQuery,
+  useGetBasicStackNewClientQuery,
+  useGetBasicStackOMRClientQuery,
+  useGetNAFOverdueDataQuery,
   useGetUserRatingQuery,
   useGetAppNotUpdatedIOSQuery,
   useGetAppNotUpdatedAndroidQuery,

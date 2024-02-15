@@ -1,52 +1,18 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // material-ui
 import { useTheme } from "@mui/material/styles";
 import {
   Avatar,
   Box,
-  Button,
   ButtonBase,
-  CardActions,
-  Chip,
   ClickAwayListener,
   Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Divider,
-  Grid,
-  IconButton,
   Paper,
-  Popover,
   Popper,
-  Rating,
-  Stack,
-  TextField,
   Tooltip,
-  Typography,
   useMediaQuery,
 } from "@mui/material";
-
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-// third-party
-import PerfectScrollbar from "react-perfect-scrollbar";
-
-// assets
-import { TbCalendarTime, TbStars } from "react-icons/tb";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Transitions from "../extended/Transitions";
-import NavbarButton from "./NavbarButton";
-
-// ==============================|| NOTIFICATION ||============================== //
 
 const NavbarButtonWithOverlay = ({
   children,
@@ -104,7 +70,7 @@ const NavbarButtonWithOverlay = ({
                 ...theme.typography.mediumAvatar,
                 transition: "all .2s ease-in-out",
                 color: theme.palette.secondary.main,
-                
+
                 borderRadius: "12px",
                 background: "transparent",
               }}
@@ -114,7 +80,7 @@ const NavbarButtonWithOverlay = ({
               onClick={handleToggle}
               color="inherit"
             >
-              <Icon  />
+              <Icon />
             </Avatar>
           </ButtonBase>
         </Tooltip>

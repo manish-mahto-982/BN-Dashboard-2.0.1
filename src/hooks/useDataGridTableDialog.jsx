@@ -7,6 +7,8 @@ function useDataGridTableDialog() {
     data: [],
     columns: [],
     tableTitle: "",
+    actionType: "default",
+    actionColumn: null,
   });
   const [showTable, updateShowTable] = useState(false);
   const setTableData = (newVal) => {
@@ -21,7 +23,15 @@ function useDataGridTableDialog() {
       open={showTable}
       setOpen={setShowTable}
       dataGrid={
-        tableData.data.length !== 0 && <DataGridTable  data={tableData.data} />
+        tableData.data.length !== 0 && (
+          <DataGridTable
+            data={tableData.data}
+            actionType={tableData.actionType}
+            {...(tableData.actionType === "custom" && {
+              actionColumn: tableData.actionColumn,
+            })}
+          />
+        )
       }
     />
   );

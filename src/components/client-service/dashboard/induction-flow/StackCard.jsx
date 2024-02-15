@@ -7,24 +7,13 @@ import MDTypography from "src/components/theme/common/MDTypography";
 function StackCard({
   bgcolor,
   Icon,
+  cardData=[],
   color = "white",
   title = "",
-  item = {},
   handleClick = () => {},
 }) {
   //FIXME: create custom hook for this
 
-  let trigger;
-  let res;
-  if (item.fetchQuery) {
-    [trigger, res] = item.fetchQuery?.();
-  }
-  const handleButtonClick = () => {
-    trigger?.();
-  };
-  useEffect(() => {
-    res?.data && handleClick(res, item.columns);
-  }, [res]);
   return (
     <Box>
       <Box
@@ -62,63 +51,47 @@ function StackCard({
         textAlign={"center"}
         sx={{ mt: { md: 3 }, p: 3 }}
       >
-        <Box
-          onClick={handleButtonClick}
-          bgcolor={"unset"}
-          border={"unset"}
-          color={"unset"}
-          sx={{
-            cursor: "pointer",
-            ":hover": { color: bgcolor },
-            transition: "linear",
-            transitionDuration: "300ms",
-          }}
-          component={"button"}
-        >
-          <MDTypography fontSize={24} fontWeight={"bold"}>
-            25
-          </MDTypography>
-          <MDTypography variant="">New Clients</MDTypography>
-        </Box>
-        <Divider orientation="vertical" sx={{ height: "50px", width: "1px" }} />
-        <Box
-          onClick={handleButtonClick}
-          bgcolor={"unset"}
-          border={"unset"}
-          color={"unset"}
-          sx={{
-            cursor: "pointer",
-            ":hover": { color: bgcolor },
-            transition: "linear",
-            transitionDuration: "300ms",
-          }}
-          component={"button"}
-        >
-          <MDTypography fontSize={24} fontWeight={"bold"}>
-            15
-          </MDTypography>
-          <MDTypography variant="">Renewal</MDTypography>
-        </Box>
-        <Divider orientation="vertical" sx={{ height: "50px", width: "1px" }} />
-
-        <Box
-          onClick={handleButtonClick}
-          bgcolor={"unset"}
-          border={"unset"}
-          color={"unset"}
-          sx={{
-            cursor: "pointer",
-            ":hover": { color: bgcolor },
-            transition: "linear",
-            transitionDuration: "300ms",
-          }}
-          component={"button"}
-        >
-          <MDTypography fontSize={24} fontWeight={"bold"}>
-            20
-          </MDTypography>
-          <MDTypography variant="">OCR Clients</MDTypography>
-        </Box>
+        {cardData.map((item, index) => {
+          let trigger;
+          let res;
+          if (item.fetchQuery) {
+            [trigger, res] = item.fetchQuery?.();
+          }
+          const handleButtonClick = () => {
+            trigger?.();
+          };
+          useEffect(() => {
+            res?.data && handleClick(res, item.columns);
+          }, [res]);
+          return (
+            <React.Fragment key={item.title}>
+              <Box
+                onClick={handleButtonClick}
+                bgcolor={"unset"}
+                border={"unset"}
+                color={"unset"}
+                sx={{
+                  cursor: "pointer",
+                  ":hover": { color: bgcolor },
+                  transition: "linear",
+                  transitionDuration: "300ms",
+                }}
+                component={"button"}
+              >
+                <MDTypography fontSize={24} fontWeight={"bold"}>
+                  {item.count}
+                </MDTypography>
+                <MDTypography variant="">{item.title}</MDTypography>
+              </Box>
+              {index + 1 < cardData.length && (
+                <Divider
+                  orientation="vertical"
+                  sx={{ height: "50px", width: "1px" }}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
       </FlexBoxBetween>
     </Box>
   );

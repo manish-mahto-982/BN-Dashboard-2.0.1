@@ -14,12 +14,11 @@ import Slide from "@mui/material/Slide";
 import { Box, useTheme } from "@mui/material";
 import { useMaterialUIController } from "src/context";
 
-export const TransitionSlidUp = React.forwardRef(function Transition(
-  props,
-  ref
-) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+export const TransitionSlidUp = React.forwardRef(
+  function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  },
+);
 
 export default function DataGridTableDialog({
   title = "",
@@ -78,7 +77,8 @@ export default function DataGridTableDialog({
           sx={{
             p: { xs: 1, sm: 2, md: 3, lg: 4 },
             height: "100%",
-            backgroundColor: 'background.default',
+            overflow: "scroll",
+            backgroundColor: "background.default",
           }}
         >
           {dataGrid}

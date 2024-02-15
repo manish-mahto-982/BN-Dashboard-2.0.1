@@ -22,7 +22,12 @@ import {
 } from "react-icons/tb";
 import FlexBoxBetween from "../common/FlexBoxBetween";
 
-export default function DataGridTable({ data, isLoading = true }) {
+export default function DataGridTable({
+  data,
+  isLoading = true,
+  actionType = "default" || "custom",
+  actionColumn,
+}) {
   const theme = useTheme();
   const columns = Object.keys({ ...data[0], actions: true }).map((column) => ({
     field: column,
@@ -33,9 +38,8 @@ export default function DataGridTable({ data, isLoading = true }) {
     type: column === "actions" ? "actions" : "",
     // align: "center",
     headerName: column.split("_").join(" "),
-    width: 150,
     renderCell: (params) => {
-      if (column === "actions") {
+      if (column === "actions" && actionType === "default") {
         return (
           <FlexBoxBetween columnGap={1}>
             <Tooltip title={"Whatsapp"}>
@@ -77,6 +81,8 @@ export default function DataGridTable({ data, isLoading = true }) {
             </Tooltip>
           </FlexBoxBetween>
         );
+      } else if (column === "actions" && actionType === "custom") {
+        return <>{actionColumn(params.row)}</>;
       }
       return params.value;
     },
@@ -87,9 +93,7 @@ export default function DataGridTable({ data, isLoading = true }) {
       .querySelector(`td#phone_${row.id}`)
       .innerHTML.replace(/[\+\-]/g, ""); //removing the + and - from the phoneNumber
     const whatsAppMessage = `https://wa.me/${phoneNumber}/?text=Hello Warsha Amarnani ,%0a%0aThis is Roshani here from Balance Nutrition Client Service Team.%0a%0aYour welcome call with your Mentor Jyoti is pending to do so you will have to login into the app and book your call.%0a%0aPlease do not miss booking this as it is an important one where your Mentor Jyoti will orient you about your program.%0a%0aP.S. Please feel free to contact me if you’re facing any issues in booking the call.`;
-    console.log("🚀 ~ handleWhatsApp ~ phoneNumber:", phoneNumber);
     window.location.href = whatsAppMessage;
-    console.log("🚀 ~ handleWhatsApp ~ whatsAppMessage:", whatsAppMessage);
   };
 
   const handleNotification = (row) => {
@@ -110,29 +114,34 @@ export default function DataGridTable({ data, isLoading = true }) {
     Object.keys(item).map((itm, ind) => {
       let field = Object.keys(item)[ind];
       let container = () => {
-        console.log("typeof item[field]", typeof item[field]);
         return (
-          <tbody style={{ paddingBlock: 10 }}>
-            {typeof item[field] === "object" ? (
-              Object.keys(item[field]).map((key) => (
-                <tr>
-                  <td style={{ fontWeight: 600, textTransform: "capitalize" }}>
-                    {key.split("_").join(" ")}&nbsp;:&nbsp;
-                  </td>
-                  <td
-                    id={`${key}_${row.id}`}
-                    style={{ fontSize: 14, paddingBlock: 4 }}
-                  >
-                    {item[field][key]}
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <FlexBoxBetween>
-                <p>{item[field]}</p>
-              </FlexBoxBetween>
-            )}
-          </tbody>
+          <table>
+            <tbody style={{ paddingBlock: 10 }}>
+              {typeof item[field] === "object" ? (
+                Object.keys(item[field]).map((key, index) =>
+                  key === "id" ? null : (
+                    <tr key={String(key + index)}>
+                      {/* <td
+                      style={{ fontWeight: 600, textTransform: "capitalize" }}
+                    >
+                      {key.split("_").join(" ")}&nbsp;:&nbsp;
+                    </td> */}
+                      <td
+                        id={`${key}_${row.id}`}
+                        style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}
+                      >
+                        {item[field][key]}
+                      </td>
+                    </tr>
+                  ),
+                )
+              ) : (
+                <FlexBoxBetween>
+                  <p>{item[field]}</p>
+                </FlexBoxBetween>
+              )}
+            </tbody>
+          </table>
         );
       };
       row[field] = container();

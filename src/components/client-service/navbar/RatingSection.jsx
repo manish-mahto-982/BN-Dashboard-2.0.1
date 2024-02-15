@@ -37,7 +37,7 @@ import DataGridTable from "../table/DataGridTable";
 import { useDispatch } from "react-redux";
 import { api } from "src/services/client-service/api";
 
-// ==============================|| NOTIFICATION ||============================== //
+// ==============================|| NOTIFICATION ||         ============================== //
 
 const RatingSection = () => {
   const theme = useTheme();

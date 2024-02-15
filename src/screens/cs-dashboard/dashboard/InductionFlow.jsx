@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import CSLayout from "../layout";
 import { commonDataAllTable, noStyleBtnProps } from "src/utils/constants";
 import {
+  TbBrandWhatsapp,
   TbCalendarUser,
   TbCameraOff,
   TbPhoneCall,
@@ -12,7 +13,16 @@ import {
   TbSendOff,
 } from "react-icons/tb";
 import colors from "src/assets/theme/base/colors";
-import { Box, Card, Grid, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Card,
+  Grid,
+  IconButton,
+  Input,
+  Tooltip,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
 import { useMaterialUIController } from "src/context";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -26,6 +36,9 @@ import classNames from "classnames";
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
 import CardWithIconAndDialogTable from "src/components/client-service/common/CardWithIconAndDialogTable";
+import { nafOverdueData } from "src/utils/tableData";
+import { handleWhatsApp } from "src/utils/helper";
+import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 function InductionFlow() {
   const theme = useTheme();
   const [controller, dispatch] = useMaterialUIController();
@@ -37,13 +50,20 @@ function InductionFlow() {
     setShowTable,
     dataGridTableDialog,
   } = useDataGridTableDialog();
-  const handleClick = (fetchQuery, columns) => {
+  const handleClick = (
+    fetchQuery,
+    columns,
+    { actionType = "default", actionColumn = "" } = {}, // "= {}" this is important because to run the default value
+  ) => {
+    console.log("🚀 ~ InductionFlow ~ actionType:", actionType);
     const filterData = Object.values(fetchQuery.data)[0];
-    console.log("🚀 ~ handleClick ~ filterData:", filterData)
+    console.log("🚀 ~ handleClick ~ filterData:", filterData);
     setTableData({
       ...tableData,
       data: filterData,
       columns,
+      actionType,
+      actionColumn,
       tableTitle: Object.keys(fetchQuery.data)[0]?.split("_")?.join(" "),
     });
     setShowTable(true);
@@ -79,29 +99,29 @@ function InductionFlow() {
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72} height={"auto"}>
           <Card sx={{ overflow: "hidden", height: "100%" }}>
-            <BasicStackCard />
+            <BasicStackCard handleClick={handleClick} />
           </Card>
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72} height={"auto"}>
           <Card sx={{ overflow: "hidden", height: "100%" }}>
-            <SpecialStackCard
-            // handleClick={handleClick}
-            // item={COMMON_DATA_ALL_TABLE}
-            />
+            <SpecialStackCard handleClick={handleClick} />
           </Card>
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72} height={"auto"}>
           <Card sx={{ overflow: "hidden", height: "100%" }}>
             <Grid container height={"100%"}>
-              {gridData.map(({ title, value, Icon }, index) => (
-                <GridCard
-                  key={title}
-                  {...{ title, value, Icon, index, darkMode }}
-                  // handleClick={handleClick}
-                  theme={theme}
-                  item={commonDataAllTable}
-                />
-              ))}
+              {gridData.map(({ title, value, Icon, ...item }, index) => {
+                console.log(item);
+                return (
+                  <GridCard
+                    key={title}
+                    {...{ title, value, Icon, index, darkMode }}
+                    handleClick={handleClick}
+                    theme={theme}
+                    item={item}
+                  />
+                );
+              })}
             </Grid>
           </Card>
         </Grid>
@@ -224,6 +244,7 @@ const GridCard = ({
 }) => {
   let trigger;
   let res;
+
   if (item.fetchQuery) {
     [trigger, res] = item.fetchQuery?.();
   }
@@ -231,7 +252,69 @@ const GridCard = ({
     trigger?.();
   };
   useEffect(() => {
-    res?.data && handleClick(res, item.columns);
+    res?.data &&
+      handleClick(res, item.columns, {
+        actionType: "custom",
+        actionColumn: (row) => {
+          const mentorPhoneNumber = document
+            .querySelector(`td#phone_${row.id}`)
+            .innerHTML.replace(/[\+\-]/g, "");
+          const clientPhoneNumber = document
+            .querySelector(`td#phone_${row.id}`)
+            .innerHTML.replace(/[\+\-]/g, "");
+          const mentorPhoneEl = document.querySelector(
+            `#mentor_phone_${row.id}`,
+          );
+          // mentorPhoneEl.innerHTML += (
+          //   <Tooltip title={"Client-Whatsapp"}>
+          //     <IconButton
+          //       aria-label="whatsapp"
+          //       color={"success"}
+          //       onClick={() => handleWhatsApp(clientPhoneNumber)}
+          //     >
+          //       <TbBrandWhatsapp
+          //         style={{
+          //           strokeWidth: 1.4,
+          //           padding: 2,
+          //         }}
+          //         size={28}
+          //       />
+          //     </IconButton>
+          //   </Tooltip>
+          // );
+          return (
+            <>
+              <Tooltip title={"Client-Whatsapp"}>
+                <IconButton
+                  aria-label="whatsapp"
+                  color={"success"}
+                  onClick={() => handleWhatsApp(clientPhoneNumber)}
+                >
+                  <TbBrandWhatsapp
+                    style={{
+                      strokeWidth: 1.4,
+                      padding: 2,
+                    }}
+                    size={28}
+                  />
+                </IconButton>
+              </Tooltip>
+
+              <FlexBoxBetween>
+                <Input placeholder="message" multiline />
+                <PrimaryButton
+                  sx={{
+                    lineHeight: "normal",
+                    scale: "80%",
+                  }}
+                >
+                  Submit
+                </PrimaryButton>
+              </FlexBoxBetween>
+            </>
+          );
+        },
+      });
   }, [res]);
   return (
     <Grid
@@ -240,7 +323,7 @@ const GridCard = ({
       {...noStyleBtnProps}
       xs={6}
       display={"flex"}
-      className={classNames("h-1/2 p-4  cursor-pointer group")}
+      className={classNames("group h-1/2  cursor-pointer p-4")}
       borderRight={
         index === 0 || index === 2
           ? theme.palette.mode === "dark"
@@ -263,7 +346,7 @@ const GridCard = ({
           width={"fit-content"}
           p={1.5}
           className={
-            "rounded-lg group-hover:shadow group-hover:shadow-transparent transition-all ease-linear duration-300"
+            "rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
           }
           bgColor={darkMode ? "secondary" : "dark"}
           // coloredShadow={darkMode ? "secondary" : "dark"}
@@ -333,6 +416,7 @@ const gridData = [
     title: "NAF + ICL Received Diet not send",
     Icon: TbSendOff,
     value: 20,
+    ...nafOverdueData,
   },
   {
     title: "Induction Call",

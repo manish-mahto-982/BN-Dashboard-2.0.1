@@ -16,7 +16,7 @@ function CardWithIconAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
           cardTitle.includes("Final Reminder (Not Received)") ? "error" : "dark"
         }
         fontWeight={"medium"}
-        className={`px-5 pt-5 pb-4`}
+        className={`px-5 pb-4 pt-5`}
         sx={{ borderBottom: "1px solid", borderColor: "divider" }}
       >
         {cardTitle}
@@ -27,17 +27,16 @@ function CardWithIconAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
             {...noStyleBtnProps}
             component="button"
             className={classNames(
-              "hover:bg-zinc-100 cursor-pointer active:bg-transparent rounded-lg px-4 py-1 m-2 duration-300 transition-all",
-              { "hover:bg-opacity-10": darkMode }
+              "m-2 cursor-pointer rounded-lg px-4 py-1 transition-all duration-300 hover:bg-zinc-100 active:bg-transparent",
+              { "hover:bg-opacity-10": darkMode },
             )}
           >
             <FlexBoxBetween className={"gap-x-3"}>
               <MDBox
                 variant="gradient"
-                bgColor={darkMode ? "secondary" : "dark"
-                }
+                bgColor={darkMode ? "secondary" : "dark"}
                 className={
-                  "rounded-xl flex items-center justify-center w-11 h-11"
+                  "flex h-11 w-11 items-center justify-center rounded-xl"
                 }
               >
                 <Icon size={20} className={"stroke-white"} />
