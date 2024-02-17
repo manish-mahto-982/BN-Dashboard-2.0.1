@@ -20,70 +20,70 @@ export const TransitionSlidUp = React.forwardRef(
   },
 );
 
-export default function DataGridTableDialog({
-  title = "",
-  open,
-  setOpen,
-  dataGrid,
-}) {
-  const theme = useTheme();
-  const handleClose = () => {
-    setOpen(false);
-  };
+const DataGridTableDialog = React.memo(
+  ({ title = "", open, setOpen, dataGrid }) => {
+    const theme = useTheme();
+    const handleClose = () => {
+      setOpen(false);
+    };
 
-  const [controller, dispatch] = useMaterialUIController();
-  const {
-    openConfigurator,
-    fixedNavbar,
-    sidenavColor,
-    transparentSidenav,
-    whiteSidenav,
-    darkMode,
-  } = controller;
+    const [controller] = useMaterialUIController();
 
-  return (
-    <>
-      <Dialog
-        fullScreen
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={TransitionSlidUp}
-      >
-        <AppBar
-          elevation={0}
-          color={sidenavColor}
-          sx={{ position: "relative" }}
+    const {
+      openConfigurator,
+      fixedNavbar,
+      sidenavColor,
+      transparentSidenav,
+      whiteSidenav,
+      darkMode,
+    } = React.useMemo(() => controller, [controller]);
+
+    return (
+      <>
+        <Dialog
+          fullScreen
+          open={open}
+          onClose={handleClose}
+          TransitionComponent={TransitionSlidUp}
         >
-          <Toolbar>
-            <Typography
-              sx={{ ml: 2, flex: 1, textTransform: "capitalize" }}
-              fontSize={16}
-              color={"#fff"}
-              component="div"
-            >
-              {title}
-            </Typography>
-            <IconButton
-              edge="start"
-              onClick={handleClose}
-              aria-label="close"
-              style={{ outline: "none" }}
-            >
-              <CloseIcon style={{ fill: "#fff" }} />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Box
-          sx={{
-            p: { xs: 1, sm: 2, md: 3, lg: 4 },
-            height: "100%",
-            overflow: "scroll",
-            backgroundColor: "background.default",
-          }}
-        >
-          {dataGrid}
-        </Box>
-      </Dialog>
-    </>
-  );
-}
+          <AppBar
+            elevation={0}
+            color={sidenavColor}
+            sx={{ position: "relative" }}
+          >
+            <Toolbar>
+              <Typography
+                sx={{ ml: 2, flex: 1, textTransform: "capitalize" }}
+                fontSize={16}
+                color={"#fff"}
+                component="div"
+              >
+                {title}
+              </Typography>
+              <IconButton
+                edge="start"
+                onClick={handleClose}
+                aria-label="close"
+                style={{ outline: "none" }}
+              >
+                <CloseIcon style={{ fill: "#fff" }} />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+          <Box
+            sx={{
+              p: { xs: 1, sm: 2, md: 3, lg: 4 },
+              height: "100%",
+              overflow: "scroll",
+              backgroundColor: "background.default",
+            }}
+          >
+            {dataGrid}
+          </Box>
+        </Dialog>
+      </>
+    );
+  },
+);
+
+export default DataGridTableDialog;

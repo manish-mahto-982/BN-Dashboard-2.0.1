@@ -7,19 +7,22 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
 
-function DateField({ theme, value = dayjs("MM/DD/YYYY"), onChange,label='' }) {
-  console.log("🚀 ~ DateField ~ theme:", theme);
-
+function DateField({
+  theme,
+  value = dayjs("MM/DD/YYYY"),
+  onChange,
+  label = "",
+}) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-       label={label}
+        label={label}
         value={value}
         onChange={onChange}
         sx={{
           ".MuiButtonBase-root.MuiIconButton-root": {
-            color:'text.main'
-          }
+            color: "text.main",
+          },
         }}
         slotProps={{
           layout: {
@@ -56,7 +59,6 @@ function DateField({ theme, value = dayjs("MM/DD/YYYY"), onChange,label='' }) {
               ".MuiPickersCalendarHeader-root .MuiIconButton-root": {
                 color: "text.main",
               },
-              
             },
           },
         }}

@@ -5,12 +5,15 @@ import FlexBoxBetween from "./FlexBoxBetween";
 import MDBox from "src/components/theme/common/MDBox";
 import classNames from "classnames";
 import { noStyleBtnProps } from "src/utils/constants";
+import { useMaterialUIController } from "src/context";
 function CardWithDialogTable({
   cardTitle = "",
   titleType = "gradient" || "normal",
-  darkMode,
   data = [],
 }) {
+  const [controller] = useMaterialUIController();
+
+  const { darkMode } = controller;
   const theme = useTheme();
   return (
     <Card className={`mt-4`}>
@@ -55,6 +58,7 @@ function CardWithDialogTable({
           <FlexBoxBetween
             {...noStyleBtnProps}
             component="button"
+          
             className={classNames(
               "hover:bg-zinc-100 cursor-pointer active:bg-transparent rounded-lg px-4 py-2.5 mx-2 my-1 duration-300 transition-all",
               { "hover:bg-opacity-10": darkMode }

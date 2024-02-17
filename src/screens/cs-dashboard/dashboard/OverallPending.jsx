@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import CSLayout from "../layout";
 import { Box, Card, Grid } from "@mui/material";
 import MDTypography from "src/components/theme/common/MDTypography";
@@ -9,9 +9,8 @@ import { useMaterialUIController } from "src/context";
 import CardWithStatusAndDialogTable from "src/components/client-service/common/CardWithStatusAndDialogTable";
 
 function OverallPending() {
-  console.log('fjdslkfjksd')
-  const [controller, dispatch] = useMaterialUIController();
-  const { darkMode } = controller;
+  console.log("fjdslkfjksd");
+
   return (
     <CSLayout>
       <Grid container rowGap={3} columnGap={3} mt={3}>
@@ -20,28 +19,28 @@ function OverallPending() {
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            darkMode={darkMode}
+          
             data={dormancyData}
             cardTitle="Dormancy"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            darkMode={darkMode}
+          
             data={startLaterData}
             cardTitle="Start Later (Start Date Give)"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            darkMode={darkMode}
+          
             data={breakData}
             cardTitle="Break"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            darkMode={darkMode}
+          
             data={notStartedData}
             cardTitle="Not Started / Start Date pending"
           />
@@ -50,7 +49,7 @@ function OverallPending() {
           <Card
             {...noStyleBtnProps}
             component={"button"}
-            className="flex flex-col items-center justify-center px-2 py-3.5 w-full"
+            className="flex w-full flex-col items-center justify-center px-2 py-3.5"
           >
             <MDTypography textAlign={"center"} fontSize={"medium"}>
               {"WMR (More than 48 hrs)"}
@@ -69,16 +68,16 @@ function OverallPending() {
             </MDTypography>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={5.72} md={3.72} >
+        <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithStatusAndDialogTable
-            darkMode={darkMode}
+          
             data={advancedPurchaseData}
             cardTitle="Advanced Purchased"
           />
         </Grid>
-        <Grid item xs={12} sm={5.72} md={3.72} >
+        <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            darkMode={darkMode}
+          
             data={notStartedData}
             cardTitle="Balance"
           />

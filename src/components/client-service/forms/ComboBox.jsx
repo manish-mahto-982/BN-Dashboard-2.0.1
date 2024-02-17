@@ -12,7 +12,7 @@ const ComboBox = React.forwardRef(
       onChange = () => {},
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Autocomplete
@@ -25,15 +25,14 @@ const ComboBox = React.forwardRef(
         sx={{}}
         renderInput={(params) => (
           <TextField
-            color="secondary"      
+            color="secondary"
             label={label}
             {...params}
             sx={{
               "& .MuiOutlinedInput-root": {
-                padding:'5px'
-              }
+                padding: "5px",
+              },
             }}
-
           />
         )}
         {...props}
@@ -54,7 +53,7 @@ const ComboBox = React.forwardRef(
       //   </Select>
       // </FormControl>
     );
-  }
+  },
 );
 
-export default ComboBox;
+export default React.memo(ComboBox);

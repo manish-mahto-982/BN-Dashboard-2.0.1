@@ -3,7 +3,9 @@ import dayjs from "dayjs";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+const ComboBox = React.lazy(
+  () => import("src/components/client-service/forms/ComboBox"),
+);
 import TimeField from "src/components/client-service/forms/TimeField";
 import {
   cardioDurationOptions,
@@ -32,7 +34,6 @@ import {
 } from "src/utils/constants";
 
 function NutritionLifestyleAndAnalysisContent({ theme }) {
-  console.log(typeof dayjs().format("hh:mm A"))
   const { control } = useForm({
     defaultValues: defaultValues,
   });
@@ -44,12 +45,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="work_status"
             render={({ field: { value, onChange } }) => (
-              <ComboBox
-                options={workStatusOptions}
-                value={value}
-                onChange={onChange}
-                label="Work Status"
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={workStatusOptions}
+                  value={value}
+                  onChange={onChange}
+                  label="Work Status"
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -58,12 +61,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="occupation"
             render={({ field: { value, onChange } }) => (
-              <ComboBox
-                options={occupationOptions}
-                value={value}
-                onChange={onChange}
-                label="Occupation"
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={occupationOptions}
+                  value={value}
+                  onChange={onChange}
+                  label="Occupation"
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -72,12 +77,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="designation"
             render={({ field: { value, onChange } }) => (
-              <ComboBox
-                options={designationOptions}
-                value={value}
-                onChange={onChange}
-                label="Designation"
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={designationOptions}
+                  value={value}
+                  onChange={onChange}
+                  label="Designation"
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -104,11 +111,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="job_meal"
             render={({ field: { value, onChange } }) => (
-              <ComboBox
-                options={jobMealOptions}
-                value={value}
-                onChange={onChange}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={jobMealOptions}
+                  value={value}
+                  onChange={onChange}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -159,11 +168,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="travel_for_job"
             render={({ field }) => (
-              <ComboBox
-                label="Travel for job?"
-                options={travelForJobOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Travel for job?"
+                  options={travelForJobOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -172,11 +183,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="how_often_do_travel_in_month"
             render={({ field }) => (
-              <ComboBox
-                label="How often do travel in month"
-                options={howOftenTravelOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="How often do travel in month"
+                  options={howOftenTravelOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -185,11 +198,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="how_often_do_travel_in_month"
             render={({ field }) => (
-              <ComboBox
-                label="How often do travel in month"
-                options={howOftenTravelOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="How often do travel in month"
+                  options={howOftenTravelOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -199,7 +214,9 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             name="fast"
             render={({ field }) => (
               <>
-                <ComboBox label="Fast" options={fastOptions} {...field} />
+                <React.Suspense fallback={"loading..."}>
+                  <ComboBox label="Fast" options={fastOptions} {...field} />
+                </React.Suspense>
                 <TextField
                   sx={{ mt: "16px" }}
                   placeholder="Please specify"
@@ -228,11 +245,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name="sleep_duration"
             render={({ field }) => (
-              <ComboBox
-                label="Sleep Duration"
-                options={sleepDurationOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Sleep Duration"
+                  options={sleepDurationOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -241,11 +260,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"water_intake_per_day"}
             render={({ field }) => (
-              <ComboBox
-                label="Water Intake Per Day"
-                options={waterIntakePerDayOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Water Intake Per Day"
+                  options={waterIntakePerDayOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -254,11 +275,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"do_you_fast"}
             render={({ field }) => (
-              <ComboBox
-                label="Do you fast"
-                options={["Yes", "No"]}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Do you fast"
+                  options={["Yes", "No"]}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -267,11 +290,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"how_often_do_you_eat_from_hotel"}
             render={({ field }) => (
-              <ComboBox
-                label="How often do you eat from hotel"
-                options={howOftenEatFromHotel}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="How often do you eat from hotel"
+                  options={howOftenEatFromHotel}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -294,12 +319,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"who_cook_meal_at_home"}
             render={({ field }) => (
-              <ComboBox
-                options={cookMealAtHomeOptions}
-                color="secondary"
-                label="Who cook meal at home"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={cookMealAtHomeOptions}
+                  color="secondary"
+                  label="Who cook meal at home"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -336,12 +363,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"do_you_exercise"}
             render={({ field }) => (
-              <ComboBox
-                options={doYouExerciseOptions}
-                color="secondary"
-                label="Do You Exercise"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={doYouExerciseOptions}
+                  color="secondary"
+                  label="Do You Exercise"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -350,12 +379,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"cardio_frequency"}
             render={({ field }) => (
-              <ComboBox
-                options={cardioFrequencyOptions}
-                color="secondary"
-                label="Cardio Frequency"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={cardioFrequencyOptions}
+                  color="secondary"
+                  label="Cardio Frequency"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -364,12 +395,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"cardio_duration"}
             render={({ field }) => (
-              <ComboBox
-                options={cardioDurationOptions}
-                color="secondary"
-                label="Cardio Duration"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={cardioDurationOptions}
+                  color="secondary"
+                  label="Cardio Duration"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -378,12 +411,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"weight_training"}
             render={({ field }) => (
-              <ComboBox
-                options={weightTrainingOptions}
-                color="secondary"
-                label="Weight training"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={weightTrainingOptions}
+                  color="secondary"
+                  label="Weight training"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -392,12 +427,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"weight_training_frequency"}
             render={({ field }) => (
-              <ComboBox
-                options={weightTrainingFrequencyOptions}
-                color="secondary"
-                label="Weight training frequency"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={weightTrainingFrequencyOptions}
+                  color="secondary"
+                  label="Weight training frequency"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -406,12 +443,14 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"weight_training_duration"}
             render={({ field }) => (
-              <ComboBox
-                options={weightTrainingDurationOptions}
-                color="secondary"
-                label="Weight training duration"
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  options={weightTrainingDurationOptions}
+                  color="secondary"
+                  label="Weight training duration"
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -447,11 +486,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"pilates_frequency"}
             render={({ field }) => (
-              <ComboBox
-                label="Pilate Frequency"
-                options={pilateFrequencyOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Pilate Frequency"
+                  options={pilateFrequencyOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -460,11 +501,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"pilates_duration"}
             render={({ field }) => (
-              <ComboBox
-                label="Pilate Duration"
-                options={pilatesDurationOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Pilate Duration"
+                  options={pilatesDurationOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -473,11 +516,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"yoga_frequency"}
             render={({ field }) => (
-              <ComboBox
-                label="Yoga Frequency"
-                options={yogaFrequencyOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Yoga Frequency"
+                  options={yogaFrequencyOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -486,11 +531,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"yoga_duration"}
             render={({ field }) => (
-              <ComboBox
-                label="Yoga Duration"
-                options={yogaDurationOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Yoga Duration"
+                  options={yogaDurationOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -499,11 +546,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"other_workout_frequency"}
             render={({ field }) => (
-              <ComboBox
-                label="Other workout frequency"
-                options={otherWorkoutFrequencyOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Other workout frequency"
+                  options={otherWorkoutFrequencyOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>
@@ -512,11 +561,13 @@ function NutritionLifestyleAndAnalysisContent({ theme }) {
             control={control}
             name={"other_workout_duration"}
             render={({ field }) => (
-              <ComboBox
-                label="Other workout duration"
-                options={otherWorkoutDurationOptions}
-                {...field}
-              />
+              <React.Suspense fallback={"loading..."}>
+                <ComboBox
+                  label="Other workout duration"
+                  options={otherWorkoutDurationOptions}
+                  {...field}
+                />
+              </React.Suspense>
             )}
           />
         </Grid>

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useMemo } from "react";
 import CSLayout from "../layout";
 import { randomNumberGenerator } from "src/utils/helper";
 import CardWithDialogTable from "src/components/client-service/common/CardWithDialogTable";
 import { Grid } from "@mui/material";
+import { useMaterialUIController } from "src/context";
 
 function HalftimeJourney() {
+  const [controller] = useMemo(
+    () => useMaterialUIController(),
+    [useMaterialUIController],
+  );
+
+  const { darkMode } = controller;
+
   return (
     <CSLayout>
       <Grid container rowGap={3} columnGap={3}>

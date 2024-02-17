@@ -1,5 +1,5 @@
 import { Box, Grid, Stack, TextField } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 import ComboBox from "src/components/client-service/forms/ComboBox";
@@ -10,8 +10,8 @@ function SnackContent({ theme }) {
   return (
     <Box sx={{}}>
       <Grid container rowGap={5} columnSpacing={4}>
-        {drySnacksFields.map((label) => (
-          <Grid item xs={6}>
+        {drySnacksFields.map((label, index) => (
+          <Grid key={String(label + index)} item xs={6}>
             <Controller
               control={control}
               name={label.replace(/[^a-zA-Z0-9]/g, "_").toLowerCase()}
@@ -26,7 +26,7 @@ function SnackContent({ theme }) {
   );
 }
 
-export default SnackContent;
+export default memo(SnackContent);
 
 const options = ["None", "Can buy", "Can't buy"];
 const drySnacksFields = [

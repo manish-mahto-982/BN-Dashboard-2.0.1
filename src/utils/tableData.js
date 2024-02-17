@@ -31,9 +31,17 @@ export const omrClientSpecialStackTableData = {
 };
 
 export const nafOverdueData = {
-    fetchQuery: () => api.endpoints.getNAFOverdueData.useLazyQuery(),
-    columns: [
-        { id: "client_details", label: "client details" },
-        { id: "program_details", label: "program details" },
-      ],
+  fetchQuery: () => api.endpoints.getNAFOverdueData.useLazyQuery(),
+  columns: [
+    { id: "client_details", label: "client details" },
+    { id: "program_details", label: "program details" },
+  ],
+};
+
+export const welcomeCallData = {
+  fetchQuery: () => api.endpoints.getWelcomeCall.useLazyQuery(),
+  columns: [
+    { id: "client_details", label: "client details" },
+    { id: "program_details", label: "program details" },
+  ],
 };

@@ -1,8 +1,11 @@
 import { Grid, TextField } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import ComboBox from "src/components/client-service/forms/ComboBox";
+const MemoizedComboBox = memo(ComboBox);
 
+// Memoized TextField component
+const MemoizedTextField = memo(TextField);
 function MedicalHistory({ theme }) {
   const { control } = useForm({ defaultValues });
   return (
@@ -12,7 +15,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="medical_issue"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -27,7 +30,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="acidity"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -42,7 +45,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="acidity_type"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Mild", "Severe"]}
@@ -57,7 +60,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="diabetes"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -73,7 +76,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="diabetes_type"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={[
@@ -93,7 +96,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="constipation"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -108,7 +111,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="constipation_type"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Mild", "Severe"]}
@@ -123,7 +126,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="hypertension"
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               label="Hypertension"
@@ -137,7 +140,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="thyroid"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -152,7 +155,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="thyroid_type"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Hyperthyroid", "Hypothyroid"]}
@@ -167,7 +170,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="thyroid_type"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Hyperthyroid", "Hypothyroid"]}
@@ -182,7 +185,7 @@ function MedicalHistory({ theme }) {
           control={control}
           name="medi"
           render={({ field }) => (
-            <ComboBox
+            <MemoizedComboBox
               fullWidth
               color="secondary"
               options={["Yes", "No"]}
@@ -198,7 +201,7 @@ function MedicalHistory({ theme }) {
           name="med1_name"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -212,7 +215,7 @@ function MedicalHistory({ theme }) {
           name="med1_dose"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -226,7 +229,7 @@ function MedicalHistory({ theme }) {
           name="med1_ailment"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -242,7 +245,7 @@ function MedicalHistory({ theme }) {
           name="med2_name"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -256,7 +259,7 @@ function MedicalHistory({ theme }) {
           name="med2_dose"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -270,7 +273,7 @@ function MedicalHistory({ theme }) {
           name="med2_ailment"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -286,7 +289,7 @@ function MedicalHistory({ theme }) {
           name="med3_name"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -300,7 +303,7 @@ function MedicalHistory({ theme }) {
           name="med3_dose"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -314,7 +317,7 @@ function MedicalHistory({ theme }) {
           name="med3_ailment"
           control={control}
           render={({ field }) => (
-            <TextField
+            <MemoizedTextField
               fullWidth
               color="secondary"
               {...field}
@@ -328,7 +331,7 @@ function MedicalHistory({ theme }) {
           name="pcod"
           control={control}
           render={({ field }) => (
-            <ComboBox options={["Yes", "No"]} {...field} label="Pcod" />
+            <MemoizedComboBox options={["Yes", "No"]} {...field} label="Pcod" />
           )}
         />
       </Grid>

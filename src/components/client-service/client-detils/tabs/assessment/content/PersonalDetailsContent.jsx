@@ -158,6 +158,7 @@ export default function PersonalDetailsContent({ theme }) {
                   color="secondary"
                   name={value}
                   onChange={(event) => {
+                    
                     onChange(event.target.value);
                   }}
                   sx={{ p: 1.5 }}
@@ -166,7 +167,7 @@ export default function PersonalDetailsContent({ theme }) {
                     <MenuItem
                       key={item.name}
                       id={item.isoCode}
-                      onClick={(event) => console.log(event.id)}
+                      onClick={(event) => console.log(event)}
                       name={item.name}
                       value={item.name}
                     >
@@ -218,18 +219,15 @@ export default function PersonalDetailsContent({ theme }) {
               <FormControl fullWidth>
                 <InputLabel color="secondary">{"City"}</InputLabel>
                 <Select
-                  ref={stateRef}
                   value={value}
                   name={value}
                   label={"City"}
                   fullWidth
                   color="secondary"
-                  onChange={(event) => {
-                    console.log(event.target.id);
-                  }}
+                  onChange={onChange}
                   sx={{ p: 1.5 }}
                 >
-                  {City.getCitiesOfState("MH").map((state) => (
+                  {City.getCitiesOfState("IN","MH").map((state) => (
                     <MenuItem
                       key={state.name}
                       onChange={(event) => console.log(event)}

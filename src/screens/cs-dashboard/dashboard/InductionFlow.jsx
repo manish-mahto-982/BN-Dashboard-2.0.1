@@ -41,8 +41,7 @@ import { handleWhatsApp } from "src/utils/helper";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 function InductionFlow() {
   const theme = useTheme();
-  const [controller, dispatch] = useMaterialUIController();
-  const { darkMode } = controller;
+
   const {
     tableData,
     setTableData,
@@ -55,9 +54,7 @@ function InductionFlow() {
     columns,
     { actionType = "default", actionColumn = "" } = {}, // "= {}" this is important because to run the default value
   ) => {
-    console.log("🚀 ~ InductionFlow ~ actionType:", actionType);
     const filterData = Object.values(fetchQuery.data)[0];
-    console.log("🚀 ~ handleClick ~ filterData:", filterData);
     setTableData({
       ...tableData,
       data: filterData,
@@ -86,7 +83,6 @@ function InductionFlow() {
                   key={item.title}
                   item={item}
                   handleClick={handleClick}
-                  darkMode={darkMode}
                 />
               ))}
             </Grid>
@@ -111,11 +107,10 @@ function InductionFlow() {
           <Card sx={{ overflow: "hidden", height: "100%" }}>
             <Grid container height={"100%"}>
               {gridData.map(({ title, value, Icon, ...item }, index) => {
-                console.log(item);
                 return (
                   <GridCard
                     key={title}
-                    {...{ title, value, Icon, index, darkMode }}
+                    {...{ title, value, Icon, index }}
                     handleClick={handleClick}
                     theme={theme}
                     item={item}
@@ -126,37 +121,26 @@ function InductionFlow() {
           </Card>
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
-          <CardWithDialogTable
-            cardTitle="Assessment"
-            {...{ darkMode }}
-            data={assessmentData}
-          />
+          <CardWithDialogTable cardTitle="Assessment" data={assessmentData} />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
-          <CardWithDialogTable
-            cardTitle="ICL"
-            {...{ darkMode }}
-            data={iclData}
-          />
+          <CardWithDialogTable cardTitle="ICL" data={iclData} />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithIconAndDialogTable
             cardTitle={"Start Session Update"}
-            {...{ darkMode }}
             data={startSessionData}
           />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithIconAndDialogTable
             cardTitle="Mid Session Update"
-            {...{ darkMode }}
             data={midSessionData}
           />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithIconAndDialogTable
             cardTitle="End Session Update"
-            {...{ darkMode }}
             data={endSessionData}
           />
         </Grid>
@@ -168,7 +152,7 @@ function InductionFlow() {
 
 export default InductionFlow;
 
-const SummaryCard = ({ item, handleClick, darkMode }) => {
+const SummaryCard = ({ item, handleClick }) => {
   let trigger;
   let res;
   if (item.fetchQuery) {
@@ -232,19 +216,11 @@ const SummaryCard = ({ item, handleClick, darkMode }) => {
   );
 };
 
-const GridCard = ({
-  item,
-  theme,
-  darkMode,
-  index,
-  value,
-  title,
-  Icon,
-  handleClick,
-}) => {
+const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
   let trigger;
   let res;
-
+  const [controller, dispatch] = useMaterialUIController();
+  const { darkMode } = controller;
   if (item.fetchQuery) {
     [trigger, res] = item.fetchQuery?.();
   }
@@ -256,38 +232,38 @@ const GridCard = ({
       handleClick(res, item.columns, {
         actionType: "custom",
         actionColumn: (row) => {
-          const mentorPhoneNumber = document
-            .querySelector(`td#phone_${row.id}`)
-            .innerHTML.replace(/[\+\-]/g, "");
           const clientPhoneNumber = document
-            .querySelector(`td#phone_${row.id}`)
-            .innerHTML.replace(/[\+\-]/g, "");
-          const mentorPhoneEl = document.querySelector(
-            `#mentor_phone_${row.id}`,
+            ?.querySelector(`td#phone_${row.id}`)
+            ?.innerHTML.replace(/[\+\-]/g, ""); //removing the + and - from the phoneNumber
+          const mentorPhoneNumberEl = document?.querySelector(
+            `td#mentor_phone_${row.id}`,
           );
-          // mentorPhoneEl.innerHTML += (
-          //   <Tooltip title={"Client-Whatsapp"}>
-          //     <IconButton
-          //       aria-label="whatsapp"
-          //       color={"success"}
-          //       onClick={() => handleWhatsApp(clientPhoneNumber)}
-          //     >
-          //       <TbBrandWhatsapp
-          //         style={{
-          //           strokeWidth: 1.4,
-          //           padding: 2,
-          //         }}
-          //         size={28}
-          //       />
-          //     </IconButton>
-          //   </Tooltip>
-          // );
+          const MentorWA = () => (
+            <Tooltip title={"Client-Whatsapp"}>
+              <IconButton
+                aria-label="whatsapp"
+                color="success"
+                onClick={() => handleWhatsApp(clientPhoneNumber)}
+              >
+                <TbBrandWhatsapp
+                  style={{
+                    strokeWidth: 1.4,
+                    padding: 2,
+                  }}
+                  size={28}
+                />
+              </IconButton>
+            </Tooltip>
+          );
+          if (mentorPhoneNumberEl) {
+            mentorPhoneNumberEl.innerHTML += MentorWA();
+          }
           return (
             <>
               <Tooltip title={"Client-Whatsapp"}>
                 <IconButton
                   aria-label="whatsapp"
-                  color={"success"}
+                  color="success"
                   onClick={() => handleWhatsApp(clientPhoneNumber)}
                 >
                   <TbBrandWhatsapp
@@ -299,7 +275,6 @@ const GridCard = ({
                   />
                 </IconButton>
               </Tooltip>
-
               <FlexBoxBetween>
                 <Input placeholder="message" multiline />
                 <PrimaryButton
@@ -324,20 +299,8 @@ const GridCard = ({
       xs={6}
       display={"flex"}
       className={classNames("group h-1/2  cursor-pointer p-4")}
-      borderRight={
-        index === 0 || index === 2
-          ? theme.palette.mode === "dark"
-            ? "1px solid #ffffff20"
-            : "1px solid #00000010"
-          : "none"
-      }
-      borderBottom={
-        index === 0 || index === 1
-          ? theme.palette.mode === "dark"
-            ? "1px solid #ffffff20"
-            : "1px solid #00000010"
-          : "none"
-      }
+      borderRight={index === 0 || index === 2 ? darkMode : "none"}
+      borderBottom={index === 0 || index === 1 ? darkMode : "none"}
       onClick={handleButtonClick}
     >
       <FlexBoxBetween columnGap={1} my={"auto"}>
@@ -349,8 +312,6 @@ const GridCard = ({
             "rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
           }
           bgColor={darkMode ? "secondary" : "dark"}
-          // coloredShadow={darkMode ? "secondary" : "dark"}
-          // bgcolor={'background.default'}
         >
           <Icon size={20} className={"-mb-1 stroke-white"} />
         </MDBox>
@@ -427,6 +388,8 @@ const gridData = [
     title: "Welcome call",
     Icon: TbCalendarUser,
     value: 20,
+    ...nafOverdueData,
+
   },
   {
     title: "Session Start Date",

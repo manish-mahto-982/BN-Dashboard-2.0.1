@@ -1,5 +1,5 @@
 import { Box, Grid, Stack, TextField } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 import ComboBox from "src/components/client-service/forms/ComboBox";
@@ -26,7 +26,7 @@ function GroceryContent({ theme }) {
   );
 }
 
-export default GroceryContent;
+export default memo(GroceryContent);
 
 const options = ["None", "Can buy", "Can't buy"];
 

@@ -21,6 +21,7 @@ import {
   TbTrash,
 } from "react-icons/tb";
 import FlexBoxBetween from "../common/FlexBoxBetween";
+import { handleWhatsApp } from "src/utils/helper";
 
 export default function DataGridTable({
   data,
@@ -40,13 +41,16 @@ export default function DataGridTable({
     headerName: column.split("_").join(" "),
     renderCell: (params) => {
       if (column === "actions" && actionType === "default") {
+        const phoneNumber = document
+          ?.querySelector(`td#phone_${params.row.id}`)
+          ?.innerHTML.replace(/[\+\-]/g, "");
         return (
           <FlexBoxBetween columnGap={1}>
             <Tooltip title={"Whatsapp"}>
               <IconButton
                 aria-label="whatsapp"
                 color={"success"}
-                onClick={() => handleWhatsApp(params.row)}
+                onClick={() => handleWhatsApp(phoneNumber)}
               >
                 <TbBrandWhatsapp
                   style={{
@@ -88,14 +92,6 @@ export default function DataGridTable({
     },
   }));
 
-  const handleWhatsApp = (row) => {
-    const phoneNumber = document
-      .querySelector(`td#phone_${row.id}`)
-      .innerHTML.replace(/[\+\-]/g, ""); //removing the + and - from the phoneNumber
-    const whatsAppMessage = `https://wa.me/${phoneNumber}/?text=Hello Warsha Amarnani ,%0a%0aThis is Roshani here from Balance Nutrition Client Service Team.%0a%0aYour welcome call with your Mentor Jyoti is pending to do so you will have to login into the app and book your call.%0a%0aPlease do not miss booking this as it is an important one where your Mentor Jyoti will orient you about your program.%0a%0aP.S. Please feel free to contact me if you’re facing any issues in booking the call.`;
-    window.location.href = whatsAppMessage;
-  };
-
   const handleNotification = (row) => {
     // Implement Notification action here
     console.log(`Sending Notification to ${row.name}`);
@@ -118,23 +114,69 @@ export default function DataGridTable({
           <table>
             <tbody style={{ paddingBlock: 10 }}>
               {typeof item[field] === "object" ? (
-                Object.keys(item[field]).map((key, index) =>
-                  key === "id" ? null : (
-                    <tr key={String(key + index)}>
-                      {/* <td
-                      style={{ fontWeight: 600, textTransform: "capitalize" }}
-                    >
-                      {key.split("_").join(" ")}&nbsp;:&nbsp;
-                    </td> */}
-                      <td
-                        id={`${key}_${row.id}`}
-                        style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}
-                      >
-                        {item[field][key]}
-                      </td>
-                    </tr>
-                  ),
-                )
+                Object.keys(item[field]).map((key, index) => {
+                  if (key === "id" || key === "mentor_phone") {
+                    return null;
+                  } else if (key === "mentor") {
+                    const mentorPhoneNumber = item[field]["mentor_phone"];
+                    return (
+                      <tr key={String(key + index)}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          {key.split("_").join(" ")}&nbsp;:&nbsp;
+                        </td>
+                        <td
+                          id={`${key}_${row.id}`}
+                          style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}
+                        >
+                          <FlexBoxBetween>
+                            {item[field][key]}
+                            <Tooltip title={"Whatsapp"}>
+                              <IconButton
+                                aria-label="whatsapp"
+                                color={"success"}
+                                onClick={() =>
+                                  handleWhatsApp(mentorPhoneNumber)
+                                }
+                              >
+                                <TbBrandWhatsapp
+                                  style={{
+                                    strokeWidth: 1.4,
+                                    padding: 2,
+                                  }}
+                                  size={28}
+                                />
+                              </IconButton>
+                            </Tooltip>
+                          </FlexBoxBetween>
+                        </td>
+                      </tr>
+                    );
+                  } else {
+                    return (
+                      <tr key={String(key + index)}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          {key.split("_").join(" ")}&nbsp;:&nbsp;
+                        </td>
+                        <td
+                          id={`${key}_${row.id}`}
+                          style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}
+                        >
+                          {item[field][key]}
+                        </td>
+                      </tr>
+                    );
+                  }
+                })
               ) : (
                 <FlexBoxBetween>
                   <p>{item[field]}</p>

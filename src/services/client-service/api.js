@@ -51,6 +51,10 @@ export const api = createApi({
       query: () => `/induction-flow/naf_overdue_data.json`,
       providesTags: ["NAFOverdueData"],
     }),
+    getWelcomeCall: build.query({
+      query: () => `/induction-flow/naf_overdue_data.json`,
+      providesTags: ["WelcomeCall"],
+    }),
     getUserRating: build.query({
       query: () => `/rating-feedback/rating_feedback.json`,
       providesTags: ["UserRating"],
@@ -104,6 +108,7 @@ export const {
   useGetBasicStackNewClientQuery,
   useGetBasicStackOMRClientQuery,
   useGetNAFOverdueDataQuery,
+  useGetWelcomeCallQuery,
   useGetUserRatingQuery,
   useGetAppNotUpdatedIOSQuery,
   useGetAppNotUpdatedAndroidQuery,

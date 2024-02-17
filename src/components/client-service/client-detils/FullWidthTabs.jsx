@@ -6,10 +6,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import UserAccordion from "./UserAccordion";
+
 import NotificationSentContent from "./tabs/notification-received/NotificationSentContent";
-import AssessmentContent from "./tabs/assessment/AssessmentContent";
-import ICLContent from "./tabs/ICL/ICLContent";
+const ICLContent = React.lazy(() => import("./tabs/ICL/ICLContent"));
 import TrackerContent from "./tabs/trackers/TrackerContent";
 import WeightDetailsContent from "./tabs/weight-details/WeightDetailsContent";
 import FeedbackContent from "./tabs/feedback/FeedbackContent";
@@ -17,10 +16,14 @@ import WalletStatementContent from "./tabs/wallet-statement/WalletStatementConte
 import MentorChats from "./tabs/mentor-chats/MentorChats";
 import MentorChatsNew from "./tabs/mentor-chats/MetorChatsNew";
 import { useMaterialUIController } from "src/context";
+import { LinearProgress } from "@mui/material";
+const UserAccordion = React.lazy(() => import("./UserAccordion"));
+const AssessmentContent = React.lazy(
+  () => import("./tabs/assessment/AssessmentContent"),
+);
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -49,10 +52,9 @@ function a11yProps(index) {
 
 export default function FullWidthTabs({ handleAddWallet }) {
   const theme = useTheme();
-  
+
   const [value, setValue] = React.useState(1);
-  const [controller,dispatch] = useMaterialUIController();
-  const { darkMode } = controller;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -144,13 +146,19 @@ export default function FullWidthTabs({ handleAddWallet }) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
-        <UserAccordion {...{darkMode}} />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <UserAccordion />
+        </React.Suspense>
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <AssessmentContent />
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <AssessmentContent />
+        </React.Suspense>
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        <ICLContent />
+        <React.Suspense fallback={'loading...'}>
+          <ICLContent />
+        </React.Suspense>
       </TabPanel>
       <TabPanel value={value} index={3} dir={theme.direction}>
         <TrackerContent theme={theme} />
@@ -159,7 +167,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
         <WeightDetailsContent theme={theme} />
       </TabPanel>
       <TabPanel value={value} index={5} dir={theme.direction}>
-        <MentorChatsNew {...{darkMode}} />
+        <MentorChatsNew />
       </TabPanel>
       <TabPanel value={value} index={6} dir={theme.direction}>
         <NotificationSentContent />

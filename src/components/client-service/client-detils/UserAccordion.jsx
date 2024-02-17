@@ -6,16 +6,21 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import LastDeviceTabContent from "./tabs/user-cendentials/LastDeviceTabContent";
-import OrderHistoryContent from "./tabs/user-cendentials/OrderHistoryContent";
+const LastDeviceTabContent = React.lazy(
+  () => import("./tabs/user-cendentials/LastDeviceTabContent"),
+);
+const OrderHistoryContent = React.lazy(
+  () => import("./tabs/user-cendentials/OrderHistoryContent"),
+);
 import ClientAppAccessContent from "./tabs/user-cendentials/ClientAppAccessContent";
 import ClientExtendedValidityContent from "./tabs/user-cendentials/ClientExtendedValidityContent";
 import UserStatusContent from "./tabs/user-cendentials/UserStatusContent";
 import MDTypography from "src/components/theme/common/MDTypography";
+import { useMaterialUIController } from "src/context";
 
 const Accordion = styled(({ ...props }) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ darkMode, theme }) => ({
+))(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`,
   "&:is(:last-child)": {
     borderBottom: 0,
@@ -23,7 +28,7 @@ const Accordion = styled(({ ...props }) => (
   "&::before": {
     display: "none",
   },
-  backgroundColor: darkMode ? "#202940" : "#fff",
+  // backgroundColor: darkMode ? "#202940" : "#fff",
 }));
 
 const AccordionSummary = styled((props) => (
@@ -51,7 +56,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTopColor: theme.palette.divider,
 }));
 
-export default function UserAccordion({ darkMode }) {
+function UserAccordion() {
+  const [controller, dispatch] = useMaterialUIController();
+  const { darkMode } = controller;
   console.log("🚀 ~ UserAccordion ~ darkMode:", darkMode);
   const [expanded, setExpanded] = React.useState("panel1");
   const theme = useTheme();
@@ -73,12 +80,6 @@ export default function UserAccordion({ darkMode }) {
             color: "text.main",
           },
         }}
-        sx={{
-          ".MuiAccordionSummary-expandIconWrapper": {
-            color: "text.main",
-          },
-        }}
-        darkMode={darkMode}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}
       >
@@ -92,7 +93,9 @@ export default function UserAccordion({ darkMode }) {
           </MDTypography>
         </AccordionSummary>
         <AccordionDetails sx={(theme) => ({ bgcolor: "background.default" })}>
-          <LastDeviceTabContent />
+          <React.Suspense fallback={"loading..."}>
+            <LastDeviceTabContent />
+          </React.Suspense>
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -101,7 +104,6 @@ export default function UserAccordion({ darkMode }) {
             color: "text.main",
           },
         }}
-        darkMode={darkMode}
         expanded={expanded === "panel2"}
         onChange={handleChange("panel2")}
       >
@@ -120,7 +122,6 @@ export default function UserAccordion({ darkMode }) {
             color: "text.main",
           },
         }}
-        darkMode={darkMode}
         expanded={expanded === "panel3"}
         onChange={handleChange("panel3")}
       >
@@ -139,7 +140,6 @@ export default function UserAccordion({ darkMode }) {
             color: "text.main",
           },
         }}
-        darkMode={darkMode}
         expanded={expanded === "panel4"}
         onChange={handleChange("panel4")}
       >
@@ -158,7 +158,6 @@ export default function UserAccordion({ darkMode }) {
             color: "text.main",
           },
         }}
-        darkMode={darkMode}
         expanded={expanded === "panel5"}
         onChange={handleChange("panel5")}
       >
@@ -174,3 +173,5 @@ export default function UserAccordion({ darkMode }) {
     </div>
   );
 }
+
+export default React.memo(UserAccordion);

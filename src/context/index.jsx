@@ -67,9 +67,7 @@ function MaterialUIControllerProvider({ children }) {
 
   const [controller, dispatch] = useReducer(reducer, initialState);
 
-  const value = useMemo(() => [controller, dispatch], [controller, dispatch]);
-
-  return <MaterialUI.Provider value={value}>{children}</MaterialUI.Provider>;
+  return <MaterialUI.Provider value={[controller, dispatch]}>{children}</MaterialUI.Provider>;
 }
 
 // Material Dashboard 2 React custom hook for using context

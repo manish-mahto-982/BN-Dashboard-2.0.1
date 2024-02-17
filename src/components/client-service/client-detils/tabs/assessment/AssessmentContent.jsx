@@ -1,5 +1,5 @@
 import { TextField, useTheme } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import PersonalDetailsContent from "./content/PersonalDetailsContent";
 import NutritionLifestyleAndAnalysisContent from "./content/NutritionLifestyleAndAnalysisContent";
 import TwentyFourHourDietRecall from "./content/TwentyFourHourDietRecall";
@@ -10,7 +10,7 @@ import NoteToMentorAndKhyati from "./content/NoteToMentorAndKhyati";
 import FastingMethod from "./content/FastingMethod";
 import VerticalTabs from "src/components/client-service/common/VerticalTabs";
 
-export default function AssessmentContent() {
+const AssessmentContent = () => {
   const theme = useTheme();
   return (
     <VerticalTabs
@@ -48,8 +48,10 @@ export default function AssessmentContent() {
       ]}
     />
   );
-}
+};
 
 const Card = () => {
   return;
 };
+
+export default memo(AssessmentContent)

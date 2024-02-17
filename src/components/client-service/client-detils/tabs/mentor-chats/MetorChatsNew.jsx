@@ -16,6 +16,7 @@ import MDTypography from "src/components/theme/common/MDTypography";
 import MDBox from "src/components/theme/common/MDBox";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import { grey } from "@mui/material/colors";
+import { useMaterialUIController } from "src/context";
 
 const messages = [
   { id: 1, text: "Hi there!", sender: "mentor" },
@@ -23,7 +24,9 @@ const messages = [
   { id: 3, text: "How can I assist you today?", sender: "mentor" },
 ];
 
-const MentorChatsNew = ({ darkMode }) => {
+const MentorChatsNew = () => {
+  const [controller, dispatch] = useMaterialUIController();
+  const { darkMode } = controller;
   const [input, setInput] = React.useState("");
 
   const handleSend = () => {

@@ -22,7 +22,7 @@ import {
   Tooltip,
   useTheme,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { navbarIconButton } from "src/components/theme/layout/Navbars/DashboardNavbar/styles";
 import Menu from "@mui/material/Menu";
 import { randomNumberGenerator } from "src/utils/helper";
@@ -51,7 +51,12 @@ function RatingSection({ light, darkMode, transparentNavbar }) {
   const [open, setOpen] = useState(false);
   const [showAddReminderDialog, setShowAddReminderDialog] = useState(false);
   const [controller, dispatch] = useMaterialUIController();
-  const { sidenavColor } = controller;
+  const memoizedController = useMemo(
+    () => [controller, dispatch],
+    [controller, dispatch],
+  );
+
+  const { sidenavColor } = memoizedController[0];
   const handleOpenTable = (event) => setOpen(event.currentTarget);
   const iconsStyle = ({
     palette: { dark, white, text },
@@ -182,7 +187,7 @@ const ReminderTable = ({
                 component={Paper}
                 style={{
                   // borderRadius: 0,
-                  backgroundColor: 'background.default',
+                  backgroundColor: "background.default",
                   boxShadow: "none",
                   marginTop: 4,
                   borderRadius: 8,
@@ -198,8 +203,8 @@ const ReminderTable = ({
                           transitionDuration: "300ms",
                           ":hover": {
                             bgcolor: darkMode
-                              ? 'background.default'
-                              : 'background.default',
+                              ? "background.default"
+                              : "background.default",
                           },
                         }}
                       >
@@ -256,7 +261,11 @@ const AddReminderDialog = ({
   };
   return (
     <>
-      <Dialog open={openDialog} onClose={handleClose}  TransitionComponent={TransitionSlidUp}>
+      <Dialog
+        open={openDialog}
+        onClose={handleClose}
+        TransitionComponent={TransitionSlidUp}
+      >
         <DialogTitle
           display={"flex"}
           alignItems={"center"}
@@ -264,7 +273,7 @@ const AddReminderDialog = ({
           color={"#fff"}
           bgcolor={`${sidenavColor}.main`}
         >
-          <MDTypography color={"white"} fontWeight={"regular"} fontSize={'nor'}>
+          <MDTypography color={"white"} fontWeight={"regular"} fontSize={"nor"}>
             {" "}
             Set Reminder
           </MDTypography>
@@ -272,7 +281,7 @@ const AddReminderDialog = ({
             <TbX stroke="#fff" />
           </IconButton>
         </DialogTitle>
-        <DialogContent sx={{ bgcolor: 'background.default' }}>
+        <DialogContent sx={{ bgcolor: "background.default" }}>
           <TextField
             autoFocus
             color="secondary"
@@ -301,7 +310,7 @@ const AddReminderDialog = ({
                   layout: {
                     sx: {
                       [`.${pickersLayoutClasses.contentWrapper}`]: {
-                        bgcolor: 'background.default',
+                        bgcolor: "background.default",
                       },
                       [`.${pickersLayoutClasses.actionBar}`]: {},
                       "& .MuiClock-pin ,.MuiClockPointer-root": {
@@ -342,7 +351,7 @@ const AddReminderDialog = ({
             </LocalizationProvider>
           </Box>
         </DialogContent>
-        <DialogActions sx={{ bgcolor: 'background.default' }}>
+        <DialogActions sx={{ bgcolor: "background.default" }}>
           <Button color="secondary" onClick={handleClose}>
             Cancel
           </Button>

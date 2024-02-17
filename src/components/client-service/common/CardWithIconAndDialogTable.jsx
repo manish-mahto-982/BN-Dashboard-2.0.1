@@ -5,8 +5,11 @@ import FlexBoxBetween from "./FlexBoxBetween";
 import MDBox from "src/components/theme/common/MDBox";
 import classNames from "classnames";
 import { noStyleBtnProps } from "src/utils/constants";
-function CardWithIconAndDialogTable({ cardTitle = "", darkMode, data = [] }) {
+import { useMaterialUIController } from "src/context";
+function CardWithIconAndDialogTable({ cardTitle = "", data = [] }) {
   const theme = useTheme();
+  const [controller, dispatch] = useMaterialUIController();
+  const { darkMode } = controller;
   return (
     <Card className={`mt-4`}>
       <MDTypography

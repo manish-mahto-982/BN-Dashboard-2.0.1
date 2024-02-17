@@ -26,6 +26,7 @@ import MDButton from "src/components/theme/common/MDButton";
 import colors from "src/assets/theme/base/colors";
 
 function ClientDetails() {
+  console.log("first");
   const theme = useTheme();
   const [open, setOpen] = useShowDialog(false);
   const [openEditPaymentLinkDialog, setOpenEditPaymentLinkDialog] =
@@ -179,158 +180,171 @@ const TitleValueText = ({
   handleEditLink,
 }) => {
   return (
-    <tr style={{ height: 26 }}>
-      <td>
-        <MDTypography
-          fontSize="small"
-          whiteSpace={"nowrap"}
-          textTransform={"capitalize"}
-          color={"text"}
-        >
-          {title.split("_").join(" ")}&nbsp;:&nbsp;
-        </MDTypography>
-      </td>
-      <td
-        style={{
-          display: title.includes("user_status") ? "flex" : "unset",
-          alignItems: "center",
-        }}
-      >
-        <MDTypography
-          fontSize="small"
-          display={"inline"}
-          textTransform={"capitalize"}
-          color={"text"}
-          width={"fit-content"}
-        >
-          <strong
+    <table>
+      <tbody>
+        <tr style={{ height: 26 }}>
+          <td>
+            <MDTypography
+              fontSize="small"
+              whiteSpace={"nowrap"}
+              textTransform={"capitalize"}
+              color={"text"}
+            >
+              {title.split("_").join(" ")}&nbsp;:&nbsp;
+            </MDTypography>
+          </td>
+          <td
             style={{
-              marginRight: 6,
+              display: title.includes("user_status") ? "flex" : "unset",
+              alignItems: "center",
             }}
           >
-            {value}
-          </strong>
-        </MDTypography>
+            <MDTypography
+              fontSize="small"
+              display={"inline"}
+              textTransform={"capitalize"}
+              color={"text"}
+              width={"fit-content"}
+            >
+              <strong
+                style={{
+                  marginRight: 6,
+                }}
+              >
+                {value}
+              </strong>
+            </MDTypography>
 
-        {(title.includes("mentor") && (
-          <IconButtonWithToolTip
-            Icon={TbBrandWhatsapp}
-            tooltipTitle={"Whatsapp"}
-            iconButtonProps={{ color: "success" }}
-          />
-        )) ||
-          (title.includes("phone") && (
-            <IconButtonWithToolTip
-              Icon={TbBrandWhatsapp}
-              tooltipTitle={"Whatsapp"}
-              iconButtonProps={{ color: "success" }}
-            />
-          )) ||
-          (title.includes("email") && (
-            <Button
-              disableElevation
-              sx={{
-                py: 0.2,
-                mb: 0.5,
-                ml: 1,
-                px: 2,
-                // borderRadius: "100px",
-                textTransform: "capitalize",
-                textDecoration: "underline",
-              }}
-              startIcon={<TbCopy color="info" strokeWidth="1.5" />}
-            >
-              <MDTypography fontSize={"small"} color={"info"}>
-                Copy
-              </MDTypography>
-            </Button>
-          )) ||
-          (title.includes("password") && (
-            <Button
-              disableElevation
-              sx={{
-                py: 0,
-                mb: 0.5,
-                ml: 1,
-                px: 2,
-                // borderRadius: "100px",
-                textTransform: "capitalize",
-                textDecoration: "underline",
-              }}
-              startIcon={<TbCopy strokeWidth="1.5" />}
-            >
-              <MDTypography fontSize={"small"} color={"info"}>
-                Copy
-              </MDTypography>
-            </Button>
-          )) ||
-          (title.includes("wallet") && (
-            <Button
-              disableElevation
-              // variant="contained"
-              sx={{
-                py: 0.4,
-                mb: 0.5,
-                ml: 2,
-                textTransform: "capitalize",
-                // color: "white",
-                // borderRadius: "100px",
-                textDecoration: "underline",
-              }}
-              onClick={handleAddWallet}
-              startIcon={<TbCash strokeWidth="1.5" />}
-            >
-              <MDTypography color="info" fontSize={"small"}>
-                Add Wallet
-              </MDTypography>
-            </Button>
-          )) ||
-          (title.includes("link_details") && (
-            <FlexBoxBetween sx={{ mt: 0.5 }}  className="flex flex-wrap divide-x-1 divide-slate-100 ">
-              <Button
-                sx={{
-                  textTransform: "capitalize",
-                  textDecoration: "underline",
-                }}
-                startIcon={<TbCopy color="info" strokeWidth="1.5" />}
-              >
-                <MDTypography fontSize={"small"} whiteSpace={'nowrap'}>Copy Link</MDTypography>
-              </Button>
-              <Button
-                onClick={handleEditLink}
-                sx={{
-                  color: colors.success.main,
-                  textTransform: "capitalize",
-                  textDecoration: "underline",
-                }}
-                startIcon={
-                  <TbEdit strokeWidth="1.5" stroke={colors.success.main} />
-                }
-              >
-                <MDTypography color="success" fontSize={"small"} whiteSpace={'nowrap'}>
-                  Edit Link
-                </MDTypography>
-              </Button>
-            </FlexBoxBetween>
-          )) ||
-          (title.includes("user_status") && (
-            // <ButtonGroup variant="text" sx={{}}>
-            //   <Button
-            //     onClick={handleEditLink}
-            //     color="green"
-            //     sx={{
-            //       textTransform: "capitalize",
-            //       textDecoration: "underline",
-            //     }}
-            //     startIcon={<TbEdit strokeWidth="1.5" />}
-            //   >
-            //     Update
-            //   </Button>
-            // </ButtonGroup>
-            <></>
-          ))}
-      </td>
-    </tr>
+            {(title.includes("mentor") && (
+              <IconButtonWithToolTip
+                Icon={TbBrandWhatsapp}
+                tooltipTitle={"Whatsapp"}
+                iconButtonProps={{ color: "success" }}
+              />
+            )) ||
+              (title.includes("phone") && (
+                <IconButtonWithToolTip
+                  Icon={TbBrandWhatsapp}
+                  tooltipTitle={"Whatsapp"}
+                  iconButtonProps={{ color: "success" }}
+                />
+              )) ||
+              (title.includes("email") && (
+                <Button
+                  disableElevation
+                  sx={{
+                    py: 0.2,
+                    mb: 0.5,
+                    ml: 1,
+                    px: 2,
+                    // borderRadius: "100px",
+                    textTransform: "capitalize",
+                    textDecoration: "underline",
+                  }}
+                  startIcon={<TbCopy color="info" strokeWidth="1.5" />}
+                >
+                  <MDTypography fontSize={"small"} color={"info"}>
+                    Copy
+                  </MDTypography>
+                </Button>
+              )) ||
+              (title.includes("password") && (
+                <Button
+                  disableElevation
+                  sx={{
+                    py: 0,
+                    mb: 0.5,
+                    ml: 1,
+                    px: 2,
+                    // borderRadius: "100px",
+                    textTransform: "capitalize",
+                    textDecoration: "underline",
+                  }}
+                  startIcon={<TbCopy strokeWidth="1.5" />}
+                >
+                  <MDTypography fontSize={"small"} color={"info"}>
+                    Copy
+                  </MDTypography>
+                </Button>
+              )) ||
+              (title.includes("wallet") && (
+                <Button
+                  disableElevation
+                  // variant="contained"
+                  sx={{
+                    py: 0.4,
+                    mb: 0.5,
+                    ml: 2,
+                    textTransform: "capitalize",
+                    // color: "white",
+                    // borderRadius: "100px",
+                    textDecoration: "underline",
+                  }}
+                  onClick={handleAddWallet}
+                  startIcon={<TbCash strokeWidth="1.5" />}
+                >
+                  <MDTypography color="info" fontSize={"small"}>
+                    Add Wallet
+                  </MDTypography>
+                </Button>
+              )) ||
+              (title.includes("link_details") && (
+                <FlexBoxBetween
+                  sx={{ mt: 0.5 }}
+                  className="divide-x-1 flex flex-wrap divide-slate-100 "
+                >
+                  <Button
+                    sx={{
+                      textTransform: "capitalize",
+                      textDecoration: "underline",
+                    }}
+                    startIcon={<TbCopy color="info" strokeWidth="1.5" />}
+                  >
+                    <MDTypography fontSize={"small"} whiteSpace={"nowrap"}>
+                      Copy Link
+                    </MDTypography>
+                  </Button>
+                  <Button
+                    onClick={handleEditLink}
+                    sx={{
+                      color: colors.success.main,
+                      textTransform: "capitalize",
+                      textDecoration: "underline",
+                    }}
+                    startIcon={
+                      <TbEdit strokeWidth="1.5" stroke={colors.success.main} />
+                    }
+                  >
+                    <MDTypography
+                      color="success"
+                      fontSize={"small"}
+                      whiteSpace={"nowrap"}
+                    >
+                      Edit Link
+                    </MDTypography>
+                  </Button>
+                </FlexBoxBetween>
+              )) ||
+              (title.includes("user_status") && (
+                // <ButtonGroup variant="text" sx={{}}>
+                //   <Button
+                //     onClick={handleEditLink}
+                //     color="green"
+                //     sx={{
+                //       textTransform: "capitalize",
+                //       textDecoration: "underline",
+                //     }}
+                //     startIcon={<TbEdit strokeWidth="1.5" />}
+                //   >
+                //     Update
+                //   </Button>
+                // </ButtonGroup>
+                <></>
+              ))}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
