@@ -1,5 +1,5 @@
 {
-  "new_client_enrolled_for_basic_stack": [
+  "session_start_date": [
     {
       "client_details": {
         "id": "20582",
@@ -16,7 +16,8 @@
         "payment_method": "razorpay",
         "mentor": "Jyoti",
         "is_advanced_purchased": false
-      }
+      },
+      "sent_date": "Session 7 16th Feb 2024 ( 3 days Ago )"
     }
   ]
 }

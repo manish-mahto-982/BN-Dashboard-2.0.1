@@ -36,7 +36,14 @@ import classNames from "classnames";
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
 import CardWithIconAndDialogTable from "src/components/client-service/common/CardWithIconAndDialogTable";
-import { nafOverdueData } from "src/utils/tableData";
+import {
+  nafOverdueData,
+  welcomeCallData,
+  assessmentNotFilledData,
+  sessionStartDateData,
+  inductionCallData,
+  startWeightData,
+} from "src/utils/tableData";
 import { handleWhatsApp } from "src/utils/helper";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 function InductionFlow() {
@@ -52,7 +59,7 @@ function InductionFlow() {
   const handleClick = (
     fetchQuery,
     columns,
-    { actionType = "default", actionColumn = "" } = {}, // "= {}" this is important because to run the default value
+    { actionType = "default", actionColumn = "", tableTitle = "default" } = {}, // "= {}" this is important because to run the default value
   ) => {
     const filterData = Object.values(fetchQuery.data)[0];
     setTableData({
@@ -61,7 +68,10 @@ function InductionFlow() {
       columns,
       actionType,
       actionColumn,
-      tableTitle: Object.keys(fetchQuery.data)[0]?.split("_")?.join(" "),
+      tableTitle:
+        tableTitle === "default"
+          ? Object.keys(fetchQuery.data)[0]?.split("_")?.join(" ")
+          : tableTitle,
     });
     setShowTable(true);
   };
@@ -121,7 +131,11 @@ function InductionFlow() {
           </Card>
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
-          <CardWithDialogTable cardTitle="Assessment" data={assessmentData} />
+          <CardWithDialogTable
+            handleClick={handleClick}
+            cardTitle="Assessment"
+            data={assessmentData}
+          />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithDialogTable cardTitle="ICL" data={iclData} />
@@ -130,6 +144,7 @@ function InductionFlow() {
           <CardWithIconAndDialogTable
             cardTitle={"Start Session Update"}
             data={startSessionData}
+            handleClick={handleClick}
           />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
@@ -165,45 +180,6 @@ const SummaryCard = ({ item, handleClick }) => {
     res?.data && handleClick(res, item.columns);
   }, [res]);
   return (
-    // <Grid
-    //   padding={2}
-    //   display={"flex"}
-    //   justifyContent={"center"}
-    //   borderRadius={2}
-    //   position={"relative"}
-    //   sx={{
-    //     bgcolor: `rgb(${item.bgcolor},.05)`,
-    //     color: `rgb(${item.bgcolor},1)`,
-    //     ":hover": {
-    //       bgcolor: darkMode
-    //         ? "rgba(67, 81, 89, 0.16)"
-    //         : "rgba(67, 81, 89, 0.06)",
-    //       transition: "linear",
-    //       transitionDuration: "300ms",
-    //       cursor: "pointer",
-    //     },
-    //   }}
-    //   key={item.title}
-    //   item
-    //   xs={4}
-    //   md={1.92}
-    //   component={"button"}
-    //   onClick={handleButtonClick}
-    // >
-    //   <FlexBoxBetween>
-    //     <Box>
-    //       <FlexBoxBetween justifyContent={"start"} columnGap={2}>
-    //         <PersonOutlineOutlinedIcon />
-    //         <Typography fontSize={16} fontWeight={600} variant="subtitle1">
-    //           {item.number}
-    //         </Typography>
-    //       </FlexBoxBetween>
-    //       <Typography fontSize={16} fontWeight={500} variant="subtitle1">
-    //         {item.title}
-    //       </Typography>
-    //     </Box>
-    //   </FlexBoxBetween>
-    // </Grid>
     <Grid item xs={12} sm={5.72} md={3.72} lg={1.74} mt={2}>
       <StatisticsCard
         color={item.bgcolor}
@@ -217,10 +193,10 @@ const SummaryCard = ({ item, handleClick }) => {
 };
 
 const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
-  let trigger;
-  let res;
   const [controller, dispatch] = useMaterialUIController();
   const { darkMode } = controller;
+  let trigger;
+  let res;
   if (item.fetchQuery) {
     [trigger, res] = item.fetchQuery?.();
   }
@@ -230,7 +206,7 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
   useEffect(() => {
     res?.data &&
       handleClick(res, item.columns, {
-        actionType: "custom",
+        actionType: item.actionType ? item.actionType : "custom",
         actionColumn: (row) => {
           const clientPhoneNumber = document
             ?.querySelector(`td#phone_${row.id}`)
@@ -289,6 +265,7 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
             </>
           );
         },
+        tableTitle: item.tableTitle ? item.tableTitle : "default",
       });
   }, [res]);
   return (
@@ -383,18 +360,22 @@ const gridData = [
     title: "Induction Call",
     Icon: TbPhoneCall,
     value: 20,
+    ...inductionCallData,
   },
   {
     title: "Welcome call",
     Icon: TbCalendarUser,
     value: 20,
-    ...nafOverdueData,
-
+    ...welcomeCallData,
+    tableTitle: "Welcome Call - Pending Clients",
+    actionType: "default",
   },
   {
     title: "Session Start Date",
     Icon: TbPlayerPlay,
     value: 12,
+    ...sessionStartDateData,
+    actionType: "default",
   },
 ];
 
@@ -402,12 +383,13 @@ const assessmentData = [
   {
     title: "Not filled",
     value: 3,
-    ...commonDataAllTable,
+    ...assessmentNotFilledData,
   },
   {
     title: "Partially Received",
     value: 3,
     ...commonDataAllTable,
+    tableTitle: "Partially Received",
   },
 ];
 
@@ -430,7 +412,9 @@ const startSessionData = [
     value: 3,
     Icon: TbScaleOutlineOff,
     color: colors.warning.main,
-    ...commonDataAllTable,
+    ...startWeightData,
+    actionType: "default",
+
   },
   {
     title: "Start Inch",

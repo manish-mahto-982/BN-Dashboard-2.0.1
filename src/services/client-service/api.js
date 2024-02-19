@@ -52,7 +52,19 @@ export const api = createApi({
       providesTags: ["NAFOverdueData"],
     }),
     getWelcomeCall: build.query({
-      query: () => `/induction-flow/naf_overdue_data.json`,
+      query: () => `/induction-flow/welcome_call_data.json`,
+      providesTags: ["WelcomeCall"],
+    }),
+    getAssessmentNotFilled: build.query({
+      query: () => `/induction-flow/assessment_not_filled.json`,
+      providesTags: ["AssessmentNotFilled"],
+    }),
+    getSessionStartDate: build.query({
+      query: () => `/induction-flow/session_start_date.json`,
+      providesTags: ["SessionStartDate"],
+    }),
+    getInductionCall: build.query({
+      query: () => `/induction-flow/induction_call.json`,
       providesTags: ["WelcomeCall"],
     }),
     getUserRating: build.query({
@@ -60,10 +72,9 @@ export const api = createApi({
       providesTags: ["UserRating"],
     }),
     getStartWeight: build.query({
-      query: () => `/induction-flow/start_weight_data.json`,
+      query: () => `/induction-flow/get_start_weight_data.json`,
       providesTags: ["StartWeight"],
     }),
-
     // overall-pending
     getAppNotUpdatedIOS: build.query({
       query: () => `/overall-pending/app_not_updated_ios.json`,
@@ -109,7 +120,11 @@ export const {
   useGetBasicStackOMRClientQuery,
   useGetNAFOverdueDataQuery,
   useGetWelcomeCallQuery,
+  useGetAssessmentNotFilledQuery,
+  useGetSessionStartDateQuery,
+  useGetInductionCallQuery,
   useGetUserRatingQuery,
+  useGetStartWeightQuery,
   useGetAppNotUpdatedIOSQuery,
   useGetAppNotUpdatedAndroidQuery,
   useGetOnHoldDueDateQuery,

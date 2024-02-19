@@ -22,6 +22,8 @@ import {
 } from "react-icons/tb";
 import FlexBoxBetween from "../common/FlexBoxBetween";
 import { handleWhatsApp } from "src/utils/helper";
+import MDBox from "src/components/theme/common/MDBox";
+import classNames from "classnames";
 
 export default function DataGridTable({
   data,
@@ -111,7 +113,11 @@ export default function DataGridTable({
       let field = Object.keys(item)[ind];
       let container = () => {
         return (
-          <table>
+          <table
+            style={{
+              alignSelf: "start",
+            }}
+          >
             <tbody style={{ paddingBlock: 10 }}>
               {typeof item[field] === "object" ? (
                 Object.keys(item[field]).map((key, index) => {
@@ -121,24 +127,25 @@ export default function DataGridTable({
                     const mentorPhoneNumber = item[field]["mentor_phone"];
                     return (
                       <tr key={String(key + index)}>
-                        <td
+                        {/* <td
                           style={{
                             fontWeight: 600,
                             textTransform: "capitalize",
                           }}
                         >
                           {key.split("_").join(" ")}&nbsp;:&nbsp;
-                        </td>
+                        </td> */}
                         <td
                           id={`${key}_${row.id}`}
                           style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}
                         >
-                          <FlexBoxBetween>
+                          <FlexBoxBetween justifyContent="start" columnGap={2}>
                             {item[field][key]}
                             <Tooltip title={"Whatsapp"}>
                               <IconButton
                                 aria-label="whatsapp"
                                 color={"success"}
+                                sx={{ padding: 0 }}
                                 onClick={() =>
                                   handleWhatsApp(mentorPhoneNumber)
                                 }
@@ -146,9 +153,9 @@ export default function DataGridTable({
                                 <TbBrandWhatsapp
                                   style={{
                                     strokeWidth: 1.4,
-                                    padding: 2,
+                                    // padding: 2,
                                   }}
-                                  size={28}
+                                  size={20}
                                 />
                               </IconButton>
                             </Tooltip>
@@ -156,17 +163,58 @@ export default function DataGridTable({
                         </td>
                       </tr>
                     );
-                  } else {
+                  } else if (key === "is_advanced_purchased") {
                     return (
                       <tr key={String(key + index)}>
-                        <td
+                        {/* <td
                           style={{
                             fontWeight: 600,
                             textTransform: "capitalize",
                           }}
                         >
                           {key.split("_").join(" ")}&nbsp;:&nbsp;
+                        </td> */}
+                        <td
+                          id={`${key}_${row.id}`}
+                          style={{
+                            fontSize: "0.83rem",
+                            whiteSpace: "nowrap",
+                            verticalAlign: "top",
+                          }}
+                        >
+                          {
+                            <Box
+                              className={classNames(
+                                "my-1 w-fit rounded-full px-2 py-0.5 text-xs",
+                                {
+                                  "bg-green-100 text-green-700":
+                                    item[field][key] === true,
+                                },
+                                {
+                                  "bg-red-100 text-red-700":
+                                    item[field][key] === false,
+                                },
+                              )}
+                            >
+                              {item[field][key] === false
+                                ? "No adv purchase"
+                                : "With adv purchase"}
+                            </Box>
+                          }
                         </td>
+                      </tr>
+                    );
+                  } else {
+                    return (
+                      <tr key={String(key + index)}>
+                        {/* <td
+                          style={{
+                            fontWeight: 600,
+                            textTransform: "capitalize",
+                          }}
+                        >
+                          {key.split("_").join(" ")}&nbsp;:&nbsp;
+                        </td> */}
                         <td
                           id={`${key}_${row.id}`}
                           style={{ fontSize: "0.83rem", whiteSpace: "nowrap" }}

@@ -1,5 +1,5 @@
 {
-  "new_client_enrolled_for_basic_stack": [
+  "induction_call": [
     {
       "client_details": {
         "id": "20582",
@@ -16,7 +16,10 @@
         "payment_method": "razorpay",
         "mentor": "Jyoti",
         "is_advanced_purchased": false
-      }
+      },
+      "11th day Wt.": 79,
+      "Wt. Diff.": "-0.50",
+      "Start_Date": "7th Feb 2024( 12 days Ago )"
     }
   ]
 }
