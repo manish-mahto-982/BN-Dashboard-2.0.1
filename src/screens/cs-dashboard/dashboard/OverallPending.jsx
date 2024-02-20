@@ -7,6 +7,7 @@ import CardWithDialogTable from "src/components/client-service/common/CardWithDi
 import { commonDataAllTable, noStyleBtnProps } from "src/utils/constants";
 import { useMaterialUIController } from "src/context";
 import CardWithStatusAndDialogTable from "src/components/client-service/common/CardWithStatusAndDialogTable";
+import { api } from "src/services/client-service/api";
 
 function OverallPending() {
   console.log("fjdslkfjksd");
@@ -18,29 +19,19 @@ function OverallPending() {
           <AppPendingCard />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable
-          
-            data={dormancyData}
-            cardTitle="Dormancy"
-          />
+          <CardWithDialogTable data={dormancyData} cardTitle="Dormancy" />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-          
             data={startLaterData}
             cardTitle="Start Later (Start Date Give)"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable
-          
-            data={breakData}
-            cardTitle="Break"
-          />
+          <CardWithDialogTable data={breakData} cardTitle="Break" />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-          
             data={notStartedData}
             cardTitle="Not Started / Start Date pending"
           />
@@ -70,17 +61,12 @@ function OverallPending() {
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithStatusAndDialogTable
-          
             data={advancedPurchaseData}
             cardTitle="Advanced Purchased"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable
-          
-            data={notStartedData}
-            cardTitle="Balance"
-          />
+          <CardWithDialogTable data={notStartedData} cardTitle="Balance" />
         </Grid>
       </Grid>
     </CSLayout>

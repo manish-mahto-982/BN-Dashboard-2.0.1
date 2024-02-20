@@ -1,0 +1,48 @@
+{
+  "Total_OCR_List": [
+    {
+      "client_details": {
+        "id": "20582",
+        "name": "Dipal Thakkar",
+        "email_id": "tdipal@gmail.com",
+        "phone": "+1-6787795055",
+        "user_status": "Dropout"
+      },
+      "program_details": {
+        "id": "122132",
+        "program_name": "Plateau Breaker(Client Exclusive)",
+        "mrp": "MRP: Rs. 16999",
+        "paid": "Paid: Rs. 11999",
+        "payment_method": "razorpay",
+        "mentor": "Jyoti",
+        "is_advanced_purchased": false
+      },
+      "device": {
+        "os": "android",
+        "version": "5.0.37"
+      }
+    },
+    {
+      "client_details": {
+        "id": "20583",
+        "name": "Dipal Thakkar",
+        "email_id": "tdipal@gmail.com",
+        "phone": "+1-6787795055",
+        "user_status": "Active"
+      },
+      "program_details": {
+        "id": "122112",
+        "program_name": "Weight Loss +",
+        "mrp": "MRP: Rs. 16999",
+        "paid": "Paid: Rs. 11999",
+        "payment_method": "razorpay",
+        "mentor": "NEFT",
+        "is_advanced_purchased": false
+      },
+      "device": {
+        "os": "ios",
+        "version": "1.0.37"
+      }
+    }
+  ]
+}

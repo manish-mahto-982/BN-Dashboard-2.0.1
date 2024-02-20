@@ -24,6 +24,9 @@ import FlexBoxBetween from "../common/FlexBoxBetween";
 import { handleWhatsApp } from "src/utils/helper";
 import MDBox from "src/components/theme/common/MDBox";
 import classNames from "classnames";
+import DateField from "../forms/DateField";
+import { Controller, useForm } from "react-hook-form";
+import PrimaryButton from "../common/PrimaryButton";
 
 export default function DataGridTable({
   data,
@@ -201,6 +204,38 @@ export default function DataGridTable({
                                 : "With adv purchase"}
                             </Box>
                           }
+                        </td>
+                      </tr>
+                    );
+                  } else if (key === "pending_session") {
+                    const { control } = useForm({
+                      defaultValues: {
+                        order_extended_date: null,
+                      },
+                    });
+                    return (
+                      <tr key={String(key + index)}>
+                        {/* <td
+                      style={{
+                        fontWeight: 600,
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {key.split("_").join(" ")}&nbsp;:&nbsp;
+                    </td> */}
+                        <td
+                          id={`${key}_${row.id}`}
+                          style={{ fontSize: "0.83rem" }}
+                        >
+                          {item[field][key]}
+                          <Controller
+                            name="order_extended_date"
+                            control={control}
+                            render={({ field }) => {
+                              return <DateField {...field} theme={theme} />;
+                            }}
+                          />
+                          <PrimaryButton onClick={{}} sx={{scale:'80%',ml:-1}}>Save</PrimaryButton>
                         </td>
                       </tr>
                     );

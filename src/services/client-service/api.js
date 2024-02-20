@@ -21,6 +21,10 @@ export const api = createApi({
     "Dashboard",
   ],
   endpoints: (build) => ({
+    getUserRating: build.query({
+      query: () => `/rating-feedback/rating_feedback.json`,
+      providesTags: ["UserRating"],
+    }),
     getUser: build.query({
       // query: (id) => `general/user/${id}`,
       query: () => `/induction-flow/get-new-assign-bs-omr-client-data.json`,
@@ -63,17 +67,42 @@ export const api = createApi({
       query: () => `/induction-flow/session_start_date.json`,
       providesTags: ["SessionStartDate"],
     }),
+    getICLNotFilled: build.query({
+      query: () => `/induction-flow/get_icl_data.json`,
+      providesTags: ["SessionStartDate"],
+    }),
     getInductionCall: build.query({
       query: () => `/induction-flow/induction_call.json`,
       providesTags: ["WelcomeCall"],
     }),
-    getUserRating: build.query({
-      query: () => `/rating-feedback/rating_feedback.json`,
-      providesTags: ["UserRating"],
-    }),
+
     getStartWeight: build.query({
       query: () => `/induction-flow/get_start_weight_data.json`,
       providesTags: ["StartWeight"],
+    }),
+    getStartInch: build.query({
+      query: () => `/induction-flow/get_start_inch_data.json`,
+      providesTags: ["StartInch"],
+    }),
+    getStartPhoto: build.query({
+      query: () => `/induction-flow/get_start_inch_data.json`,
+      providesTags: ["StartPhoto"],
+    }),
+    getMidWeight: build.query({
+      query: () => `/induction-flow/get_start_weight_data.json`,
+      providesTags: ["MidWeight"],
+    }),
+    getEndWeight: build.query({
+      query: () => `/induction-flow/get_start_weight_data.json`,
+      providesTags: ["EndWeight"],
+    }),
+    getEndInch: build.query({
+      query: () => `/induction-flow/get_start_inch_data.json`,
+      providesTags: ["EndInch"],
+    }),
+    getEndPhoto: build.query({
+      query: () => `/induction-flow/get_start_inch_data.json`,
+      providesTags: ["EndPhoto"],
     }),
     // overall-pending
     getAppNotUpdatedIOS: build.query({
@@ -84,11 +113,23 @@ export const api = createApi({
       query: () => `/overall-pending/app_not_updated_android.json`,
       providesTags: ["AppNotUpdatedAndroid"],
     }),
+    //Expiry-clients
+    getExpiryClientToday: build.query({
+      query: () => `/expiry-clients/expiring_today.json`,
+      providesTags: ["ExpiryClientToday"],
+    }),
     getOnHoldDueDate: build.query({
       query: () => "/overall-pending/get_onhold_due_data.json",
       providesTags: ["OnHoldDueDate"],
     }),
-
+    getTotalOcClients: build.query({
+      query: () => "/oc-clients/total_oc_client_list.json",
+      providesTags: ["TotalOcClients"],
+    }),
+    getTenthDayMaintenanceWeight: build.query({
+      query: () => "/maintenance/maintenance_weight_10day.json",
+      providesTags: ["TenthDayMaintenanceWeight"],
+    }),
     // quick-access
     getDrafts: build.query({
       query: () => "/quick-access/draft-data.json",
@@ -124,7 +165,10 @@ export const {
   useGetSessionStartDateQuery,
   useGetInductionCallQuery,
   useGetUserRatingQuery,
+  useGetICLNotFilledQuery,
   useGetStartWeightQuery,
+  useGetStartInchQuery,
+  useGetStartPhotoQuery,
   useGetAppNotUpdatedIOSQuery,
   useGetAppNotUpdatedAndroidQuery,
   useGetOnHoldDueDateQuery,

@@ -43,6 +43,13 @@ import {
   sessionStartDateData,
   inductionCallData,
   startWeightData,
+  startInchData,
+  startPhotoData,
+  endWeightData,
+  endInchData,
+  endPhotoData,
+  iclNotFilledData,
+  midWeightData,
 } from "src/utils/tableData";
 import { handleWhatsApp } from "src/utils/helper";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
@@ -138,7 +145,11 @@ function InductionFlow() {
           />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
-          <CardWithDialogTable cardTitle="ICL" data={iclData} />
+          <CardWithDialogTable
+            cardTitle="ICL"
+            data={iclData}
+            handleClick={handleClick}
+          />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithIconAndDialogTable
@@ -151,12 +162,14 @@ function InductionFlow() {
           <CardWithIconAndDialogTable
             cardTitle="Mid Session Update"
             data={midSessionData}
+            {...{ handleClick }}
           />
         </Grid>
         <Grid item xs={12} sm={5.76} md={3.72}>
           <CardWithIconAndDialogTable
             cardTitle="End Session Update"
             data={endSessionData}
+            {...{ handleClick }}
           />
         </Grid>
       </Grid>
@@ -397,12 +410,15 @@ const iclData = [
   {
     title: "Not filled",
     value: 1,
-    ...commonDataAllTable,
+    ...iclNotFilledData,
+    actionType: "default",
   },
   {
     title: "Partially Received",
     value: 2,
-    ...commonDataAllTable,
+    ...iclNotFilledData,
+    tableTitle: "ICL Partially Received Clients",
+    actionType: "default",
   },
 ];
 
@@ -414,21 +430,23 @@ const startSessionData = [
     color: colors.warning.main,
     ...startWeightData,
     actionType: "default",
-
   },
   {
     title: "Start Inch",
     value: 2,
     Icon: TbRuler2Off,
     color: colors.faintgreen.main,
-    ...commonDataAllTable,
+    ...startInchData,
+    actionType: "default",
   },
   {
     title: "Start Photo",
     value: 3,
     Icon: TbCameraOff,
     color: colors.skyblue.main,
-    ...commonDataAllTable,
+    ...startPhotoData,
+    actionType: "default",
+    tableTitle: "Start Photo Data",
   },
 ];
 
@@ -438,7 +456,9 @@ const midSessionData = [
     value: 3,
     Icon: TbScaleOutlineOff,
     color: colors.warning.main,
-    ...commonDataAllTable,
+    ...midWeightData,
+    actionType: "default",
+    tableTitle: "Mid Weight Data",
   },
 ];
 
@@ -448,20 +468,26 @@ const endSessionData = [
     value: 3,
     Icon: TbScaleOutlineOff,
     color: colors.warning.main,
-    ...commonDataAllTable,
+    ...endWeightData,
+    actionType: "default",
+    tableTitle: "End Weight Data",
   },
   {
     title: "End Inch",
     value: 2,
     Icon: TbRuler2Off,
     color: colors.faintgreen.main,
-    ...commonDataAllTable,
+    ...endInchData,
+    actionType: "default",
+    tableTitle: "End Inch Data",
   },
   {
     title: "End Photo",
     value: 3,
     Icon: TbCameraOff,
     color: colors.skyblue.main,
-    ...commonDataAllTable,
+    ...endPhotoData,
+    actionType: "default",
+    tableTitle: "End Photo Data",
   },
 ];

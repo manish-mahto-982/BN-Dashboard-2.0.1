@@ -1,21 +1,57 @@
 import React from "react";
 import CSLayout from "../layout";
-import { Card, Divider, Grid } from "@mui/material";
+import { Card, Divider, Grid, IconButton, Tooltip } from "@mui/material";
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
 import {
+  TbBell,
   TbBrandAndroid,
   TbBrandApple,
+  TbBrandWhatsapp,
   TbDeviceMobile,
   TbDeviceMobileOff,
+  TbMail,
+  TbMessage,
   TbUsersGroup,
 } from "react-icons/tb";
 import { useMaterialUIController } from "src/context";
 import { commonDataAllTable, noStyleBtnProps } from "src/utils/constants";
 import classNames from "classnames";
+import useHandleTable from "src/hooks/useHandleTable";
+import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
+import { totalOcClientsData } from "src/utils/tableData";
+import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
+import { handleWhatsApp } from "src/utils/helper";
+import CustomAction from "src/components/client-service/oc-clients/CustomAction";
 function OCClients() {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
+  const {
+    tableData,
+    setTableData,
+    showTable,
+    setShowTable,
+    dataGridTableDialog,
+  } = useDataGridTableDialog();
+  const handleClick = (
+    fetchQuery,
+    columns,
+    { actionType = "default", actionColumn = "", tableTitle = "default" } = {}, // "= {}" this is important because to run the default value
+  ) => {
+    const filterData = Object.values(fetchQuery.data)[0];
+    setTableData({
+      ...tableData,
+      data: filterData,
+      columns,
+      actionType,
+      actionColumn,
+      tableTitle:
+        tableTitle === "default"
+          ? Object.keys(fetchQuery.data)[0]?.split("_")?.join(" ")
+          : tableTitle,
+    });
+    setShowTable(true);
+  };
   return (
     <CSLayout>
       <Grid container mt={5} spacing={3}>
@@ -35,53 +71,57 @@ function OCClients() {
           </MDBox>
         </Grid>
 
-        {ocClientDetailsData.map(({ icon: { name: Icon }, ...item }) => (
-          <Grid key={item.title} item xs={12} md={4}>
-            <Card
-              {...noStyleBtnProps}
-              component={"button"}
-              sx={{borderRadius:4}}
-              className={classNames(
-                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
-                { "hover:bg-opacity-5": darkMode },
-              )}
-            >
-              <MDBox
-                className={
-                  "flex w-full cursor-pointer items-center justify-between "
-                }
+        {ocClientDetailsData.map(({ icon: { name: Icon }, ...item }) => {
+          const [handleButtonClick] = useHandleTable(item, handleClick);
+          return (
+            <Grid key={item.title} item xs={12} md={4}>
+              <Card
+                {...noStyleBtnProps}
+                component={"button"}
+                sx={{ borderRadius: 4 }}
+                onClick={handleButtonClick}
+                className={classNames(
+                  "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                  { "hover:bg-opacity-5": darkMode },
+                )}
               >
                 <MDBox
-                  variant="gradient"
-                  width={"fit-content"}
-                  p={1.5}
                   className={
-                    "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    "flex w-full cursor-pointer items-center justify-between "
                   }
-                  bgColor={darkMode ? "secondary" : "dark"}
                 >
-                  <Icon size={20} className={"-mb-1 stroke-white"} />
-                </MDBox>
-                <MDBox className={"text-right"}>
-                  <MDTypography
-                    fontWeight={"bold"}
-                    variant={"h3"}
-                    color={item.color}
+                  <MDBox
+                    variant="gradient"
+                    width={"fit-content"}
+                    p={1.5}
+                    className={
+                      "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    }
+                    bgColor={darkMode ? "secondary" : "dark"}
                   >
-                    {item.value}
-                  </MDTypography>
-                  <MDTypography
-                    fontWeight={"light"}
-                    fontSize="small"
-                    color="secondary"
-                  >
-                    {item.title}
-                  </MDTypography>
+                    <Icon size={20} className={"-mb-1 stroke-white"} />
+                  </MDBox>
+                  <MDBox className={"text-right"}>
+                    <MDTypography
+                      fontWeight={"bold"}
+                      variant={"h3"}
+                      color={item.color}
+                    >
+                      {item.value}
+                    </MDTypography>
+                    <MDTypography
+                      fontWeight={"light"}
+                      fontSize="small"
+                      color="secondary"
+                    >
+                      {item.title}
+                    </MDTypography>
+                  </MDBox>
                 </MDBox>
-              </MDBox>
-            </Card>
-          </Grid>
-        ))}
+              </Card>
+            </Grid>
+          );
+        })}
       </Grid>
       <Grid container mt={5} spacing={3}>
         <Grid item xs={12}>
@@ -100,53 +140,57 @@ function OCClients() {
           </MDBox>
         </Grid>
 
-        {ocAndroidDetails.map(({ icon: { name: Icon }, ...item }) => (
-          <Grid key={item.title} item xs={12} md={4}>
-            <Card
-              {...noStyleBtnProps}
-              component={"button"}
-              sx={{borderRadius:4}}
-              className={classNames(
-                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
-                { "hover:bg-opacity-5": darkMode },
-              )}
-            >
-              <MDBox
-                className={
-                  "flex w-full cursor-pointer items-center justify-between "
-                }
+        {ocAndroidDetails.map(({ icon: { name: Icon }, ...item }) => {
+          const [handleButtonClick] = useHandleTable(item, handleClick);
+          return (
+            <Grid key={item.title} item xs={12} md={4}>
+              <Card
+                {...noStyleBtnProps}
+                component={"button"}
+                onClick={handleButtonClick}
+                sx={{ borderRadius: 4 }}
+                className={classNames(
+                  "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                  { "hover:bg-opacity-5": darkMode },
+                )}
               >
                 <MDBox
-                  variant="gradient"
-                  width={"fit-content"}
-                  p={1.5}
                   className={
-                    "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    "flex w-full cursor-pointer items-center justify-between "
                   }
-                  bgColor={darkMode ? "secondary" : "dark"}
                 >
-                  <Icon size={20} className={"-mb-1 stroke-white"} />
-                </MDBox>
-                <MDBox className={"text-right"}>
-                  <MDTypography
-                    fontWeight={"bold"}
-                    variant={"h3"}
-                    color={item.color}
+                  <MDBox
+                    variant="gradient"
+                    width={"fit-content"}
+                    p={1.5}
+                    className={
+                      "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    }
+                    bgColor={darkMode ? "secondary" : "dark"}
                   >
-                    {item.value}
-                  </MDTypography>
-                  <MDTypography
-                    fontWeight={"light"}
-                    fontSize="small"
-                    color="secondary"
-                  >
-                    {item.title}
-                  </MDTypography>
+                    <Icon size={20} className={"-mb-1 stroke-white"} />
+                  </MDBox>
+                  <MDBox className={"text-right"}>
+                    <MDTypography
+                      fontWeight={"bold"}
+                      variant={"h3"}
+                      color={item.color}
+                    >
+                      {item.value}
+                    </MDTypography>
+                    <MDTypography
+                      fontWeight={"light"}
+                      fontSize="small"
+                      color="secondary"
+                    >
+                      {item.title}
+                    </MDTypography>
+                  </MDBox>
                 </MDBox>
-              </MDBox>
-            </Card>
-          </Grid>
-        ))}
+              </Card>
+            </Grid>
+          );
+        })}
       </Grid>
       <Grid container mt={5} spacing={3}>
         <Grid item xs={12}>
@@ -165,54 +209,59 @@ function OCClients() {
           </MDBox>
         </Grid>
 
-        {ocIOSDetails.map(({ icon: { name: Icon }, ...item }) => (
-          <Grid key={item.title} item xs={12} md={4}>
-            <Card
-              {...noStyleBtnProps}
-              component={"button"}
-              sx={{borderRadius:4}}
-              className={classNames(
-                "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
-                { "hover:bg-opacity-5": darkMode },
-              )}
-            >
-              <MDBox
-                className={
-                  "flex w-full cursor-pointer items-center justify-between "
-                }
+        {ocIOSDetails.map(({ icon: { name: Icon }, ...item }) => {
+          const [handleButtonClick] = useHandleTable(item, handleClick);
+          return (
+            <Grid key={item.title} item xs={12} md={4}>
+              <Card
+                {...noStyleBtnProps}
+                component={"button"}
+                onClick={handleButtonClick}
+                sx={{ borderRadius: 4 }}
+                className={classNames(
+                  "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+                  { "hover:bg-opacity-5": darkMode },
+                )}
               >
                 <MDBox
-                  variant="gradient"
-                  width={"fit-content"}
-                  p={1.5}
                   className={
-                    "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    "flex w-full cursor-pointer items-center justify-between "
                   }
-                  bgColor={darkMode ? "secondary" : "dark"}
                 >
-                  <Icon size={20} className={"-mb-1 stroke-white"} />
-                </MDBox>
-                <MDBox className={"text-right"}>
-                  <MDTypography
-                    fontWeight={"bold"}
-                    variant={"h3"}
-                    color={item.color}
+                  <MDBox
+                    variant="gradient"
+                    width={"fit-content"}
+                    p={1.5}
+                    className={
+                      "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+                    }
+                    bgColor={darkMode ? "secondary" : "dark"}
                   >
-                    {item.value}
-                  </MDTypography>
-                  <MDTypography
-                    fontWeight={"light"}
-                    fontSize="small"
-                    color="secondary"
-                  >
-                    {item.title}
-                  </MDTypography>
+                    <Icon size={20} className={"-mb-1 stroke-white"} />
+                  </MDBox>
+                  <MDBox className={"text-right"}>
+                    <MDTypography
+                      fontWeight={"bold"}
+                      variant={"h3"}
+                      color={item.color}
+                    >
+                      {item.value}
+                    </MDTypography>
+                    <MDTypography
+                      fontWeight={"light"}
+                      fontSize="small"
+                      color="secondary"
+                    >
+                      {item.title}
+                    </MDTypography>
+                  </MDBox>
                 </MDBox>
-              </MDBox>
-            </Card>
-          </Grid>
-        ))}
+              </Card>
+            </Grid>
+          );
+        })}
       </Grid>
+      {dataGridTableDialog()}
     </CSLayout>
   );
 }
@@ -225,14 +274,18 @@ const ocClientDetailsData = [
     value: "2300",
     icon: { name: TbUsersGroup },
     color: "success",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
+    tableTitle: "Total OCR Client List",
+    actionType: "default",
   },
   {
     title: "OC app Not Updated",
     value: "1200",
     icon: { name: TbDeviceMobile },
     color: "info",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
+    tableTitle: "Total OC App Not Updated Client List",
+    actionType: "default",
   },
   {
     title: "OC without app",
@@ -240,6 +293,8 @@ const ocClientDetailsData = [
     icon: { name: TbDeviceMobileOff },
     color: "error",
     ...commonDataAllTable,
+    actionType: "custom",
+    actionColumn: () => <CustomAction />,
   },
 ];
 
@@ -249,21 +304,28 @@ const ocAndroidDetails = [
     value: "1300",
     icon: { name: TbBrandAndroid },
     color: "success",
-    ...commonDataAllTable,
+    tableTitle: "Total OCR Android Client List",
+    actionType: "default",
+    ...totalOcClientsData,
   },
   {
     title: "App Not Updated",
     value: "1000",
     icon: { name: TbBrandAndroid },
     color: "info",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
+    tableTitle: "OCR Android Clients - App Not Updated",
+    actionType: "default",
   },
   {
     title: "Without App",
     value: "50",
     icon: { name: TbBrandAndroid },
     color: "error",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
+    tableTitle: "Android Without App",
+    actionType: "custom",
+    actionColumn: () => <CustomAction />,
   },
 ];
 
@@ -273,7 +335,9 @@ const ocIOSDetails = [
     value: "1000",
     icon: { name: TbBrandApple },
     color: "success",
-    ...commonDataAllTable,
+    actionType: "default",
+    tableTitle: "Total OCR IOS Client List",
+    ...totalOcClientsData,
   },
   {
     title: "App Not Updated",
@@ -281,6 +345,8 @@ const ocIOSDetails = [
     icon: { name: TbBrandApple },
     color: "info",
     ...commonDataAllTable,
+    tableTitle: "OCR IOS Clients - App Not Updated",
+    actionType: "default",
   },
   {
     title: "Without App",
@@ -288,5 +354,8 @@ const ocIOSDetails = [
     icon: { name: TbBrandApple },
     color: "error",
     ...commonDataAllTable,
+    tableTitle: "OCR IOS Clients Without App",
+    actionType: "custom",
+    actionColumn: () => <CustomAction />,
   },
 ];

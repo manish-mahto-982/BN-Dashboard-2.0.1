@@ -7,9 +7,37 @@ import CardWithDialogTable from "src/components/client-service/common/CardWithDi
 import MDBox from "src/components/theme/common/MDBox";
 import MDTypography from "src/components/theme/common/MDTypography";
 import { useMaterialUIController } from "src/context";
+import { total10thDayMaintenanceWeightOD } from "src/utils/tableData";
+import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
 function Maintenance() {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
+  const {
+    tableData,
+    setTableData,
+    showTable,
+    setShowTable,
+    dataGridTableDialog,
+  } = useDataGridTableDialog();
+  const handleClick = (
+    fetchQuery,
+    columns,
+    { actionType = "default", actionColumn = "", tableTitle = "default" } = {}, // "= {}" this is important because to run the default value
+  ) => {
+    const filterData = Object.values(fetchQuery.data)[0];
+    setTableData({
+      ...tableData,
+      data: filterData,
+      columns,
+      actionType,
+      actionColumn,
+      tableTitle:
+        tableTitle === "default"
+          ? Object.keys(fetchQuery.data)[0]?.split("_")?.join(" ")
+          : tableTitle,
+    });
+    setShowTable(true);
+  };
   return (
     <CSLayout>
       <Grid container spacing={3} mt={3}>
@@ -49,9 +77,11 @@ function Maintenance() {
             data={maintenanceWeightOdData}
             cardTitle={"Maintenance Weight OD"}
             darkMode={darkMode}
+            handleClick={handleClick}
           />
         </Grid>
       </Grid>
+      {dataGridTableDialog()}
     </CSLayout>
   );
 }
@@ -59,7 +89,25 @@ function Maintenance() {
 export default Maintenance;
 
 const maintenanceWeightOdData = [
-  { title: "10th day OD", value: 20 },
-  { title: "20th day OD", value: 24 },
-  { title: "30th day OD", value: 52 },
+  {
+    title: "10th day OD",
+    value: 20,
+    ...total10thDayMaintenanceWeightOD,
+    actionType: "default",
+    tableTitle: "10th Day Maintenance Weight OD",
+  },
+  {
+    title: "20th day OD",
+    value: 24,
+    ...total10thDayMaintenanceWeightOD,
+    actionType: "default",
+    tableTitle: "20th Day Maintenance Weight OD",
+  },
+  {
+    title: "30th day OD",
+    value: 52,
+    ...total10thDayMaintenanceWeightOD,
+    actionType: "default",
+    tableTitle: "30th Day Maintenance Weight OD",
+  },
 ];
