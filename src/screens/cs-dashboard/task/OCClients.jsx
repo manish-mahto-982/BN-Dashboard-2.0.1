@@ -36,11 +36,10 @@ function OCClients() {
   const handleClick = (
     fetchQuery,
     columns,
-    { actionType = "default", actionColumn = "", tableTitle = "default" } = {}, // "= {}" this is important because to run the default value
+    { actionType = "default", actionColumn = "", tableTitle = "default" } = {},
   ) => {
     const filterData = Object.values(fetchQuery.data)[0];
     setTableData({
-      ...tableData,
       data: filterData,
       columns,
       actionType,
@@ -71,55 +70,12 @@ function OCClients() {
           </MDBox>
         </Grid>
 
-        {ocClientDetailsData.map(({ icon: { name: Icon }, ...item }) => {
-          const [handleButtonClick] = useHandleTable(item, handleClick);
+        {ocClientDetailsData.map(({ icon: { name: Icon }, ...item }, index) => {
           return (
-            <Grid key={item.title} item xs={12} md={4}>
-              <Card
-                {...noStyleBtnProps}
-                component={"button"}
-                sx={{ borderRadius: 4 }}
-                onClick={handleButtonClick}
-                className={classNames(
-                  "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
-                  { "hover:bg-opacity-5": darkMode },
-                )}
-              >
-                <MDBox
-                  className={
-                    "flex w-full cursor-pointer items-center justify-between "
-                  }
-                >
-                  <MDBox
-                    variant="gradient"
-                    width={"fit-content"}
-                    p={1.5}
-                    className={
-                      "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
-                    }
-                    bgColor={darkMode ? "secondary" : "dark"}
-                  >
-                    <Icon size={20} className={"-mb-1 stroke-white"} />
-                  </MDBox>
-                  <MDBox className={"text-right"}>
-                    <MDTypography
-                      fontWeight={"bold"}
-                      variant={"h3"}
-                      color={item.color}
-                    >
-                      {item.value}
-                    </MDTypography>
-                    <MDTypography
-                      fontWeight={"light"}
-                      fontSize="small"
-                      color="secondary"
-                    >
-                      {item.title}
-                    </MDTypography>
-                  </MDBox>
-                </MDBox>
-              </Card>
-            </Grid>
+            <OCCard
+              key={item.tableTitle + index}
+              {...{ item, handleClick, Icon }}
+            />
           );
         })}
       </Grid>
@@ -268,6 +224,54 @@ function OCClients() {
 
 export default OCClients;
 
+const OCCard = ({ Icon, item, handleClick }) => {
+  const [handleButtonClick] = useHandleTable(item, handleClick);
+  const [controller] = useMaterialUIController();
+  const { darkMode } = controller;
+  return (
+    <Grid key={item.title} item xs={12} md={4}>
+      <Card
+        {...noStyleBtnProps}
+        component={"button"}
+        sx={{ borderRadius: 4 }}
+        onClick={handleButtonClick}
+        className={classNames(
+          "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
+          { "hover:bg-opacity-5": darkMode },
+        )}
+      >
+        <MDBox
+          className={"flex w-full cursor-pointer items-center justify-between "}
+        >
+          <MDBox
+            variant="gradient"
+            width={"fit-content"}
+            p={1.5}
+            className={
+              "flex aspect-square h-14 items-center justify-center rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+            }
+            bgColor={darkMode ? "secondary" : "dark"}
+          >
+            <Icon size={20} className={"-mb-1 stroke-white"} />
+          </MDBox>
+          <MDBox className={"text-right"}>
+            <MDTypography fontWeight={"bold"} variant={"h3"} color={item.color}>
+              {item.value}
+            </MDTypography>
+            <MDTypography
+              fontWeight={"light"}
+              fontSize="small"
+              color="secondary"
+            >
+              {item.title}
+            </MDTypography>
+          </MDBox>
+        </MDBox>
+      </Card>
+    </Grid>
+  );
+};
+
 const ocClientDetailsData = [
   {
     title: "Total OC",
@@ -292,9 +296,9 @@ const ocClientDetailsData = [
     value: "100",
     icon: { name: TbDeviceMobileOff },
     color: "error",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
     actionType: "custom",
-    actionColumn: () => <CustomAction />,
+    actionColumn: CustomAction,
   },
 ];
 
@@ -325,7 +329,7 @@ const ocAndroidDetails = [
     ...totalOcClientsData,
     tableTitle: "Android Without App",
     actionType: "custom",
-    actionColumn: () => <CustomAction />,
+    actionColumn: CustomAction,
   },
 ];
 
@@ -344,7 +348,7 @@ const ocIOSDetails = [
     value: "200",
     icon: { name: TbBrandApple },
     color: "info",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
     tableTitle: "OCR IOS Clients - App Not Updated",
     actionType: "default",
   },
@@ -353,9 +357,9 @@ const ocIOSDetails = [
     value: "50",
     icon: { name: TbBrandApple },
     color: "error",
-    ...commonDataAllTable,
+    ...totalOcClientsData,
     tableTitle: "OCR IOS Clients Without App",
     actionType: "custom",
-    actionColumn: () => <CustomAction />,
+    actionColumn: CustomAction,
   },
 ];

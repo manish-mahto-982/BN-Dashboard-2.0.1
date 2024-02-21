@@ -52,7 +52,9 @@ function ExpiryClient() {
     </CSLayout>
   );
 }
+/*
 
+*/
 export default ExpiryClient;
 
 const expiryClientsData = [
@@ -101,20 +103,26 @@ const expiryClientsData3 = [
     ...expiryClientTodayData,
     actionType: "default",
     tableTitle:
-      "Clients Getting Dropout Tomorrow (Please Extend Expiry Date as per Pending Session.)",
+      "Clients Getting Dropout Today (Please Extend Expiry Date as per Pending Session.)",
   },
   {
     title: "Expiring Tomorrow",
     value: "5",
     Icon: TbUsersGroup,
     color: "info",
-    ...commonDataAllTable,
+    ...expiryClientTodayData,
+    actionType: "default",
+    tableTitle:
+      "Clients Getting Dropout Tomorrow (Please Extend Expiry Date as per Pending Session.)",
   },
   {
     title: "Expiring Day After Tomorrow",
     value: "5",
     Icon: TbUsersGroup,
     color: "secondary",
-    ...commonDataAllTable,
+    ...expiryClientTodayData,
+    actionType: "default",
+    tableTitle:
+      "Clients Getting Dropout Day After Tomorrow (Please Extend Expiry Date as per Pending Session.)",
   },
 ];

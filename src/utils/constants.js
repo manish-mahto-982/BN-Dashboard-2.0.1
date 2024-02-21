@@ -22,7 +22,6 @@ export const commonDataAllTable = {
   columns: [
     { id: "client_details", label: "client details" },
     { id: "program_details", label: "program details" },
-    { id: "on_hold_details", label: "on hold details" },
   ],
 };
 

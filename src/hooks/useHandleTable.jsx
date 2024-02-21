@@ -17,7 +17,7 @@ function useHandleTable(item, handleClick) {
   useEffect(() => {
     res?.data &&
       handleClick(res, item.columns, {
-        actionType: item.actionType ? item.actionType : "custom",
+        actionType: item.actionType,
         actionColumn: item.actionColumn
           ? item.actionColumn
           : (row) => {

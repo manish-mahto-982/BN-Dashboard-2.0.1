@@ -31,9 +31,11 @@ import PrimaryButton from "../common/PrimaryButton";
 export default function DataGridTable({
   data,
   isLoading = true,
-  actionType = "default" || "custom",
-  actionColumn,
+  actionType = "default",
+  actionColumn = null,
 }) {
+  console.log("🚀 ~ actionColumn:", actionColumn);
+  console.log("🚀 ~ actionType:", actionType);
   const theme = useTheme();
   const columns = Object.keys({ ...data[0], actions: true }).map((column) => ({
     field: column,
@@ -235,7 +237,12 @@ export default function DataGridTable({
                               return <DateField {...field} theme={theme} />;
                             }}
                           />
-                          <PrimaryButton onClick={{}} sx={{scale:'80%',ml:-1}}>Save</PrimaryButton>
+                          <PrimaryButton
+                            onClick={{}}
+                            sx={{ scale: "80%", ml: -1 }}
+                          >
+                            Save
+                          </PrimaryButton>
                         </td>
                       </tr>
                     );

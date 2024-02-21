@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import CSLayout from "../layout";
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Grid, IconButton, Tooltip } from "@mui/material";
 import MDTypography from "src/components/theme/common/MDTypography";
 import AppPendingCard from "src/components/client-service/dashboard/overall-pending/AppPendingCard";
 import CardWithDialogTable from "src/components/client-service/common/CardWithDialogTable";
@@ -8,10 +8,43 @@ import { commonDataAllTable, noStyleBtnProps } from "src/utils/constants";
 import { useMaterialUIController } from "src/context";
 import CardWithStatusAndDialogTable from "src/components/client-service/common/CardWithStatusAndDialogTable";
 import { api } from "src/services/client-service/api";
+import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
+import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
+import { TbBrandWhatsapp, TbMail, TbMessage } from "react-icons/tb";
 
 function OverallPending() {
   console.log("fjdslkfjksd");
 
+  const {
+    tableData,
+    setTableData,
+    showTable,
+    setShowTable,
+    dataGridTableDialog,
+  } = useDataGridTableDialog();
+  const handleClick = (
+    fetchQuery,
+    columns,
+    {
+      actionType = "default",
+      actionColumn = null,
+      tableTitle = "default",
+    } = {}, // "= {}" this is important because to run the default value
+  ) => {
+    const filterData = Object.values(fetchQuery.data)[0];
+    setTableData({
+      ...tableData,
+      data: filterData,
+      columns,
+      actionType,
+      actionColumn,
+      tableTitle:
+        tableTitle === "default"
+          ? Object.keys(fetchQuery.data)[0]?.split("_")?.join(" ")
+          : tableTitle,
+    });
+    setShowTable(true);
+  };
   return (
     <CSLayout>
       <Grid container rowGap={3} columnGap={3} mt={3}>
@@ -19,7 +52,11 @@ function OverallPending() {
           <AppPendingCard />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable data={dormancyData} cardTitle="Dormancy" />
+          <CardWithDialogTable
+            data={dormancyData}
+            cardTitle="Dormancy"
+            handleClick={handleClick}
+          />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
@@ -69,6 +106,7 @@ function OverallPending() {
           <CardWithDialogTable data={notStartedData} cardTitle="Balance" />
         </Grid>
       </Grid>
+      {dataGridTableDialog()}
     </CSLayout>
   );
 }
@@ -119,14 +157,69 @@ const advancedPurchaseData = [
 ];
 
 const startLaterData = [
-  { title: "Due Today", value: 2, ...commonDataAllTable },
+  {
+    title: "Due Today",
+    value: 2,
+    ...commonDataAllTable,
+  },
   { title: "Due Tomorrow", value: 2, ...commonDataAllTable },
   { title: "Future", value: 2, ...commonDataAllTable },
   { title: "Over Due", value: 2, ...commonDataAllTable },
 ];
 
 const dormancyData = [
-  { title: "10th Day OD (11th -12th)", value: 2, ...commonDataAllTable },
+  {
+    title: "10th Day OD (11th -12th)",
+    value: 2,
+    ...commonDataAllTable,
+    actionType: "custom",
+    actionColumn: (row) => {
+      const phoneNumber = document
+        ?.querySelector(`td#phone_${row.id}`)
+        ?.innerHTML.replace(/[\+\-]/g, "");
+      return (
+        <FlexBoxBetween columnGap={1}>
+          <Tooltip title={"Whatsapp"}>
+            <IconButton
+              aria-label="whatsapp"
+              color={"success"}
+              onClick={() => handleWhatsApp(phoneNumber)}
+            >
+              <TbBrandWhatsapp
+                style={{
+                  strokeWidth: 1.4,
+                  padding: 2,
+                }}
+                size={28}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={"Email"}>
+            <IconButton aria-label="email" color={"warning"}>
+              <TbMail
+                style={{
+                  strokeWidth: 1.4,
+                  padding: 2,
+                }}
+                size={28}
+              />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={"Wati"}>
+            <IconButton aria-label="wati" color={"text"}>
+              <TbMessage
+                style={{
+                  strokeWidth: 1.4,
+                  padding: 2,
+                }}
+                size={28}
+              />
+            </IconButton>
+          </Tooltip>
+        </FlexBoxBetween>
+      );
+    },
+  },
   { title: "Level 1 (13th -14th)", value: 2, ...commonDataAllTable },
   { title: "Level 2 (15th -16th)", value: 2, ...commonDataAllTable },
   { title: "Level 3 (17th -18th)", value: 2, ...commonDataAllTable },
