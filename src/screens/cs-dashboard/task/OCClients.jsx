@@ -24,8 +24,6 @@ import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween"
 import { handleWhatsApp } from "src/utils/helper";
 import CustomAction from "src/components/client-service/oc-clients/CustomAction";
 function OCClients() {
-  const [controller] = useMaterialUIController();
-  const { darkMode } = controller;
   const {
     tableData,
     setTableData,
@@ -38,18 +36,8 @@ function OCClients() {
     columns,
     { actionType = "default", actionColumn = "", tableTitle = "default" } = {},
   ) => {
+    console.log("🚀 ~ OCClients ~ actionType:", actionType);
     const filterData = Object.values(fetchQuery.data)[0];
-    setTableData({
-      data: filterData,
-      columns,
-      actionType,
-      actionColumn,
-      tableTitle:
-        tableTitle === "default"
-          ? Object.keys(fetchQuery.data)[0]?.split("_")?.join(" ")
-          : tableTitle,
-    });
-    setShowTable(true);
   };
   return (
     <CSLayout>
@@ -71,15 +59,16 @@ function OCClients() {
         </Grid>
 
         {ocClientDetailsData.map(({ icon: { name: Icon }, ...item }, index) => {
+          const [handleButtonClick] = useHandleTable(item, handleClick);
           return (
             <OCCard
               key={item.tableTitle + index}
-              {...{ item, handleClick, Icon }}
+              {...{ item, handleButtonClick, Icon }}
             />
           );
         })}
       </Grid>
-      <Grid container mt={5} spacing={3}>
+      {/* <Grid container mt={5} spacing={3}>
         <Grid item xs={12}>
           <MDBox
             mt={-3}
@@ -216,7 +205,7 @@ function OCClients() {
             </Grid>
           );
         })}
-      </Grid>
+      </Grid> */}
       {dataGridTableDialog()}
     </CSLayout>
   );
@@ -224,8 +213,7 @@ function OCClients() {
 
 export default OCClients;
 
-const OCCard = ({ Icon, item, handleClick }) => {
-  const [handleButtonClick] = useHandleTable(item, handleClick);
+const OCCard = ({ Icon, item, handleButtonClick }) => {
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
   return (
@@ -235,6 +223,7 @@ const OCCard = ({ Icon, item, handleClick }) => {
         component={"button"}
         sx={{ borderRadius: 4 }}
         onClick={handleButtonClick}
+        //  onClick={()=>{console.log(item.actionType)}}
         className={classNames(
           "w-full  px-4 py-10 transition-all duration-300 ease-linear hover:bg-zinc-50 active:bg-transparent",
           { "hover:bg-opacity-5": darkMode },

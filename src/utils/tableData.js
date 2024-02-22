@@ -61,12 +61,21 @@ export const endInchData = {
 export const endPhotoData = {
   fetchQuery: () => api.endpoints.getEndPhoto.useLazyQuery(),
 };
+// Halftime Journey
+export const halfTimeFeedbackCommonData = {
+  fetchQuery: () => api.endpoints.getHalftimeFeedBackCommon.useLazyQuery(),
+};
+export const halftimeHealthScoreCommonData = {
+  fetchQuery: () => api.endpoints.getHalftimeHealthScoreCommon.useLazyQuery(),
+};
+export const halftimeCallCommonData = {
+  fetchQuery: () => api.endpoints.getHalftimeCallCommon.useLazyQuery(),
+};
 
 // OC Client
 export const totalOcClientsData = {
   fetchQuery: () => api.endpoints.getTotalOcClients.useLazyQuery(),
 };
-
 
 //Maintenance
 export const total10thDayMaintenanceWeightOD = {

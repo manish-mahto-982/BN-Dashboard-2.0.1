@@ -19,6 +19,11 @@ export const TransitionSlidUp = React.forwardRef(
     return <Slide direction="up" ref={ref} {...props} />;
   },
 );
+export const TransitionSlidDown = React.forwardRef(
+  function Transition(props, ref) {
+    return <Slide direction="down" ref={ref} {...props} />;
+  },
+);
 
 const DataGridTableDialog = React.memo(
   ({ title = "", open, setOpen, dataGrid }) => {
@@ -44,7 +49,7 @@ const DataGridTableDialog = React.memo(
           fullScreen
           open={open}
           onClose={handleClose}
-          TransitionComponent={TransitionSlidUp}
+          TransitionComponent={TransitionSlidDown}
         >
           <AppBar
             elevation={0}

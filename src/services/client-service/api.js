@@ -104,6 +104,21 @@ export const api = createApi({
       query: () => `/induction-flow/get_start_inch_data.json`,
       providesTags: ["EndPhoto"],
     }),
+    // Halftime journey
+    getHalftimeFeedBackCommon: build.query({
+      query: () => `/half-time-journey/ht_feedback_data.json`,
+      providesTags: ["HalftimeFeedBackCommon"],
+    }),
+    getHalftimeCallCommon: build.query({
+      query: () => `/half-time-journey/ht_feedback_call_data.json`,
+      providesTags: ["HalftimeCallCommon"],
+    }),
+
+    getHalftimeHealthScoreCommon: build.query({
+      query: () => `/half-time-journey/ht_healthscore_data.json`,
+      providesTags: ["HalftimeHealthScoreCommon"],
+    }),
+
     // overall-pending
     getAppNotUpdatedIOS: build.query({
       query: () => `/overall-pending/app_not_updated_ios.json`,
@@ -169,6 +184,9 @@ export const {
   useGetStartWeightQuery,
   useGetStartInchQuery,
   useGetStartPhotoQuery,
+  useGetHalftimeFeedBackCommonQuery,
+  useGetHalftimeCallCommonQuery,
+  useGetHalftimeHealthScoreCommonQuery,
   useGetAppNotUpdatedIOSQuery,
   useGetAppNotUpdatedAndroidQuery,
   useGetOnHoldDueDateQuery,
