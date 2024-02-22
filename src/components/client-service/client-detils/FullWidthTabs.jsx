@@ -93,7 +93,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
             },
             "& .MuiButtonBase-root.Mui-selected": {
               // backgroundColor: "info.main",
-              color: "#fff",
+              color: "#fff !important",
               my: 1.5,
             },
           }}

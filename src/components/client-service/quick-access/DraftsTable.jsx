@@ -146,11 +146,6 @@ export default function DraftsTable() {
               [`& .${gridClasses.cell}`]: {
                 py: 1,
               },
-              fontSize: 12,
-              ".MuiDataGrid-cell:focus-within": { outline: "none" },
-              [`& .${gridClasses.cell}`]: {
-                py: 1,
-              },
               fontSize: "small",
               "& .MuiTablePagination-selectLabel,.MuiTablePagination-displayedRows":
                 {
