@@ -7,7 +7,7 @@ import MDTypography from "src/components/theme/common/MDTypography";
 function StackCard({
   bgcolor,
   Icon,
-  cardData=[],
+  cardData = [],
   color = "white",
   title = "",
   handleClick = () => {},
@@ -59,14 +59,17 @@ function StackCard({
           }
           const handleButtonClick = () => {
             trigger?.();
+            res?.data &&
+              handleClick(res, item.columns, { tableTitle: item.tableTitle });
           };
           useEffect(() => {
-            res?.data && handleClick(res, item.columns);
-          }, [res]);
+            handleButtonClick()
+          }, []);
+
           return (
             <React.Fragment key={item.title}>
               <Box
-                onClick={handleButtonClick}
+                onClick={()=>handleButtonClick()}
                 bgcolor={"unset"}
                 border={"unset"}
                 color={"unset"}

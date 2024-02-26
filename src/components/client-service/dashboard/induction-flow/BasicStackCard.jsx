@@ -32,11 +32,13 @@ const basicStackCardData = [
   {
     count: 15,
     title: "Renewal",
+    tableTitle: "OMR Clients Enrolled For Basic Stack",
     ...omrClientBasicStackTableData,
   },
   {
     count: 20,
     title: "OCR Clients",
+    tableTitle: "OMR Clients Enrolled For Basic Stack",
     ...omrClientBasicStackTableData,
   },
 ];

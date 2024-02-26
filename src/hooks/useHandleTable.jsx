@@ -13,11 +13,9 @@ function useHandleTable(item, handleClick) {
   }
   const handleButtonClick = () => {
     trigger?.();
-  };
-  useEffect(() => {
     res?.data &&
       handleClick(res, item.columns, {
-        actionType: item.actionType,
+        actionType: item.actionType ? item.actionType : "custom",
         actionColumn: item.actionColumn
           ? item.actionColumn
           : (row) => {
@@ -80,7 +78,10 @@ function useHandleTable(item, handleClick) {
             },
         tableTitle: item.tableTitle ? item.tableTitle : "default",
       });
-  }, [res]);
+  };
+  useEffect(() => {
+    handleButtonClick();
+  }, []);
   return [handleButtonClick];
 }
 

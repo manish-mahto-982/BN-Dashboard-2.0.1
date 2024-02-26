@@ -55,7 +55,6 @@ import { handleWhatsApp } from "src/utils/helper";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 function InductionFlow() {
   const theme = useTheme();
-
   const {
     tableData,
     setTableData,
@@ -68,6 +67,7 @@ function InductionFlow() {
     columns,
     { actionType = "default", actionColumn = "", tableTitle = "default" } = {}, // "= {}" this is important because to run the default value
   ) => {
+    console.log("🚀 ~ OverallPending ~ tableTitle:", tableTitle);
     const filterData = Object.values(fetchQuery.data)[0];
     setTableData({
       ...tableData,
@@ -82,6 +82,7 @@ function InductionFlow() {
     });
     setShowTable(true);
   };
+
   return (
     <CSLayout>
       <Grid container rowGap={3} columnGap={3}>
@@ -205,7 +206,15 @@ const SummaryCard = ({ item, handleClick }) => {
   );
 };
 
-const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
+export const GridCard = ({
+  item,
+  theme,
+  index,
+  value,
+  title,
+  Icon,
+  handleClick,
+}) => {
   const [controller, dispatch] = useMaterialUIController();
   const { darkMode } = controller;
   let trigger;
@@ -215,8 +224,6 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
   }
   const handleButtonClick = () => {
     trigger?.();
-  };
-  useEffect(() => {
     res?.data &&
       handleClick(res, item.columns, {
         actionType: item.actionType ? item.actionType : "custom",
@@ -280,7 +287,11 @@ const GridCard = ({ item, theme, index, value, title, Icon, handleClick }) => {
         },
         tableTitle: item.tableTitle ? item.tableTitle : "default",
       });
-  }, [res]);
+  };
+  useEffect(() => {
+    handleButtonClick();
+  }, []);
+
   return (
     <Grid
       component={"button"}
@@ -362,7 +373,7 @@ const quickSummaryData = [
   },
 ];
 
-const gridData = [
+export const gridData = [
   {
     title: "NAF + ICL Received Diet not send",
     Icon: TbSendOff,

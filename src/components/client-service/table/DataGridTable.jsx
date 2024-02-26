@@ -34,8 +34,6 @@ export default function DataGridTable({
   actionType = "default",
   actionColumn = null,
 }) {
-  console.log("🚀 ~ actionColumn:", actionColumn);
-  console.log("🚀 ~ actionType:", actionType);
   const theme = useTheme();
   const columns = Object.keys({ ...data[0], actions: true }).map((column) => ({
     field: column,
@@ -234,9 +232,14 @@ export default function DataGridTable({
                             name="order_extended_date"
                             control={control}
                             render={({ field }) => {
-                              return <DateField {...field} theme={theme} />;
+                              return (
+                                <div className="inline-flex mr-1">
+                                  <DateField {...field} theme={theme} />
+                                </div>
+                              );
                             }}
                           />
+
                           <PrimaryButton
                             onClick={{}}
                             sx={{ scale: "80%", ml: -1 }}

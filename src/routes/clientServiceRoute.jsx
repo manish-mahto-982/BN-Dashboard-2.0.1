@@ -8,6 +8,7 @@ import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
 import ExpiryClient from "src/screens/cs-dashboard/task/ExpiryClient";
 import Maintenance from "src/screens/cs-dashboard/task/Maintenance";
+import NewOcClient from "src/screens/cs-dashboard/task/NewOcClient";
 import OCClients from "src/screens/cs-dashboard/task/OCClients";
 import Drafts from "src/screens/quick-access/Drafts";
 const clientServiceRoute = [
@@ -92,6 +93,14 @@ const clientServiceRoute = [
     route: "/oc-clients",
     component: <OCClients />,
   },
+  // {
+  //   type: "collapse",
+  //   name: "New OC Clients",
+  //   key: "new-oc-clients",
+  //   icon: <Icon fontSize="small">assignment</Icon>,
+  //   route: "/new-oc-clients",
+  //   component: <NewOcClient />,
+  // },
   {
     type: "divider",
     key: "quick-access-divider",

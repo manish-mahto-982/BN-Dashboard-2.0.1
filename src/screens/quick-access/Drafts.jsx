@@ -119,11 +119,11 @@ export const AddDraftDialog = ({
             )}
           />
 
-          <MDTypography mt={3.5} mb={1} color={"#697586"}>
+          <MDTypography mt={3.5} mb={1} color={"#697586"} fontSize="small">
             Type
           </MDTypography>
           <MDDropDown options={draftOptions} selectedInd={data.type} />
-          <MDTypography mt={3.5} mb={1} color={"#697586"}>
+          <MDTypography mt={3.5} mb={1} color={"#697586"} fontSize="small">
             Description
           </MDTypography>
           <Controller

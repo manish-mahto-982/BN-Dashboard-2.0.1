@@ -25,7 +25,7 @@ import { useMaterialUIController } from "src/context";
 import useHandleTable from "src/hooks/useHandleTable";
 import CustomAction from "src/components/client-service/oc-clients/CustomAction";
 
-function OcClient() {
+function NewOcClient() {
   const {
     tableData,
     setTableData,
@@ -73,13 +73,7 @@ function OcClient() {
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
             {ocClientDetailsData.map((item, index) => {
-              return (
-                <OCCard
-                  key={item.title + index}
-                  handleClick={handleClick}
-                  item={item}
-                />
-              );
+              return <OCCard handleClick={handleClick} item={item} />;
             })}
           </Grid>
         </Grid>
@@ -101,13 +95,7 @@ function OcClient() {
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
             {ocAndroidDetails.map((item, index) => {
-              return (
-                <OCCard
-                  key={item.title + index}
-                  handleClick={handleClick}
-                  item={item}
-                />
-              );
+              return <OCCard handleClick={handleClick} item={item} />;
             })}
           </Grid>
         </Grid>
@@ -122,7 +110,7 @@ function OcClient() {
             coloredShadow="info"
           >
             <MDTypography variant="h6" color="white">
-              IOS Details
+              OIS Details
             </MDTypography>
           </MDBox>
         </Grid>
@@ -145,12 +133,12 @@ function OcClient() {
   );
 }
 
-export default OcClient;
+export default NewOcClient;
 
 export const OCCard = ({ handleClick, item }) => {
   const [handleButtonClick] = useHandleTable(item, handleClick);
   return (
-    <Grid item xs={12} sm={6} lg={4}>
+    <Grid item xs={12} md={6} lg={4}>
       <Card
         component={"button"}
         onClick={handleButtonClick}
@@ -219,7 +207,6 @@ const ocClientDetailsData = [
     color: "info",
     actionType: "default",
     ...totalOcClientsData,
-    tableTitle: "Total OC Clients - App Not Updated",
   },
   {
     title: "Welcome call",

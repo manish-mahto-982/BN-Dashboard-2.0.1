@@ -11,10 +11,12 @@ import { api } from "src/services/client-service/api";
 import useDataGridTableDialog from "src/hooks/useDataGridTableDialog";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import { TbBrandWhatsapp, TbMail, TbMessage } from "react-icons/tb";
-
+import {
+  OnHoldDueDateData,
+  AppNotUpdatedAndroidData,
+} from "src/utils/tableData";
+import { randomNumberBetween } from "@mui/x-data-grid/utils/utils";
 function OverallPending() {
-  console.log("fjdslkfjksd");
-
   const {
     tableData,
     setTableData,
@@ -25,11 +27,7 @@ function OverallPending() {
   const handleClick = (
     fetchQuery,
     columns,
-    {
-      actionType = "default",
-      actionColumn = null,
-      tableTitle = "default",
-    } = {}, // "= {}" this is important because to run the default value
+    { actionType = "default", actionColumn = null, tableTitle } = {}, // "= {}" this is important because to run the default value
   ) => {
     const filterData = Object.values(fetchQuery.data)[0];
     setTableData({
@@ -62,14 +60,20 @@ function OverallPending() {
           <CardWithDialogTable
             data={startLaterData}
             cardTitle="Start Later (Start Date Give)"
+            handleClick={handleClick}
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable data={breakData} cardTitle="Break" />
+          <CardWithDialogTable
+            data={breakData}
+            cardTitle="Break"
+            handleClick={handleClick}
+          />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
             data={notStartedData}
+            handleClick={handleClick}
             cardTitle="Not Started / Start Date pending"
           />
         </Grid>
@@ -99,6 +103,7 @@ function OverallPending() {
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithStatusAndDialogTable
             data={advancedPurchaseData}
+            handleClick={handleClick}
             cardTitle="Advanced Purchased"
           />
         </Grid>
@@ -117,7 +122,9 @@ const breakData = [
   {
     title: "On Hold (Due Today)",
     value: 2,
-    fetchQuery: () => api.endpoints.getOnHoldDueDate.useLazyQuery(),
+    ...OnHoldDueDateData,
+    tableTitle:
+      "Client was to become active today - Please check and follow up",
     columns: [
       { id: "client_details", label: "client details" },
       { id: "program_details", label: "program details" },
@@ -127,7 +134,8 @@ const breakData = [
   {
     title: "On Hold (OD)",
     value: 3,
-    fetchQuery: () => api.endpoints.getAppNotUpdatedAndroid.useLazyQuery(),
+    tableTitle: "Onhold - Overdue Latest First",
+    ...AppNotUpdatedAndroidData,
     columns: [
       { id: "client_details", label: "client details" },
       { id: "program_details", label: "program details" },
@@ -138,6 +146,10 @@ const breakData = [
 
 const notStartedData = [
   { title: "Due Today", value: 2, ...commonDataAllTable },
+  { title: "Over Due", value: 3, ...commonDataAllTable },
+];
+const balanceData = [
+  { title: "Due Today", value: randomNumberBetween(), ...commonDataAllTable },
   { title: "Over Due", value: 3, ...commonDataAllTable },
 ];
 
@@ -171,6 +183,7 @@ const dormancyData = [
   {
     title: "10th Day OD (11th -12th)",
     value: 2,
+    tableTitle: "Dormancy - 10 Day OD (11th - 12th )",
     ...commonDataAllTable,
     actionType: "custom",
     actionColumn: (row) => {
@@ -220,8 +233,29 @@ const dormancyData = [
       );
     },
   },
-  { title: "Level 1 (13th -14th)", value: 2, ...commonDataAllTable },
-  { title: "Level 2 (15th -16th)", value: 2, ...commonDataAllTable },
-  { title: "Level 3 (17th -18th)", value: 2, ...commonDataAllTable },
-  { title: "19th Day +", value: 2, ...commonDataAllTable },
+  {
+    title: "Level 1 (13th -14th)",
+    value: 2,
+    ...commonDataAllTable,
+    tableTitle: "Dormancy - Level 1 (13th - 14th)",
+  },
+  {
+    title: "Level 2 (15th -16th)",
+    value: 2,
+    ...commonDataAllTable,
+    tableTitle: "default",
+    tableTitle: "Dormancy - Level 2 (15th - 16th)",
+  },
+  {
+    title: "Level 3 (17th -18th)",
+    value: 2,
+    ...commonDataAllTable,
+    tableTitle: "Dormancy - Level 3 (15th - 16th)",
+  },
+  {
+    title: "19th Day +",
+    value: 2,
+    ...commonDataAllTable,
+    tableTitle: "Dormancy - 19th Day +",
+  },
 ];

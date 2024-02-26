@@ -61,6 +61,15 @@ export const endInchData = {
 export const endPhotoData = {
   fetchQuery: () => api.endpoints.getEndPhoto.useLazyQuery(),
 };
+// Overall Pending
+export const OnHoldDueDateData= {
+  fetchQuery: () => api.endpoints.getOnHoldDueDate.useLazyQuery(),
+}
+export const AppNotUpdatedAndroidData= {
+  fetchQuery: () => api.endpoints.getAppNotUpdatedAndroid.useLazyQuery(),
+}
+
+
 // Halftime Journey
 export const halfTimeFeedbackCommonData = {
   fetchQuery: () => api.endpoints.getHalftimeFeedBackCommon.useLazyQuery(),
