@@ -14,7 +14,7 @@ const TimeField = React.forwardRef(
         <TimePicker
           label={label}
           onChange={onChange}
-          {...(value !== null||'' && { value })}
+          {...(value !== null || ("" && { value }))}
           sx={{
             width: "100%",
             // "& .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl": {

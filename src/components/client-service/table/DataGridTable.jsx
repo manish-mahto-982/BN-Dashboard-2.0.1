@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
 import {
@@ -27,6 +27,14 @@ import classNames from "classnames";
 import DateField from "../forms/DateField";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "../common/PrimaryButton";
+
+const MUIDateField = React.forwardRef(({ field, theme }, ref) => {
+  return (
+    <div className="mr-1 inline-flex">
+      <DateField {...field} theme={theme} ref={ref} />
+    </div>
+  );
+});
 
 export default function DataGridTable({
   data,
@@ -207,8 +215,8 @@ export default function DataGridTable({
                         </td>
                       </tr>
                     );
-                  } else if (key === "pending_session") {
-                    const { control } = useForm({
+                  } else if (key === "pending_session" || key === "date") {
+                    const { control, register } = useForm({
                       defaultValues: {
                         order_extended_date: null,
                       },
@@ -232,16 +240,12 @@ export default function DataGridTable({
                             name="order_extended_date"
                             control={control}
                             render={({ field }) => {
-                              return (
-                                <div className="inline-flex mr-1">
-                                  <DateField {...field} theme={theme} />
-                                </div>
-                              );
+                              return <MUIDateField field={field} theme={theme} />;
                             }}
                           />
 
                           <PrimaryButton
-                            onClick={{}}
+                            onClick={() => {}}
                             sx={{ scale: "80%", ml: -1 }}
                           >
                             Save
@@ -321,7 +325,7 @@ export default function DataGridTable({
           columns={columns}
           pageSize={5}
           showCellVerticalBorder
-          showColumnVxerticalBorder
+          showColumnVerticalBorder
           rowsPerPageOptions={[5, 10, 20]}
         />
       )}

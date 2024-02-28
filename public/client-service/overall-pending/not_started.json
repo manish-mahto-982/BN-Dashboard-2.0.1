@@ -1,0 +1,24 @@
+{
+  "not_started_client_due_today": [
+    {
+      "client_details": {
+        "id": "20582",
+        "name": "Dipal Thakkar",
+        "email_id": "tdipal@gmail.com",
+        "my_wallet": "0",
+        "phone": "+1-6787795055",
+        "user_status": "Active"
+      },
+      "program_details": {
+        "id": "122132",
+        "program_name": "Plateau Breaker(Client Exclusive)",
+        "mentor": "Jyoti",
+        "purchase_date": "7th Dec 2023"
+      },
+      "start_date": {
+        "s_date": "27th Feb 2024",
+        "day": "(Today)"
+      }
+    }
+  ]
+}

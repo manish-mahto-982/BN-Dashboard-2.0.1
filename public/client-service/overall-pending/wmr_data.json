@@ -1,0 +1,24 @@
+{
+  "wmr_data": [
+    {
+      "client_details": {
+        "id": "20582",
+        "name": "Dipal Thakkar",
+        "email_id": "tdipal@gmail.com",
+        "phone": "+1-6787795055",
+        "user_status": "Active"
+      },
+      "program_details": {
+        "id": "122132",
+        "program_name": "Plateau Breaker(Client Exclusive)",
+        "mentor": "Jyoti",
+        "total_session": "Session : 9",
+        "session_sent": "sent : 2",
+        "session_pending": "pending : 7"
+      },
+      "WMR_received": {
+        "days_ago": "WMR Received:3 Days Ago"
+      }
+    }
+  ]
+}

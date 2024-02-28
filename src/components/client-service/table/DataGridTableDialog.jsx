@@ -47,9 +47,11 @@ const DataGridTableDialog = React.memo(
       <>
         <Dialog
           fullScreen
+          sx={{ padding: 5,".MuiPaper-root.MuiDialog-paper":{borderRadius:2} }}
           open={open}
+
           onClose={handleClose}
-          TransitionComponent={TransitionSlidDown}
+          TransitionComponent={TransitionSlidUp}
         >
           <AppBar
             elevation={0}

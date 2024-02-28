@@ -62,13 +62,18 @@ export const endPhotoData = {
   fetchQuery: () => api.endpoints.getEndPhoto.useLazyQuery(),
 };
 // Overall Pending
-export const OnHoldDueDateData= {
+export const OnHoldDueDateData = {
   fetchQuery: () => api.endpoints.getOnHoldDueDate.useLazyQuery(),
-}
-export const AppNotUpdatedAndroidData= {
+};
+export const AppNotUpdatedAndroidData = {
   fetchQuery: () => api.endpoints.getAppNotUpdatedAndroid.useLazyQuery(),
-}
-
+};
+export const advancedPurchasedData = {
+  fetchQuery: () => api.endpoints.getAdvancedPurchased.useLazyQuery(),
+};
+export const notStartedData = {
+  fetchQuery: () => api.endpoints.getNotStarted.useLazyQuery(),
+};
 
 // Halftime Journey
 export const halfTimeFeedbackCommonData = {
@@ -79,6 +84,9 @@ export const halftimeHealthScoreCommonData = {
 };
 export const halftimeCallCommonData = {
   fetchQuery: () => api.endpoints.getHalftimeCallCommon.useLazyQuery(),
+};
+export const WMRData = {
+  fetchQuery: () => api.endpoints.getWMR.useLazyQuery(),
 };
 
 // OC Client

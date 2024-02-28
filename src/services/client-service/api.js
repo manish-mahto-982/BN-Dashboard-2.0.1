@@ -128,6 +128,18 @@ export const api = createApi({
       query: () => `/overall-pending/app_not_updated_android.json`,
       providesTags: ["AppNotUpdatedAndroid"],
     }),
+    getAdvancedPurchased: build.query({
+      query: () => `/overall-pending/advance_purchase.json`,
+      providesTags: ["AdvancedPurchased"],
+    }),
+    getWMR: build.query({
+      query: () => `/overall-pending/wmr_data.json`,
+      providesTags: ["WMR"],
+    }),
+    getNotStarted: build.query({
+      query: () => `/overall-pending/not_started.json`,
+      providesTags: ["NotStarted"],
+    }),
     //Expiry-clients
     getExpiryClientToday: build.query({
       query: () => `/expiry-clients/expiring_today.json`,

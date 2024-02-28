@@ -22,7 +22,7 @@ import {
 import { randomNumberBetween } from "@mui/x-data-grid/utils/utils";
 import { randomNumberGenerator } from "src/utils/helper";
 import useHandleTable from "src/hooks/useHandleTable";
-function OverallPending() {
+function NewOverallPending() {
   const {
     tableData,
     setTableData,
@@ -74,9 +74,9 @@ function OverallPending() {
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
           <CardWithDialogTable
-            data={startLaterData}
-            cardTitle="Start Later (Start Date Give)"
+            data={notStartedDataArr}
             handleClick={handleClick}
+            cardTitle="Not Started / Start Later"
           />
         </Grid>
         <Grid item xs={12} sm={5.72} md={3.72}>
@@ -86,19 +86,13 @@ function OverallPending() {
             handleClick={handleClick}
           />
         </Grid>
-        <Grid item xs={12} sm={5.72} md={3.72}>
-          <CardWithDialogTable
-            data={notStartedDataArr}
-            handleClick={handleClick}
-            cardTitle="Not Started / Start Date pending"
-          />
-        </Grid>
+
         <Grid item xs={12} sm={5.72} md={3.72} mt={2}>
           <Card
             {...noStyleBtnProps}
             component={"button"}
             onClick={() => handleButtonClick()}
-            className="flex cursor-pointer w-full flex-col items-center justify-center px-2 py-3.5"
+            className="flex w-full cursor-pointer flex-col items-center justify-center px-2 py-3.5"
           >
             <MDTypography textAlign={"center"} fontSize={"medium"}>
               {"WMR (More than 48 hrs)"}
@@ -137,7 +131,7 @@ function OverallPending() {
   );
 }
 
-export default OverallPending;
+export default NewOverallPending;
 
 const breakData = [
   {
@@ -167,7 +161,24 @@ const breakData = [
 
 const notStartedDataArr = [
   { title: "Due Today", value: 2, ...notStartedData },
-  { title: "Over Due", value: 3, ...notStartedData },
+  {
+    title: "Due Tomorrow",
+    value: 3,
+    ...notStartedData,
+    tableTitle: "Not Started Due Tomorrow",
+  },
+  {
+    title: "Over Due",
+    value: 3,
+    ...notStartedData,
+    tableTitle: "Not Started Over Due",
+  },
+  {
+    title: "Start Later",
+    value: 3,
+    ...notStartedData,
+    tableTitle: "Start Later",
+  },
 ];
 const balanceData = [
   {

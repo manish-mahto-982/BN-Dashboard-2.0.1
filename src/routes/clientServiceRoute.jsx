@@ -4,6 +4,7 @@ import Icon from "@mui/material/Icon";
 import ClientDetails from "src/screens/cs-dashboard/dashboard/ClientDetails";
 import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney";
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
+import NewOverallPending from "src/screens/cs-dashboard/dashboard/NewOverallPending";
 import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
 import ExpiryClient from "src/screens/cs-dashboard/task/ExpiryClient";
@@ -43,6 +44,13 @@ const clientServiceRoute = [
         icon: <Icon fontSize="small">arrow_right</Icon>,
         route: "/dashboard/overall-pending",
         component: <OverallPending />,
+      },
+      {
+        key: "new-overall-pending",
+        name: "New Overall Pending",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/new-overall-pending",
+        component: <NewOverallPending />,
       },
       {
         key: "halftime-journey",

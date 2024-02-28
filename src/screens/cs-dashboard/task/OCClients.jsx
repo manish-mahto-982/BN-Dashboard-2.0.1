@@ -194,11 +194,11 @@ export const IconWithBg = ({ Icon }) => {
       width={"fit-content"}
       p={1.5}
       className={
-        "absolute mt-4 rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+        "absolute mt-6 rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
       }
       bgColor={darkMode ? "secondary" : "dark"}
     >
-      <Icon className="-mb-0.5 mt-1 h-12 w-14 text-white " />
+      <Icon className="-mb-0.5 mt-1 h-10 w-12 text-white " />
     </MDBox>
   );
 };
