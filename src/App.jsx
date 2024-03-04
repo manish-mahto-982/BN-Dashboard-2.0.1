@@ -37,7 +37,7 @@ import {
 // Routes
 import { clientServiceRoute, salesRoutes, themeRoutes } from "./routes";
 
-let routes = [];
+let routes = [...clientServiceRoute];
 let defaultRoute = "";
 
 if (window.location.pathname.includes("sales")) {
