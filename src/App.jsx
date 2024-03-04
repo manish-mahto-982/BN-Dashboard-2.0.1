@@ -38,7 +38,7 @@ import {
 import { clientServiceRoute, salesRoutes, themeRoutes } from "./routes";
 
 let routes = [...clientServiceRoute];
-let defaultRoute = "";
+let defaultRoute = "cs/dashboard/induction-flow";
 
 if (window.location.pathname.includes("sales")) {
   routes = [...salesRoutes];
