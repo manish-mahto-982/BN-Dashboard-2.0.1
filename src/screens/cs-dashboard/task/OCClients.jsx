@@ -56,19 +56,9 @@ function OcClient() {
     <CSLayout>
       <Grid container mt={5} spacing={3}>
         <Grid item xs={12}>
-          <MDBox
-            mt={-3}
-            py={2}
-            px={2}
-            variant="gradient"
-            bgColor="info"
-            borderRadius="lg"
-            coloredShadow="info"
-          >
-            <MDTypography variant="h6" color="white">
-              OC Client Details
-            </MDTypography>
-          </MDBox>
+          <MDTypography variant="h6" color="text">
+            OC Client Details
+          </MDTypography>
         </Grid>
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
@@ -84,19 +74,7 @@ function OcClient() {
           </Grid>
         </Grid>
         <Grid mt={5} item xs={12}>
-          <MDBox
-            mt={-3}
-            py={2}
-            px={2}
-            variant="gradient"
-            bgColor="info"
-            borderRadius="lg"
-            coloredShadow="info"
-          >
-            <MDTypography variant="h6" color="white">
-              Android Details
-            </MDTypography>
-          </MDBox>
+          <MDTypography variant="h6">Android Details</MDTypography>
         </Grid>
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
@@ -112,19 +90,9 @@ function OcClient() {
           </Grid>
         </Grid>
         <Grid mt={5} item xs={12}>
-          <MDBox
-            mt={-3}
-            py={2}
-            px={2}
-            variant="gradient"
-            bgColor="info"
-            borderRadius="lg"
-            coloredShadow="info"
-          >
-            <MDTypography variant="h6" color="white">
-              IOS Details
-            </MDTypography>
-          </MDBox>
+          <MDTypography variant="h6">
+            IOS Details
+          </MDTypography>
         </Grid>
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
@@ -140,7 +108,7 @@ function OcClient() {
           </Grid>
         </Grid>
       </Grid>
-      {dataGridTableDialog()}
+      {/* {dataGridTableDialog()} */}
     </CSLayout>
   );
 }
@@ -155,24 +123,25 @@ export const OCCard = ({ handleClick, item }) => {
         component={"button"}
         onClick={handleButtonClick}
         sx={{
+          // maxWidth:'400px',
           overflow: "hidden",
           height: "100%",
           width: "100%",
         }}
       >
-        <div className="w-full p-4">
+        <div className="w-full px-6 py-3">
           <IconWithBg Icon={item.Icon} />
           <div className="flex flex-col">
             <MDTypography
               // color={item.color}
               fontWeight="bold"
               fontSize={"3rem"}
-              className="text-right text-5xl "
+              className="text-left text-5xl "
             >
               {item.value}
             </MDTypography>
             <MDTypography
-              className="pb-2 text-right"
+              className="pb-2 text-left"
               fontSize={"medium"}
               color="text"
             >
@@ -190,15 +159,15 @@ export const IconWithBg = ({ Icon }) => {
   const { darkMode } = controller;
   return (
     <MDBox
-      variant="gradient"
+      // variant="gradient"
       width={"fit-content"}
       p={1.5}
       className={
-        "absolute mt-6 rounded-lg transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent"
+        "absolute right-4 mt-1 rounded-full transition-all duration-300 ease-linear group-hover:shadow group-hover:shadow-transparent "
       }
-      bgColor={darkMode ? "secondary" : "dark"}
+      bgColor={"light"}
     >
-      <Icon className="-mb-0.5 mt-1 h-10 w-12 text-white " />
+      <Icon className="-mb-0.5 mt-1 h-5 w-6" />
     </MDBox>
   );
 };
@@ -222,7 +191,7 @@ const ocClientDetailsData = [
     tableTitle: "Total OC Clients - App Not Updated",
   },
   {
-    title: "Welcome call",
+    title: "Without App",
     Icon: TbDeviceMobileOff,
     value: 100,
     color: "error",

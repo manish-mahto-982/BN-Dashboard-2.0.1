@@ -4,6 +4,7 @@ import Icon from "@mui/material/Icon";
 import ClientDetails from "src/screens/cs-dashboard/dashboard/ClientDetails";
 import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney";
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
+import MentorClientDetails from "src/screens/cs-dashboard/dashboard/MentorClientDetails";
 import NewOverallPending from "src/screens/cs-dashboard/dashboard/NewOverallPending";
 import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
@@ -24,6 +25,13 @@ const clientServiceRoute = [
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
     collapse: [
+      {
+        key: "mentor-client-details",
+        name: "Mentor Client Details",
+        icon: <Icon fontSize="small">arrow_right</Icon>,
+        route: "/dashboard/mentor-client-details",
+        component: <MentorClientDetails />,
+      },
       {
         key: "client-details",
         name: "Client Details",
