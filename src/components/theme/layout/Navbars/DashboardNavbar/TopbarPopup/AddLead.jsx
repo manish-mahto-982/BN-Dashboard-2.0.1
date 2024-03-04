@@ -122,7 +122,7 @@ export default function AddLead() {
       >
         <MDButton
           variant="contained"
-          color="success"
+          color="info"
           sx={{ marginRight: 1, marginBottom: 1 }}
           onClick={handleOpen}
         >

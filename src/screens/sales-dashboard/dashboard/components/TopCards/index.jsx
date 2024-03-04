@@ -43,7 +43,7 @@ function TopCards({ color, title, count, percentage, icon }) {
             }}
           >
             <span>{percentage.label}</span>
-            <MDTypography variant="h5" color="error">
+            <MDTypography variant="h5" color="dark">
               {percentage.counter}
             </MDTypography>
           </MenuItem>
@@ -57,7 +57,7 @@ function TopCards({ color, title, count, percentage, icon }) {
             }}
           >
             {percentage.label1}
-            <MDTypography variant="h5" color="error">
+            <MDTypography variant="h5" color="dark">
               {percentage.counter1}
             </MDTypography>
           </MenuItem>
@@ -71,7 +71,7 @@ function TopCards({ color, title, count, percentage, icon }) {
             }}
           >
             {percentage.label2}
-            <MDTypography variant="h5" color="error">
+            <MDTypography variant="h5" color="dark">
               {percentage.counter2}
             </MDTypography>
           </MenuItem>
@@ -99,7 +99,7 @@ TopCards.propTypes = {
     "info",
     "success",
     "warning",
-    "error",
+    "dark",
     "light",
     "dark",
   ]),
@@ -112,7 +112,7 @@ TopCards.propTypes = {
       "info",
       "success",
       "warning",
-      "error",
+      "dark",
       "dark",
       "white",
     ]),

@@ -53,12 +53,22 @@ const colors = {
     main: "#4CAF50",
     focus: "#67bb6a",
   },
-
+  successdark: {
+    main: "#00a884",
+    focus: "#00a884",
+  },
   warning: {
     main: "#fb8c00",
     focus: "#fc9d26",
   },
-
+  darkblue: {
+    main: "#0d6efd",
+    state: "#0d6efd",
+  },
+  darkgreen: {
+    main: "#04aa6d",
+    state: "#04aa6d",
+  },
   error: {
     main: "#F44335",
     focus: "#f65f53",

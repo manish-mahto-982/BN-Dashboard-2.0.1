@@ -21,8 +21,14 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import "./css/style.css";
 import MDButton from "src/components/theme/common/MDButton";
 import AddLead from "src/components/theme/layout/Navbars/DashboardNavbar/TopbarPopup/AddLead";
+import { useMaterialUIController } from "src/context";
 function DueTomorrow() {
   const Swal = useSwalWrapper();
+  const [controller, dispatch] = useMaterialUIController();
+  const { darkMode } = controller;
+
+  console.log("dsdfs", darkMode);
+
   const sweetAlerts = () => {
     Swal.fire({
       icon: "success",
@@ -35,7 +41,7 @@ function DueTomorrow() {
     {
       field: "NameDetails",
       headerName: "User Details",
-      width: 280,
+      width: 300,
       renderCell: (params) => (
         <div
           style={{
@@ -43,24 +49,43 @@ function DueTomorrow() {
             flexDirection: "column",
             alignItems: "flex-start",
             whiteSpace: "normal",
+            width:'100%',
             height: "auto", // Allow the cell to grow as needed
+            overflowWrap: 'break-word',
           }}
         >
           <div>
-            <strong>Name: </strong>
+            <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >
+              Name: </MDTypography>
 
             {params.row.NameDetails}
           </div>
-          <div>
-            <strong>Email: </strong>
+          <div style={{ }}>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Email: </MDTypography>
             {params.row.email}
           </div>
           <div>
-            <strong>Mobile: </strong>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Mobile: </MDTypography>
             {params.row.mobileNo}
           </div>
           <div>
-            <strong>Wallet: </strong>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Wallet: </MDTypography>
             Rs. 1000
           </div>
         </div>
@@ -69,7 +94,7 @@ function DueTomorrow() {
     {
       field: "SuggestedProgramDetails",
       headerName: "Sugg. Program Details",
-      width: 390,
+      width: 430,
       renderCell: (params) => (
         <div
           style={{
@@ -77,20 +102,34 @@ function DueTomorrow() {
             flexDirection: "column",
             alignItems: "flex-start",
             whiteSpace: "normal",
+            overflowWrap: 'break-word',
+            marginLeft:"10px",
             height: "auto", // Allow the cell to grow as needed
           }}
         >
           <div>
-            <strong>Sugg. Prg.: </strong>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Sugg. Prg.: </MDTypography>
             {params.row.SuggProgramDetails}
             {"(60 Days)"}
           </div>
           <div>
-            <strong>Mrp: Rs. 1879 Qty: Rs.18799 : </strong>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Mrp: Rs. 1879 Qty: Rs.18799 : </MDTypography>
             {" (Suggested 25 Days Ago)"}
           </div>
           <div>
-            <strong>Payment Mode Suggested: </strong>
+          <MDTypography
+              fontWeight={"bold"}
+              fontSize={"14px"}
+              sx={{ display: "inline" }}
+            >Payment Mode Suggested: </MDTypography>
             {"Bank Details"}
           </div>
           <div style={{ display: "flex" }}>
@@ -99,16 +138,16 @@ function DueTomorrow() {
               color="darkblue"
               size="small"
               alignItems="center"
-              sx={{ width: "70%", m: "1px" }}
+              sx={{ width: "70%", m: "1px", fontSize: "11px" }}
             >
               Send Payment Details
             </MDButton>
             <MDButton
               variant="contained"
-              color="skyblue"
+              color="darkgreen"
               size="small"
               alignItems="center"
-              sx={{ width: "70%", m: "1px" }}
+              sx={{ width: "70%", m: "1px", fontSize: "11px" }}
             >
               Edit Program Details
             </MDButton>
@@ -119,8 +158,7 @@ function DueTomorrow() {
     {
       field: "PaymentDetaiils",
       headerName: "Payment Detaiils",
-
-      width: 250,
+      width: 240,
       renderCell: (params) => (
         <div
           style={{
@@ -129,36 +167,53 @@ function DueTomorrow() {
             flexDirection: "column",
             alignItems: "flex-start",
             whiteSpace: "normal",
+            overflowWrap: 'break-word',
+            marginLeft:"20px",
+            
             height: "auto", // Allow the cell to grow as needed
           }}
         >
           <MDButton
             variant="contained"
-            color="green"
+            color="successdark"
             size="small"
             alignItems="center"
-            sx={{ width: "100%", marginBottom: "10px" }}
+            sx={{
+              width: "100%",
+              mt: "5px",
+              marginBottom: "10px",
+              fontSize: "11px",
+            }}
           >
-            Copy
+            <WhatsAppIcon
+              sx={{ fontWeight: "bold", fontSize: "1rem !important" }}
+            />
+            &nbsp; Lead
           </MDButton>
+
           <MDButton
             variant="contained"
             color="warning"
             size="small"
             alignItems="center"
-            sx={{ width: "100%", mt: "5px", marginBottom: "10px" }}
-          >
-            <WhatsAppIcon sx={{ fontWeight: "bold", fontSize: "80px" }} />
-            &nbsp; Lead
-          </MDButton>
-          <MDButton
-            variant="contained"
-            color="faintgreen"
-            size="small"
-            alignItems="center"
-            sx={{ width: "100%", mt: "5px" }}
+            sx={{
+              width: "100%",
+              mt: "5px",
+              marginBottom: "10px",
+              fontSize: "11px",
+            }}
           >
             Send In App Chat
+          </MDButton>
+
+          <MDButton
+            variant="contained"
+            color="skyblue"
+            size="small"
+            alignItems="center"
+            sx={{ width: "100%", marginBottom: "10px", fontSize: "11px" }}
+          >
+            Copy
           </MDButton>
         </div>
       ),
@@ -189,7 +244,7 @@ function DueTomorrow() {
     {
       id: 1,
       NameDetails: "Shraddha jadhav",
-      email: "shraddhajadhav2333@gmaill.com",
+      email: "shraddhajadhah2333@gmaill.com",
       mobileNo: "9021883625",
       SuggProgramDetails: "WEIGHT LOSS +",
       AmtPaid: "5950",
@@ -274,7 +329,7 @@ function DueTomorrow() {
             borderBottomStyle: "solid",
             borderColor: "#0066cb",
             marginTop: "2px",
-            backgroundColor: "#ffffff",
+            backgroundColor: darkMode ? "#000" : "#fff",
             "&:hover": {
               backgroundColor: "#cee0e4de", // Change the hover color
             },

@@ -28,8 +28,12 @@ const colors = {
     state: "#08b6f7",
   },
   darkblue: {
-    main: "#0658f9",
-    state: "#0658f9",
+    main: "#0d6efd",
+    state: "#0d6efd",
+  },
+  darkgreen: {
+    main: "#04aa6d",
+    state: "#04aa6d",
   },
   text: {
     main: "#7b809a",
@@ -75,7 +79,10 @@ const colors = {
     main: "#4CAF50",
     focus: "#67bb6a",
   },
-
+  successdark: {
+    main: "#00a884",
+    focus: "#00a884",
+  },
   warning: {
     main: "#fb8c00",
     focus: "#fc9d26",

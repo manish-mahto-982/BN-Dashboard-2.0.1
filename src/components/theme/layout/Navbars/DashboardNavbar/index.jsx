@@ -143,7 +143,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
     justifyContent: "center",
     alignItems: "center", // Center the content
     "&:hover": {
-      background: light ? "#ec407a" : "#ec407a", // Light green or darker hover color
+      background: light ? "rgba(255,0,0,0.30)" : "rgba(255,0,0,0.30)", // Light green or darker hover color
       boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Add a box shadow on hover
     },
     "& .MuiIconButton-root": {

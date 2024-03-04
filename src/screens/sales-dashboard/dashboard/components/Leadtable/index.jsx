@@ -27,7 +27,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 // import Phase4Lead from "src/components/sales/dashboard/Phase4Lead";
 // import ToEngagedLead from "src/components/sales/dashboard/ToEngagedLead";
 
-import { useTheme } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import HighPotential from "./HighPotential";
 import DueTomorrow from "./DueTomorrow";
 // import AddLead from "examples/Navbars/DashboardNavbar/TopbarPopup/AddLead";
@@ -101,6 +101,154 @@ export default function LeadTable() {
     setAnchorElLeadToCapture(null);
   };
 
+  const menuItemsData = [
+    {
+      title: "High Potential",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("potential"),
+    },
+
+    {
+      title: "Prime Segment",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("segment"),
+    },
+    {
+      title: "HS Taken",
+      count: 22,
+      onClick: () => handleLeadToCaptureChange("hs"),
+    },
+    {
+      title: "Other",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("other"),
+    },
+  ];
+
+  const menuItemsBalanceData = [
+    {
+      title: "Due Tomorrow",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("tomorrow"),
+    },
+
+    {
+      title: "Due Today",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("today"),
+    },
+    {
+      title: "Overdue",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("overdue"),
+    },
+  ];
+
+  const menuItemsMissesData = [
+    {
+      title: "FU Misses",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("fu misses"),
+    },
+
+    {
+      title: "Overdue",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("overdue"),
+    },
+    {
+      title: "Consultation Misses",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("consultation misses"),
+    },
+    {
+      title: "Update Lead Details",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("update lead details"),
+    },
+    {
+      title: "Todays FU",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("todays fu"),
+    },
+    {
+      title: "assigned lead",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("assigned lead"),
+    },
+    {
+      title: "Assigned Action",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("assigned action"),
+    },
+  ];
+
+  const menuItemsOpportunityData = [
+    {
+      title: "Rate Shared",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("rate shared"),
+    },
+    {
+      title: "Link Shared",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("link shared"),
+    },
+
+    {
+      title: "checkout visit",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("checkout visit"),
+    },
+
+    {
+      title: "High Frequency Page Visit",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("high frequent user"),
+    },
+  ];
+
+  const menuItemsAttentionData = [
+    {
+      title: "Links Expiring",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("links expiring"),
+    },
+
+    {
+      title: "Hot Trigger",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("hot trigger"),
+    },
+    {
+      title: "Warm Trigger",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("warm trigger"),
+    },
+
+    {
+      title: "No FU Set",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("no fu set"),
+    },
+    {
+      title: "Phase4 Lead",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("phase4 lead"),
+    },
+
+    {
+      title: "To Engaged Lead",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("to engaged lead"),
+    },
+    {
+      title: "Wati Response",
+      count: 9,
+      onClick: () => handleLeadToCaptureChange("wati response"),
+    },
+  ];
+
   return (
     <Grid container>
       <Grid item xs={4} lg={2.5} md={2.5}>
@@ -128,61 +276,14 @@ export default function LeadTable() {
           open={Boolean(anchorElLeadToCapture)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={() => handleLeadToCaptureChange("potential")}>
-            High Potential
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "50px" }}
-            >
-              6
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("segment")}>
-            Prime Segment
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "40px" }}
-            >
-              2
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("hs")}>
-            HS Taken
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "80px" }}
-            >
-              22
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("other")}>
-            Other
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "110px" }}
-            >
-              22
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("other")}>
-            App Downloaded
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "40px" }}
-            >
-              22
-            </MDButton>
-          </MenuItem>
+          {menuItemsData.map((item, index) => (
+            <MenuItemCustom
+              key={item.title + index}
+              onClick={item.onClick}
+              title={item.title}
+              count={item.count}
+            />
+          ))}
         </Menu>
       </Grid>
 
@@ -209,39 +310,13 @@ export default function LeadTable() {
           open={Boolean(anchorElBalance)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={() => handleLeadToCaptureChange("tomorrow")}>
-            Due Tomorrow
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "13px" }}
-            >
-              16
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("today")}>
-            Due Today
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "40px" }}
-            >
-              14
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("overdue")}>
-            Overdue
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "55px" }}
-            >
-              11
-            </MDButton>
-          </MenuItem>
+          {menuItemsBalanceData.map((item) => (
+            <MenuItemCustom
+              onClick={item.onClick}
+              title={item.title}
+              count={item.count}
+            />
+          ))}
         </Menu>
       </Grid>
       <Grid item xs={4} lg={2.2} md={2.2}>
@@ -271,78 +346,13 @@ export default function LeadTable() {
           open={Boolean(anchorElMisses)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={() => handleLeadToCaptureChange("fu misses")}>
-            FU Misses
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "70px" }}
-            >
-              14
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("consultation misses")}
-          >
-            Consultation Misses
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "5px" }}
-            >
-              16
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("update lead details")}
-          >
-            Update Lead Details
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "10px" }}
-            >
-              6
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("todays fu")}>
-            Todays FU
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "75px" }}
-            >
-              45
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("assigned lead")}>
-            Assigned Lead
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "50px" }}
-            >
-              5
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("assigned action")}
-          >
-            Assigned Action
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "40px" }}
-            >
-              2
-            </MDButton>
-          </MenuItem>
+          {menuItemsMissesData.map((item) => (
+            <MenuItemCustom
+              onClick={item.onClick}
+              title={item.title}
+              count={item.count}
+            />
+          ))}
         </Menu>
       </Grid>
 
@@ -373,52 +383,13 @@ export default function LeadTable() {
           open={Boolean(anchorElSalesOpportunity)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={() => handleLeadToCaptureChange("rate shared")}>
-            Rate Shared
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "90px" }}
-            >
-              32
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("link shared")}>
-            Link Shared{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "90px" }}
-            >
-              8
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("checkout visit")}>
-            Checkout Visit{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "75px" }}
-            >
-              7
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("high frequent user")}
-          >
-            High Frequency Page Visit{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "5px" }}
-            >
-              45
-            </MDButton>
-          </MenuItem>
+          {menuItemsOpportunityData.map((item) => (
+            <MenuItemCustom
+              onClick={item.onClick}
+              title={item.title}
+              count={item.count}
+            />
+          ))}
         </Menu>
       </Grid>
 
@@ -449,87 +420,13 @@ export default function LeadTable() {
           open={Boolean(anchorElNeedAttention)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={() => handleLeadToCaptureChange("links expiring")}>
-            Links Expiring
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "30px" }}
-            >
-              11
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("hot trigger")}>
-            Hot Trigger{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "50px" }}
-            >
-              2
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("warm trigger")}>
-            Warm Trigger{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "35px" }}
-            >
-              4
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("no fu set")}>
-            No FU Set{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "60px" }}
-            >
-              23
-            </MDButton>
-          </MenuItem>
-          <MenuItem onClick={() => handleLeadToCaptureChange("phase4 lead")}>
-            Phase4 Leads{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "35px" }}
-            >
-              121
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("to engaged lead")}
-          >
-            To Engaged Lead{" "}
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "15px" }}
-            >
-              5
-            </MDButton>
-          </MenuItem>
-          <MenuItem
-            onClick={() => handleLeadToCaptureChange("to engaged lead")}
-          >
-            Wati Response
-            <MDButton
-              variant="outlined"
-              color="error"
-              size="small"
-              sx={{ marginLeft: "29px" }}
-            >
-              5
-            </MDButton>
-          </MenuItem>
+          {menuItemsAttentionData.map((item) => (
+            <MenuItemCustom
+              onClick={item.onClick}
+              title={item.title}
+              count={item.count}
+            />
+          ))}
         </Menu>
       </Grid>
 
@@ -664,3 +561,24 @@ export default function LeadTable() {
     </Grid>
   );
 }
+
+export const MenuItemCustom = ({ title, count, ...props }) => (
+  <MenuItem
+    {...props}
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+    }}
+  >
+    <Typography fontSize={"15px"}>{title}</Typography>
+    <MDButton
+      variant="outlined"
+      color="error"
+      size="small"
+      sx={{ marginLeft: "50px", fontSize: "13px" }}
+    >
+      {count}
+    </MDButton>
+  </MenuItem>
+);

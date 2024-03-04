@@ -6,15 +6,13 @@ function HeaderMarquee() {
       <div
         style={{
           display: "flex",
-          backgroundColor: "#4ab4b5",
-          padding: "3px",
+          backgroundColor: "rgba(255,0,0,0.08)",
+          padding: "10px 3px",
           borderRadius: "10px",
         }}
       >
-        <marquee
-          style={{ color: "#d43569", fontWeight: "bold" }}
-        >
-          {" "}
+        <marquee style={{ color: "red", fontWeight: "600",fontSize:'17px' }}>
+          
           <span>Frequent App User - 20</span>
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           &nbsp; &nbsp; <span>High Potential Lead - 30</span>
