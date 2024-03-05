@@ -5,9 +5,8 @@ function PrimaryButton({ theme, children, ...props }) {
   return (
     <Button
       variant="contained"
-      sx={{ bgcolor: 'info' }}
+      sx={{ bgcolor: "info", color: "#fff" }}
       disableElevation
-      style={{ color: "white" }}
       {...props}
     >
       {children}

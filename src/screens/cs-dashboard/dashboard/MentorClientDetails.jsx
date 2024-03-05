@@ -5,6 +5,7 @@ import {
   Card,
   Divider,
   Grid,
+  Input,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -24,6 +25,11 @@ import CSLayout from "../layout";
 import MDTypography from "src/components/theme/common/MDTypography";
 import MDButton from "src/components/theme/common/MDButton";
 import colors from "src/assets/theme/base/colors";
+import { Resizable } from "re-resizable";
+import PrimaryButton from "src/components/client-service/common/PrimaryButton";
+import MDInput from "src/components/theme/common/MDInput";
+import ReactQuill from "react-quill";
+import { Controller, useForm } from "react-hook-form";
 
 function MentorClientDetails() {
   console.log("first");
@@ -33,6 +39,7 @@ function MentorClientDetails() {
     useShowDialog(false);
   const handleAddWallet = () => setOpen(true);
   const handleEditLink = () => setOpenEditPaymentLinkDialog(true);
+  const { control } = useForm();
   return (
     <CSLayout>
       <Grid container>
@@ -152,8 +159,105 @@ function MentorClientDetails() {
             </Grid>
           </Card>
         </Grid>
-        <Grid item xs={12}>
-          <FullWidthTabs handleAddWallet={handleAddWallet} />
+        <Grid item xs={12} sx={{ display: "flex" }}>
+          <Resizable
+            defaultSize={{
+              width: 624,
+            }}
+            maxWidth={"80vw"}
+            minWidth={628}
+            style={{
+              //   borderRight: "2px dashed rgba(0,0,0,0.1)"
+              paddingRight: 4,
+            }}
+          >
+            <FullWidthTabs handleAddWallet={handleAddWallet} />
+          </Resizable>
+          <Card
+            sx={{ width: "100%", p: 2, minWidth: 260 }}
+            className="resize_capsule"
+          >
+            <MDTypography fontSize="medium">Add new diet</MDTypography>
+            <FlexBoxBetween justifyContent="right">
+              <PrimaryButton style={{ width: "fit-content" }}>
+                Create New Diet
+              </PrimaryButton>
+            </FlexBoxBetween>
+            <MDTypography textAlign={"center"} fontSize="small" mt={2}>
+              Default Start Date: <span className="font-bold">05th</span>
+            </MDTypography>
+            <FlexBoxBetween flexDirection="column" gap={2} alignItems="start">
+              <MDInput
+                label="Key Insight"
+                sx={{ marginTop: 2 }}
+                helperText="Save your additional assessment questions here.(For your records only)"
+              />
+              <MDInput label="Diet Name" fullWidth />
+              <MDInput label="Subject" fullWidth />
+              {editorArr.map((item) => (
+                <Controller
+                  name={""}
+                  control={control}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error },
+                  }) => (
+                    <>
+                      <MDTypography
+                        fontSize="small"
+                        sx={{ marginBottom: -1.4 }}
+                      >
+                        {item.label}
+                      </MDTypography>
+                      <ReactQuill
+                        theme="snow"
+                        style={{
+                          height: 160,
+                          marginBottom: 80,
+                          width: "100%",
+                        }}
+                        value={value}
+                        onChange={onChange}
+                      />
+                    </>
+                  )}
+                />
+              ))}
+              <Controller
+                name={""}
+                control={control}
+                render={({
+                  field: { onChange, value },
+                  fieldState: { error },
+                }) => (
+                  <>
+                    <MDTypography
+                      fontSize="small"
+                      sx={{ marginBottom: -1.4 }}
+                      color="error"
+                    >
+                      {"Note"}
+                    </MDTypography>
+                    <ReactQuill
+                      theme="snow"
+                      style={{
+                        height: 160,
+                        marginBottom: 80,
+                        width: "100%",
+                      }}
+                      value={value}
+                      onChange={onChange}
+                    />
+                  </>
+                )}
+              />
+              <FlexBoxBetween>
+                <MDInput label="Add Links" fullWidth />
+                <PrimaryButton>Add Link</PrimaryButton>
+                          </FlexBoxBetween>
+                          
+            </FlexBoxBetween>
+          </Card>
         </Grid>
         <AddWalletDialog
           openDialog={open}
@@ -368,5 +472,56 @@ const clientDetails = [
   {
     link_details: `ReNeU (60 Days) (Created By Mentor)
   Expiring In 2 Days`,
+  },
+];
+
+const editorArr = [
+  {
+    label: "Drafts",
+  },
+  {
+    label: "On Rising",
+  },
+  {
+    label: "Pre Breakfast",
+  },
+  {
+    label: "Breakfast",
+  },
+  {
+    label: "Mid Morning",
+  },
+  {
+    label: "Pre Workout",
+  },
+  {
+    label: "During Workout",
+  },
+  {
+    label: "Pre Lunch",
+  },
+  {
+    label: "Lunch",
+  },
+  {
+    label: "Post Lunch",
+  },
+  {
+    label: "Tea Eve",
+  },
+  {
+    label: "Late Eve",
+  },
+  {
+    label: "Pre Dinner",
+  },
+  {
+    label: "Dinner",
+  },
+  {
+    label: "Post Dinner",
+  },
+  {
+    label: "Bed Time",
   },
 ];

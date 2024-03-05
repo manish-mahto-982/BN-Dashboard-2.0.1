@@ -16,7 +16,7 @@ import WalletStatementContent from "./tabs/wallet-statement/WalletStatementConte
 import MentorChats from "./tabs/mentor-chats/MentorChats";
 import MentorChatsNew from "./tabs/mentor-chats/MetorChatsNew";
 import { useMaterialUIController } from "src/context";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, Skeleton } from "@mui/material";
 const UserAccordion = React.lazy(() => import("./UserAccordion"));
 const AssessmentContent = React.lazy(
   () => import("./tabs/assessment/AssessmentContent"),
@@ -31,6 +31,7 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
+      style={{ background: "white", borderRadius: "12px", marginTop: 8 }}
     >
       {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
     </div>
@@ -70,6 +71,7 @@ export default function FullWidthTabs({ handleAddWallet }) {
         borderRadius: `${12}px`,
         overflow: "hidden",
         height: "100%",
+        // background: "#f8f9fa",
       }}
     >
       <AppBar
@@ -146,17 +148,21 @@ export default function FullWidthTabs({ handleAddWallet }) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense
+          fallback={<div className="p-2 text-center text-sm">Loading...</div>}
+        >
           <UserAccordion />
         </React.Suspense>
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <React.Suspense fallback={<div>Loading...</div>}>
+        <React.Suspense
+          fallback={<div className="p-2 text-center text-sm">Loading...</div>}
+        >
           <AssessmentContent />
         </React.Suspense>
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        <React.Suspense fallback={'loading...'}>
+        <React.Suspense fallback={"loading..."}>
           <ICLContent />
         </React.Suspense>
       </TabPanel>
