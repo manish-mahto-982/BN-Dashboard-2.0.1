@@ -30,7 +30,7 @@ import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 import MDInput from "src/components/theme/common/MDInput";
 import ReactQuill from "react-quill";
 import { Controller, useForm } from "react-hook-form";
-
+import { MuiFileInput } from "mui-file-input";
 function MentorClientDetails() {
   console.log("first");
   const theme = useTheme();
@@ -39,7 +39,14 @@ function MentorClientDetails() {
     useShowDialog(false);
   const handleAddWallet = () => setOpen(true);
   const handleEditLink = () => setOpenEditPaymentLinkDialog(true);
-  const { control } = useForm();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      file: undefined,
+    },
+  });
+
+  const handleChange = (value) => {};
+
   return (
     <CSLayout>
       <Grid container>
@@ -178,13 +185,14 @@ function MentorClientDetails() {
             className="resize_capsule"
           >
             <MDTypography fontSize="medium">Add new diet</MDTypography>
-            <FlexBoxBetween justifyContent="right">
+            <FlexBoxBetween justifyContent="right" mt={1}>
               <PrimaryButton style={{ width: "fit-content" }}>
                 Create New Diet
               </PrimaryButton>
             </FlexBoxBetween>
             <MDTypography textAlign={"center"} fontSize="small" mt={2}>
-              Default Start Date: <span className="font-bold">05th</span>
+              Default Start Date:{" "}
+              <span className="font-bold">{dayjs().format("Do, MMM")}</span>
             </MDTypography>
             <FlexBoxBetween flexDirection="column" gap={2} alignItems="start">
               <MDInput
@@ -194,8 +202,9 @@ function MentorClientDetails() {
               />
               <MDInput label="Diet Name" fullWidth />
               <MDInput label="Subject" fullWidth />
-              {editorArr.map((item) => (
+              {editorArr.map((item, index) => (
                 <Controller
+                  key={String(index + item.label)}
                   name={""}
                   control={control}
                   render={({
@@ -251,12 +260,38 @@ function MentorClientDetails() {
                   </>
                 )}
               />
-              <FlexBoxBetween>
+              <FlexBoxBetween width="100%" gap={2}>
                 <MDInput label="Add Links" fullWidth />
-                <PrimaryButton>Add Link</PrimaryButton>
-                          </FlexBoxBetween>
-                          
+                <PrimaryButton style={{ whiteSpace: "nowrap" }} size="">
+                  Save Link
+                </PrimaryButton>
+              </FlexBoxBetween>
+              <Controller
+                name="file"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <MuiFileInput
+                    label="Choose file"
+                    multiple
+                    sx={{ mt: 2 }}
+                    // onChange={handleChange}
+                    {...field}
+                    helperText={
+                      fieldState.invalid
+                        ? "File is invalid"
+                        : "format: image/pdf/word (Max 10 attachments)"
+                    }
+                    error={fieldState.invalid}
+                  />
+                )}
+              />
             </FlexBoxBetween>
+            <PrimaryButton
+              style={{ whiteSpace: "nowrap", marginTop: 20 }}
+              size=""
+            >
+              Save Diet
+            </PrimaryButton>
           </Card>
         </Grid>
         <AddWalletDialog

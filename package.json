@@ -21,6 +21,7 @@
     "classnames": "^2.5.1",
     "country-state-city": "^3.2.1",
     "dayjs": "^1.11.10",
+    "mui-file-input": "^4.0.4",
     "mui-tel-input": "^5.0.0",
     "prop-types": "^15.8.1",
     "re-resizable": "^6.9.11",
