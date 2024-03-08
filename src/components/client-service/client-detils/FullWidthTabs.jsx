@@ -17,6 +17,7 @@ import MentorChats from "./tabs/mentor-chats/MentorChats";
 import MentorChatsNew from "./tabs/mentor-chats/MetorChatsNew";
 import { useMaterialUIController } from "src/context";
 import { LinearProgress, Skeleton } from "@mui/material";
+import MDBox from "src/components/theme/common/MDBox";
 const UserAccordion = React.lazy(() => import("./UserAccordion"));
 const AssessmentContent = React.lazy(
   () => import("./tabs/assessment/AssessmentContent"),
@@ -25,16 +26,16 @@ const AssessmentContent = React.lazy(
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return (
-    <div
+    <MDBox
       role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
-      style={{ background: "white", borderRadius: "12px", marginTop: 8 }}
+      sx={{ bgcolor: "background.main", borderRadius: "12px", marginTop: 8 }}
     >
       {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
-    </div>
+    </MDBox>
   );
 }
 

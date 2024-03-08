@@ -31,6 +31,7 @@ import MDInput from "src/components/theme/common/MDInput";
 import ReactQuill from "react-quill";
 import { Controller, useForm } from "react-hook-form";
 import { MuiFileInput } from "mui-file-input";
+import ReactQuillWithEmoji from "src/components/common/ReactQuillWithEmoji";
 function MentorClientDetails() {
   console.log("first");
   const theme = useTheme();
@@ -211,24 +212,17 @@ function MentorClientDetails() {
                     field: { onChange, value },
                     fieldState: { error },
                   }) => (
-                    <>
-                      <MDTypography
-                        fontSize="small"
-                        sx={{ marginBottom: -1.4 }}
-                      >
-                        {item.label}
-                      </MDTypography>
-                      <ReactQuill
+                    <div className="w-full">
+                      <MDTypography fontSize="small">{item.label}</MDTypography>
+                      <ReactQuillWithEmoji
                         theme="snow"
                         style={{
-                          height: 160,
-                          marginBottom: 80,
                           width: "100%",
                         }}
                         value={value}
                         onChange={onChange}
                       />
-                    </>
+                    </div>
                   )}
                 />
               ))}
@@ -247,7 +241,7 @@ function MentorClientDetails() {
                     >
                       {"Note"}
                     </MDTypography>
-                    <ReactQuill
+                    <ReactQuillWithEmoji
                       theme="snow"
                       style={{
                         height: 160,
