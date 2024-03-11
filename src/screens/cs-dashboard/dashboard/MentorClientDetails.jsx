@@ -10,11 +10,12 @@ import {
   useTheme,
 } from "@mui/material";
 import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat"
 import React from "react";
 import { TbBrandWhatsapp, TbCash, TbCopy, TbEdit } from "react-icons/tb";
-import EditPaymentLinkDialog from "src/components/client-service/client-detils/EditPaymentLinkDialog";
-import FullWidthTabs from "src/components/client-service/client-detils/FullWidthTabs";
-import AddWalletDialog from "src/components/client-service/client-detils/tabs/wallet-statement/AddWalletDialog";
+import EditPaymentLinkDialog from "src/components/common/client-profile/EditPaymentLinkDialog";
+import FullWidthTabs from "src/components/common/client-profile/FullWidthTabs";
+import AddWalletDialog from "src/components/common/client-profile/tabs/wallet-statement/AddWalletDialog";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import IconButtonWithToolTip from "src/components/client-service/common/IconButtonWithToolTip";
 import LayoutContainerTitle from "src/components/client-service/layout/LayoutContainerTitle";
@@ -31,9 +32,14 @@ import MDInput from "src/components/theme/common/MDInput";
 import ReactQuill from "react-quill";
 import { Controller, useForm } from "react-hook-form";
 import { MuiFileInput } from "mui-file-input";
-import ReactQuillWithEmoji from "src/components/common/ReactQuillWithEmoji";
+import ReactQuillWithEmoji from "src/components/common/editor/ReactQuillWithEmoji";
+dayjs.extend(advancedFormat)
+
 function MentorClientDetails() {
   console.log("first");
+
+  
+  const formattedDate = dayjs().format("Do, MMM");
   const theme = useTheme();
   const [open, setOpen] = useShowDialog(false);
   const [openEditPaymentLinkDialog, setOpenEditPaymentLinkDialog] =
@@ -193,7 +199,7 @@ function MentorClientDetails() {
             </FlexBoxBetween>
             <MDTypography textAlign={"center"} fontSize="small" mt={2}>
               Default Start Date:{" "}
-              <span className="font-bold">{dayjs().format("Do, MMM")}</span>
+              <span className="font-bold">{formattedDate}</span>
             </MDTypography>
             <FlexBoxBetween flexDirection="column" gap={2} alignItems="start">
               <MDInput

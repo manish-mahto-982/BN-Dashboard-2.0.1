@@ -11,9 +11,9 @@ import {
 import dayjs from "dayjs";
 import React from "react";
 import { TbBrandWhatsapp, TbCash, TbCopy, TbEdit } from "react-icons/tb";
-import EditPaymentLinkDialog from "src/components/client-service/client-detils/EditPaymentLinkDialog";
-import FullWidthTabs from "src/components/client-service/client-detils/FullWidthTabs";
-import AddWalletDialog from "src/components/client-service/client-detils/tabs/wallet-statement/AddWalletDialog";
+import EditPaymentLinkDialog from "src/components/common/client-profile/EditPaymentLinkDialog";
+import FullWidthTabs from "src/components/common/client-profile/FullWidthTabs";
+import AddWalletDialog from "src/components/common/client-profile/tabs/wallet-statement/AddWalletDialog";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import IconButtonWithToolTip from "src/components/client-service/common/IconButtonWithToolTip";
 import LayoutContainerTitle from "src/components/client-service/layout/LayoutContainerTitle";

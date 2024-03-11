@@ -32,9 +32,9 @@ function TabPanel(props) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
-      sx={{ bgcolor: "background.main", borderRadius: "12px", marginTop: 8 }}
+      sx={{ bgcolor: "background.main", borderRadius: "12px", marginTop: 2 }}
     >
-      {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
+      {value === index && <Box sx={{ p:2}}>{children}</Box>}
     </MDBox>
   );
 }

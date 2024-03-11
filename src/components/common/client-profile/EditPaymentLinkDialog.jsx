@@ -2,10 +2,10 @@ import { InputAdornment, Stack, TextField } from "@mui/material";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 
-import CustomDialog from "../common/CustomDialog";
+import CustomDialog from "../../client-service/common/CustomDialog";
 import MDDropDown from "src/components/theme/common/MDDropdown";
-import DateField from "../forms/DateField";
-import ComboBox from "../forms/ComboBox";
+import DateField from "../../client-service/forms/DateField";
+import ComboBox from "../../client-service/forms/ComboBox";
 import dayjs from "dayjs";
 
 function EditPaymentLinkDialog({ openDialog, setOpenDialog, theme }) {
