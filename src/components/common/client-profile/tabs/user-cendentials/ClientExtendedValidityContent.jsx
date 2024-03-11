@@ -4,7 +4,7 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
-import DateField from "src/components/client-service/forms/DateField";
+import DateField from "src/components/common/forms/DateField";
 
 function ClientExtendedValidityContent() {
   const { control } = useForm({

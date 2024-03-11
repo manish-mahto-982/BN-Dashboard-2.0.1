@@ -32,13 +32,15 @@ import MDTypography from "src/components/theme/common/MDTypography";
 import LeadFunnel from "./components/LeadFunnel";
 import GoalSet from "./components/GoalSet";
 import HeaderMarquee from "./components/HeaderMarquee";
+import SalesLayout from "../layout";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
 
   return (
-    <DashboardLayout>
-      <DashboardNavbar />
+    <SalesLayout>
+      {/* <DashboardLayout> */}
+        {/* <DashboardNavbar /> */}
       <MDBox>
         <Grid container>
           <Grid item xs={12} md={12} lg={12}>
@@ -89,7 +91,7 @@ function Dashboard() {
             </MDBox>
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}> 
+            <MDBox mb={1.5}>
               <TopCards
                 icon="leaderboard"
                 title=""
@@ -238,7 +240,8 @@ function Dashboard() {
         </MDBox>
       </MDBox>
       <Footer />
-    </DashboardLayout>
+      {/* </DashboardLayout> */}
+    </SalesLayout>
   );
 }
 

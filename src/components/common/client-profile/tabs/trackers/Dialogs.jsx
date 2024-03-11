@@ -3,7 +3,7 @@ import { DateTimePicker, LocalizationProvider, pickersLayoutClasses } from "@mui
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import CustomDialog from "src/components/client-service/common/CustomDialog";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+import ComboBox from "src/components/common/forms/ComboBox";
 
 export const AddWeightDialog = ({ open, setOpen, theme }) => (
   <CustomDialog

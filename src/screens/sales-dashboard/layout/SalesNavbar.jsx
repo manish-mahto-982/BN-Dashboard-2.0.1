@@ -40,8 +40,13 @@ import Breadcrumbs from "src/components/theme/layout/Breadcrumbs";
 import NotificationItem from "src/components/theme/layout/Items/NotificationItem";
 import RatingSection from "src/components/client-service/layout/navbar/RatingSection";
 import ReminderSection from "src/components/client-service/layout/navbar/ReminderSection";
+import AccountOptions from "src/components/sales/layout/navbar/AccountOptions";
+import CreateLinkOption from "src/components/sales/layout/navbar/CreateLinkOption";
+import AddDailyTaskOption from "src/components/sales/layout/navbar/AddDailyTaskOption";
+import SendReviewOption from "src/components/sales/layout/navbar/SendReviewOption";
+import NotificationOption from "src/components/sales/layout/navbar/NotificationOption";
 
-function Navbar({ absolute, light, isMini }) {
+function SalesNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useMaterialUIController();
   const {
@@ -166,12 +171,17 @@ function Navbar({ absolute, light, isMini }) {
               color={light ? "white" : "inherit"}
               className={"flex gap-x-2"}
             >
-              <RatingSection
+              <CreateLinkOption
                 light={light}
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
-              <ReminderSection
+              <SendReviewOption
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
+              <AccountOptions
                 light={light}
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
@@ -187,27 +197,17 @@ function Navbar({ absolute, light, isMini }) {
                   {miniSidenav ? "menu_open" : "menu"}
                 </Icon>
               </IconButton>
-              <IconButton
-                size="small"
-                disableRipple
-                color="inherit"
-                sx={navbarIconButton}
-                onClick={handleConfiguratorOpen}
-              >
-                <Icon sx={iconsStyle}>settings</Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                disableRipple
-                color="inherit"
-                sx={navbarIconButton}
-                aria-controls="notification-menu"
-                aria-haspopup="true"
-                variant="contained"
-                onClick={handleOpenMenu}
-              >
-                <Icon sx={iconsStyle}>notifications</Icon>
-              </IconButton>
+              <AddDailyTaskOption
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
+
+              <NotificationOption
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
               {renderMenu()}
             </MDBox>
           </MDBox>
@@ -218,17 +218,17 @@ function Navbar({ absolute, light, isMini }) {
 }
 
 // Setting default values for the props of Navbar
-Navbar.defaultProps = {
+SalesNavbar.defaultProps = {
   absolute: false,
   light: false,
   isMini: false,
 };
 
 // Typechecking props for the Navbar
-Navbar.propTypes = {
+SalesNavbar.propTypes = {
   absolute: PropTypes.bool,
   light: PropTypes.bool,
   isMini: PropTypes.bool,
 };
 
-export default Navbar;
+export default SalesNavbar;

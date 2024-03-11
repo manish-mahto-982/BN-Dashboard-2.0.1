@@ -1,7 +1,7 @@
 import React from "react";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+import ComboBox from "src/components/common/forms/ComboBox";
 
 function UserStatusContent({ theme }) {
   return (

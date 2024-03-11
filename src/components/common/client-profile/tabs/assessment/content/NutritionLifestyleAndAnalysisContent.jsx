@@ -4,9 +4,9 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 const ComboBox = React.lazy(
-  () => import("src/components/client-service/forms/ComboBox"),
+  () => import("src/components/common/forms/ComboBox"),
 );
-import TimeField from "src/components/client-service/forms/TimeField";
+import TimeField from "src/components/common/forms/TimeField";
 import {
   cardioDurationOptions,
   cardioFrequencyOptions,

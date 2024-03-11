@@ -59,7 +59,6 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 function UserAccordion() {
   const [controller, dispatch] = useMaterialUIController();
   const { darkMode } = controller;
-  console.log("🚀 ~ UserAccordion ~ darkMode:", darkMode);
   const [expanded, setExpanded] = React.useState("panel1");
   const theme = useTheme();
   const handleChange = (panel) => (event, newExpanded) => {

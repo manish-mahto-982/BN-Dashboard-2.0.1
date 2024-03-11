@@ -9,8 +9,9 @@
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
-import Icon from   "@mui/material/Icon/Icon";
+import Icon from "@mui/material/Icon/Icon";
 import AllLeads from "src/screens/sales-dashboard/all-leads";
+import ClientProfile from "src/screens/sales-dashboard/client-profile/SalesClientProfile";
 import Dashboard from "src/screens/sales-dashboard/dashboard";
 // import AppActivity from "layouts/AppActivity";
 // import PerformanceAnalysis from "layouts/PerformanceAnalysis";
@@ -35,6 +36,14 @@ const salesRoutes = [
     icon: <Icon fontSize="small">people</Icon>,
     route: "/all-leads",
     component: <AllLeads />,
+  },
+  {
+    type: "collapse",
+    name: "Profile Details",
+    key: "client-profile",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/client-profile",
+    component: <ClientProfile />,
   },
   // {
   //   type: "collapse",
@@ -92,7 +101,6 @@ const salesRoutes = [
   //   route: "/payment-details",
   //   component: <PaymentDetails />,
   // },
- 
 ];
 
 export default salesRoutes;

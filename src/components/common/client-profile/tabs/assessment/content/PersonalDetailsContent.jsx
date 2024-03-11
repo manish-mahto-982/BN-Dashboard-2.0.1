@@ -29,8 +29,8 @@ import { Controller, useForm } from "react-hook-form";
 import { MuiTelInput } from "mui-tel-input";
 import { City, Country, State } from "country-state-city";
 import dayjs from "dayjs";
-import DateField from "src/components/client-service/forms/DateField";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+import DateField from "src/components/common/forms/DateField";
+import ComboBox from "src/components/common/forms/ComboBox";
 import {
   bodyShapeOptions,
   casteOptions,

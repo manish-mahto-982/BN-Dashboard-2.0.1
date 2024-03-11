@@ -2,7 +2,7 @@ import { InputAdornment, Stack, TextField } from "@mui/material";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import CustomDialog from "src/components/client-service/common/CustomDialog";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+import ComboBox from "src/components/common/forms/ComboBox";
 
 function AddWalletDialog({ openDialog, setOpenDialog, theme }) {
   const { control } = useForm({

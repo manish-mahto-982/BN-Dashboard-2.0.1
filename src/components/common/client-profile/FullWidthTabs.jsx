@@ -1,5 +1,5 @@
 import * as React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { string } from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
@@ -34,7 +34,7 @@ function TabPanel(props) {
       {...other}
       sx={{ bgcolor: "background.main", borderRadius: "12px", marginTop: 2 }}
     >
-      {value === index && <Box sx={{ p:2}}>{children}</Box>}
+      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
     </MDBox>
   );
 }
@@ -52,10 +52,10 @@ function a11yProps(index) {
   };
 }
 
-export default function FullWidthTabs({ handleAddWallet }) {
+export default function FullWidthTabs({ handleAddWallet, tabsArr }) {
   const theme = useTheme();
 
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -101,93 +101,21 @@ export default function FullWidthTabs({ handleAddWallet }) {
             },
           }}
         >
-          <Tab
-            label="User Credentials"
-            {...a11yProps(0)}
-            sx={{ fontSize: "small", whiteSpace: "nowrap" }}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="Assessment Details"
-            {...a11yProps(1)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="ICL Details"
-            {...a11yProps(2)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="All Trackers"
-            {...a11yProps(3)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="All Weight Details"
-            {...a11yProps(4)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="Mentor Chat"
-            {...a11yProps(5)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="Notification Sent"
-            {...a11yProps(6)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="Feedback Received"
-            {...a11yProps(7)}
-          />
-          <Tab
-            sx={{ fontSize: "small" }}
-            label="Wallet Statement"
-            {...a11yProps(8)}
-          />
+          {tabsArr.map((item, index) => (
+            <Tab
+              key={`${item.label}_${index}`}
+              label={item.label}
+              {...a11yProps(index)}
+              sx={{ fontSize: "small", whiteSpace: "nowrap" }}
+            />
+          ))}
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0} dir={theme.direction}>
-        <React.Suspense
-          fallback={<div className="p-2 text-center text-sm">Loading...</div>}
-        >
-          <UserAccordion />
-        </React.Suspense>
-      </TabPanel>
-      <TabPanel value={value} index={1} dir={theme.direction}>
-        <React.Suspense
-          fallback={<div className="p-2 text-center text-sm">Loading...</div>}
-        >
-          <AssessmentContent />
-        </React.Suspense>
-      </TabPanel>
-      <TabPanel value={value} index={2} dir={theme.direction}>
-        <React.Suspense fallback={"loading..."}>
-          <ICLContent />
-        </React.Suspense>
-      </TabPanel>
-      <TabPanel value={value} index={3} dir={theme.direction}>
-        <TrackerContent theme={theme} />
-      </TabPanel>
-      <TabPanel value={value} index={4} dir={theme.direction}>
-        <WeightDetailsContent theme={theme} />
-      </TabPanel>
-      <TabPanel value={value} index={5} dir={theme.direction}>
-        <MentorChatsNew />
-      </TabPanel>
-      <TabPanel value={value} index={6} dir={theme.direction}>
-        <NotificationSentContent />
-      </TabPanel>
-      <TabPanel value={value} index={7} dir={theme.direction}>
-        <FeedbackContent />
-      </TabPanel>
-      <TabPanel value={value} index={8} dir={theme.direction}>
-        <WalletStatementContent
-          theme={theme}
-          handleAddWallet={handleAddWallet}
-        />
-      </TabPanel>
+      {tabsArr.map(({ TabPanelItem }, index) => (
+        <TabPanel key={index} value={value} index={index} dir={theme.direction}>
+          <TabPanelItem />
+        </TabPanel>
+      ))}
     </Box>
   );
 }

@@ -1,7 +1,7 @@
 import { Grid, TextField } from "@mui/material";
 import React, { memo } from "react";
 import { Controller, useForm } from "react-hook-form";
-import ComboBox from "src/components/client-service/forms/ComboBox";
+import ComboBox from "src/components/common/forms/ComboBox";
 const MemoizedComboBox = memo(ComboBox);
 
 // Memoized TextField component

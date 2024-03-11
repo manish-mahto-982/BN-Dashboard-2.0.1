@@ -34,8 +34,8 @@ import {
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import IconButtonWithToolTip from "src/components/client-service/common/IconButtonWithToolTip";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
-import ComboBox from "src/components/client-service/forms/ComboBox";
-import DateField from "src/components/client-service/forms/DateField";
+import ComboBox from "src/components/common/forms/ComboBox";
+import DateField from "src/components/common/forms/DateField";
 import LayoutContainerTitle from "src/components/client-service/layout/LayoutContainerTitle";
 
 import useShowDialog from "src/hooks/useShowDialog";

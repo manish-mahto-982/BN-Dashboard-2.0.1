@@ -24,6 +24,7 @@ import CSLayout from "../layout";
 import MDTypography from "src/components/theme/common/MDTypography";
 import MDButton from "src/components/theme/common/MDButton";
 import colors from "src/assets/theme/base/colors";
+import CsClientFeaturesTabs from "src/components/common/client-profile/CsClientFeaturesTabs";
 
 function ClientDetails() {
   console.log("first");
@@ -153,7 +154,7 @@ function ClientDetails() {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <FullWidthTabs handleAddWallet={handleAddWallet} />
+          <CsClientFeaturesTabs handleAddWallet={handleAddWallet} />
         </Grid>
         <AddWalletDialog
           openDialog={open}
@@ -717,4 +718,22 @@ Expiring In 2 Days`,
   },
 ];
 
+*/
+
+/*
+App Activity
+user details, visited page,visited date, source, total visit
+
+
+User History
+timeline
+
+Coupon and Discount
+Sales db reference
+
+Order History
+Mentor Dashboard
+
+Personal Details
+Sales Crm
 */

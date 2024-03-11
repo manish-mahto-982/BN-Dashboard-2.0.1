@@ -2,7 +2,7 @@ import { Box, FormControlLabel } from "@mui/material";
 import React, { useState } from "react";
 
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
-import InputLabel from "src/components/client-service/forms/InputLabel";
+import InputLabel from "src/components/common/forms/InputLabel";
 import { IOSStyleSwitch } from "src/components/client-service/switches/NotificationSwitch";
 import MDDropDown from "src/components/theme/common/MDDropdown";
 import { updateDieStatusToArr, updateScreenToArr } from "src/utils/constants";

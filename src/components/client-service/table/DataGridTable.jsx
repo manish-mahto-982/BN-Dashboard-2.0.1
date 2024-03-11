@@ -24,7 +24,7 @@ import FlexBoxBetween from "../common/FlexBoxBetween";
 import { handleWhatsApp } from "src/utils/helper";
 import MDBox from "src/components/theme/common/MDBox";
 import classNames from "classnames";
-import DateField from "../forms/DateField";
+import DateField from "../../common/forms/DateField";
 import { Controller, useForm } from "react-hook-form";
 import PrimaryButton from "../common/PrimaryButton";
 

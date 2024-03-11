@@ -11,8 +11,8 @@ import CustomDialog from "src/components/client-service/common/CustomDialog";
 
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
-import ComboBox from "src/components/client-service/forms/ComboBox";
-import InputLabel from "src/components/client-service/forms/InputLabel";
+import ComboBox from "src/components/common/forms/ComboBox";
+import InputLabel from "src/components/common/forms/InputLabel";
 import useShowDialog from "src/hooks/useShowDialog";
 import { useGetNotificationReceivedQuery } from "src/services/client-details/api";
 
