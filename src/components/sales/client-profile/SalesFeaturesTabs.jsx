@@ -11,6 +11,8 @@ import NotificationSentContent from "src/components/common/client-profile/tabs/n
 import TrackerContent from "src/components/common/client-profile/tabs/trackers/TrackerContent";
 import FullWidthTabs from "src/components/common/client-profile/FullWidthTabs";
 import SalesPersonalDetailsContent from "src/components/common/client-profile/tabs/sales-personal-details/SalesPersonalDetailsContent";
+import OrderHistoryContent from "src/components/common/client-profile/tabs/user-cendentials/OrderHistoryContent";
+import UserHistoryContent from "src/components/common/client-profile/tabs/user-history/UserHistoryContent";
 const AssessmentContent = React.lazy(
   () => import("src/components/common/client-profile/tabs/assessment/AssessmentContent"),
 );
@@ -49,6 +51,15 @@ const SalesFeatureTabs = ({ handleAddWallet }) => {
       label: "Feedback Received",
       TabPanelItem: () => <FeedbackContent />,
     },
+    {
+      label: "Order History",
+      TabPanelItem: () =>  <OrderHistoryContent />,
+    },
+    {
+      label: "User History",
+      TabPanelItem: () =>  <UserHistoryContent />,
+    },
+    
     {
       label: "Wallet Statement",
       TabPanelItem: () => (
