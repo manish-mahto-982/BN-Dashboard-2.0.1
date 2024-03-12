@@ -186,17 +186,6 @@ function SalesNavbar({ absolute, light, isMini }) {
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
-              <IconButton
-                size="small"
-                disableRipple
-                color="inherit"
-                sx={navbarMobileMenu}
-                onClick={handleMiniSidenav}
-              >
-                <Icon sx={iconsStyle} fontSize="medium">
-                  {miniSidenav ? "menu_open" : "menu"}
-                </Icon>
-              </IconButton>
               <AddDailyTaskOption
                 light={light}
                 transparentNavbar={transparentNavbar}
@@ -208,6 +197,17 @@ function SalesNavbar({ absolute, light, isMini }) {
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
+              <IconButton
+                size="small"
+                disableRipple
+                color="inherit"
+                sx={navbarMobileMenu}
+                onClick={handleMiniSidenav}
+              >
+                <Icon sx={iconsStyle} fontSize="medium">
+                  {miniSidenav ? "menu_open" : "menu"}
+                </Icon>
+              </IconButton>
               {renderMenu()}
             </MDBox>
           </MDBox>

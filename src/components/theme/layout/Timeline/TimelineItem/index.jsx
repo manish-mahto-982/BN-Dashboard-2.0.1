@@ -1,5 +1,3 @@
-
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -15,31 +13,47 @@ import { useTimeline } from "src/components/theme/layout/Timeline/context";
 
 // Custom styles for the TimelineItem
 import timelineItem from "src/components/theme/layout/Timeline/TimelineItem/styles";
+import { Box } from "@mui/material";
 
 function TimelineItem({ color, icon, title, dateTime, description, lastItem }) {
   const isDark = useTimeline();
 
   return (
-    <MDBox position="relative" mb={3} sx={(theme) => timelineItem(theme, { lastItem, isDark })}>
+    <MDBox
+      position="relative"
+      mb={3}
+      sx={(theme) => timelineItem(theme, { lastItem, isDark })}
+    >
       <MDBox
         display="flex"
         justifyContent="center"
         alignItems="center"
-        bgColor={color}
+        bgColor={"primary"}
         color="white"
-        width="2rem"
-        height="2rem"
+        width="1rem"
+        height="1rem"
         borderRadius="50%"
         position="absolute"
-        top="8%"
-        left="2px"
+        top="42%"
+        left="0.6rem"
         zIndex={2}
-        sx={{ fontSize: ({ typography: { size } }) => size.sm }}
+        sx={{
+          fontSize: ({ typography: { size } }) => size.sm,
+          // border: "1px solid red",
+          transform: "translateY(-50%)",
+        }}
+      ></MDBox>
+      <MDBox
+        ml={5.75}
+        pt={description ? 0.7 : 0.5}
+        lineHeight={0}
+        maxWidth="30rem"
       >
-        <Icon fontSize="inherit">{icon}</Icon>
-      </MDBox>
-      <MDBox ml={5.75} pt={description ? 0.7 : 0.5} lineHeight={0} maxWidth="30rem">
-        <MDTypography variant="button" fontWeight="medium" color={isDark ? "white" : "dark"}>
+        <MDTypography
+          variant="button"
+          fontWeight="medium"
+          color={isDark ? "white" : "dark"}
+        >
           {title}
         </MDTypography>
         <MDBox mt={0.5}>

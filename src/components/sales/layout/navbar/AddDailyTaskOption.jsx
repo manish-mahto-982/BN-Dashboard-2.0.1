@@ -17,7 +17,7 @@ function AddDailyTaskOption({ light, darkMode, transparentNavbar }) {
   return (
     <>
       <Badge badgeContent={2} color={"warning"} overlap="circular">
-        <Tooltip title="Create Link">
+        <Tooltip title="Add Task">
           <IconButton sx={navbarIconButton} disableRipple onClick={() => {}}>
             <Icon sx={iconsStyle}>add_circle</Icon>
           </IconButton>
