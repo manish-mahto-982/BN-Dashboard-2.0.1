@@ -17,12 +17,12 @@ const TimeField = React.forwardRef(
           {...(value !== null || ("" && { value }))}
           sx={{
             width: "100%",
-            // "& .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl": {
-            //   color: 'info.main',
-            // },
-            // "& .MuiInputBase-input.MuiOutlinedInput-input:focus": {
-            //   outline: `solid  ${'info.main'}`,
-            // },
+            "& .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl": {
+              color: 'info.main',
+            },
+            "& .MuiInputBase-input.MuiOutlinedInput-input:focus": {
+              outline: `solid  ${'info.main'}`,
+            },
             "& .MuiPaper-root": {
               bgcolor: `${"background.default"} !important`,
             },
