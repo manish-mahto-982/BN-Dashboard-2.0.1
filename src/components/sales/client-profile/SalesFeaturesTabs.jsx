@@ -64,6 +64,15 @@ const SalesFeatureTabs = ({ handleAddWallet }) => {
       TabPanelItem: () => <FeedbackContent />,
     },
     {
+      label: "Order History",
+      TabPanelItem: () =>  <OrderHistoryContent />,
+    },
+    {
+      label: "User History",
+      TabPanelItem: () =>  <UserHistoryContent />,
+    },
+    
+    {
       label: "Wallet Statement",
       TabPanelItem: () => (
         <WalletStatementContent
