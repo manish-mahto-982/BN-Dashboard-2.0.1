@@ -1,5 +1,3 @@
-
-
 // @mui material components
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
@@ -8,7 +6,12 @@ export default styled(TextField)(({ theme, ownerState }) => {
   const { palette, functions } = theme;
   const { error, success, disabled } = ownerState;
 
-  const { grey, transparent, error: colorError, success: colorSuccess } = palette;
+  const {
+    grey,
+    transparent,
+    error: colorError,
+    success: colorSuccess,
+  } = palette;
   const { pxToRem } = functions;
 
   // styles for the input with error={true}

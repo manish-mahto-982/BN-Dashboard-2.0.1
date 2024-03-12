@@ -14,7 +14,7 @@ const SalesPersonalDetailsContent = () => {
   });
   return (
     <Grid container spacing={2}>
-      <Grid item sm={12} md={6}>
+      <Grid item xs={12} md={6}>
         <Controller
           name="reassign_to"
           control={control}
@@ -23,25 +23,25 @@ const SalesPersonalDetailsContent = () => {
           )}
         />
       </Grid>
-      <Grid item sm={12} md={6}>
+      <Grid item xs={12} md={6}>
         <Controller
           name="primary_source"
           control={control}
           render={({ field }) => (
-            <TextField disabled {...field} label="Primary Source" fullWidth />
+            <MDInput disabled {...field} label="Primary Source" fullWidth />
           )}
         />
       </Grid>
-      <Grid item sm={12} md={6}>
+      <Grid item xs={12} md={6}>
         <Controller
           name="tags"
           control={control}
           render={({ field }) => (
-            <TextField disabled {...field} label="Primary Source" fullWidth />
+            <ComboBox options={tagsOptions} {...field} label="Tags" fullWidth />
           )}
         />
       </Grid>
-      <Grid item sm={12} md={6}>
+      <Grid item xs={12} md={6}>
         <Controller
           name="life_style"
           control={control}
@@ -55,10 +55,13 @@ const SalesPersonalDetailsContent = () => {
               getOptionLabel={(option) => option.title}
               defaultValue={[top100Films[13], top100Films[12], top100Films[11]]}
               renderInput={(params) => (
-                <TextField
+                <MDInput
                   {...params}
-                  label="limitTags"
-                  placeholder="Favorites"
+                  label="Life Style"
+                  // placeholder="Favorites"
+                  sx={{
+                    ".MuiOutlinedInput-root": { padding: "5px !important" },
+                  }}
                 />
               )}
             />
@@ -225,4 +228,37 @@ const top100Films = [
   { title: "Snatch", year: 2000 },
   { title: "3 Idiots", year: 2009 },
   { title: "Monty Python and the Holy Grail", year: 1975 },
+];
+
+const tagsOptions = [
+  "Ethnicity",
+  "South Indian",
+  "North Indian",
+  "Bengali Punjabi Sindhi",
+  "Gujarati",
+  "Rajasthani",
+  "Maharashtrian",
+  "Muslim",
+  "Christianity",
+  "Marwadi",
+  "International",
+  "Sikh",
+  "Parsi",
+  "Jain]",
+];
+
+const lifeStyleOptions = [
+  "Sedentary",
+  "Homemaker",
+  "Working Out",
+  "Nuclear",
+  "Joint Family",
+  "Busy executive",
+  "Traveller",
+  "Windows Shopping",
+  "Student Life / Living Alone",
+  "Gym",
+  "Swim",
+  "Yoga",
+  "Zumba",
 ];
