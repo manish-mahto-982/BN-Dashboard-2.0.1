@@ -49,8 +49,6 @@ import {
   TbX,
 } from "react-icons/tb";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Transitions from "../extended/Transitions";
-import NavbarButton from "./NavbarButton";
 import NavbarButtonWithOverlay from "./NavbarButtonWithOverlay";
 import {
   DateTimePicker,
@@ -62,7 +60,7 @@ import dayjs from "dayjs";
 
 // ==============================|| NOTIFICATION ||============================== //
 
-const RatingSection = () => {
+const ReminderSection = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const theme = useTheme();
   const handleOpenSubChildDialog = () => {
@@ -93,9 +91,14 @@ const RatingSection = () => {
   );
 };
 
-export default RatingSection;
+export default ReminderSection;
 
-const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
+export const AddReminderDialog = ({
+  openDialog,
+  dialogTitle = "Set Reminder",
+  setOpenDialog,
+  theme,
+}) => {
   const [value, setValue] = useState(3);
   const handleClose = () => {
     setOpenDialog(false);
@@ -108,14 +111,14 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
           alignItems={"center"}
           justifyContent={"space-between"}
           color={"#fff"}
-          bgcolor={'info.main'}
+          bgcolor={"info.main"}
         >
-          Set Reminder
+          {dialogTitle}
           <IconButton onClick={handleClose}>
             <TbX stroke="#fff" />
           </IconButton>
         </DialogTitle>
-        <DialogContent sx={{ bgcolor: 'background.default' }}>
+        <DialogContent sx={{ bgcolor: "background.default" }}>
           <TextField
             autoFocus
             color="secondary"
@@ -144,14 +147,14 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
                   layout: {
                     sx: {
                       [`.${pickersLayoutClasses.contentWrapper}`]: {
-                        bgcolor: 'background.default',
+                        bgcolor: "background.default",
                       },
                       [`.${pickersLayoutClasses.actionBar}`]: {
-                        bgcolor: 'background.default',
+                        bgcolor: "background.default",
                       },
                       "& .MuiDialogActions-root button.MuiButtonBase-root,.MuiButtonBase-root.MuiPickersDay-root.Mui-selected,.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-gutters.Mui-selected.MuiMenuItem-root":
                         {
-                          bgcolor: 'info.main',
+                          bgcolor: "info.main",
                           color: "#fff",
                         },
                       "& .MuiButtonBase-root.MuiPickersDay-root.Mui-selected":
@@ -164,13 +167,13 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
             </LocalizationProvider>
           </Box>
         </DialogContent>
-        <DialogActions sx={{ bgcolor: 'background.default' }}>
+        <DialogActions sx={{ bgcolor: "background.default" }}>
           <Button color="secondary" onClick={handleClose}>
             Cancel
           </Button>
           <Button
             variant="contained"
-            sx={{ bgcolor: 'info.main' }}
+            sx={{ bgcolor: "info.main" }}
             disableElevation
             style={{ color: "white" }}
             onClick={handleClose}
@@ -183,7 +186,11 @@ const AddReminderDialog = ({ openDialog, setOpenDialog, theme }) => {
   );
 };
 
-const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
+export const ReminderTable = ({
+  tableTitle = "Reminders",
+  theme,
+  handleOpenSubChildDialog,
+}) => {
   const rows = [
     {
       title: "Important reminder",
@@ -200,7 +207,7 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
   ];
   return (
     <Grid container direction="column">
-      <Grid item pb={2} xs={12} bgcolor={'info.main'}>
+      <Grid item pb={2} xs={12} bgcolor={"info.main"}>
         <Grid
           container
           alignItems="center"
@@ -216,7 +223,7 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
             <Stack direction="row" spacing={2} alignItems={"center"}>
               <TbCalendarTime stroke="#fff" size={22} />
               <Typography fontSize={16} variant="subtitle1" color={"#fff"}>
-                Reminders
+                {tableTitle}
               </Typography>
             </Stack>
             <Tooltip title="Set reminder" placement="left">
@@ -238,7 +245,7 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
             component={Paper}
             style={{
               borderRadius: 0,
-              backgroundColor: 'background.default',
+              backgroundColor: "background.default",
             }}
           >
             <Table
@@ -255,8 +262,8 @@ const ReminderTable = ({ theme, handleOpenSubChildDialog }) => {
                       ":hover": {
                         bgcolor:
                           theme.palette.mode === "dark"
-                            ? 'background.default'
-                            : 'background.default',
+                            ? "background.default"
+                            : "background.default",
                       },
                     }}
                   >

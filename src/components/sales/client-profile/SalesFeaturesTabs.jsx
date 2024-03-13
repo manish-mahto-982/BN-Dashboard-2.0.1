@@ -12,6 +12,7 @@ import TrackerContent from "src/components/common/client-profile/tabs/trackers/T
 import FullWidthTabs from "src/components/common/client-profile/FullWidthTabs";
 import SalesPersonalDetailsContent from "src/components/common/client-profile/tabs/sales-personal-details/SalesPersonalDetailsContent";
 import UserHistoryContent from "src/components/common/client-profile/tabs/user-history/UserHistoryContent";
+import CouponContent from "src/components/common/client-profile/tabs/coupon-discount/CouponContent";
 const AssessmentContent = React.lazy(
   () =>
     import(
@@ -42,6 +43,10 @@ const SalesFeatureTabs = ({ handleAddWallet }) => {
           <SalesPersonalDetailsContent />
         </React.Suspense>
       ),
+    },
+    {
+      label: "Coupon / Discount",
+      TabPanelItem: () => <CouponContent />,
     },
     {
       label: "All Trackers",

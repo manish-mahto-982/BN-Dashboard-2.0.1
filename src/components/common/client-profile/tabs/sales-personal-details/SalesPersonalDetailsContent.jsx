@@ -21,6 +21,7 @@ import DateField from "src/components/common/forms/DateField";
 import TimeField from "src/components/common/forms/TimeField";
 import MDInput from "src/components/theme/common/MDInput";
 import MDTypography from "src/components/theme/common/MDTypography";
+import { programOptions } from "src/utils/constants";
 
 const SalesPersonalDetailsContent = () => {
   const { control } = useForm({
@@ -220,7 +221,7 @@ const SalesPersonalDetailsContent = () => {
             control={control}
             render={({ field }) => (
               <ComboBox
-                options={suggestedProgramOptions}
+                options={programOptions}
                 {...field}
                 label="Suggested Program"
               />
@@ -288,8 +289,9 @@ const SalesPersonalDetailsContent = () => {
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
             >
-              {item.radios.map((radio) => (
+              {item.radios.map((radio, index) => (
                 <FormControlLabel
+                  key={String(radio.label + index)}
                   value={radio.value}
                   control={<Radio />}
                   label={radio.label}
@@ -299,13 +301,13 @@ const SalesPersonalDetailsContent = () => {
           </Grid>
         ))}
       </Grid>
-      <Divider  sx={{my:6}}/>
+      <Divider sx={{ my: 6 }} />
       <Grid container columnSpacing={2} rowSpacing={4}>
         <Grid item xs={12} md={6}>
           <DateField fullWidth label="Next Fu Date" value={dayjs()} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TimeField  label="Next Fu Time" value={dayjs()} />
+          <TimeField label="Next Fu Time" value={dayjs()} />
         </Grid>
 
         {followUpFormRadioGroup.map((item, index) => (
@@ -321,8 +323,9 @@ const SalesPersonalDetailsContent = () => {
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="row-radio-buttons-group"
             >
-              {item.radios.map((radio) => (
+              {item.radios.map((radio, index) => (
                 <FormControlLabel
+                  key={String(radio.label + index)}
                   value={radio.value}
                   control={<Radio />}
                   label={radio.label}
@@ -331,7 +334,7 @@ const SalesPersonalDetailsContent = () => {
             </RadioGroup>
           </Grid>
         ))}
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <PrimaryButton>Submit</PrimaryButton>
         </Grid>
       </Grid>
@@ -402,34 +405,6 @@ const lifeStyleOptions = [
   { title: "Swim" },
   { title: "Yoga" },
   { title: "Zumba" },
-];
-
-const suggestedProgramOptions = [
-  "Active",
-  "Beat PCOS",
-  "Body Transformation",
-  "Plateau Breaker",
-  "Reform Intermittent",
-  "Reneu",
-  "Weight Loss-Pro",
-  "Weight Loss +",
-  "Slim Possible",
-  "Slim Smart",
-  "Shape Up",
-  "Post-Festive Detox Cleanse",
-  "Weight Loss Cleanse",
-  "Sugar Detox Cleanse",
-  "Flat Stomach Cleanse",
-  "Acidity Correction Cleanse",
-  "Immune Boosting Cleanse Constipation Correction Cleanse",
-  "10 Day Weight Loss Diet Plan",
-  "10 Day Intermittent Fasting",
-  "Transform (weight loss)",
-  "14-Day Fitness Challenge",
-  "Nourish",
-  "Satvaa",
-  "Sphoorti",
-  "Pregnancy Program",
 ];
 
 const clinicalConditionOptions = [

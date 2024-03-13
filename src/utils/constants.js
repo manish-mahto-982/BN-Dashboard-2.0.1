@@ -251,4 +251,33 @@ export const yogaDurationOptions = cardioDurationOptions;
 export const otherWorkoutDurationOptions = cardioDurationOptions;
 export const otherWorkoutFrequencyOptions = cardioFrequencyOptions;
 
-export const fastingWindowOptions=[]
+export const fastingWindowOptions = []
+
+
+export const programOptions = [
+  "Active",
+  "Beat PCOS",
+  "Body Transformation",
+  "Plateau Breaker",
+  "Reform Intermittent",
+  "Reneu",
+  "Weight Loss-Pro",
+  "Weight Loss +",
+  "Slim Possible",
+  "Slim Smart",
+  "Shape Up",
+  "Post-Festive Detox Cleanse",
+  "Weight Loss Cleanse",
+  "Sugar Detox Cleanse",
+  "Flat Stomach Cleanse",
+  "Acidity Correction Cleanse",
+  "Immune Boosting Cleanse Constipation Correction Cleanse",
+  "10 Day Weight Loss Diet Plan",
+  "10 Day Intermittent Fasting",
+  "Transform (weight loss)",
+  "14-Day Fitness Challenge",
+  "Nourish",
+  "Satvaa",
+  "Sphoorti",
+  "Pregnancy Program",
+];

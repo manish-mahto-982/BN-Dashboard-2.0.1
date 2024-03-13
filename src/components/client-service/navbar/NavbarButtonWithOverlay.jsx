@@ -13,6 +13,7 @@ import {
   Tooltip,
   useMediaQuery,
 } from "@mui/material";
+import Transitions from "../extended/Transitions";
 
 const NavbarButtonWithOverlay = ({
   children,
@@ -55,6 +56,7 @@ const NavbarButtonWithOverlay = ({
   return (
     <>
       <Box
+        // className="absolute"
         sx={{
           [theme.breakpoints.down("md")]: {
             mr: 0.5,
