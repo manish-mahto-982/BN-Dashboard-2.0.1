@@ -33,6 +33,7 @@ const ClientProfile = () => {
                       <TitleValueText
                         key={key}
                         title={key}
+                        handleAddWallet={handleAddWallet}
                         value={value}
                         theme={theme}
                       />
@@ -48,6 +49,7 @@ const ClientProfile = () => {
                       <TitleValueText
                         key={key}
                         title={key}
+                        handleAddWallet={handleAddWallet}
                         value={value}
                         theme={theme}
                       />
@@ -107,24 +109,25 @@ const TitleValueText = ({
     <table>
       <tbody>
         <tr style={{ height: 26 }}>
-          <td>
+          <td style={{ verticalAlign:'top',paddingTop:'7px'}}>
             <MDTypography
-              fontSize="small"
+              fontSize="medium"
               whiteSpace={"nowrap"}
               textTransform={"capitalize"}
               color={"text"}
+
             >
               {title.split("_").join(" ")}&nbsp;:&nbsp;
             </MDTypography>
           </td>
           <td
             style={{
-              display: title.includes("user_status") ? "flex" : "unset",
+              // display: title.includes("user_status") ? "flex" : "unset",
               alignItems: "center",
             }}
           >
             <MDTypography
-              fontSize="small"
+              fontSize="14px"
               display={"inline"}
               textTransform={"capitalize"}
               color={"text"}
@@ -177,7 +180,7 @@ const TitleValueText = ({
                   disableElevation
                   sx={{
                     py: 0,
-                    mb: 0.5,
+                    // mb: 0.5,
                     ml: 1,
                     px: 2,
                     // borderRadius: "100px",
@@ -196,8 +199,8 @@ const TitleValueText = ({
                   disableElevation
                   // variant="contained"
                   sx={{
-                    py: 0.4,
-                    mb: 0.5,
+                    py: 0,
+                    // mb: 0.5,
                     ml: 2,
                     textTransform: "capitalize",
                     // color: "white",
@@ -207,11 +210,11 @@ const TitleValueText = ({
                   onClick={handleAddWallet}
                   startIcon={<TbCash strokeWidth="1.5" />}
                 >
-                  <MDTypography color="info" fontSize={"small"}>
+                  <MDTypography  color="info" fontSize={"small"}>
                     Add Wallet
                   </MDTypography>
                 </Button>
-              )) ||
+              )) || 
               (title.includes("link_details") && (
                 <FlexBoxBetween
                   sx={{ mt: 0.5 }}
@@ -264,7 +267,9 @@ const TitleValueText = ({
                 //   </Button>
                 // </ButtonGroup>
                 <></>
-              ))}
+              )) 
+              
+              }
           </td>
         </tr>
       </tbody>
@@ -277,6 +282,8 @@ const clientDetails = [
   { password: 123456 },
   { "email-id": "ios7@gmail.com" },
   { assessment_date: "2023-12-22" },
+  { wallet_amount: "₹9100" },
+  { app: "Not Downloaded" },
   { status_screen: "null" },
   { user_id: 24247 },
   { mentor_name: "Nikita" },
@@ -286,9 +293,12 @@ const clientDetails = [
   { country_time: "India - 16th Jan 01:51 pm" },
   { current_screen: "my-profile" },
   { user_status: "active" },
-  { balance_amount: "₹1999" },
+  
+  { source: "App" },
+  
+  { lead_type: "OCL" },
   { "bal._amt._due_date": dayjs().format("DD MMM YYYY") },
-  { wallet_amount: "₹9100" },
+  
   {
     link_details: `ReNeU (60 Days) (Created By Mentor)
   Expiring In 2 Days`,

@@ -106,7 +106,7 @@ export default function FullWidthTabs({ handleAddWallet, tabsArr }) {
               key={`${item.label}_${index}`}
               label={item.label}
               {...a11yProps(index)}
-              sx={{ fontSize: "small", whiteSpace: "nowrap" }}
+              sx={{ fontSize: "14px", whiteSpace: "nowrap" }}
             />
           ))}
         </Tabs>

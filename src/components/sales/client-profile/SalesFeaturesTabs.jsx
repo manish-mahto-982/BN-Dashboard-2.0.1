@@ -41,14 +41,14 @@ const SalesFeatureTabs = ({ handleAddWallet }) => {
       label: "Coupon / Discount",
       TabPanelItem: () => <CouponContent />,
     },
-    {
-      label: "All Trackers",
-      TabPanelItem: () => <TrackerContent theme={theme} />,
-    },
-    {
-      label: "All Weight Details",
-      TabPanelItem: () => <WeightDetailsContent theme={theme} />,
-    },
+    // {
+    //   label: "All Trackers",
+    //   TabPanelItem: () => <TrackerContent theme={theme} />,
+    // },
+    // {
+    //   label: "All Weight Details",
+    //   TabPanelItem: () => <WeightDetailsContent theme={theme} />,
+    // },
     {
       label: "User History",
       TabPanelItem: () =>  <UserHistoryContent />,
