@@ -50,8 +50,6 @@ const SalesFeatureTabs = ({ handleAddWallet }) => {
       TabPanelItem: () => <WeightDetailsContent theme={theme} />,
     },
     {
-      label: "Mentor Chat",
-      TabPanelItem: () => <MentorChatsNew />,
       label: "User History",
       TabPanelItem: () =>  <UserHistoryContent />,
     },
