@@ -79,7 +79,7 @@ const ClientProfile = () => {
         </Grid>
         <Grid item xs={12}>
           {/* <FullWidthTabs handleAddWallet={handleAddWallet} /> */}
-          {<SalesFeaturesTabs />}
+          {<SalesFeaturesTabs handleAddWallet={handleAddWallet} />}
         </Grid>
         <AddWalletDialog
           openDialog={open}
