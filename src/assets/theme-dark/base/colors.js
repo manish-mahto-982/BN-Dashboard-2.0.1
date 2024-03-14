@@ -11,7 +11,7 @@ const colors = {
     default: "#1a2035",
     sidenav: "#1f283e",
     card: "#202940",
-    main:"rgba(32, 41, 64,0.5)"
+    main:"rgba(32, 41, 64,1)"
   },
 
   text: {

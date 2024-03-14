@@ -9,7 +9,7 @@
 const colors = {
   background: {
     default: "#f0f2f5",
-    main:"#ff"
+    main:"#fff"
   },
   green: {
     main: "#2dc1d2",

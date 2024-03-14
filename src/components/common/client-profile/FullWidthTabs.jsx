@@ -77,26 +77,32 @@ export default function FullWidthTabs({ handleAddWallet, tabsArr }) {
     >
       <AppBar
         position="static"
-        sx={{ bgcolor: "background.default", overflowX: "scroll" }}
+        sx={{
+          overflowX: "scroll",
+          ".MuiTabs-root": { bgcolor: "info.main" },
+          ".MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary": {
+            color: "#fff",
+          },
+        }}
         elevation={0}
       >
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="info.main"
+          indicatorColor="#fff"
           scrollButtons="auto"
           variant="scrollable"
           sx={{
             minWidth: "1000px",
             "& span.MuiTabs-indicator": {
               height: "80%",
-              backgroundColor: "info.main",
+              backgroundColor: "#fff",
               color: "#fff",
               my: 0.7,
             },
             "& .MuiButtonBase-root.Mui-selected": {
               // backgroundColor: "info.main",
-              color: "#fff !important",
+              color: "#000 !important",
               my: 1.5,
             },
           }}
