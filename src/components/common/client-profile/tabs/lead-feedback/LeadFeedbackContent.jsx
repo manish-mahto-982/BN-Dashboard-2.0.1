@@ -3,7 +3,7 @@ import React from "react";
 import { CustomToolbar } from "src/components/client-service/quick-access/DraftsTable";
 
 
-function AppActivityContent({ theme, handleAddWallet }) {
+function LeadFeedbackContent({ theme, handleAddWallet }) {
   return (
     <>
       <DataGrid
@@ -38,11 +38,11 @@ function AppActivityContent({ theme, handleAddWallet }) {
   );
 }
 
-export default AppActivityContent;
+export default LeadFeedbackContent;
 
 const columns = [
   { field: "Sr No.", flex: 1 },
-  { field: "Page / Screen", flex: 1 },
+  { field: "Feedback", flex: 1 },
   { field: "Source", flex: 1 },
   { field: "Date", flex: 1 },
  
@@ -52,21 +52,21 @@ const columns = [
 const rows = [
   {
     "Sr No.": 1,
-    "Page / Screen" : "Chekout Page",
+    Feedback: "referral",
     Source: "IOS",
     Date: "Jan 17th, 2024",
     
   },
   {
     "Sr No.": 2,
-    "Page / Screen" : "Program Page",
+    Feedback: "test",
     Source: "IOS",
     Date: "Jan 17th, 2024",
     
   },
   {
     "Sr No.": 3,
-    "Page / Screen" : "Spin To Win",
+    Feedback: "referral",
     Source: "Android",
     Date: "Jan 17th, 2024",
     
