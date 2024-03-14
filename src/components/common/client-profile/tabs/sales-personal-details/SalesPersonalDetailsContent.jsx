@@ -33,7 +33,7 @@ const SalesPersonalDetailsContent = () => {
   });
   return (
     <>
-      <Grid container columnSpacing={2} rowSpacing={4}>
+      <Grid container columnSpacing={2} rowSpacing={4} paddingTop={2}>
         <Grid item xs={12} md={6}>
           <Controller
             name="reassign_to"
@@ -48,7 +48,7 @@ const SalesPersonalDetailsContent = () => {
             name="primary_source"
             control={control}
             render={({ field }) => (
-              <MDInput disabled {...field} label="Primary Source" fullWidth />
+              <MDInput {...field} label="Primary Source" fullWidth />
             )}
           />
         </Grid>
@@ -251,30 +251,6 @@ const SalesPersonalDetailsContent = () => {
             <MDTypography fontSize="medium">Payment link</MDTypography>{" "}
             <Switch />
           </FlexBoxBetween>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <MDTypography
-            fontSize="medium"
-            id="demo-row-radio-buttons-group-label"
-          >
-            Communication
-          </MDTypography>
-          <RadioGroup
-            row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              value="asking queries"
-              control={<Radio />}
-              label="Asking Queries"
-            />
-            <FormControlLabel
-              value="cold replies"
-              control={<Radio />}
-              label="Cold Replies"
-            />
-          </RadioGroup>
         </Grid>
         {radioGroupsArr.map((item, index) => (
           <Grid key={String(item.groupName + index)} item xs={12} md={6}>

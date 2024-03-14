@@ -1,12 +1,4 @@
-import {
-  Backdrop,
-  Badge,
-  Box,
-  Icon,
-  IconButton,
-  Tooltip,
-  useTheme,
-} from "@mui/material";
+import { Badge, Icon, IconButton, Tooltip, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { TbPlus } from "react-icons/tb";
 import NavbarButtonWithOverlay from "src/components/client-service/navbar/NavbarButtonWithOverlay";
@@ -18,11 +10,9 @@ import { navbarIconButton } from "src/components/theme/layout/Navbars/DashboardN
 import useShowDialog from "src/hooks/useShowDialog";
 function AddDailyTaskOption({ light, darkMode, transparentNavbar }) {
   const [openDialog, setOpenDialog] = useShowDialog(false);
-  const [openTableDialog, setOpenTableDialog] = useShowDialog(false);
   const theme = useTheme();
   const handleOpenSubChildDialog = () => {
     setOpenDialog(true);
-    setOpenTableDialog(false);
     return openDialog;
   };
   const iconsStyle = ({
@@ -38,35 +28,45 @@ function AddDailyTaskOption({ light, darkMode, transparentNavbar }) {
     },
   });
   return (
-    <>
-      <Badge badgeContent={2} color={"warning"} overlap="circular">
+    <Badge badgeContent={2} color={"warning"} overlap="circular">
+      <NavbarButtonWithOverlay
+        tooltipTitle="Add Task"
+        openDialog={openDialog}
+        Icon={TbPlus}
+        subChildren={
+          <AddTaskDialog
+            openDialog={openDialog}
+            setOpenDialog={setOpenDialog}
+            theme={theme}
+          />
+        }
+      >
+        <TaskTable
+          theme={theme}
+          handleOpenSubChildDialog={handleOpenSubChildDialog}
+        />
+      </NavbarButtonWithOverlay>
+      {/* <Badge badgeContent={2} color={"warning"} overlap="circular">
         <Tooltip title="Add Task">
           <IconButton
             sx={navbarIconButton}
             disableRipple
-            onClick={() => setOpenTableDialog(true)}
+            onClick={() => setShowDialog(true)}
           >
             <Icon sx={iconsStyle}>add_circle</Icon>
           </IconButton>
         </Tooltip>
       </Badge>
       <AddTaskDialog
-        openDialog={openDialog}
-        setOpenDialog={setOpenDialog}
+        openDialog={showDialog}
+        setOpenDialog={setShowDialog}
         dialogTitle="Add Task"
       />
-      {openTableDialog && (
-        <div className="absolute -left-6 -top-[33px] h-[100vh] w-[100vw] bg-black bg-opacity-20 ">
-          <Box className="absolute right-72  top-24 w-28 ">
-            <TaskTable
-              tableTitle="Tasks"
-              theme={theme}
-              handleOpenSubChildDialog={handleOpenSubChildDialog}
-            />
-          </Box>
-        </div>
-      )}
-    </>
+      <TaskTable
+        theme={theme}
+        handleOpenSubChildDialog={handleOpenSubChildDialog}
+      /> */}
+    </Badge>
   );
 }
 
