@@ -56,6 +56,8 @@ const ClientProfile = () => {
                     );
                   });
                 })}
+
+                
               </Grid>
               <Grid item xs={12} md={6} lg={4}>
                 {clientDetails.slice(12, clientDetails.length).map((item) => {
