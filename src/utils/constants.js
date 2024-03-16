@@ -251,8 +251,7 @@ export const yogaDurationOptions = cardioDurationOptions;
 export const otherWorkoutDurationOptions = cardioDurationOptions;
 export const otherWorkoutFrequencyOptions = cardioFrequencyOptions;
 
-export const fastingWindowOptions = []
-
+export const fastingWindowOptions = [];
 
 export const programOptions = [
   "Active",
@@ -281,3 +280,4 @@ export const programOptions = [
   "Sphoorti",
   "Pregnancy Program",
 ];
+export const specialStackDaysOptions = ["30 day's", "60 day's", "90 day's"];

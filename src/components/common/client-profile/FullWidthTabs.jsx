@@ -55,7 +55,7 @@ function a11yProps(index) {
 export default function FullWidthTabs({ handleAddWallet, tabsArr }) {
   const theme = useTheme();
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

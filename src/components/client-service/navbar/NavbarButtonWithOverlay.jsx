@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import {
   Avatar,
-  Backdrop,
   Box,
   ButtonBase,
   ClickAwayListener,
@@ -57,7 +56,6 @@ const NavbarButtonWithOverlay = ({
   return (
     <>
       <Box
-        // className="absolute"
         sx={{
           [theme.breakpoints.down("md")]: {
             mr: 0.5,
@@ -134,10 +132,10 @@ const NavbarButtonWithOverlay = ({
       </Popper>
       {subChildren}
       {/* Overlay */}
-      <Backdrop
-        sx={{ color: "#fff", zIndex: 9 }}
+      <Dialog
         open={open || openDialog}
-      ></Backdrop>
+        sx={{ zIndex: 10000, position: "absolute",background:'transparent' }}
+      />
     </>
   );
 };

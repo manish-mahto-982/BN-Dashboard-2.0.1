@@ -1,19 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import globalReducer from "src/features/global/slice";
 import { api } from "src/services/client-service/api";
+import { api as salesApi } from "src/services/sales/api";
 
 const store = configureStore({
-    reducer: {
-        global: globalReducer,
-        [api.reducerPath]: api.reducer,
-    },
-    middleware: (gDM) => gDM().concat(api.middleware)
-})
+  reducer: {
+    global: globalReducer,
+    [api.reducerPath]: api.reducer,
+    [salesApi.reducerPath]: salesApi.reducer,
+  },
+  middleware: (gDM) => gDM().concat(api.middleware, salesApi.middleware),
+});
 
 export default store;
-
-
-
 
 // import { configureStore } from "@reduxjs/toolkit";
 // import globalReducer from "src/features/global/slice";
