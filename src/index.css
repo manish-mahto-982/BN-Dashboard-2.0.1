@@ -18,6 +18,13 @@
 .MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-sizeMedium.MuiInputLabel-outlined.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-sizeMedium.MuiInputLabel-outlined {
   padding-bottom: 4px !important;
 }
+
 .MuiAutocomplete-root .MuiOutlinedInput-root {
   padding: 5px !important;
+}
+
+
+
+ .MuiRadio-root .MuiSvgIcon-root:not(.MuiSvgIcon-root ~ .MuiSvgIcon-root) {
+  border: 0.0625rem solid #d2d6da
 }

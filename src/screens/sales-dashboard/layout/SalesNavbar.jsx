@@ -45,6 +45,7 @@ import CreateLinkOption from "src/components/sales/layout/navbar/CreateLinkOptio
 import AddDailyTaskOption from "src/components/sales/layout/navbar/AddDailyTaskOption";
 import SendReviewOption from "src/components/sales/layout/navbar/SendReviewOption";
 import NotificationOption from "src/components/sales/layout/navbar/NotificationOption";
+import BlockCallOption from "src/components/sales/layout/navbar/BlockCallOption";
 
 function SalesNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -181,6 +182,11 @@ function SalesNavbar({ absolute, light, isMini }) {
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
+              <BlockCallOption
+                light={light}
+                transparentNavbar={transparentNavbar}
+                darkMode={darkMode}
+              />
               <AccountOptions
                 light={light}
                 transparentNavbar={transparentNavbar}
@@ -191,7 +197,6 @@ function SalesNavbar({ absolute, light, isMini }) {
                 transparentNavbar={transparentNavbar}
                 darkMode={darkMode}
               />
-
               <NotificationOption
                 light={light}
                 transparentNavbar={transparentNavbar}

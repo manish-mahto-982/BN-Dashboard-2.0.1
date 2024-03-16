@@ -73,6 +73,13 @@ export default function FullWidthTabs({ handleAddWallet, tabsArr }) {
         overflow: "hidden",
         height: "100%",
         // background: "#f8f9fa",
+        "header.MuiPaper-root.MuiPaper-elevation::-webkit-scrollbar": {
+          display: "none",
+        },
+        "header.MuiPaper-root.MuiPaper-elevation": {
+          msOverflowStyle: "none" /* Internet Explorer 10+ */,
+          scrollbarWidth: "none",
+        },
       }}
     >
       <AppBar
