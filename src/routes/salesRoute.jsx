@@ -10,6 +10,7 @@
 
 // @mui icons
 import Icon from "@mui/material/Icon/Icon";
+import AllLeadTable from "src/components/common/lead-table/AllLeadTable";
 import AllLeads from "src/screens/sales-dashboard/all-leads";
 import ClientProfile from "src/screens/sales-dashboard/client-profile/SalesClientProfile";
 import Dashboard from "src/screens/sales-dashboard/dashboard";
@@ -42,8 +43,16 @@ const salesRoutes = [
     name: "Profile Details",
     key: "client-profile",
     icon: <Icon fontSize="small">people</Icon>,
-    route: "/client-profile",
+    route: "/lead-profile",
     component: <ClientProfile />,
+  },
+  {
+    type: "collapse",
+    name: "Lead Table",
+    key: "lead-table",
+    icon: <Icon fontSize="small">people</Icon>,
+    route: "/lead-table",
+    component: <AllLeadTable />,
   },
   // {
   //   type: "collapse",

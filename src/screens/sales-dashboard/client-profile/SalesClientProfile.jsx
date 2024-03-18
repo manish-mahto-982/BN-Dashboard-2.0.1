@@ -21,9 +21,9 @@ const ClientProfile = () => {
   const handleEditLink = () => setOpenEditPaymentLinkDialog(true);
   return (
     <SalesLayout>
-      <Grid container>
+      <Grid container >
         <Grid item xs={12}>
-          <Card sx={{ mb: 2 }}>
+          <Card sx={{ mb: 2 , border:"1.5px solid #1a73e8",borderRadius:"13px",backgroundColor:"#dee6f0" }}>
             <Grid container width={"100%"} p={2}>
               <Grid item xs={12} md={6} lg={4}>
                 {clientDetails.slice(0, 6).map((item) => {
@@ -79,7 +79,7 @@ const ClientProfile = () => {
             </Grid>
           </Card>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} >
           {/* <FullWidthTabs handleAddWallet={handleAddWallet} /> */}
           {<SalesFeaturesTabs handleAddWallet={handleAddWallet} />}
         </Grid>
