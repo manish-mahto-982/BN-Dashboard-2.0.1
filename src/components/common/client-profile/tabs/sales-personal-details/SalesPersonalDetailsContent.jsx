@@ -33,7 +33,7 @@ const SalesPersonalDetailsContent = () => {
   });
   return (
     <>
-      <Grid container columnSpacing={2} rowSpacing={4} paddingTop={2}>
+      <Grid container columnSpacing={2} rowSpacing={4} paddingTop={2} >
         <Grid item xs={12} md={6}>
           <Controller
             name="reassign_to"
