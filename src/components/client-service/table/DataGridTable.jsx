@@ -115,6 +115,7 @@ export default function DataGridTable({
     console.log(`Waiting for ${row.name}`);
   };
   let rows = [];
+  
   data.map((item, index) => {
     let row = {
       id: index + 1,

@@ -30,6 +30,8 @@ import {
 } from "src/services/sales/api";
 function BlockCallOption({ light, darkMode, transparentNavbar }) {
   const [openDialog, setOpenDialog] = useShowDialog(false);
+  const [openCallDetailsDialog, setOpenCallDetailsDialog] =
+    useShowDialog(false);
   const [getBlockCall, { data, isLoading }] = useLazyGetBlockCallQuery();
   console.log("🚀 ~ BlockCallOption ~ data:", data);
   const theme = useTheme();
@@ -50,6 +52,7 @@ function BlockCallOption({ light, darkMode, transparentNavbar }) {
       return colorValue;
     },
   });
+
   return (
     <>
       <Badge badgeContent={2} color={"warning"} overlap="circular">
@@ -71,12 +74,20 @@ function BlockCallOption({ light, darkMode, transparentNavbar }) {
           {...{
             openDialog,
             setOpenDialog,
+            setOpenCallDetailsDialog,
             dialogTitle: "Block Your Calls For 10 Days (Mar)",
             data,
             isLoading,
           }}
         />
       )}
+      <CallDetailsDialog
+        {...{
+          setOpenCallDetailsDialog,
+          openCallDetailsDialog,
+          dialogTitle: "Enter Call Details",
+        }}
+      />
       {/* <NavbarButtonWithOverlay
         tooltipTitle="Block Call"
         openDialog={openDialog}
@@ -98,9 +109,9 @@ const BlockCallDialog = ({
   openDialog,
   setOpenDialog,
   dialogTitle,
+  setOpenCallDetailsDialog,
   data = [],
 }) => {
-  console.log("🚀 ~ data:", data);
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -153,7 +164,7 @@ const BlockCallDialog = ({
             </Tabs>
           </Box>
         </div>
-        <MDTypography fontSize="small" color="error">
+        <MDTypography fontSize="small" color="error" className="text-center">
           {"- All call timings are as per Indian time zone (IST)."}
         </MDTypography>
         <CustomTabPanel value={value} index={0}>
@@ -163,12 +174,47 @@ const BlockCallDialog = ({
                 <MDTypography fontSize="small">
                   {item.appointment_slots}
                 </MDTypography>
-                <PrimaryButton size="small">Book Now</PrimaryButton>
+                <PrimaryButton
+                  size="small"
+                  onClick={() => setOpenCallDetailsDialog(true)}
+                >
+                  Book Now
+                </PrimaryButton>
               </FlexBoxBetween>
             ))}
           </div>
         </CustomTabPanel>
       </DialogContent>
+    </Dialog>
+  );
+};
+
+const CallDetailsDialog = ({
+  openCallDetailsDialog,
+  setOpenCallDetailsDialog,
+  dialogTitle,
+}) => {
+  const handleClose = () => setOpenCallDetailsDialog(false);
+  return (
+    <Dialog
+      open={openCallDetailsDialog}
+      TransitionComponent={TransitionSlidUp}
+      sx={{ maxHeight: "460px" }}
+    >
+      <DialogTitle
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        color={"#fff"}
+        bgcolor={"info.main"}
+        sx={{ fontSize: "16px" }}
+      >
+        {dialogTitle}
+        <IconButton onClick={handleClose}>
+          <TbX stroke="#fff" />
+        </IconButton>
+      </DialogTitle>
+      <DialogContent sx={{ maxWidth: "350px" }}></DialogContent>
     </Dialog>
   );
 };
