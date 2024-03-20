@@ -1,0 +1,98 @@
+{
+    "all_lead_table_data": [
+      {
+        "lead_details": {
+          "id": "20582",
+          "name": "Dipal Thakkar",
+          "email_id": "tdipal@gmail.com",
+          "phone": "+1-6787795055",
+          "age": "Female | 59.1 yrs",
+          "date":"2024-03-18",
+          "assign to":"chelsi",
+          "assign_date":"2024-5-11"
+          
+        },
+        "health_issues_&_bmi": {
+          "id": "122132",
+          "HS SnapShot Taken:": "0 Days ago",
+          "Health Category:": "overweight",
+          "Medi. Issues:": "Acidity",
+          "Curr. Wt.":  77.85,
+          "Height": 5.5,
+          "BMI": 28.56
+        },
+        "source_type_&_status": {
+            "Curr. Source" : "Your BN Health Score Result",
+            "Prev. Sources" : "App",
+            "Lead. Type": "NEW",
+            "Lead. Status": "Hot",
+            "phase":"phase4"
+        },
+        "suggested_program_details": {
+            "Sugg. by Team":"WEIGHT LOSS-PRO",
+            "Mrp: Rs. 1879 Qty: Rs.18799 ": "(Suggested 25 Days Ago)",
+            "Payment Mode Suggested": "Bank Details"
+          },
+          "key_insight": {
+            "key insight":"15th Mar 2024", 
+            "Lifestyle" : "Sedentary,Student Life / Living Alone",
+            "Diet History ": "Never Tried Diets",
+            "Target Oriented" : "Weight Loss",
+            "Motivation Level" :"Medium",
+            "Awareness Level ": "Medium",
+           "Language" : "English",
+            "Communication" : "Asking Queries",
+            "Meal Management" : "Home Cooked",
+            "Suggested Program" : "Weight Loss-Pro 90 Days @ 10199"
+          },
+          "fu_note": {
+            "Prev.Lead Fu" : "15th Mar 2024 reels 15th Mar 2024 connected on wa"
+          }
+      },
+      {
+        "lead_details": {
+          "id": "20582",
+          "name": "Dipal Thakkar",
+          "email_id": "tdipal@gmail.com",
+          "phone": "+1-6787795055",
+          "age": "Female | 59.1 yrs",
+          "date":"2024-03-18"
+        },
+        "health_issues_&_bmi": {
+          "id": "122132",
+          "HS SnapShot Taken:": "0 Days ago",
+          "Health Category:": "overweight",
+          "Medi. Issues:": "Acidity",
+          "Curr. Wt.":  77.85,
+          "Height": 5.5,
+          "BMI": 28.56
+        },
+        "source_type_&_status": {
+            "Curr. Source" : "Your BN Health Score Result",
+            "Prev. Sources" : "App",
+            "Lead. Type": "NEW",
+            "Lead. Status": "Hot"
+        },
+        "suggested_program_details": {
+            "Sugg. by Team":"WEIGHT LOSS-PRO",
+            "Mrp: Rs. 1879 Qty: Rs.18799 ": "(Suggested 25 Days Ago)",
+            "Payment Mode Suggested": "Bank Details"
+          },
+          "key_insight": {
+            "key insight":"15th Mar 2024", 
+            "Lifestyle" : "Sedentary,Student Life / Living Alone",
+            "Diet History ": "Never Tried Diets",
+            "Target Oriented" : "Weight Loss",
+            "Motivation Level" :"Medium",
+            "Awareness Level ": "Medium",
+           "Language" : "English",
+            "Communication" : "Asking Queries",
+            "Meal Management" : "Home Cooked",
+            "Suggested Program" : "Weight Loss-Pro 90 Days @ 10199"
+          },
+          "fu_note": {
+            "Prev.Lead Fu" : "15th Mar 2024 reels 15th Mar 2024 connected on wa"
+          }
+      }
+    ]
+  }
