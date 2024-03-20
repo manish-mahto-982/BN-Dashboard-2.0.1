@@ -14,12 +14,15 @@ import {
 import dayjs from "dayjs";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { TbPhone, TbPlus, TbX } from "react-icons/tb";
 import CustomDialog from "src/components/client-service/common/CustomDialog";
 import FlexBoxBetween from "src/components/client-service/common/FlexBoxBetween";
 import PrimaryButton from "src/components/client-service/common/PrimaryButton";
 import NavbarButtonWithOverlay from "src/components/client-service/navbar/NavbarButtonWithOverlay";
 import { TransitionSlidUp } from "src/components/client-service/table/DataGridTableDialog";
+import ComboBox from "src/components/common/forms/ComboBox";
+import DateField from "src/components/common/forms/DateField";
 import MDTypography from "src/components/theme/common/MDTypography";
 
 import { navbarIconButton } from "src/components/theme/layout/Navbars/DashboardNavbar/styles";
@@ -28,6 +31,7 @@ import {
   api as salesApi,
   useLazyGetBlockCallQuery,
 } from "src/services/sales/api";
+import { slotsOptions, userTypeOptions } from "src/utils/constants";
 function BlockCallOption({ light, darkMode, transparentNavbar }) {
   const [openDialog, setOpenDialog] = useShowDialog(false);
   const [openCallDetailsDialog, setOpenCallDetailsDialog] =
@@ -195,6 +199,13 @@ const CallDetailsDialog = ({
   dialogTitle,
 }) => {
   const handleClose = () => setOpenCallDetailsDialog(false);
+  const { control } = useForm({
+    defaultValues: {
+      date: dayjs(),
+      time: "09:00 am - 09:20 am",
+      user_type: "",
+    },
+  });
   return (
     <Dialog
       open={openCallDetailsDialog}
@@ -214,7 +225,40 @@ const CallDetailsDialog = ({
           <TbX stroke="#fff" />
         </IconButton>
       </DialogTitle>
-      <DialogContent sx={{ maxWidth: "350px" }}></DialogContent>
+      <DialogContent
+        sx={{ minWidth: "330px", height: "300px" }}
+        className="mt-3 flex flex-col gap-y-4"
+      >
+        <Controller
+          name="date"
+          control={control}
+          render={({ field }) => <DateField {...field} />}
+        />
+        <Controller
+          name="time"
+          control={control}
+          render={({ field }) => (
+            <ComboBox {...field} label="Time" options={slotsOptions} />
+          )}
+        />
+        <Controller
+          name="user_type"
+          control={control}
+          render={({ field }) => (
+            <ComboBox {...field} label="User Type" options={userTypeOptions} />
+          )}
+        />
+        <PrimaryButton
+          style={{
+            position: "absolute",
+            bottom: 0,
+            right:0,
+            margin:14
+          }}
+        >
+          Block Call
+        </PrimaryButton>
+      </DialogContent>
     </Dialog>
   );
 };
