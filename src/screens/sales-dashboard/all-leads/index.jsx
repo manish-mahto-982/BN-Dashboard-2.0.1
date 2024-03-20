@@ -1,8 +1,12 @@
 import React from 'react'
+import AllLeadsTable from 'src/components/common/all-leads/AllLeadsTable'
+import SalesLayout from '../layout'
 
 function AllLeads() {
   return (
-    <div>AllLeads</div>
+  <SalesLayout>
+      <AllLeadsTable/>
+  </SalesLayout>
   )
 }
 
