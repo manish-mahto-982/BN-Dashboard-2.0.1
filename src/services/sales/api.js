@@ -6,7 +6,7 @@ export const api = createApi({
   tagTypes: ["BlockCall", "AllLeadData"],
   endpoints: (build) => ({
     getBlockCall: build.query({
-      query: () => `/block_call.son`,
+      query: () => `/block_call.json`,
       providesTags: ["BlockCall"],
     }),
     getAllLeadData: build.query({
