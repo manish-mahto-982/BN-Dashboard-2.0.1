@@ -31,7 +31,7 @@ export default function FoodFrequency({ theme }) {
             render={({ field }) => (
               <ComboBox
                 label={"Biscuits/Cookies Frequency"}
-                options={options}
+              options={options}
                 {...field}
               />
             )}

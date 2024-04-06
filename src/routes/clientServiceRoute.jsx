@@ -25,13 +25,13 @@ const clientServiceRoute = [
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
     collapse: [
-      {
-        key: "mentor-client-details",
-        name: "Mentor Client Details",
-        icon: <Icon fontSize="small">arrow_right</Icon>,
-        route: "/dashboard/mentor-client-details",
-        component: <MentorClientDetails />,
-      },
+      // {
+      //   key: "mentor-client-details",
+      //   name: "Mentor Client Details",
+      //   icon: <Icon fontSize="small">arrow_right</Icon>,
+      //   route: "/dashboard/mentor-client-details",
+      //   component: <MentorClientDetails />,
+      // },
       {
         key: "client-details",
         name: "Client Details",
@@ -46,20 +46,26 @@ const clientServiceRoute = [
         route: "/dashboard/induction-flow",
         component: <InductionFlow />,
       },
+
+      // Old Overall Pending Start
+      // {
+      //   key: "overall-pending",
+      //   name: "Overall Pending",
+      //   icon: <Icon fontSize="small">arrow_right</Icon>,
+      //   route: "/dashboard/overall-pending",
+      //   component: <OverallPending />,
+      // },
+      // Old Overall Pending End
+
+      // New Overall Pending Start
       {
         key: "overall-pending",
         name: "Overall Pending",
         icon: <Icon fontSize="small">arrow_right</Icon>,
         route: "/dashboard/overall-pending",
-        component: <OverallPending />,
-      },
-      {
-        key: "new-overall-pending",
-        name: "New Overall Pending",
-        icon: <Icon fontSize="small">arrow_right</Icon>,
-        route: "/dashboard/new-overall-pending",
         component: <NewOverallPending />,
       },
+      // New Overall Pending End
       {
         key: "halftime-journey",
         name: "Halftime Journey",
