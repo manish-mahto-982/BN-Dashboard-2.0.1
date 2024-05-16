@@ -167,7 +167,7 @@ const breakData = [
 
 const notStartedDataArr = [
   { title: "Due Today", value: 2, ...notStartedData },
-  { title: "Over Due", value: 3, ...notStartedData },
+  { title: "Over Due", value: 3, ...notStartedData, },
 ];
 const balanceData = [
   {
@@ -205,6 +205,7 @@ const startLaterData = [
     title: "Due Today",
     value: 2,
     ...commonDataAllTable,
+    
   },
   { title: "Due Tomorrow", value: 2, ...commonDataAllTable },
   { title: "Future", value: 2, ...commonDataAllTable },

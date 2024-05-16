@@ -362,7 +362,7 @@ const tagsOptions = [
   "International",
   "Sikh",
   "Parsi",
-  "Jain]",
+  "Jain",
 ];
 
 const mealManagementOptions = ["Home Cooked", "Outside Meals"];

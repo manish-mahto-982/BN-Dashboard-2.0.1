@@ -31,7 +31,7 @@ const specialStackCardData = [
   {
     count: 15,
     title: "Renewal",
-    tableTitle: "OMR Clients Enrolled For Special Stack",
+    tableTitle: "Renewal Clients Enrolled For Special Stack",
     ...omrClientSpecialStackTableData,
   },
   {

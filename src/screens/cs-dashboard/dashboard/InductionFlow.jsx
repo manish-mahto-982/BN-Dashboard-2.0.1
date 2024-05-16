@@ -191,7 +191,8 @@ const SummaryCard = ({ item, handleClick }) => {
     trigger?.();
   };
   useEffect(() => {
-    res?.data && handleClick(res, item.columns);
+    res?.data &&
+      handleClick(res, item.columns, { tableTitle: item.tableTitle });
   }, [res]);
   return (
     <Grid item xs={12} sm={5.72} md={3.72} lg={1.74} mt={2}>
@@ -339,36 +340,42 @@ const quickSummaryData = [
     title: "Total Active Client",
     number: 3000,
     bgcolor: "info",
+    tableTitle: "Total Active Clients List",
     ...commonDataAllTable,
   },
   {
     title: "Not Started",
     number: 3000,
     bgcolor: "dark",
+    tableTitle: "Not Started Clients List",
     ...commonDataAllTable,
   },
   {
     title: "Cleanse Active",
     number: 80,
     bgcolor: "primary",
+    tableTitle: "Cleanse Active Clients List",
     ...commonDataAllTable,
   },
   {
     title: "Active",
     number: 50,
     bgcolor: "success",
+    tableTitle: "Active Clients List",
     ...commonDataAllTable,
   },
   {
     title: "On Hold",
     number: 39,
     bgcolor: "warning",
+    tableTitle: "On Hold Client List",
     ...commonDataAllTable,
   },
   {
     title: "Dormant",
     number: 20,
     bgcolor: "error",
+    tableTitle: "Dormant Client List",
     ...commonDataAllTable,
   },
 ];
@@ -385,6 +392,7 @@ export const gridData = [
     Icon: TbPhoneCall,
     value: 20,
     ...inductionCallData,
+    tableTitle: "New or Ocr Clients Induction Call Not Done (Latest First)",
   },
   {
     title: "Welcome call",
@@ -400,6 +408,7 @@ export const gridData = [
     value: 12,
     ...sessionStartDateData,
     actionType: "default",
+    tableTitle: "Diet Start Date Not Updated Clients",
   },
 ];
 
@@ -408,12 +417,13 @@ const assessmentData = [
     title: "Not filled",
     value: 3,
     ...assessmentNotFilledData,
+    tableTitle: "Assessment Not Filled Clients",
   },
   {
     title: "Partially Received",
     value: 3,
     ...commonDataAllTable,
-    tableTitle: "Partially Received",
+    tableTitle: "Assessment Partially Filled Clients",
   },
 ];
 

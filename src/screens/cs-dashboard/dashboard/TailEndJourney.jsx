@@ -63,7 +63,7 @@ const cardData = {
       title: "Goal",
       value: randomNumberGenerator(),
       ...newClientBasicStackTableData,
-      tableTitle: "Tail-end Goal First Day",
+      tableTitle: "Tailend Goal Recieved",
     },
     {
       title: "TE Health Score",
@@ -95,7 +95,7 @@ const cardData = {
       title: "TE Health Score",
       value: randomNumberGenerator(),
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Tail-end Feedback First Day",
+      tableTitle: "Tail-end Health Score First Day",
     },
     {
       title: "TE Feedback",
@@ -115,7 +115,7 @@ const cardData = {
       title: "Goal",
       value: randomNumberGenerator(),
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Tail-end Goal First Day",
+      tableTitle: "Tail-end Goal Day 2 Not filled",
     },
     {
       title: "TE Health Score",
@@ -141,7 +141,7 @@ const cardData = {
       title: "Goal",
       value: randomNumberGenerator(),
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Tail-end Goal First Day",
+      tableTitle: "Tail-end Goal day 3 not filled",
     },
     {
       title: "TE Health Score",
@@ -167,7 +167,7 @@ const cardData = {
       title: "Goal",
       value: randomNumberGenerator(),
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Tail-end Goal First Day",
+      tableTitle: "Tail-end Goal Day 4 not filled",
     },
     {
       title: "TE Health Score",
@@ -193,7 +193,7 @@ const cardData = {
       title: "Goal",
       value: randomNumberGenerator(),
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Tail-end Goal First Day",
+      tableTitle: "Tail-end Goal Day 5 not filled",
     },
     {
       title: "TE Health Score",

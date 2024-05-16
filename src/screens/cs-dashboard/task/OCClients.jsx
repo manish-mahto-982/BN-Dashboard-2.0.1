@@ -90,9 +90,7 @@ function OcClient() {
           </Grid>
         </Grid>
         <Grid mt={5} item xs={12}>
-          <MDTypography variant="h6">
-            IOS Details
-          </MDTypography>
+          <MDTypography variant="h6">IOS Details</MDTypography>
         </Grid>
         <Grid item xs={12} height={"auto"}>
           <Grid container spacing={2.5} height={"100%"}>
@@ -108,7 +106,7 @@ function OcClient() {
           </Grid>
         </Grid>
       </Grid>
-      {/* {dataGridTableDialog()} */}
+      {dataGridTableDialog()}
     </CSLayout>
   );
 }
@@ -117,6 +115,8 @@ export default OcClient;
 
 export const OCCard = ({ handleClick, item }) => {
   const [handleButtonClick] = useHandleTable(item, handleClick);
+  
+
   return (
     <Grid item xs={12} sm={6} lg={4}>
       <Card
@@ -196,7 +196,7 @@ const ocClientDetailsData = [
     value: 100,
     color: "error",
     ...welcomeCallData,
-    tableTitle: "Welcome Call - Pending Clients",
+    tableTitle: "Total OC Without App",
     actionType: "custom",
     actionColumn: CustomAction,
   },

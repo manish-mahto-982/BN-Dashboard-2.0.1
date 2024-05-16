@@ -6,11 +6,9 @@ import HalftimeJourney from "src/screens/cs-dashboard/dashboard/HalftimeJourney"
 import InductionFlow from "src/screens/cs-dashboard/dashboard/InductionFlow";
 import MentorClientDetails from "src/screens/cs-dashboard/dashboard/MentorClientDetails";
 import NewOverallPending from "src/screens/cs-dashboard/dashboard/NewOverallPending";
-import OverallPending from "src/screens/cs-dashboard/dashboard/OverallPending";
 import TailEndJourney from "src/screens/cs-dashboard/dashboard/TailEndJourney";
 import ExpiryClient from "src/screens/cs-dashboard/task/ExpiryClient";
 import Maintenance from "src/screens/cs-dashboard/task/Maintenance";
-import NewOcClient from "src/screens/cs-dashboard/task/NewOcClient";
 import OCClients from "src/screens/cs-dashboard/task/OCClients";
 import Drafts from "src/screens/quick-access/Drafts";
 const clientServiceRoute = [

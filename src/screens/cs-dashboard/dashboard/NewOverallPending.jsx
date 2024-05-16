@@ -177,7 +177,7 @@ const notStartedDataArr = [
     title: "Start Later",
     value: 3,
     ...notStartedData,
-    tableTitle: "Start Later",
+    tableTitle: "Start Later Client Latest First (Not started client having start date from day after tomorrow)",
   },
 ];
 const balanceData = [

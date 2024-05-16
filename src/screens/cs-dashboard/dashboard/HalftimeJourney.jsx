@@ -88,7 +88,7 @@ const cardData = {
       title: "HT Health Score",
       value: 1,
       ...halftimeHealthScoreCommonData,
-      tableTitle: "Half time Feedback First Day",
+      tableTitle: "Half time health score First Day",
     },
     {
       title: "HT Feedback",

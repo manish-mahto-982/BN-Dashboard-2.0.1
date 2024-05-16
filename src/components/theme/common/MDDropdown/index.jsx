@@ -75,7 +75,7 @@ export default function MDDropDown({ options = [], selectedInd = 1 }) {
 
       <Popper
         sx={{
-          zIndex: 1,
+          zIndex: 2,
           maxHeight: 200,
           overflow: "scroll",
         }}
@@ -93,7 +93,7 @@ export default function MDDropDown({ options = [], selectedInd = 1 }) {
                 placement === "bottom" ? "center top" : "center bottom",
             }}
           >
-            <Paper>
+            <Paper >
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList id="split-button-menu" autoFocusItem>
                   {options.map((option, index) => (
